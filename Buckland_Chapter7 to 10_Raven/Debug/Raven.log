@@ -1,0 +1,180 @@
+﻿La génération a démarré 04/11/2015 09:36:44.
+     1>Projet "C:\Users\Romain S\Documents\Workspace\workspace_ia\tp3ia\Buckland_Chapter7 to 10_Raven\Raven.vcxproj" sur le nœud 2 (Build cible(s)).
+     1>ClCompile:
+         C:\Program Files\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _VC80_UPGRADE=0x0600 /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /GR /FAs /Fa".\Debug\\" /Fo".\Debug\\" /Fd".\Debug\vc110.pdb" /FR".\Debug\\" /Gd /TP /analyze- /errorReport:prompt  /Zm200   /Zm200 Raven_Bot.cpp Raven_Game.cpp Raven_Map.cpp Raven_SteeringBehaviors.cpp Raven_WeaponSystem.cpp armory\Projectile_Bolt.cpp armory\Projectile_Pellet.cpp armory\Projectile_Rocket.cpp armory\Projectile_Slug.cpp armory\Raven_Weapon.cpp armory\Weapon_Blaster.cpp armory\Weapon_RailGun.cpp armory\Weapon_RocketLauncher.cpp armory\Weapon_ShotGun.cpp goals\ExploreGoal_Evaluator.cpp goals\Goal_AdjustRange.cpp goals\Goal_Think.cpp goals\Goal_TraverseEdge.cpp goals\Raven_Feature.cpp lua\Raven_Scriptor.cpp main.cpp navigation\Raven_PathPlanner.cpp triggers\Trigger_HealthGiver.cpp triggers\Trigger_SoundNotify.cpp triggers\Trigger_WeaponGiver.cpp
+         Raven_Bot.cpp
+         Génération de code en cours...
+         Compilation en cours...
+         Trigger_WeaponGiver.cpp
+         Trigger_SoundNotify.cpp
+         Trigger_HealthGiver.cpp
+         Raven_PathPlanner.cpp
+         main.cpp
+         Raven_Scriptor.cpp
+         Raven_Feature.cpp
+         Goal_TraverseEdge.cpp
+         Goal_Think.cpp
+         Goal_AdjustRange.cpp
+         ExploreGoal_Evaluator.cpp
+         Weapon_ShotGun.cpp
+         Weapon_RocketLauncher.cpp
+         Weapon_RailGun.cpp
+         Weapon_Blaster.cpp
+         Raven_Weapon.cpp
+         Projectile_Slug.cpp
+         Projectile_Rocket.cpp
+         Projectile_Pellet.cpp
+         Projectile_Bolt.cpp
+         Génération de code en cours...
+         Compilation en cours...
+         Raven_WeaponSystem.cpp
+         Raven_SteeringBehaviors.cpp
+         Raven_Map.cpp
+         Raven_Game.cpp
+         Génération de code en cours...
+       Link:
+         C:\Program Files\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:".\Debug\Raven.exe" /INCREMENTAL /NOLOGO odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:libcmt /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:".\Debug\Raven.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\Debug\Raven.lib" /MACHINE:X86 /SAFESEH .\Debug\Script1.res
+         .\Debug\Raven_Weapon.obj
+         .\Debug\Weapon_Blaster.obj
+         .\Debug\Weapon_RailGun.obj
+         .\Debug\Weapon_RocketLauncher.obj
+         .\Debug\Weapon_ShotGun.obj
+         .\Debug\Projectile_Bolt.obj
+         .\Debug\Projectile_Pellet.obj
+         .\Debug\Projectile_Rocket.obj
+         .\Debug\Projectile_Slug.obj
+         .\Debug\Raven_Projectile.obj
+         .\Debug\BaseGameEntity.obj
+         .\Debug\Raven_Scriptor.obj
+         .\Debug\EntityManager.obj
+         .\Debug\GraveMarkers.obj
+         .\Debug\Raven_Door.obj
+         .\Debug\Raven_UserOptions.obj
+         .\Debug\main.obj
+         .\Debug\Raven_Bot.obj
+         .\Debug\Raven_Game.obj
+         .\Debug\Raven_Map.obj
+         .\Debug\Goal_AdjustRange.obj
+         .\Debug\Goal_AttackTarget.obj
+         .\Debug\Goal_Explore.obj
+         .\Debug\Goal_FollowPath.obj
+         .\Debug\Goal_GetItem.obj
+         .\Debug\Goal_HuntTarget.obj
+         .\Debug\Goal_MoveToPosition.obj
+         .\Debug\Goal_NegotiateDoor.obj
+         .\Debug\Goal_Think.obj
+         .\Debug\AttackTargetGoal_Evaluator.obj
+         .\Debug\ExploreGoal_Evaluator.obj
+         .\Debug\GetHealthGoal_Evaluator.obj
+         .\Debug\GetWeaponGoal_Evaluator.obj
+         .\Debug\Raven_Feature.obj
+         .\Debug\Goal_DodgeSideToSide.obj
+         .\Debug\Goal_SayPhrase.obj
+         .\Debug\Goal_SeekToPosition.obj
+         .\Debug\Goal_TraverseEdge.obj
+         .\Debug\Goal_Wander.obj
+         .\Debug\Raven_Goal_Types.obj
+         .\Debug\FuzzySet_LeftShoulder.obj
+         .\Debug\FuzzySet_RightShoulder.obj
+         .\Debug\FuzzySet_Singleton.obj
+         .\Debug\FuzzySet_Triangle.obj
+         .\Debug\FuzzyModule.obj
+         .\Debug\FuzzyOperators.obj
+         .\Debug\FuzzyVariable.obj
+         .\Debug\Raven_PathPlanner.obj
+         .\Debug\Raven_SteeringBehaviors.obj
+         .\Debug\MessageDispatcher.obj
+         .\Debug\Raven_SensoryMemory.obj
+         .\Debug\Trigger_HealthGiver.obj
+         .\Debug\Trigger_SoundNotify.obj
+         .\Debug\Trigger_WeaponGiver.obj
+         .\Debug\Raven_WeaponSystem.obj
+         .\Debug\Raven_TargetingSystem.obj
+         .\Debug\Cgdi.obj
+         .\Debug\CrudeTimer.obj
+         .\Debug\DebugConsole.obj
+         .\Debug\FrameCounter.obj
+         .\Debug\PrecisionTimer.obj
+         .\Debug\Vector2d.obj
+         .\Debug\WindowUtils.obj
+     1>Trigger_WeaponGiver.obj : error LNK2001: symbole externe non résolu _lua_settop
+     1>Goal_TraverseEdge.obj : error LNK2001: symbole externe non résolu _lua_settop
+     1>Raven_SteeringBehaviors.obj : error LNK2001: symbole externe non résolu _lua_settop
+     1>Trigger_HealthGiver.obj : error LNK2001: symbole externe non résolu _lua_settop
+     1>Trigger_SoundNotify.obj : error LNK2001: symbole externe non résolu _lua_settop
+     1>Raven_Bot.obj : error LNK2001: symbole externe non résolu _lua_settop
+     1>Raven_Game.obj : error LNK2001: symbole externe non résolu _lua_settop
+     1>Raven_Map.obj : error LNK2001: symbole externe non résolu _lua_settop
+     1>Raven_Feature.obj : error LNK2001: symbole externe non résolu _lua_settop
+     1>Projectile_Bolt.obj : error LNK2001: symbole externe non résolu _lua_settop
+     1>Projectile_Pellet.obj : error LNK2001: symbole externe non résolu _lua_settop
+     1>Projectile_Rocket.obj : error LNK2001: symbole externe non résolu _lua_settop
+     1>Projectile_Slug.obj : error LNK2001: symbole externe non résolu _lua_settop
+     1>Weapon_Blaster.obj : error LNK2019: symbole externe non résolu _lua_settop référencé dans la fonction "int __cdecl PopLuaNumber<int>(struct lua_State *,char const *)" (??$PopLuaNumber@H@@YAHPAUlua_State@@PBD@Z)
+     1>Weapon_RailGun.obj : error LNK2001: symbole externe non résolu _lua_settop
+     1>Weapon_RocketLauncher.obj : error LNK2001: symbole externe non résolu _lua_settop
+     1>Weapon_ShotGun.obj : error LNK2001: symbole externe non résolu _lua_settop
+     1>Trigger_WeaponGiver.obj : error LNK2001: symbole externe non résolu _lua_isnumber
+     1>Goal_TraverseEdge.obj : error LNK2001: symbole externe non résolu _lua_isnumber
+     1>Raven_SteeringBehaviors.obj : error LNK2001: symbole externe non résolu _lua_isnumber
+     1>Trigger_HealthGiver.obj : error LNK2001: symbole externe non résolu _lua_isnumber
+     1>Trigger_SoundNotify.obj : error LNK2001: symbole externe non résolu _lua_isnumber
+     1>Raven_Bot.obj : error LNK2001: symbole externe non résolu _lua_isnumber
+     1>Raven_Game.obj : error LNK2001: symbole externe non résolu _lua_isnumber
+     1>Raven_Map.obj : error LNK2001: symbole externe non résolu _lua_isnumber
+     1>Raven_Feature.obj : error LNK2001: symbole externe non résolu _lua_isnumber
+     1>Projectile_Bolt.obj : error LNK2001: symbole externe non résolu _lua_isnumber
+     1>Projectile_Pellet.obj : error LNK2001: symbole externe non résolu _lua_isnumber
+     1>Projectile_Rocket.obj : error LNK2001: symbole externe non résolu _lua_isnumber
+     1>Projectile_Slug.obj : error LNK2001: symbole externe non résolu _lua_isnumber
+     1>Weapon_Blaster.obj : error LNK2019: symbole externe non résolu _lua_isnumber référencé dans la fonction "int __cdecl PopLuaNumber<int>(struct lua_State *,char const *)" (??$PopLuaNumber@H@@YAHPAUlua_State@@PBD@Z)
+     1>Weapon_RailGun.obj : error LNK2001: symbole externe non résolu _lua_isnumber
+     1>Weapon_RocketLauncher.obj : error LNK2001: symbole externe non résolu _lua_isnumber
+     1>Weapon_ShotGun.obj : error LNK2001: symbole externe non résolu _lua_isnumber
+     1>Trigger_WeaponGiver.obj : error LNK2001: symbole externe non résolu _lua_tonumber
+     1>Goal_TraverseEdge.obj : error LNK2001: symbole externe non résolu _lua_tonumber
+     1>Raven_SteeringBehaviors.obj : error LNK2001: symbole externe non résolu _lua_tonumber
+     1>Trigger_HealthGiver.obj : error LNK2001: symbole externe non résolu _lua_tonumber
+     1>Trigger_SoundNotify.obj : error LNK2001: symbole externe non résolu _lua_tonumber
+     1>Raven_Bot.obj : error LNK2001: symbole externe non résolu _lua_tonumber
+     1>Raven_Game.obj : error LNK2001: symbole externe non résolu _lua_tonumber
+     1>Raven_Map.obj : error LNK2001: symbole externe non résolu _lua_tonumber
+     1>Raven_Feature.obj : error LNK2001: symbole externe non résolu _lua_tonumber
+     1>Projectile_Bolt.obj : error LNK2001: symbole externe non résolu _lua_tonumber
+     1>Projectile_Pellet.obj : error LNK2001: symbole externe non résolu _lua_tonumber
+     1>Projectile_Rocket.obj : error LNK2001: symbole externe non résolu _lua_tonumber
+     1>Projectile_Slug.obj : error LNK2001: symbole externe non résolu _lua_tonumber
+     1>Weapon_Blaster.obj : error LNK2019: symbole externe non résolu _lua_tonumber référencé dans la fonction "int __cdecl PopLuaNumber<int>(struct lua_State *,char const *)" (??$PopLuaNumber@H@@YAHPAUlua_State@@PBD@Z)
+     1>Weapon_RailGun.obj : error LNK2001: symbole externe non résolu _lua_tonumber
+     1>Weapon_RocketLauncher.obj : error LNK2001: symbole externe non résolu _lua_tonumber
+     1>Weapon_ShotGun.obj : error LNK2001: symbole externe non résolu _lua_tonumber
+     1>Trigger_WeaponGiver.obj : error LNK2001: symbole externe non résolu _lua_getfield
+     1>Goal_TraverseEdge.obj : error LNK2001: symbole externe non résolu _lua_getfield
+     1>Raven_SteeringBehaviors.obj : error LNK2001: symbole externe non résolu _lua_getfield
+     1>Trigger_HealthGiver.obj : error LNK2019: symbole externe non résolu _lua_getfield référencé dans la fonction __unwindfunclet$??$construct@PADAAPAD@?$allocator@D@std@@QAEXPAPADAAPAD@Z$0
+     1>Trigger_SoundNotify.obj : error LNK2001: symbole externe non résolu _lua_getfield
+     1>Raven_Bot.obj : error LNK2001: symbole externe non résolu _lua_getfield
+     1>Raven_Game.obj : error LNK2001: symbole externe non résolu _lua_getfield
+     1>Raven_Map.obj : error LNK2001: symbole externe non résolu _lua_getfield
+     1>Raven_Feature.obj : error LNK2001: symbole externe non résolu _lua_getfield
+     1>Projectile_Bolt.obj : error LNK2001: symbole externe non résolu _lua_getfield
+     1>Projectile_Pellet.obj : error LNK2001: symbole externe non résolu _lua_getfield
+     1>Projectile_Rocket.obj : error LNK2001: symbole externe non résolu _lua_getfield
+     1>Projectile_Slug.obj : error LNK2001: symbole externe non résolu _lua_getfield
+     1>Weapon_Blaster.obj : error LNK2001: symbole externe non résolu _lua_getfield
+     1>Weapon_RailGun.obj : error LNK2001: symbole externe non résolu _lua_getfield
+     1>Weapon_RocketLauncher.obj : error LNK2001: symbole externe non résolu _lua_getfield
+     1>Weapon_ShotGun.obj : error LNK2001: symbole externe non résolu _lua_getfield
+     1>Raven_Scriptor.obj : error LNK2019: symbole externe non résolu _lua_close référencé dans la fonction "public: __thiscall Scriptor::~Scriptor(void)" (??1Scriptor@@QAE@XZ)
+     1>Raven_Scriptor.obj : error LNK2019: symbole externe non résolu _lua_pcall référencé dans la fonction "void __cdecl RunLuaScript(struct lua_State *,char const *)" (?RunLuaScript@@YAXPAUlua_State@@PBD@Z)
+     1>Raven_Scriptor.obj : error LNK2019: symbole externe non résolu _luaL_openlibs référencé dans la fonction "public: __thiscall Scriptor::Scriptor(void)" (??0Scriptor@@QAE@XZ)
+     1>Raven_Scriptor.obj : error LNK2019: symbole externe non résolu _luaL_loadfile référencé dans la fonction "void __cdecl RunLuaScript(struct lua_State *,char const *)" (?RunLuaScript@@YAXPAUlua_State@@PBD@Z)
+     1>Raven_Scriptor.obj : error LNK2019: symbole externe non résolu _luaL_newstate référencé dans la fonction "public: __thiscall Scriptor::Scriptor(void)" (??0Scriptor@@QAE@XZ)
+     1>Raven_Game.obj : error LNK2019: symbole externe non résolu _lua_isstring référencé dans la fonction "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl PopLuaString(struct lua_State *,char const *)" (?PopLuaString@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAUlua_State@@PBD@Z)
+     1>Raven_Game.obj : error LNK2019: symbole externe non résolu _lua_tolstring référencé dans la fonction "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl PopLuaString(struct lua_State *,char const *)" (?PopLuaString@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAUlua_State@@PBD@Z)
+     1>.\Debug\Raven.exe : fatal error LNK1120: 11 externes non résolus
+     1>Génération du projet "C:\Users\Romain S\Documents\Workspace\workspace_ia\tp3ia\Buckland_Chapter7 to 10_Raven\Raven.vcxproj" terminée (Build cible(s)) -- ÉCHEC.
+
+ÉCHEC de la build.
+
+Temps écoulé 00:00:30.60
