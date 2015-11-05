@@ -16,7 +16,7 @@ extern "C"
   #include "../lua-5.1.3/include/lauxlib.h"
 }
 
-#pragma comment(lib, "../lua-5.1.3/lua5.1.lib")
+#pragma comment(lib, "lua5.1.lib")
 //#pragma comment(lib, "lualib.lib")
 
 #include "../lua-5.1.3/include/LuaHelperFunctions.h"
