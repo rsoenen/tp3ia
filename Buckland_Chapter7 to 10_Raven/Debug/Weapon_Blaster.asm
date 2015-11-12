@@ -516,19 +516,23 @@ $SG167808 DB	'Desirability', 00H
 	ORG $+3
 $SG167814 DB	'DistToTarget', 00H
 	ORG $+3
-$SG167819 DB	'Target_Close', 00H
-	ORG $+3
-$SG167824 DB	'Target_Medium', 00H
-	ORG $+2
-$SG167829 DB	'Target_Far', 00H
+$SG167819 DB	'Target_Contact', 00H
 	ORG $+1
-$SG167832 DB	'Desirability', 00H
+$SG167824 DB	'Target_Close', 00H
 	ORG $+3
-$SG167837 DB	'VeryDesirable', 00H
+$SG167829 DB	'Target_Medium', 00H
 	ORG $+2
-$SG167842 DB	'Desirable', 00H
+$SG167834 DB	'Target_Far', 00H
+	ORG $+1
+$SG167839 DB	'Target_VeryFar', 00H
+	ORG $+1
+$SG167842 DB	'Desirability', 00H
+	ORG $+3
+$SG167847 DB	'VeryDesirable', 00H
 	ORG $+2
-$SG167847 DB	'Undesirable', 00H
+$SG167852 DB	'Desirable', 00H
+	ORG $+2
+$SG167857 DB	'Undesirable', 00H
 CONST	ENDS
 ;	COMDAT ?_Noreplace@?$_Iosb@H@std@@2W4_Openmode@12@B
 CONST	SEGMENT
@@ -1050,6 +1054,14 @@ PUBLIC	?ClearDOM@FzVery@@UAEXXZ			; FzVery::ClearDOM
 PUBLIC	?ORwithDOM@FzVery@@UAEXN@Z			; FzVery::ORwithDOM
 PUBLIC	??1FzVery@@UAE@XZ				; FzVery::~FzVery
 PUBLIC	??_GFzVery@@UAEPAXI@Z				; FzVery::`scalar deleting destructor'
+PUBLIC	??0FzFairly@@AAE@ABV0@@Z			; FzFairly::FzFairly
+PUBLIC	??0FzFairly@@QAE@AAVFzSet@@@Z			; FzFairly::FzFairly
+PUBLIC	?GetDOM@FzFairly@@UBENXZ			; FzFairly::GetDOM
+PUBLIC	?Clone@FzFairly@@UBEPAVFuzzyTerm@@XZ		; FzFairly::Clone
+PUBLIC	?ClearDOM@FzFairly@@UAEXXZ			; FzFairly::ClearDOM
+PUBLIC	?ORwithDOM@FzFairly@@UAEXN@Z			; FzFairly::ORwithDOM
+PUBLIC	??1FzFairly@@UAE@XZ				; FzFairly::~FzFairly
+PUBLIC	??_GFzFairly@@UAEPAXI@Z				; FzFairly::`scalar deleting destructor'
 PUBLIC	??0?$allocator@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVFuzzyVariable@@@std@@@std@@QAE@XZ ; std::allocator<std::pair<std::basic_string<char,std::char_traits<char>,std::allocator<char> > const ,FuzzyVariable *> >::allocator<std::pair<std::basic_string<char,std::char_traits<char>,std::allocator<char> > const ,FuzzyVariable *> >
 PUBLIC	??0?$allocator@U?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVFuzzyVariable@@@std@@PAX@std@@@std@@QAE@XZ ; std::allocator<std::_Tree_node<std::pair<std::basic_string<char,std::char_traits<char>,std::allocator<char> > const ,FuzzyVariable *>,void *> >::allocator<std::_Tree_node<std::pair<std::basic_string<char,std::char_traits<char>,std::allocator<char> > const ,FuzzyVariable *>,void *> >
 PUBLIC	?deallocate@?$allocator@U?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVFuzzyVariable@@@std@@PAX@std@@@std@@QAEXPAU?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVFuzzyVariable@@@std@@PAX@2@I@Z ; std::allocator<std::_Tree_node<std::pair<std::basic_string<char,std::char_traits<char>,std::allocator<char> > const ,FuzzyVariable *>,void *> >::deallocate
@@ -1377,6 +1389,7 @@ PUBLIC	?id@?$num_put@DV?$back_insert_iterator@V?$basic_string@DU?$char_traits@D@
 PUBLIC	?id@?$num_put@_WV?$back_insert_iterator@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@std@@@std@@2V0locale@2@A ; std::num_put<wchar_t,std::back_insert_iterator<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > > >::id
 PUBLIC	??_7FuzzyTerm@@6B@				; FuzzyTerm::`vftable'
 PUBLIC	??_7FzVery@@6B@					; FzVery::`vftable'
+PUBLIC	??_7FzFairly@@6B@				; FzFairly::`vftable'
 PUBLIC	??_C@_0CF@MBMFGIBB@?$DMFuzzyModule?3?3Fuzzify?$DO?3key?5not?5f@ ; `string'
 PUBLIC	??_C@_1PO@INFJFMBP@?$AAc?$AA?3?$AA?2?$AAu?$AAs?$AAe?$AAr?$AAs?$AA?2?$AAr?$AAo?$AAm?$AAa?$AAi?$AAn?$AA?5?$AAs?$AA?2?$AAd?$AAo?$AAc?$AAu?$AAm?$AAe?$AAn?$AAt?$AAs?$AA?2?$AAw?$AAo?$AAr?$AAk@ ; `string'
 PUBLIC	??_C@_1LK@DCGLEGLC@?$AA?$CI?$AAm?$AA_?$AAV?$AAa?$AAr?$AAi?$AAa?$AAb?$AAl?$AAe?$AAs?$AA?4?$AAf?$AAi?$AAn?$AAd?$AA?$CI?$AAN?$AAa?$AAm?$AAe?$AAO?$AAf?$AAF?$AAL?$AAV?$AA?$CJ?$AA?5?$AA?$CB?$AA?$DN?$AA?5@ ; `string'
@@ -1476,6 +1489,11 @@ PUBLIC	??_R0?AVFzVery@@@8				; FzVery `RTTI Type Descriptor'
 PUBLIC	??_R3FzVery@@8					; FzVery::`RTTI Class Hierarchy Descriptor'
 PUBLIC	??_R2FzVery@@8					; FzVery::`RTTI Base Class Array'
 PUBLIC	??_R1A@?0A@EA@FzVery@@8				; FzVery::`RTTI Base Class Descriptor at (0,-1,0,64)'
+PUBLIC	??_R4FzFairly@@6B@				; FzFairly::`RTTI Complete Object Locator'
+PUBLIC	??_R0?AVFzFairly@@@8				; FzFairly `RTTI Type Descriptor'
+PUBLIC	??_R3FzFairly@@8				; FzFairly::`RTTI Class Hierarchy Descriptor'
+PUBLIC	??_R2FzFairly@@8				; FzFairly::`RTTI Base Class Array'
+PUBLIC	??_R1A@?0A@EA@FzFairly@@8			; FzFairly::`RTTI Base Class Descriptor at (0,-1,0,64)'
 PUBLIC	??_R4Blaster@@6B@				; Blaster::`RTTI Complete Object Locator'
 PUBLIC	??_R0?AVBlaster@@@8				; Blaster `RTTI Type Descriptor'
 PUBLIC	??_R3Blaster@@8					; Blaster::`RTTI Class Hierarchy Descriptor'
@@ -1495,6 +1513,7 @@ PUBLIC	__real@4052c00000000000
 PUBLIC	__real@4059000000000000
 PUBLIC	__real@4062c00000000000
 PUBLIC	__real@4072c00000000000
+PUBLIC	__real@407f400000000000
 PUBLIC	__real@408f400000000000
 PUBLIC	__real@7f7fffff
 PUBLIC	__real@7fefffffffffffff
@@ -1508,6 +1527,7 @@ EXTRN	_atexit:PROC
 EXTRN	__invalid_parameter:PROC
 EXTRN	??0_Lockit@std@@QAE@H@Z:PROC			; std::_Lockit::_Lockit
 EXTRN	??1_Lockit@std@@QAE@XZ:PROC			; std::_Lockit::~_Lockit
+EXTRN	_sqrt:PROC
 EXTRN	_memmove:PROC
 EXTRN	_memcpy:PROC
 EXTRN	_memcmp:PROC
@@ -1547,6 +1567,7 @@ EXTRN	?DeFuzzifyMaxAv@FuzzyVariable@@QBENXZ:PROC	; FuzzyVariable::DeFuzzifyMaxAv
 EXTRN	?DeFuzzifyCentroid@FuzzyVariable@@QBENH@Z:PROC	; FuzzyVariable::DeFuzzifyCentroid
 EXTRN	??_EFuzzyTerm@@UAEPAXI@Z:PROC			; FuzzyTerm::`vector deleting destructor'
 EXTRN	??_EFzVery@@UAEPAXI@Z:PROC			; FzVery::`vector deleting destructor'
+EXTRN	??_EFzFairly@@UAEPAXI@Z:PROC			; FzFairly::`vector deleting destructor'
 EXTRN	??1FuzzyModule@@QAE@XZ:PROC			; FuzzyModule::~FuzzyModule
 EXTRN	?CreateFLV@FuzzyModule@@QAEAAVFuzzyVariable@@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z:PROC ; FuzzyModule::CreateFLV
 EXTRN	?AddRule@FuzzyModule@@QAEXAAVFuzzyTerm@@0@Z:PROC ; FuzzyModule::AddRule
@@ -1655,6 +1676,10 @@ CONST	ENDS
 CONST	SEGMENT
 __real@408f400000000000 DQ 0408f400000000000r	; 1000
 CONST	ENDS
+;	COMDAT __real@407f400000000000
+CONST	SEGMENT
+__real@407f400000000000 DQ 0407f400000000000r	; 500
+CONST	ENDS
 ;	COMDAT __real@4072c00000000000
 CONST	SEGMENT
 __real@4072c00000000000 DQ 04072c00000000000r	; 300
@@ -1754,6 +1779,42 @@ rdata$r	SEGMENT
 	DD	00H
 	DD	FLAT:??_R0?AVBlaster@@@8
 	DD	FLAT:??_R3Blaster@@8
+rdata$r	ENDS
+;	COMDAT ??_R1A@?0A@EA@FzFairly@@8
+rdata$r	SEGMENT
+??_R1A@?0A@EA@FzFairly@@8 DD FLAT:??_R0?AVFzFairly@@@8	; FzFairly::`RTTI Base Class Descriptor at (0,-1,0,64)'
+	DD	01H
+	DD	00H
+	DD	0ffffffffH
+	DD	00H
+	DD	040H
+	DD	FLAT:??_R3FzFairly@@8
+rdata$r	ENDS
+;	COMDAT ??_R2FzFairly@@8
+rdata$r	SEGMENT
+??_R2FzFairly@@8 DD FLAT:??_R1A@?0A@EA@FzFairly@@8	; FzFairly::`RTTI Base Class Array'
+	DD	FLAT:??_R1A@?0A@EA@FuzzyTerm@@8
+rdata$r	ENDS
+;	COMDAT ??_R3FzFairly@@8
+rdata$r	SEGMENT
+??_R3FzFairly@@8 DD 00H					; FzFairly::`RTTI Class Hierarchy Descriptor'
+	DD	00H
+	DD	02H
+	DD	FLAT:??_R2FzFairly@@8
+rdata$r	ENDS
+;	COMDAT ??_R0?AVFzFairly@@@8
+_DATA	SEGMENT
+??_R0?AVFzFairly@@@8 DD FLAT:??_7type_info@@6B@		; FzFairly `RTTI Type Descriptor'
+	DD	00H
+	DB	'.?AVFzFairly@@', 00H
+_DATA	ENDS
+;	COMDAT ??_R4FzFairly@@6B@
+rdata$r	SEGMENT
+??_R4FzFairly@@6B@ DD 00H				; FzFairly::`RTTI Complete Object Locator'
+	DD	00H
+	DD	00H
+	DD	FLAT:??_R0?AVFzFairly@@@8
+	DD	FLAT:??_R3FzFairly@@8
 rdata$r	ENDS
 ;	COMDAT ??_R1A@?0A@EA@FzVery@@8
 rdata$r	SEGMENT
@@ -2759,6 +2820,15 @@ CONST	SEGMENT
 ??_C@_0CF@MBMFGIBB@?$DMFuzzyModule?3?3Fuzzify?$DO?3key?5not?5f@ DB '<Fuzz'
 	DB	'yModule::Fuzzify>:key not found', 00H	; `string'
 CONST	ENDS
+;	COMDAT ??_7FzFairly@@6B@
+CONST	SEGMENT
+??_7FzFairly@@6B@ DD FLAT:??_R4FzFairly@@6B@		; FzFairly::`vftable'
+	DD	FLAT:??_EFzFairly@@UAEPAXI@Z
+	DD	FLAT:?Clone@FzFairly@@UBEPAVFuzzyTerm@@XZ
+	DD	FLAT:?GetDOM@FzFairly@@UBENXZ
+	DD	FLAT:?ClearDOM@FzFairly@@UAEXXZ
+	DD	FLAT:?ORwithDOM@FzFairly@@UAEXN@Z
+CONST	ENDS
 ;	COMDAT ??_7FzVery@@6B@
 CONST	SEGMENT
 ??_7FzVery@@6B@ DD FLAT:??_R4FzVery@@6B@		; FzVery::`vftable'
@@ -3615,7 +3685,7 @@ __ehfuncinfo$??0Blaster@@QAE@PAVRaven_Bot@@@Z DD 019930522H
 	DD	00H
 	DD	01H
 __ehfuncinfo$?InitializeFuzzyModule@Blaster@@EAEXXZ DD 019930522H
-	DD	0aH
+	DD	0dH
 	DD	FLAT:__unwindtable$?InitializeFuzzyModule@Blaster@@EAEXXZ
 	DD	2 DUP(00H)
 	DD	2 DUP(00H)
@@ -3630,17 +3700,23 @@ __unwindtable$?InitializeFuzzyModule@Blaster@@EAEXXZ DD 0ffffffffH
 	DD	02H
 	DD	FLAT:__unwindfunclet$?InitializeFuzzyModule@Blaster@@EAEXXZ$6
 	DD	03H
-	DD	FLAT:__unwindfunclet$?InitializeFuzzyModule@Blaster@@EAEXXZ$7
-	DD	03H
-	DD	FLAT:__unwindfunclet$?InitializeFuzzyModule@Blaster@@EAEXXZ$9
+	DD	FLAT:__unwindfunclet$?InitializeFuzzyModule@Blaster@@EAEXXZ$8
+	DD	04H
+	DD	FLAT:__unwindfunclet$?InitializeFuzzyModule@Blaster@@EAEXXZ$10
 	DD	05H
 	DD	FLAT:__unwindfunclet$?InitializeFuzzyModule@Blaster@@EAEXXZ$11
-	DD	06H
+	DD	05H
 	DD	FLAT:__unwindfunclet$?InitializeFuzzyModule@Blaster@@EAEXXZ$13
 	DD	07H
-	DD	FLAT:__unwindfunclet$?InitializeFuzzyModule@Blaster@@EAEXXZ$14
-	DD	07H
 	DD	FLAT:__unwindfunclet$?InitializeFuzzyModule@Blaster@@EAEXXZ$15
+	DD	08H
+	DD	FLAT:__unwindfunclet$?InitializeFuzzyModule@Blaster@@EAEXXZ$17
+	DD	09H
+	DD	FLAT:__unwindfunclet$?InitializeFuzzyModule@Blaster@@EAEXXZ$18
+	DD	09H
+	DD	FLAT:__unwindfunclet$?InitializeFuzzyModule@Blaster@@EAEXXZ$19
+	DD	09H
+	DD	FLAT:__unwindfunclet$?InitializeFuzzyModule@Blaster@@EAEXXZ$20
 xdata$x	ENDS
 ;	COMDAT xdata$x
 xdata$x	SEGMENT
@@ -3930,6 +4006,18 @@ __ehfuncinfo$??0?$_Tree_alloc@$0A@U?$_Tree_base_types@U?$pair@$$CBV?$basic_strin
 	DD	FLAT:__unwindtable$??0?$_Tree_alloc@$0A@U?$_Tree_base_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVFuzzyVariable@@@std@@V?$allocator@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVFuzzyVariable@@@std@@@2@@std@@@std@@QAE@ABV?$allocator@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVFuzzyVariable@@@std@@@1@@Z
 	DD	01H
 	DD	FLAT:__tryblocktable$??0?$_Tree_alloc@$0A@U?$_Tree_base_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVFuzzyVariable@@@std@@V?$allocator@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVFuzzyVariable@@@std@@@2@@std@@@std@@QAE@ABV?$allocator@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVFuzzyVariable@@@std@@@1@@Z
+	DD	2 DUP(00H)
+	DD	00H
+	DD	01H
+xdata$x	ENDS
+;	COMDAT xdata$x
+xdata$x	SEGMENT
+__unwindtable$?Clone@FzFairly@@UBEPAVFuzzyTerm@@XZ DD 0ffffffffH
+	DD	FLAT:__unwindfunclet$?Clone@FzFairly@@UBEPAVFuzzyTerm@@XZ$0
+__ehfuncinfo$?Clone@FzFairly@@UBEPAVFuzzyTerm@@XZ DD 019930522H
+	DD	01H
+	DD	FLAT:__unwindtable$?Clone@FzFairly@@UBEPAVFuzzyTerm@@XZ
+	DD	2 DUP(00H)
 	DD	2 DUP(00H)
 	DD	00H
 	DD	01H
@@ -17701,7 +17789,7 @@ __$EHRec$ = -12						; size = 12
 ?Render@Blaster@@UAEXXZ PROC				; Blaster::Render
 ; _this$ = ecx
 
-; 99   : {
+; 103  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -17724,11 +17812,11 @@ __$EHRec$ = -12						; size = 12
 	mov	DWORD PTR fs:0, eax
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 100  :    m_vecWeaponVBTrans = WorldTransform(m_vecWeaponVB,
-; 101  :                                    m_pOwner->Pos(),
-; 102  :                                    m_pOwner->Facing(),
-; 103  :                                    m_pOwner->Facing().Perp(),
-; 104  :                                    m_pOwner->Scale());
+; 104  :    m_vecWeaponVBTrans = WorldTransform(m_vecWeaponVB,
+; 105  :                                    m_pOwner->Pos(),
+; 106  :                                    m_pOwner->Facing(),
+; 107  :                                    m_pOwner->Facing().Perp(),
+; 108  :                                    m_pOwner->Scale());
 
 	lea	eax, DWORD PTR $T7[ebp]
 	push	eax
@@ -17778,15 +17866,15 @@ __$EHRec$ = -12						; size = 12
 	lea	ecx, DWORD PTR $T2[ebp]
 	call	??1?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@QAE@XZ ; std::vector<Vector2D,std::allocator<Vector2D> >::~vector<Vector2D,std::allocator<Vector2D> >
 
-; 105  : 
-; 106  :   gdi->GreenPen();
+; 109  : 
+; 110  :   gdi->GreenPen();
 
 	call	?Instance@Cgdi@@SAPAV1@XZ		; Cgdi::Instance
 	mov	ecx, eax
 	call	?GreenPen@Cgdi@@QAEXXZ			; Cgdi::GreenPen
 
-; 107  : 
-; 108  :   gdi->ClosedShape(m_vecWeaponVBTrans);
+; 111  : 
+; 112  :   gdi->ClosedShape(m_vecWeaponVBTrans);
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 112				; 00000070H
@@ -17795,7 +17883,7 @@ __$EHRec$ = -12						; size = 12
 	mov	ecx, eax
 	call	?ClosedShape@Cgdi@@QAEXABV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@@Z ; Cgdi::ClosedShape
 
-; 109  : }
+; 113  : }
 
 	mov	ecx, DWORD PTR __$EHRec$[ebp]
 	mov	DWORD PTR fs:0, ecx
@@ -18042,45 +18130,58 @@ text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File c:\users\romain s\documents\workspace\workspace_ia\tp3ia\buckland_chapter7 to 10_raven\armory\weapon_blaster.cpp
 _TEXT	SEGMENT
-tv345 = -308						; size = 4
-tv72 = -304						; size = 4
-tv343 = -300						; size = 4
-tv179 = -296						; size = 4
-tv226 = -292						; size = 4
-tv340 = -288						; size = 4
-tv205 = -284						; size = 4
-tv334 = -280						; size = 4
-tv184 = -276						; size = 4
-tv328 = -272						; size = 4
-tv151 = -268						; size = 4
-tv321 = -264						; size = 4
-tv130 = -260						; size = 4
-tv315 = -256						; size = 4
-tv77 = -252						; size = 4
-tv309 = -248						; size = 4
-$T2 = -244						; size = 8
-$T3 = -236						; size = 8
-$T4 = -228						; size = 4
-$T5 = -224						; size = 4
-$T6 = -220						; size = 4
-$T7 = -216						; size = 4
-$T8 = -212						; size = 4
-$T9 = -208						; size = 4
+tv470 = -388						; size = 4
+tv471 = -384						; size = 4
+tv468 = -380						; size = 4
+tv72 = -376						; size = 4
+tv466 = -372						; size = 4
+tv221 = -368						; size = 4
+tv268 = -364						; size = 4
+tv463 = -360						; size = 4
+tv247 = -356						; size = 4
+tv457 = -352						; size = 4
+tv226 = -348						; size = 4
+tv451 = -344						; size = 4
+tv193 = -340						; size = 4
+tv444 = -336						; size = 4
+tv172 = -332						; size = 4
+tv438 = -328						; size = 4
+tv151 = -324						; size = 4
+tv432 = -320						; size = 4
+tv130 = -316						; size = 4
+tv426 = -312						; size = 4
+tv77 = -308						; size = 4
+tv420 = -304						; size = 4
+$T2 = -300						; size = 8
+$T3 = -292						; size = 8
+$T4 = -284						; size = 8
+$T5 = -276						; size = 4
+$T6 = -272						; size = 4
+$T7 = -268						; size = 4
+$T8 = -264						; size = 4
+$T9 = -260						; size = 4
+$T10 = -256						; size = 4
+$T11 = -252						; size = 4
+$T12 = -248						; size = 4
+_$S8$ = -240						; size = 8
+_Undesirable$ = -228					; size = 4
+_$S7$ = -220						; size = 8
+_Desirable$ = -208					; size = 4
 _$S6$ = -200						; size = 8
-_Undesirable$ = -188					; size = 4
-_$S5$ = -180						; size = 8
-_Desirable$ = -168					; size = 4
-_$S4$ = -160						; size = 8
-_VeryDesirable$ = -148					; size = 4
-$T10 = -144						; size = 28
-_Desirability$ = -116					; size = 4
+_VeryDesirable$ = -188					; size = 4
+$T13 = -184						; size = 28
+_Desirability$ = -156					; size = 4
+_$S5$ = -148						; size = 8
+_Target_VeryFar$ = -136					; size = 4
+_$S4$ = -128						; size = 8
+_Target_Far$ = -116					; size = 4
 _$S3$ = -108						; size = 8
-_Target_Far$ = -96					; size = 4
+_Target_Medium$ = -96					; size = 4
 _$S2$ = -88						; size = 8
-_Target_Medium$ = -76					; size = 4
+_Target_Close$ = -76					; size = 4
 _$S1$ = -68						; size = 8
-_Target_Close$ = -56					; size = 4
-$T11 = -52						; size = 28
+_Target_Contact$ = -56					; size = 4
+$T14 = -52						; size = 28
 _DistToTarget$ = -24					; size = 4
 _this$ = -20						; size = 4
 __$ArrayPad$ = -16					; size = 4
@@ -18096,11 +18197,11 @@ __$EHRec$ = -12						; size = 12
 	push	__ehhandler$?InitializeFuzzyModule@Blaster@@EAEXXZ
 	mov	eax, DWORD PTR fs:0
 	push	eax
-	sub	esp, 296				; 00000128H
+	sub	esp, 376				; 00000178H
 	push	edi
 	push	ecx
-	lea	edi, DWORD PTR [ebp-308]
-	mov	ecx, 74					; 0000004aH
+	lea	edi, DWORD PTR [ebp-388]
+	mov	ecx, 94					; 0000005eH
 	mov	eax, -858993460				; ccccccccH
 	rep stosd
 	pop	ecx
@@ -18115,24 +18216,24 @@ __$EHRec$ = -12						; size = 12
 ; 79   :   FuzzyVariable& DistToTarget = m_FuzzyModule.CreateFLV("DistToTarget");
 
 	push	OFFSET $SG167814
-	lea	ecx, DWORD PTR $T11[ebp]
+	lea	ecx, DWORD PTR $T14[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
-	lea	eax, DWORD PTR $T11[ebp]
+	lea	eax, DWORD PTR $T14[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 16					; 00000010H
 	call	?CreateFLV@FuzzyModule@@QAEAAVFuzzyVariable@@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z ; FuzzyModule::CreateFLV
 	mov	DWORD PTR _DistToTarget$[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	lea	ecx, DWORD PTR $T11[ebp]
+	lea	ecx, DWORD PTR $T14[ebp]
 	call	??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::~basic_string<char,std::char_traits<char>,std::allocator<char> >
 
 ; 80   : 
-; 81   :   FzSet& Target_Close = DistToTarget.AddLeftShoulderSet("Target_Close",0,25,150);
+; 81   :   FzSet& Target_Contact = DistToTarget.AddLeftShoulderSet("Target_Contact",0,25,50);
 
 	sub	esp, 8
-	movsd	xmm0, QWORD PTR __real@4062c00000000000
+	movsd	xmm0, QWORD PTR __real@4049000000000000
 	movsd	QWORD PTR [esp], xmm0
 	sub	esp, 8
 	movsd	xmm0, QWORD PTR __real@4039000000000000
@@ -18142,10 +18243,10 @@ __$EHRec$ = -12						; size = 12
 	movsd	QWORD PTR [esp], xmm0
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
-	mov	DWORD PTR $T9[ebp], esp
+	mov	DWORD PTR $T12[ebp], esp
 	push	OFFSET $SG167819
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
-	mov	DWORD PTR tv309[ebp], eax
+	mov	DWORD PTR tv420[ebp], eax
 	lea	ecx, DWORD PTR _$S1$[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _DistToTarget$[ebp]
@@ -18153,25 +18254,25 @@ __$EHRec$ = -12						; size = 12
 	mov	DWORD PTR tv77[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 1
 	lea	edx, DWORD PTR _$S1$[ebp]
-	mov	DWORD PTR _Target_Close$[ebp], edx
+	mov	DWORD PTR _Target_Contact$[ebp], edx
 
-; 82   :   FzSet& Target_Medium = DistToTarget.AddTriangularSet("Target_Medium",25,150,300);
+; 82   :   FzSet& Target_Close = DistToTarget.AddTriangularSet("Target_Close",25,50,150);
 
-	sub	esp, 8
-	movsd	xmm0, QWORD PTR __real@4072c00000000000
-	movsd	QWORD PTR [esp], xmm0
 	sub	esp, 8
 	movsd	xmm0, QWORD PTR __real@4062c00000000000
+	movsd	QWORD PTR [esp], xmm0
+	sub	esp, 8
+	movsd	xmm0, QWORD PTR __real@4049000000000000
 	movsd	QWORD PTR [esp], xmm0
 	sub	esp, 8
 	movsd	xmm0, QWORD PTR __real@4039000000000000
 	movsd	QWORD PTR [esp], xmm0
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
-	mov	DWORD PTR $T8[ebp], esp
+	mov	DWORD PTR $T11[ebp], esp
 	push	OFFSET $SG167824
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
-	mov	DWORD PTR tv315[ebp], eax
+	mov	DWORD PTR tv426[ebp], eax
 	lea	eax, DWORD PTR _$S2$[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _DistToTarget$[ebp]
@@ -18179,12 +18280,38 @@ __$EHRec$ = -12						; size = 12
 	mov	DWORD PTR tv130[ebp], eax
 	mov	BYTE PTR __$EHRec$[ebp+8], 2
 	lea	ecx, DWORD PTR _$S2$[ebp]
-	mov	DWORD PTR _Target_Medium$[ebp], ecx
+	mov	DWORD PTR _Target_Close$[ebp], ecx
 
-; 83   :   FzSet& Target_Far = DistToTarget.AddRightShoulderSet("Target_Far",150,300,1000);
+; 83   :   FzSet& Target_Medium = DistToTarget.AddTriangularSet("Target_Medium",50,150,300);
 
 	sub	esp, 8
-	movsd	xmm0, QWORD PTR __real@408f400000000000
+	movsd	xmm0, QWORD PTR __real@4072c00000000000
+	movsd	QWORD PTR [esp], xmm0
+	sub	esp, 8
+	movsd	xmm0, QWORD PTR __real@4062c00000000000
+	movsd	QWORD PTR [esp], xmm0
+	sub	esp, 8
+	movsd	xmm0, QWORD PTR __real@4049000000000000
+	movsd	QWORD PTR [esp], xmm0
+	sub	esp, 28					; 0000001cH
+	mov	ecx, esp
+	mov	DWORD PTR $T10[ebp], esp
+	push	OFFSET $SG167829
+	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
+	mov	DWORD PTR tv432[ebp], eax
+	lea	edx, DWORD PTR _$S3$[ebp]
+	push	edx
+	mov	ecx, DWORD PTR _DistToTarget$[ebp]
+	call	?AddTriangularSet@FuzzyVariable@@QAE?AVFzSet@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@NNN@Z ; FuzzyVariable::AddTriangularSet
+	mov	DWORD PTR tv151[ebp], eax
+	mov	BYTE PTR __$EHRec$[ebp+8], 3
+	lea	eax, DWORD PTR _$S3$[ebp]
+	mov	DWORD PTR _Target_Medium$[ebp], eax
+
+; 84   :   FzSet& Target_Far = DistToTarget.AddTriangularSet("Target_Far",150,300,500);
+
+	sub	esp, 8
+	movsd	xmm0, QWORD PTR __real@407f400000000000
 	movsd	QWORD PTR [esp], xmm0
 	sub	esp, 8
 	movsd	xmm0, QWORD PTR __real@4072c00000000000
@@ -18194,37 +18321,63 @@ __$EHRec$ = -12						; size = 12
 	movsd	QWORD PTR [esp], xmm0
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
-	mov	DWORD PTR $T7[ebp], esp
-	push	OFFSET $SG167829
+	mov	DWORD PTR $T9[ebp], esp
+	push	OFFSET $SG167834
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
-	mov	DWORD PTR tv321[ebp], eax
-	lea	edx, DWORD PTR _$S3$[ebp]
-	push	edx
+	mov	DWORD PTR tv438[ebp], eax
+	lea	ecx, DWORD PTR _$S4$[ebp]
+	push	ecx
+	mov	ecx, DWORD PTR _DistToTarget$[ebp]
+	call	?AddTriangularSet@FuzzyVariable@@QAE?AVFzSet@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@NNN@Z ; FuzzyVariable::AddTriangularSet
+	mov	DWORD PTR tv172[ebp], eax
+	mov	BYTE PTR __$EHRec$[ebp+8], 4
+	lea	edx, DWORD PTR _$S4$[ebp]
+	mov	DWORD PTR _Target_Far$[ebp], edx
+
+; 85   :   FzSet& Target_VeryFar = DistToTarget.AddRightShoulderSet("Target_VeryFar",300,500,1000);
+
+	sub	esp, 8
+	movsd	xmm0, QWORD PTR __real@408f400000000000
+	movsd	QWORD PTR [esp], xmm0
+	sub	esp, 8
+	movsd	xmm0, QWORD PTR __real@407f400000000000
+	movsd	QWORD PTR [esp], xmm0
+	sub	esp, 8
+	movsd	xmm0, QWORD PTR __real@4072c00000000000
+	movsd	QWORD PTR [esp], xmm0
+	sub	esp, 28					; 0000001cH
+	mov	ecx, esp
+	mov	DWORD PTR $T8[ebp], esp
+	push	OFFSET $SG167839
+	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
+	mov	DWORD PTR tv444[ebp], eax
+	lea	eax, DWORD PTR _$S5$[ebp]
+	push	eax
 	mov	ecx, DWORD PTR _DistToTarget$[ebp]
 	call	?AddRightShoulderSet@FuzzyVariable@@QAE?AVFzSet@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@NNN@Z ; FuzzyVariable::AddRightShoulderSet
-	mov	DWORD PTR tv151[ebp], eax
-	mov	BYTE PTR __$EHRec$[ebp+8], 3
-	lea	eax, DWORD PTR _$S3$[ebp]
-	mov	DWORD PTR _Target_Far$[ebp], eax
+	mov	DWORD PTR tv193[ebp], eax
+	mov	BYTE PTR __$EHRec$[ebp+8], 5
+	lea	ecx, DWORD PTR _$S5$[ebp]
+	mov	DWORD PTR _Target_VeryFar$[ebp], ecx
 
-; 84   : 
-; 85   :   FuzzyVariable& Desirability = m_FuzzyModule.CreateFLV("Desirability"); 
+; 86   : 
+; 87   :   FuzzyVariable& Desirability = m_FuzzyModule.CreateFLV("Desirability"); 
 
-	push	OFFSET $SG167832
-	lea	ecx, DWORD PTR $T10[ebp]
+	push	OFFSET $SG167842
+	lea	ecx, DWORD PTR $T13[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
-	mov	BYTE PTR __$EHRec$[ebp+8], 4
-	lea	ecx, DWORD PTR $T10[ebp]
-	push	ecx
+	mov	BYTE PTR __$EHRec$[ebp+8], 6
+	lea	edx, DWORD PTR $T13[ebp]
+	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 16					; 00000010H
 	call	?CreateFLV@FuzzyModule@@QAEAAVFuzzyVariable@@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z ; FuzzyModule::CreateFLV
 	mov	DWORD PTR _Desirability$[ebp], eax
-	mov	BYTE PTR __$EHRec$[ebp+8], 3
-	lea	ecx, DWORD PTR $T10[ebp]
+	mov	BYTE PTR __$EHRec$[ebp+8], 5
+	lea	ecx, DWORD PTR $T13[ebp]
 	call	??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::~basic_string<char,std::char_traits<char>,std::allocator<char> >
 
-; 86   :   FzSet& VeryDesirable = Desirability.AddRightShoulderSet("VeryDesirable", 50, 75, 100);
+; 88   :   FzSet& VeryDesirable = Desirability.AddRightShoulderSet("VeryDesirable", 50, 75, 100);
 
 	sub	esp, 8
 	movsd	xmm0, QWORD PTR __real@4059000000000000
@@ -18237,20 +18390,20 @@ __$EHRec$ = -12						; size = 12
 	movsd	QWORD PTR [esp], xmm0
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
-	mov	DWORD PTR $T6[ebp], esp
-	push	OFFSET $SG167837
+	mov	DWORD PTR $T7[ebp], esp
+	push	OFFSET $SG167847
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
-	mov	DWORD PTR tv328[ebp], eax
-	lea	edx, DWORD PTR _$S4$[ebp]
-	push	edx
+	mov	DWORD PTR tv451[ebp], eax
+	lea	eax, DWORD PTR _$S6$[ebp]
+	push	eax
 	mov	ecx, DWORD PTR _Desirability$[ebp]
 	call	?AddRightShoulderSet@FuzzyVariable@@QAE?AVFzSet@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@NNN@Z ; FuzzyVariable::AddRightShoulderSet
-	mov	DWORD PTR tv184[ebp], eax
-	mov	BYTE PTR __$EHRec$[ebp+8], 5
-	lea	eax, DWORD PTR _$S4$[ebp]
-	mov	DWORD PTR _VeryDesirable$[ebp], eax
+	mov	DWORD PTR tv226[ebp], eax
+	mov	BYTE PTR __$EHRec$[ebp+8], 7
+	lea	ecx, DWORD PTR _$S6$[ebp]
+	mov	DWORD PTR _VeryDesirable$[ebp], ecx
 
-; 87   :   FzSet& Desirable = Desirability.AddTriangularSet("Desirable", 25, 50, 75);
+; 89   :   FzSet& Desirable = Desirability.AddTriangularSet("Desirable", 25, 50, 75);
 
 	sub	esp, 8
 	movsd	xmm0, QWORD PTR __real@4052c00000000000
@@ -18263,20 +18416,20 @@ __$EHRec$ = -12						; size = 12
 	movsd	QWORD PTR [esp], xmm0
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
-	mov	DWORD PTR $T5[ebp], esp
-	push	OFFSET $SG167842
+	mov	DWORD PTR $T6[ebp], esp
+	push	OFFSET $SG167852
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
-	mov	DWORD PTR tv334[ebp], eax
-	lea	ecx, DWORD PTR _$S5$[ebp]
-	push	ecx
+	mov	DWORD PTR tv457[ebp], eax
+	lea	edx, DWORD PTR _$S7$[ebp]
+	push	edx
 	mov	ecx, DWORD PTR _Desirability$[ebp]
 	call	?AddTriangularSet@FuzzyVariable@@QAE?AVFzSet@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@NNN@Z ; FuzzyVariable::AddTriangularSet
-	mov	DWORD PTR tv205[ebp], eax
-	mov	BYTE PTR __$EHRec$[ebp+8], 6
-	lea	edx, DWORD PTR _$S5$[ebp]
-	mov	DWORD PTR _Desirable$[ebp], edx
+	mov	DWORD PTR tv247[ebp], eax
+	mov	BYTE PTR __$EHRec$[ebp+8], 8
+	lea	eax, DWORD PTR _$S7$[ebp]
+	mov	DWORD PTR _Desirable$[ebp], eax
 
-; 88   :   FzSet& Undesirable = Desirability.AddLeftShoulderSet("Undesirable", 0, 25, 50);
+; 90   :   FzSet& Undesirable = Desirability.AddLeftShoulderSet("Undesirable", 0, 25, 50);
 
 	sub	esp, 8
 	movsd	xmm0, QWORD PTR __real@4049000000000000
@@ -18289,78 +18442,115 @@ __$EHRec$ = -12						; size = 12
 	movsd	QWORD PTR [esp], xmm0
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
-	mov	DWORD PTR $T4[ebp], esp
-	push	OFFSET $SG167847
+	mov	DWORD PTR $T5[ebp], esp
+	push	OFFSET $SG167857
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
-	mov	DWORD PTR tv340[ebp], eax
-	lea	eax, DWORD PTR _$S6$[ebp]
-	push	eax
+	mov	DWORD PTR tv463[ebp], eax
+	lea	ecx, DWORD PTR _$S8$[ebp]
+	push	ecx
 	mov	ecx, DWORD PTR _Desirability$[ebp]
 	call	?AddLeftShoulderSet@FuzzyVariable@@QAE?AVFzSet@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@NNN@Z ; FuzzyVariable::AddLeftShoulderSet
-	mov	DWORD PTR tv226[ebp], eax
-	mov	BYTE PTR __$EHRec$[ebp+8], 7
-	lea	ecx, DWORD PTR _$S6$[ebp]
-	mov	DWORD PTR _Undesirable$[ebp], ecx
+	mov	DWORD PTR tv268[ebp], eax
+	mov	BYTE PTR __$EHRec$[ebp+8], 9
+	lea	edx, DWORD PTR _$S8$[ebp]
+	mov	DWORD PTR _Undesirable$[ebp], edx
 
-; 89   : 
-; 90   :   m_FuzzyModule.AddRule(Target_Close, Desirable);
+; 91   : 
+; 92   :   m_FuzzyModule.AddRule(Target_Contact, FzFairly(Desirable));
 
-	mov	edx, DWORD PTR _Desirable$[ebp]
+	mov	eax, DWORD PTR _Desirable$[ebp]
+	push	eax
+	lea	ecx, DWORD PTR $T4[ebp]
+	call	??0FzFairly@@QAE@AAVFzSet@@@Z		; FzFairly::FzFairly
+	mov	DWORD PTR tv221[ebp], eax
+	mov	ecx, DWORD PTR tv221[ebp]
+	mov	DWORD PTR tv466[ebp], ecx
+	mov	BYTE PTR __$EHRec$[ebp+8], 10		; 0000000aH
+	mov	edx, DWORD PTR tv466[ebp]
 	push	edx
-	mov	eax, DWORD PTR _Target_Close$[ebp]
+	mov	eax, DWORD PTR _Target_Contact$[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 16					; 00000010H
 	call	?AddRule@FuzzyModule@@QAEXAAVFuzzyTerm@@0@Z ; FuzzyModule::AddRule
+	mov	BYTE PTR __$EHRec$[ebp+8], 9
+	lea	ecx, DWORD PTR $T4[ebp]
+	call	??1FzFairly@@UAE@XZ
 
-; 91   :   m_FuzzyModule.AddRule(Target_Medium, FzVery(Undesirable));
+; 93   :   m_FuzzyModule.AddRule(Target_Close, VeryDesirable);
+
+	mov	ecx, DWORD PTR _VeryDesirable$[ebp]
+	push	ecx
+	mov	edx, DWORD PTR _Target_Close$[ebp]
+	push	edx
+	mov	ecx, DWORD PTR _this$[ebp]
+	add	ecx, 16					; 00000010H
+	call	?AddRule@FuzzyModule@@QAEXAAVFuzzyTerm@@0@Z ; FuzzyModule::AddRule
+
+; 94   :   m_FuzzyModule.AddRule(Target_Medium, FzFairly(Desirable));
+
+	mov	eax, DWORD PTR _Desirable$[ebp]
+	push	eax
+	lea	ecx, DWORD PTR $T3[ebp]
+	call	??0FzFairly@@QAE@AAVFzSet@@@Z		; FzFairly::FzFairly
+	mov	DWORD PTR tv72[ebp], eax
+	mov	ecx, DWORD PTR tv72[ebp]
+	mov	DWORD PTR tv468[ebp], ecx
+	mov	BYTE PTR __$EHRec$[ebp+8], 11		; 0000000bH
+	mov	edx, DWORD PTR tv468[ebp]
+	push	edx
+	mov	eax, DWORD PTR _Target_Medium$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR _this$[ebp]
+	add	ecx, 16					; 00000010H
+	call	?AddRule@FuzzyModule@@QAEXAAVFuzzyTerm@@0@Z ; FuzzyModule::AddRule
+	mov	BYTE PTR __$EHRec$[ebp+8], 9
+	lea	ecx, DWORD PTR $T3[ebp]
+	call	??1FzFairly@@UAE@XZ
+
+; 95   :   m_FuzzyModule.AddRule(Target_Far, Undesirable);
 
 	mov	ecx, DWORD PTR _Undesirable$[ebp]
-	push	ecx
-	lea	ecx, DWORD PTR $T3[ebp]
-	call	??0FzVery@@QAE@AAVFzSet@@@Z		; FzVery::FzVery
-	mov	DWORD PTR tv179[ebp], eax
-	mov	edx, DWORD PTR tv179[ebp]
-	mov	DWORD PTR tv343[ebp], edx
-	mov	BYTE PTR __$EHRec$[ebp+8], 8
-	mov	eax, DWORD PTR tv343[ebp]
-	push	eax
-	mov	ecx, DWORD PTR _Target_Medium$[ebp]
-	push	ecx
-	mov	ecx, DWORD PTR _this$[ebp]
-	add	ecx, 16					; 00000010H
-	call	?AddRule@FuzzyModule@@QAEXAAVFuzzyTerm@@0@Z ; FuzzyModule::AddRule
-	mov	BYTE PTR __$EHRec$[ebp+8], 7
-	lea	ecx, DWORD PTR $T3[ebp]
-	call	??1FzVery@@UAE@XZ
-
-; 92   :   m_FuzzyModule.AddRule(Target_Far, FzVery(Undesirable));
-
-	mov	edx, DWORD PTR _Undesirable$[ebp]
-	push	edx
-	lea	ecx, DWORD PTR $T2[ebp]
-	call	??0FzVery@@QAE@AAVFzSet@@@Z		; FzVery::FzVery
-	mov	DWORD PTR tv72[ebp], eax
-	mov	eax, DWORD PTR tv72[ebp]
-	mov	DWORD PTR tv345[ebp], eax
-	mov	BYTE PTR __$EHRec$[ebp+8], 9
-	mov	ecx, DWORD PTR tv345[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _Target_Far$[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 16					; 00000010H
 	call	?AddRule@FuzzyModule@@QAEXAAVFuzzyTerm@@0@Z ; FuzzyModule::AddRule
-	mov	BYTE PTR __$EHRec$[ebp+8], 7
+
+; 96   :   m_FuzzyModule.AddRule(Target_VeryFar, FzVery(Undesirable));
+
+	mov	eax, DWORD PTR _Undesirable$[ebp]
+	push	eax
+	lea	ecx, DWORD PTR $T2[ebp]
+	call	??0FzVery@@QAE@AAVFzSet@@@Z		; FzVery::FzVery
+	mov	DWORD PTR tv471[ebp], eax
+	mov	ecx, DWORD PTR tv471[ebp]
+	mov	DWORD PTR tv470[ebp], ecx
+	mov	BYTE PTR __$EHRec$[ebp+8], 12		; 0000000cH
+	mov	edx, DWORD PTR tv470[ebp]
+	push	edx
+	mov	eax, DWORD PTR _Target_VeryFar$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR _this$[ebp]
+	add	ecx, 16					; 00000010H
+	call	?AddRule@FuzzyModule@@QAEXAAVFuzzyTerm@@0@Z ; FuzzyModule::AddRule
+	mov	BYTE PTR __$EHRec$[ebp+8], 9
 	lea	ecx, DWORD PTR $T2[ebp]
 	call	??1FzVery@@UAE@XZ
 
-; 93   : }
+; 97   : }
 
-	mov	BYTE PTR __$EHRec$[ebp+8], 6
-	lea	ecx, DWORD PTR _$S6$[ebp]
+	mov	BYTE PTR __$EHRec$[ebp+8], 8
+	lea	ecx, DWORD PTR _$S8$[ebp]
+	call	??1FzSet@@UAE@XZ
+	mov	BYTE PTR __$EHRec$[ebp+8], 7
+	lea	ecx, DWORD PTR _$S7$[ebp]
 	call	??1FzSet@@UAE@XZ
 	mov	BYTE PTR __$EHRec$[ebp+8], 5
+	lea	ecx, DWORD PTR _$S6$[ebp]
+	call	??1FzSet@@UAE@XZ
+	mov	BYTE PTR __$EHRec$[ebp+8], 4
 	lea	ecx, DWORD PTR _$S5$[ebp]
 	call	??1FzSet@@UAE@XZ
 	mov	BYTE PTR __$EHRec$[ebp+8], 3
@@ -18378,7 +18568,7 @@ __$EHRec$ = -12						; size = 12
 	push	edx
 	mov	ecx, ebp
 	push	eax
-	lea	edx, DWORD PTR $LN27@Initialize
+	lea	edx, DWORD PTR $LN34@Initialize
 	call	@_RTC_CheckStackVars@8
 	pop	eax
 	pop	edx
@@ -18389,60 +18579,76 @@ __$EHRec$ = -12						; size = 12
 	mov	ecx, DWORD PTR __$ArrayPad$[ebp]
 	xor	ecx, ebp
 	call	@__security_check_cookie@4
-	add	esp, 308				; 00000134H
+	add	esp, 388				; 00000184H
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
 	mov	esp, ebp
 	pop	ebp
 	ret	0
-$LN27@Initialize:
-	DD	6
-	DD	$LN26@Initialize
-$LN26@Initialize:
+$LN34@Initialize:
+	DD	8
+	DD	$LN33@Initialize
+$LN33@Initialize:
 	DD	-68					; ffffffbcH
 	DD	8
-	DD	$LN19@Initialize
+	DD	$LN24@Initialize
 	DD	-88					; ffffffa8H
 	DD	8
-	DD	$LN20@Initialize
+	DD	$LN25@Initialize
 	DD	-108					; ffffff94H
 	DD	8
-	DD	$LN21@Initialize
-	DD	-160					; ffffff60H
+	DD	$LN26@Initialize
+	DD	-128					; ffffff80H
 	DD	8
-	DD	$LN22@Initialize
-	DD	-180					; ffffff4cH
+	DD	$LN27@Initialize
+	DD	-148					; ffffff6cH
 	DD	8
-	DD	$LN23@Initialize
+	DD	$LN28@Initialize
 	DD	-200					; ffffff38H
 	DD	8
-	DD	$LN24@Initialize
-$LN24@Initialize:
+	DD	$LN29@Initialize
+	DD	-220					; ffffff24H
+	DD	8
+	DD	$LN30@Initialize
+	DD	-240					; ffffff10H
+	DD	8
+	DD	$LN31@Initialize
+$LN31@Initialize:
+	DB	36					; 00000024H
+	DB	83					; 00000053H
+	DB	56					; 00000038H
+	DB	0
+$LN30@Initialize:
+	DB	36					; 00000024H
+	DB	83					; 00000053H
+	DB	55					; 00000037H
+	DB	0
+$LN29@Initialize:
 	DB	36					; 00000024H
 	DB	83					; 00000053H
 	DB	54					; 00000036H
 	DB	0
-$LN23@Initialize:
+$LN28@Initialize:
 	DB	36					; 00000024H
 	DB	83					; 00000053H
 	DB	53					; 00000035H
 	DB	0
-$LN22@Initialize:
+$LN27@Initialize:
 	DB	36					; 00000024H
 	DB	83					; 00000053H
 	DB	52					; 00000034H
 	DB	0
-$LN21@Initialize:
+$LN26@Initialize:
 	DB	36					; 00000024H
 	DB	83					; 00000053H
 	DB	51					; 00000033H
 	DB	0
-$LN20@Initialize:
+$LN25@Initialize:
 	DB	36					; 00000024H
 	DB	83					; 00000053H
 	DB	50					; 00000032H
 	DB	0
-$LN19@Initialize:
+$LN24@Initialize:
 	DB	36					; 00000024H
 	DB	83					; 00000053H
 	DB	49					; 00000031H
@@ -18450,7 +18656,7 @@ $LN19@Initialize:
 _TEXT	ENDS
 text$x	SEGMENT
 __unwindfunclet$?InitializeFuzzyModule@Blaster@@EAEXXZ$0:
-	lea	ecx, DWORD PTR $T11[ebp]
+	lea	ecx, DWORD PTR $T14[ebp]
 	jmp	??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::~basic_string<char,std::char_traits<char>,std::allocator<char> >
 __unwindfunclet$?InitializeFuzzyModule@Blaster@@EAEXXZ$2:
 	lea	ecx, DWORD PTR _$S1$[ebp]
@@ -18461,28 +18667,37 @@ __unwindfunclet$?InitializeFuzzyModule@Blaster@@EAEXXZ$4:
 __unwindfunclet$?InitializeFuzzyModule@Blaster@@EAEXXZ$6:
 	lea	ecx, DWORD PTR _$S3$[ebp]
 	jmp	??1FzSet@@UAE@XZ
-__unwindfunclet$?InitializeFuzzyModule@Blaster@@EAEXXZ$7:
-	lea	ecx, DWORD PTR $T10[ebp]
-	jmp	??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::~basic_string<char,std::char_traits<char>,std::allocator<char> >
-__unwindfunclet$?InitializeFuzzyModule@Blaster@@EAEXXZ$9:
+__unwindfunclet$?InitializeFuzzyModule@Blaster@@EAEXXZ$8:
 	lea	ecx, DWORD PTR _$S4$[ebp]
 	jmp	??1FzSet@@UAE@XZ
-__unwindfunclet$?InitializeFuzzyModule@Blaster@@EAEXXZ$11:
+__unwindfunclet$?InitializeFuzzyModule@Blaster@@EAEXXZ$10:
 	lea	ecx, DWORD PTR _$S5$[ebp]
 	jmp	??1FzSet@@UAE@XZ
+__unwindfunclet$?InitializeFuzzyModule@Blaster@@EAEXXZ$11:
+	lea	ecx, DWORD PTR $T13[ebp]
+	jmp	??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::~basic_string<char,std::char_traits<char>,std::allocator<char> >
 __unwindfunclet$?InitializeFuzzyModule@Blaster@@EAEXXZ$13:
 	lea	ecx, DWORD PTR _$S6$[ebp]
 	jmp	??1FzSet@@UAE@XZ
-__unwindfunclet$?InitializeFuzzyModule@Blaster@@EAEXXZ$14:
-	lea	ecx, DWORD PTR $T3[ebp]
-	jmp	??1FzVery@@UAE@XZ
 __unwindfunclet$?InitializeFuzzyModule@Blaster@@EAEXXZ$15:
+	lea	ecx, DWORD PTR _$S7$[ebp]
+	jmp	??1FzSet@@UAE@XZ
+__unwindfunclet$?InitializeFuzzyModule@Blaster@@EAEXXZ$17:
+	lea	ecx, DWORD PTR _$S8$[ebp]
+	jmp	??1FzSet@@UAE@XZ
+__unwindfunclet$?InitializeFuzzyModule@Blaster@@EAEXXZ$18:
+	lea	ecx, DWORD PTR $T4[ebp]
+	jmp	??1FzFairly@@UAE@XZ
+__unwindfunclet$?InitializeFuzzyModule@Blaster@@EAEXXZ$19:
+	lea	ecx, DWORD PTR $T3[ebp]
+	jmp	??1FzFairly@@UAE@XZ
+__unwindfunclet$?InitializeFuzzyModule@Blaster@@EAEXXZ$20:
 	lea	ecx, DWORD PTR $T2[ebp]
 	jmp	??1FzVery@@UAE@XZ
 __ehhandler$?InitializeFuzzyModule@Blaster@@EAEXXZ:
 	mov	edx, DWORD PTR [esp+8]
 	lea	eax, DWORD PTR [edx+12]
-	mov	ecx, DWORD PTR [edx-304]
+	mov	ecx, DWORD PTR [edx-384]
 	xor	ecx, eax
 	call	@__security_check_cookie@4
 	mov	ecx, DWORD PTR [edx-4]
@@ -27183,6 +27398,298 @@ _this$ = -4						; size = 4
 	pop	ebp
 	ret	0
 ??0?$allocator@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVFuzzyVariable@@@std@@@std@@QAE@XZ ENDP ; std::allocator<std::pair<std::basic_string<char,std::char_traits<char>,std::allocator<char> > const ,FuzzyVariable *> >::allocator<std::pair<std::basic_string<char,std::char_traits<char>,std::allocator<char> > const ,FuzzyVariable *> >
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+;	COMDAT ??_GFzFairly@@UAEPAXI@Z
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+___flags$ = 8						; size = 4
+??_GFzFairly@@UAEPAXI@Z PROC				; FzFairly::`scalar deleting destructor', COMDAT
+; _this$ = ecx
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	??1FzFairly@@UAE@XZ
+	mov	eax, DWORD PTR ___flags$[ebp]
+	and	eax, 1
+	je	SHORT $LN1@scalar
+	mov	ecx, DWORD PTR _this$[ebp]
+	push	ecx
+	call	??3@YAXPAX@Z				; operator delete
+	add	esp, 4
+$LN1@scalar:
+	mov	eax, DWORD PTR _this$[ebp]
+	add	esp, 4
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+??_GFzFairly@@UAEPAXI@Z ENDP				; FzFairly::`scalar deleting destructor'
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+;	COMDAT ??1FzFairly@@UAE@XZ
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+??1FzFairly@@UAE@XZ PROC				; FzFairly::~FzFairly, COMDAT
+; _this$ = ecx
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	??1FuzzyTerm@@UAE@XZ			; FuzzyTerm::~FuzzyTerm
+	add	esp, 4
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+??1FzFairly@@UAE@XZ ENDP				; FzFairly::~FzFairly
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File c:\users\romain s\documents\workspace\workspace_ia\tp3ia\common\fuzzy\fuzzyhedges.h
+;	COMDAT ?ORwithDOM@FzFairly@@UAEXN@Z
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+_val$ = 8						; size = 8
+?ORwithDOM@FzFairly@@UAEXN@Z PROC			; FzFairly::ORwithDOM, COMDAT
+; _this$ = ecx
+
+; 64   :   void ORwithDOM(double val){m_Set.ORwithDOM(sqrt(val));}
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+	sub	esp, 8
+	movsd	xmm0, QWORD PTR _val$[ebp]
+	movsd	QWORD PTR [esp], xmm0
+	call	_sqrt
+	fstp	QWORD PTR [esp]
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR [eax+4]
+	call	?ORwithDOM@FuzzySet@@QAEXN@Z		; FuzzySet::ORwithDOM
+	add	esp, 4
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	8
+?ORwithDOM@FzFairly@@UAEXN@Z ENDP			; FzFairly::ORwithDOM
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File c:\users\romain s\documents\workspace\workspace_ia\tp3ia\common\fuzzy\fuzzyhedges.h
+;	COMDAT ?ClearDOM@FzFairly@@UAEXXZ
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+?ClearDOM@FzFairly@@UAEXXZ PROC				; FzFairly::ClearDOM, COMDAT
+; _this$ = ecx
+
+; 63   :   void ClearDOM(){m_Set.ClearDOM();}
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR [eax+4]
+	call	?ClearDOM@FuzzySet@@QAEXXZ		; FuzzySet::ClearDOM
+	add	esp, 4
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?ClearDOM@FzFairly@@UAEXXZ ENDP				; FzFairly::ClearDOM
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File c:\users\romain s\documents\workspace\workspace_ia\tp3ia\common\fuzzy\fuzzyhedges.h
+;	COMDAT ?Clone@FzFairly@@UBEPAVFuzzyTerm@@XZ
+_TEXT	SEGMENT
+tv75 = -28						; size = 4
+$T2 = -24						; size = 4
+$T3 = -20						; size = 4
+_this$ = -16						; size = 4
+__$EHRec$ = -12						; size = 12
+?Clone@FzFairly@@UBEPAVFuzzyTerm@@XZ PROC		; FzFairly::Clone, COMDAT
+; _this$ = ecx
+
+; 61   :   FuzzyTerm* Clone()const{return new FzFairly(*this);}
+
+	push	ebp
+	mov	ebp, esp
+	push	-1
+	push	__ehhandler$?Clone@FzFairly@@UBEPAVFuzzyTerm@@XZ
+	mov	eax, DWORD PTR fs:0
+	push	eax
+	sub	esp, 16					; 00000010H
+	mov	eax, -858993460				; ccccccccH
+	mov	DWORD PTR [ebp-28], eax
+	mov	DWORD PTR [ebp-24], eax
+	mov	DWORD PTR [ebp-20], eax
+	mov	DWORD PTR [ebp-16], eax
+	mov	eax, DWORD PTR ___security_cookie
+	xor	eax, ebp
+	push	eax
+	lea	eax, DWORD PTR __$EHRec$[ebp]
+	mov	DWORD PTR fs:0, eax
+	mov	DWORD PTR _this$[ebp], ecx
+	push	8
+	call	??2@YAPAXI@Z				; operator new
+	add	esp, 4
+	mov	DWORD PTR $T2[ebp], eax
+	mov	DWORD PTR __$EHRec$[ebp+8], 0
+	cmp	DWORD PTR $T2[ebp], 0
+	je	SHORT $LN3@Clone
+	mov	eax, DWORD PTR _this$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR $T2[ebp]
+	call	??0FzFairly@@AAE@ABV0@@Z		; FzFairly::FzFairly
+	mov	DWORD PTR tv75[ebp], eax
+	jmp	SHORT $LN4@Clone
+$LN3@Clone:
+	mov	DWORD PTR tv75[ebp], 0
+$LN4@Clone:
+	mov	ecx, DWORD PTR tv75[ebp]
+	mov	DWORD PTR $T3[ebp], ecx
+	mov	DWORD PTR __$EHRec$[ebp+8], -1
+	mov	eax, DWORD PTR $T3[ebp]
+	mov	ecx, DWORD PTR __$EHRec$[ebp]
+	mov	DWORD PTR fs:0, ecx
+	pop	ecx
+	add	esp, 28					; 0000001cH
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+_TEXT	ENDS
+;	COMDAT text$x
+text$x	SEGMENT
+__unwindfunclet$?Clone@FzFairly@@UBEPAVFuzzyTerm@@XZ$0:
+	mov	eax, DWORD PTR $T2[ebp]
+	push	eax
+	call	??3@YAXPAX@Z				; operator delete
+	pop	ecx
+	ret	0
+__ehhandler$?Clone@FzFairly@@UBEPAVFuzzyTerm@@XZ:
+	mov	edx, DWORD PTR [esp+8]
+	lea	eax, DWORD PTR [edx+12]
+	mov	ecx, DWORD PTR [edx-20]
+	xor	ecx, eax
+	call	@__security_check_cookie@4
+	mov	eax, OFFSET __ehfuncinfo$?Clone@FzFairly@@UBEPAVFuzzyTerm@@XZ
+	jmp	___CxxFrameHandler3
+text$x	ENDS
+?Clone@FzFairly@@UBEPAVFuzzyTerm@@XZ ENDP		; FzFairly::Clone
+; Function compile flags: /Odtp /RTCsu
+; File c:\users\romain s\documents\workspace\workspace_ia\tp3ia\common\fuzzy\fuzzyhedges.h
+;	COMDAT ?GetDOM@FzFairly@@UBENXZ
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+?GetDOM@FzFairly@@UBENXZ PROC				; FzFairly::GetDOM, COMDAT
+; _this$ = ecx
+
+; 57   :   {
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 58   :     return sqrt(m_Set.GetDOM());
+
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR [eax+4]
+	call	?GetDOM@FuzzySet@@QBENXZ		; FuzzySet::GetDOM
+	sub	esp, 8
+	fstp	QWORD PTR [esp]
+	call	_sqrt
+	add	esp, 8
+
+; 59   :   }
+
+	add	esp, 4
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?GetDOM@FzFairly@@UBENXZ ENDP				; FzFairly::GetDOM
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File c:\users\romain s\documents\workspace\workspace_ia\tp3ia\common\fuzzy\fuzzyhedges.h
+;	COMDAT ??0FzFairly@@QAE@AAVFzSet@@@Z
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+_ft$ = 8						; size = 4
+??0FzFairly@@QAE@AAVFzSet@@@Z PROC			; FzFairly::FzFairly, COMDAT
+; _this$ = ecx
+
+; 54   :   FzFairly(FzSet& ft):m_Set(ft.m_Set){}
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	??0FuzzyTerm@@QAE@XZ
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	DWORD PTR [eax], OFFSET ??_7FzFairly@@6B@
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR _ft$[ebp]
+	mov	eax, DWORD PTR [edx+4]
+	mov	DWORD PTR [ecx+4], eax
+	mov	eax, DWORD PTR _this$[ebp]
+	add	esp, 4
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+??0FzFairly@@QAE@AAVFzSet@@@Z ENDP			; FzFairly::FzFairly
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File c:\users\romain s\documents\workspace\workspace_ia\tp3ia\common\fuzzy\fuzzyhedges.h
+;	COMDAT ??0FzFairly@@AAE@ABV0@@Z
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+_inst$ = 8						; size = 4
+??0FzFairly@@AAE@ABV0@@Z PROC				; FzFairly::FzFairly, COMDAT
+; _this$ = ecx
+
+; 49   :   FzFairly(const FzFairly& inst):m_Set(inst.m_Set){}
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	??0FuzzyTerm@@QAE@XZ
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	DWORD PTR [eax], OFFSET ??_7FzFairly@@6B@
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR _inst$[ebp]
+	mov	eax, DWORD PTR [edx+4]
+	mov	DWORD PTR [ecx+4], eax
+	mov	eax, DWORD PTR _this$[ebp]
+	add	esp, 4
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+??0FzFairly@@AAE@ABV0@@Z ENDP				; FzFairly::FzFairly
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ;	COMDAT ??_GFzVery@@UAEPAXI@Z

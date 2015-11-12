@@ -78,18 +78,22 @@ void Blaster::InitializeFuzzyModule()
 {
   FuzzyVariable& DistToTarget = m_FuzzyModule.CreateFLV("DistToTarget");
 
-  FzSet& Target_Close = DistToTarget.AddLeftShoulderSet("Target_Close",0,25,150);
-  FzSet& Target_Medium = DistToTarget.AddTriangularSet("Target_Medium",25,150,300);
-  FzSet& Target_Far = DistToTarget.AddRightShoulderSet("Target_Far",150,300,1000);
+  FzSet& Target_Contact = DistToTarget.AddLeftShoulderSet("Target_Contact",0,25,50);
+  FzSet& Target_Close = DistToTarget.AddTriangularSet("Target_Close",25,50,150);
+  FzSet& Target_Medium = DistToTarget.AddTriangularSet("Target_Medium",50,150,300);
+  FzSet& Target_Far = DistToTarget.AddTriangularSet("Target_Far",150,300,500);
+  FzSet& Target_VeryFar = DistToTarget.AddRightShoulderSet("Target_VeryFar",300,500,1000);
 
   FuzzyVariable& Desirability = m_FuzzyModule.CreateFLV("Desirability"); 
   FzSet& VeryDesirable = Desirability.AddRightShoulderSet("VeryDesirable", 50, 75, 100);
   FzSet& Desirable = Desirability.AddTriangularSet("Desirable", 25, 50, 75);
   FzSet& Undesirable = Desirability.AddLeftShoulderSet("Undesirable", 0, 25, 50);
 
-  m_FuzzyModule.AddRule(Target_Close, Desirable);
-  m_FuzzyModule.AddRule(Target_Medium, FzVery(Undesirable));
-  m_FuzzyModule.AddRule(Target_Far, FzVery(Undesirable));
+  m_FuzzyModule.AddRule(Target_Contact, FzFairly(Desirable));
+  m_FuzzyModule.AddRule(Target_Close, VeryDesirable);
+  m_FuzzyModule.AddRule(Target_Medium, FzFairly(Desirable));
+  m_FuzzyModule.AddRule(Target_Far, Undesirable);
+  m_FuzzyModule.AddRule(Target_VeryFar, FzVery(Undesirable));
 }
 
 

@@ -1,76 +1,9 @@
-﻿La génération a démarré 05/11/2015 10:05:31.
+﻿La génération a démarré 12/11/2015 11:24:47.
      1>Projet "C:\Users\Romain S\Documents\Workspace\workspace_ia\tp3ia\Buckland_Chapter7 to 10_Raven\Raven.vcxproj" sur le nœud 2 (Build cible(s)).
      1>ClCompile:
-         C:\Program Files\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I../Common /I"../Common/lua-5.1.3" /I"../Common/lua-5.1.3/include" /Zi /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _VC80_UPGRADE=0x0600 /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /GR /FAs /Fa".\Debug\\" /Fo".\Debug\\" /Fd".\Debug\vc110.pdb" /FR".\Debug\\" /Gd /TP /analyze- /errorReport:prompt  /Zm200   /Zm200 armory\Raven_Weapon.cpp armory\Weapon_Blaster.cpp armory\Weapon_RailGun.cpp armory\Weapon_RocketLauncher.cpp armory\Weapon_ShotGun.cpp armory\Projectile_Bolt.cpp armory\Projectile_Pellet.cpp armory\Projectile_Rocket.cpp armory\Projectile_Slug.cpp armory\Raven_Projectile.cpp ..\Common\Game\BaseGameEntity.cpp lua\Raven_Scriptor.cpp ..\Common\Game\EntityManager.cpp GraveMarkers.cpp Raven_Door.cpp Raven_UserOptions.cpp main.cpp Raven_Bot.cpp Raven_Game.cpp Raven_Map.cpp goals\Goal_AdjustRange.cpp goals\Goal_AttackTarget.cpp goals\Goal_Explore.cpp goals\Goal_FollowPath.cpp goals\Goal_GetItem.cpp goals\Goal_HuntTarget.cpp goals\Goal_MoveToPosition.cpp goals\Goal_NegotiateDoor.cpp goals\Goal_Think.cpp goals\AttackTargetGoal_Evaluator.cpp goals\ExploreGoal_Evaluator.cpp goals\GetHealthGoal_Evaluator.cpp goals\GetWeaponGoal_Evaluator.cpp goals\Raven_Feature.cpp goals\Goal_DodgeSideToSide.cpp goals\Goal_SayPhrase.cpp goals\Goal_SeekToPosition.cpp goals\Goal_TraverseEdge.cpp goals\Goal_Wander.cpp goals\Raven_Goal_Types.cpp ..\Common\fuzzy\FuzzySet_LeftShoulder.cpp ..\Common\fuzzy\FuzzySet_RightShoulder.cpp ..\Common\fuzzy\FuzzySet_Singleton.cpp ..\Common\fuzzy\FuzzySet_Triangle.cpp ..\Common\fuzzy\FuzzyModule.cpp ..\Common\fuzzy\FuzzyOperators.cpp ..\Common\fuzzy\FuzzyVariable.cpp navigation\Raven_PathPlanner.cpp Raven_SteeringBehaviors.cpp ..\Common\Messaging\MessageDispatcher.cpp Raven_SensoryMemory.cpp triggers\Trigger_HealthGiver.cpp triggers\Trigger_SoundNotify.cpp triggers\Trigger_WeaponGiver.cpp Raven_WeaponSystem.cpp Raven_TargetingSystem.cpp ..\Common\misc\Cgdi.cpp ..\Common\Time\CrudeTimer.cpp ..\Common\Debug\DebugConsole.cpp ..\Common\misc\FrameCounter.cpp ..\Common\Time\PrecisionTimer.cpp ..\Common\2D\Vector2d.cpp ..\Common\misc\WindowUtils.cpp
-         WindowUtils.cpp
-         Vector2d.cpp
-         PrecisionTimer.cpp
-         FrameCounter.cpp
-         DebugConsole.cpp
-         CrudeTimer.cpp
-         Cgdi.cpp
-         Raven_TargetingSystem.cpp
-         Raven_WeaponSystem.cpp
-         Trigger_WeaponGiver.cpp
-         Trigger_SoundNotify.cpp
-         Trigger_HealthGiver.cpp
-         Raven_SensoryMemory.cpp
-         MessageDispatcher.cpp
-         Raven_SteeringBehaviors.cpp
-         Raven_PathPlanner.cpp
-         FuzzyVariable.cpp
-         FuzzyOperators.cpp
-         FuzzyModule.cpp
-         FuzzySet_Triangle.cpp
-         Génération de code en cours...
-         Compilation en cours...
-         FuzzySet_Singleton.cpp
-         FuzzySet_RightShoulder.cpp
-         FuzzySet_LeftShoulder.cpp
-         Raven_Goal_Types.cpp
-         Goal_Wander.cpp
-         Goal_TraverseEdge.cpp
-         Goal_SeekToPosition.cpp
-         Goal_SayPhrase.cpp
-         Goal_DodgeSideToSide.cpp
-         Raven_Feature.cpp
-         GetWeaponGoal_Evaluator.cpp
-         GetHealthGoal_Evaluator.cpp
-         ExploreGoal_Evaluator.cpp
-         AttackTargetGoal_Evaluator.cpp
-         Goal_Think.cpp
-         Goal_NegotiateDoor.cpp
-         Goal_MoveToPosition.cpp
-         Goal_HuntTarget.cpp
-         Goal_GetItem.cpp
-         Goal_FollowPath.cpp
-         Génération de code en cours...
-         Compilation en cours...
-         Goal_Explore.cpp
-         Goal_AttackTarget.cpp
-         Goal_AdjustRange.cpp
-         Raven_Map.cpp
-         Raven_Game.cpp
-         Raven_Bot.cpp
-         main.cpp
-         Raven_UserOptions.cpp
-         Raven_Door.cpp
-         GraveMarkers.cpp
-         EntityManager.cpp
-         Raven_Scriptor.cpp
-         BaseGameEntity.cpp
-         Raven_Projectile.cpp
-         Projectile_Slug.cpp
-         Projectile_Rocket.cpp
-         Projectile_Pellet.cpp
-         Projectile_Bolt.cpp
-         Weapon_ShotGun.cpp
-         Weapon_RocketLauncher.cpp
-         Génération de code en cours...
-         Compilation en cours...
+         C:\Program Files\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I../Common /I"../Common/lua-5.1.3" /I"../Common/lua-5.1.3/include" /Zi /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _VC80_UPGRADE=0x0600 /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /GR /FAs /Fa".\Debug\\" /Fo".\Debug\\" /Fd".\Debug\vc110.pdb" /FR".\Debug\\" /Gd /TP /analyze- /errorReport:prompt  /Zm200   /Zm200 armory\Weapon_Blaster.cpp armory\Weapon_RailGun.cpp
          Weapon_RailGun.cpp
          Weapon_Blaster.cpp
-         Raven_Weapon.cpp
          Génération de code en cours...
        Link:
          C:\Program Files\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:".\Debug\Raven.exe" /INCREMENTAL /NOLOGO odbc32.lib odbccp32.lib lua5.1.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:libcmt /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:".\Debug\Raven.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\Debug\Raven.lib" /MACHINE:X86 /SAFESEH .\Debug\Script1.res
@@ -144,4 +77,4 @@
 
 La génération a réussi.
 
-Temps écoulé 00:01:34.26
+Temps écoulé 00:00:25.02
