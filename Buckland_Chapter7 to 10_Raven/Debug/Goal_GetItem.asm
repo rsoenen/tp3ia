@@ -562,6 +562,28 @@ CONST	ENDS
 CONST	SEGMENT
 ?ate@?$_Iosb@H@std@@2W4_Openmode@12@B DD 04H		; std::_Iosb<int>::ate
 CONST	ENDS
+CONST	SEGMENT
+_colors	DD	0ffH
+	DD	0ff0000H
+	DD	0ff00H
+	DD	00H
+	DD	0c8c8ffH
+	DD	0c8c8c8H
+	DD	0ffffH
+	DD	0aaffH
+	DD	0aa00ffH
+	DD	05a85H
+	DD	0ffffffH
+	DD	06400H
+	DD	0ffff00H
+	DD	0c8c8c8H
+	DD	0e6e6ffH
+$SG173228 DB	'Goal_GetItem cannot determine item type', 00H
+	ORG $+4
+_pi	DQ	0400921f9f01b866er		; 3.14159
+_SmallestDelay DQ 03fd0000000000000r		; 0.25
+_Pi	DQ	0400921f9f01b866er		; 3.14159
+CONST	ENDS
 ;	COMDAT ?is_modulo@?$numeric_limits@_N@std@@2_NB
 CONST	SEGMENT
 ?is_modulo@?$numeric_limits@_N@std@@2_NB DB 00H		; std::numeric_limits<bool>::is_modulo
@@ -649,28 +671,6 @@ CONST	ENDS
 ;	COMDAT ?collate@?$_Locbase@H@std@@2HB
 CONST	SEGMENT
 ?collate@?$_Locbase@H@std@@2HB DD 01H			; std::_Locbase<int>::collate
-CONST	ENDS
-CONST	SEGMENT
-$SG167025 DB	'Goal_GetItem cannot determine item type', 00H
-_colors	DD	0ffH
-	DD	0ff0000H
-	DD	0ff00H
-	DD	00H
-	DD	0c8c8ffH
-	DD	0c8c8c8H
-	DD	0ffffH
-	DD	0aaffH
-	DD	0aa00ffH
-	DD	05a85H
-	DD	0ffffffH
-	DD	06400H
-	DD	0ffff00H
-	DD	0c8c8c8H
-	DD	0e6e6ffH
-	ORG $+4
-_pi	DQ	0400921f9f01b866er		; 3.14159
-_SmallestDelay DQ 03fd0000000000000r		; 0.25
-_Pi	DQ	0400921f9f01b866er		; 3.14159
 CONST	ENDS
 ;	COMDAT ?boolalpha@?$_Iosb@H@std@@2W4_Fmtflags@12@B
 CONST	SEGMENT
@@ -1041,11 +1041,11 @@ PUBLIC	??_C@_15GANGMFKL@?$AA?$CF?$AAs?$AA?$AA@		; `string'
 PUBLIC	??_C@_1BO@MEPPHOO@?$AA?$CC?$AAo?$AAu?$AAt?$AA?5?$AAo?$AAf?$AA?5?$AAr?$AAa?$AAn?$AAg?$AAe?$AA?$CC?$AA?$AA@ ; `string'
 PUBLIC	??_C@_0CB@OHIHCHGJ@Cannot?5add?5goals?5to?5atomic?5goals@ ; `string'
 PUBLIC	?id@?$codecvt@DDH@std@@2V0locale@2@A		; std::codecvt<char,char,int>::id
-PUBLIC	??_C@_0BA@JFNIOLAK@string?5too?5long?$AA@	; `string'
-PUBLIC	??_C@_0BI@CFPLBAOH@invalid?5string?5position?$AA@ ; `string'
 PUBLIC	??_C@_0CI@FNPHFCCM@Standard?5C?$CL?$CL?5Libraries?5Invalid?5A@ ; `string'
 PUBLIC	??_C@_1FO@GJIHNDLM@?$AA?$CC?$AAS?$AAt?$AAa?$AAn?$AAd?$AAa?$AAr?$AAd?$AA?5?$AAC?$AA?$CL?$AA?$CL?$AA?5?$AAL?$AAi?$AAb?$AAr?$AAa?$AAr?$AAi?$AAe?$AAs?$AA?5?$AAI?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5@ ; `string'
 PUBLIC	??_C@_1CG@JNLFBNGN@?$AA?$CC?$AAi?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5?$AAa?$AAr?$AAg?$AAu?$AAm?$AAe?$AAn?$AAt?$AA?$CC?$AA?$AA@ ; `string'
+PUBLIC	??_C@_0BA@JFNIOLAK@string?5too?5long?$AA@	; `string'
+PUBLIC	??_C@_0BI@CFPLBAOH@invalid?5string?5position?$AA@ ; `string'
 PUBLIC	??_C@_1CK@EOPGIILJ@?$AAi?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5?$AAn?$AAu?$AAl?$AAl?$AA?5?$AAp?$AAo?$AAi?$AAn?$AAt?$AAe?$AAr?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1HM@OMDAGKFF@?$AAC?$AA?3?$AA?2?$AAP?$AAr?$AAo?$AAg?$AAr?$AAa?$AAm?$AA?5?$AAF?$AAi?$AAl?$AAe?$AAs?$AA?2?$AAM?$AAi?$AAc?$AAr?$AAo?$AAs?$AAo?$AAf?$AAt?$AA?5?$AAV?$AAi?$AAs?$AAu?$AAa@ ; `string'
 PUBLIC	??_C@_1EE@BBMFLDOC@?$AAl?$AAi?$AAs?$AAt?$AA?5?$AAe?$AAr?$AAa?$AAs?$AAe?$AA?5?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?5?$AAo?$AAu?$AAt?$AAs?$AAi?$AAd?$AAe?$AA?5?$AAr?$AAa?$AAn?$AAg@ ; `string'
@@ -1645,6 +1645,15 @@ CONST	SEGMENT
 	DB	00H, 'o', 00H, 'i', 00H, 'n', 00H, 't', 00H, 'e', 00H, 'r', 00H
 	DB	00H, 00H					; `string'
 CONST	ENDS
+;	COMDAT ??_C@_0BI@CFPLBAOH@invalid?5string?5position?$AA@
+CONST	SEGMENT
+??_C@_0BI@CFPLBAOH@invalid?5string?5position?$AA@ DB 'invalid string posi'
+	DB	'tion', 00H					; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BA@JFNIOLAK@string?5too?5long?$AA@
+CONST	SEGMENT
+??_C@_0BA@JFNIOLAK@string?5too?5long?$AA@ DB 'string too long', 00H ; `string'
+CONST	ENDS
 ;	COMDAT ??_C@_1CG@JNLFBNGN@?$AA?$CC?$AAi?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5?$AAa?$AAr?$AAg?$AAu?$AAm?$AAe?$AAn?$AAt?$AA?$CC?$AA?$AA@
 CONST	SEGMENT
 ??_C@_1CG@JNLFBNGN@?$AA?$CC?$AAi?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5?$AAa?$AAr?$AAg?$AAu?$AAm?$AAe?$AAn?$AAt?$AA?$CC?$AA?$AA@ DB '"'
@@ -1668,15 +1677,6 @@ CONST	ENDS
 CONST	SEGMENT
 ??_C@_0CI@FNPHFCCM@Standard?5C?$CL?$CL?5Libraries?5Invalid?5A@ DB 'Standa'
 	DB	'rd C++ Libraries Invalid Argument', 00H	; `string'
-CONST	ENDS
-;	COMDAT ??_C@_0BI@CFPLBAOH@invalid?5string?5position?$AA@
-CONST	SEGMENT
-??_C@_0BI@CFPLBAOH@invalid?5string?5position?$AA@ DB 'invalid string posi'
-	DB	'tion', 00H					; `string'
-CONST	ENDS
-;	COMDAT ??_C@_0BA@JFNIOLAK@string?5too?5long?$AA@
-CONST	SEGMENT
-??_C@_0BA@JFNIOLAK@string?5too?5long?$AA@ DB 'string too long', 00H ; `string'
 CONST	ENDS
 ;	COMDAT ??_C@_0CB@OHIHCHGJ@Cannot?5add?5goals?5to?5atomic?5goals@
 CONST	SEGMENT
@@ -7043,7 +7043,7 @@ $LN1@ItemTypeTo:
 ; 32   : 
 ; 33   :   default: throw std::runtime_error("Goal_GetItem cannot determine item type");
 
-	push	OFFSET $SG167025
+	push	OFFSET $SG173228
 	lea	ecx, DWORD PTR $T1[ebp]
 	call	??0runtime_error@std@@QAE@PBD@Z		; std::runtime_error::runtime_error
 	push	OFFSET __TI2?AVruntime_error@std@@
@@ -7079,7 +7079,7 @@ _this$ = -4						; size = 4
 ?GetPathPlanner@Raven_Bot@@QAEQAVRaven_PathPlanner@@XZ PROC ; Raven_Bot::GetPathPlanner, COMDAT
 ; _this$ = ecx
 
-; 205  :   Raven_PathPlanner* const           GetPathPlanner(){return m_pPathPlanner;}
+; 209  :   Raven_PathPlanner* const           GetPathPlanner(){return m_pPathPlanner;}
 
 	push	ebp
 	mov	ebp, esp
@@ -7087,7 +7087,7 @@ _this$ = -4						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR [eax+164]
+	mov	eax, DWORD PTR [eax+192]
 	mov	esp, ebp
 	pop	ebp
 	ret	0

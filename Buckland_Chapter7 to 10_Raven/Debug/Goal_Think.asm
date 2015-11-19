@@ -718,15 +718,15 @@ _colors	DD	0ffH
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG152864 DB	'g', 00H, 'o', 00H, 'a', 00H, 'l', 00H, 's', 00H, '\', 00H
+$SG159067 DB	'g', 00H, 'o', 00H, 'a', 00H, 'l', 00H, 's', 00H, '\', 00H
 	DB	'G', 00H, 'o', 00H, 'a', 00H, 'l', 00H, '_', 00H, 'T', 00H, 'h'
 	DB	00H, 'i', 00H, 'n', 00H, 'k', 00H, '.', 00H, 'c', 00H, 'p', 00H
 	DB	'p', 00H, 00H, 00H
 	ORG $+2
 _pi	DQ	0400921f9f01b866er		; 3.14159
-$SG152863 DB	'<Goal_Think::Arbitrate>: no evaluator selected', 00H
+$SG159066 DB	'<Goal_Think::Arbitrate>: no evaluator selected', 00H
 	ORG $+1
-$SG152865 DB	'M', 00H, 'o', 00H, 's', 00H, 't', 00H, 'D', 00H, 'e', 00H
+$SG159068 DB	'M', 00H, 'o', 00H, 's', 00H, 't', 00H, 'D', 00H, 'e', 00H
 	DB	's', 00H, 'i', 00H, 'r', 00H, 'a', 00H, 'b', 00H, 'l', 00H, 'e'
 	DB	00H, ' ', 00H, '&', 00H, '&', 00H, ' ', 00H, '"', 00H, '<', 00H
 	DB	'G', 00H, 'o', 00H, 'a', 00H, 'l', 00H, '_', 00H, 'T', 00H, 'h'
@@ -1149,12 +1149,12 @@ PUBLIC	?deallocate@?$allocator@U_Container_proxy@std@@@std@@QAEXPAU_Container_pr
 PUBLIC	?allocate@?$allocator@U_Container_proxy@std@@@std@@QAEPAU_Container_proxy@2@I@Z ; std::allocator<std::_Container_proxy>::allocate
 PUBLIC	??$construct@U_Container_proxy@std@@U12@@?$allocator@U_Container_proxy@std@@@std@@QAEXPAU_Container_proxy@1@$$QAU21@@Z ; std::allocator<std::_Container_proxy>::construct<std::_Container_proxy,std::_Container_proxy>
 PUBLIC	??$destroy@U_Container_proxy@std@@@?$allocator@U_Container_proxy@std@@@std@@QAEXPAU_Container_proxy@1@@Z ; std::allocator<std::_Container_proxy>::destroy<std::_Container_proxy>
-PUBLIC	??$_Destroy_range@U?$_Wrap_alloc@V?$allocator@PAVGoal_Evaluator@@@std@@@std@@@std@@YAXPAPAVGoal_Evaluator@@0AAU?$_Wrap_alloc@V?$allocator@PAVGoal_Evaluator@@@std@@@0@@Z ; std::_Destroy_range<std::_Wrap_alloc<std::allocator<Goal_Evaluator *> > >
-PUBLIC	??$_Umove@PAPAVGoal_Evaluator@@@?$vector@PAVGoal_Evaluator@@V?$allocator@PAVGoal_Evaluator@@@std@@@std@@IAEPAPAVGoal_Evaluator@@PAPAV2@00@Z ; std::vector<Goal_Evaluator *,std::allocator<Goal_Evaluator *> >::_Umove<Goal_Evaluator * *>
 PUBLIC	??0?$_Wrap_alloc@V?$allocator@U_Container_proxy@std@@@std@@@std@@QAE@XZ ; std::_Wrap_alloc<std::allocator<std::_Container_proxy> >::_Wrap_alloc<std::allocator<std::_Container_proxy> >
 PUBLIC	?allocate@?$_Wrap_alloc@V?$allocator@U_Container_proxy@std@@@std@@@std@@QAEPAU_Container_proxy@2@I@Z ; std::_Wrap_alloc<std::allocator<std::_Container_proxy> >::allocate
 PUBLIC	?deallocate@?$_Wrap_alloc@V?$allocator@U_Container_proxy@std@@@std@@@std@@QAEXPAU_Container_proxy@2@I@Z ; std::_Wrap_alloc<std::allocator<std::_Container_proxy> >::deallocate
 PUBLIC	??$destroy@U_Container_proxy@std@@@?$_Wrap_alloc@V?$allocator@U_Container_proxy@std@@@std@@@std@@QAEXPAU_Container_proxy@1@@Z ; std::_Wrap_alloc<std::allocator<std::_Container_proxy> >::destroy<std::_Container_proxy>
+PUBLIC	??$_Destroy_range@U?$_Wrap_alloc@V?$allocator@PAVGoal_Evaluator@@@std@@@std@@@std@@YAXPAPAVGoal_Evaluator@@0AAU?$_Wrap_alloc@V?$allocator@PAVGoal_Evaluator@@@std@@@0@@Z ; std::_Destroy_range<std::_Wrap_alloc<std::allocator<Goal_Evaluator *> > >
+PUBLIC	??$_Umove@PAPAVGoal_Evaluator@@@?$vector@PAVGoal_Evaluator@@V?$allocator@PAVGoal_Evaluator@@@std@@@std@@IAEPAPAVGoal_Evaluator@@PAPAV2@00@Z ; std::vector<Goal_Evaluator *,std::allocator<Goal_Evaluator *> >::_Umove<Goal_Evaluator * *>
 PUBLIC	??$addressof@PAU?$_List_node@PAV?$Goal@VRaven_Bot@@@@PAX@std@@@std@@YAPAPAU?$_List_node@PAV?$Goal@VRaven_Bot@@@@PAX@0@AAPAU10@@Z ; std::addressof<std::_List_node<Goal<Raven_Bot> *,void *> *>
 PUBLIC	??$destroy@PAU?$_List_node@PAV?$Goal@VRaven_Bot@@@@PAX@std@@@?$_Wrap_alloc@V?$allocator@U?$_List_node@PAV?$Goal@VRaven_Bot@@@@PAX@std@@@std@@@std@@QAEXPAPAU?$_List_node@PAV?$Goal@VRaven_Bot@@@@PAX@1@@Z ; std::_Wrap_alloc<std::allocator<std::_List_node<Goal<Raven_Bot> *,void *> > >::destroy<std::_List_node<Goal<Raven_Bot> *,void *> *>
 PUBLIC	??$_Allocate@U_Container_proxy@std@@@std@@YAPAU_Container_proxy@0@IPAU10@@Z ; std::_Allocate<std::_Container_proxy>
@@ -1186,10 +1186,10 @@ PUBLIC	??$forward@AAPAD@std@@YAAAPADAAPAD@Z		; std::forward<char * &>
 PUBLIC	??$construct@PADAAPAD@?$allocator_traits@V?$allocator@D@std@@@std@@SAXAAV?$allocator@D@1@PAPADAAPAD@Z ; std::allocator_traits<std::allocator<char> >::construct<char *,char * &>
 PUBLIC	??$destroy@PAD@?$allocator_traits@V?$allocator@D@std@@@std@@SAXAAV?$allocator@D@1@PAPAD@Z ; std::allocator_traits<std::allocator<char> >::destroy<char *>
 PUBLIC	??$forward@U_Container_proxy@std@@@std@@YA$$QAU_Container_proxy@0@AAU10@@Z ; std::forward<std::_Container_proxy>
+PUBLIC	??$destroy@U_Container_proxy@std@@@?$allocator_traits@V?$allocator@U_Container_proxy@std@@@std@@@std@@SAXAAV?$allocator@U_Container_proxy@std@@@1@PAU_Container_proxy@1@@Z ; std::allocator_traits<std::allocator<std::_Container_proxy> >::destroy<std::_Container_proxy>
 PUBLIC	??$_Ptr_cat@PAVGoal_Evaluator@@PAV1@@std@@YA?AU_Scalar_ptr_iterator_tag@0@PAPAVGoal_Evaluator@@0@Z ; std::_Ptr_cat<Goal_Evaluator *,Goal_Evaluator *>
 PUBLIC	??$_Destroy_range@U?$_Wrap_alloc@V?$allocator@PAVGoal_Evaluator@@@std@@@std@@@std@@YAXPAPAVGoal_Evaluator@@0AAU?$_Wrap_alloc@V?$allocator@PAVGoal_Evaluator@@@std@@@0@U_Scalar_ptr_iterator_tag@0@@Z ; std::_Destroy_range<std::_Wrap_alloc<std::allocator<Goal_Evaluator *> > >
 PUBLIC	??$_Uninitialized_move@PAPAVGoal_Evaluator@@PAPAV1@U?$_Wrap_alloc@V?$allocator@PAVGoal_Evaluator@@@std@@@std@@@std@@YAPAPAVGoal_Evaluator@@PAPAV1@00AAU?$_Wrap_alloc@V?$allocator@PAVGoal_Evaluator@@@std@@@0@@Z ; std::_Uninitialized_move<Goal_Evaluator * *,Goal_Evaluator * *,std::_Wrap_alloc<std::allocator<Goal_Evaluator *> > >
-PUBLIC	??$destroy@U_Container_proxy@std@@@?$allocator_traits@V?$allocator@U_Container_proxy@std@@@std@@@std@@SAXAAV?$allocator@U_Container_proxy@std@@@1@PAU_Container_proxy@1@@Z ; std::allocator_traits<std::allocator<std::_Container_proxy> >::destroy<std::_Container_proxy>
 PUBLIC	??$destroy@PAU?$_List_node@PAV?$Goal@VRaven_Bot@@@@PAX@std@@@?$allocator_traits@V?$allocator@U?$_List_node@PAV?$Goal@VRaven_Bot@@@@PAX@std@@@std@@@std@@SAXAAV?$allocator@U?$_List_node@PAV?$Goal@VRaven_Bot@@@@PAX@std@@@1@PAPAU?$_List_node@PAV?$Goal@VRaven_Bot@@@@PAX@1@@Z ; std::allocator_traits<std::allocator<std::_List_node<Goal<Raven_Bot> *,void *> > >::destroy<std::_List_node<Goal<Raven_Bot> *,void *> *>
 PUBLIC	??$destroy@PAV?$Goal@VRaven_Bot@@@@@?$allocator_traits@V?$allocator@U?$_List_node@PAV?$Goal@VRaven_Bot@@@@PAX@std@@@std@@@std@@SAXAAV?$allocator@U?$_List_node@PAV?$Goal@VRaven_Bot@@@@PAX@std@@@1@PAPAV?$Goal@VRaven_Bot@@@@@Z ; std::allocator_traits<std::allocator<std::_List_node<Goal<Raven_Bot> *,void *> > >::destroy<Goal<Raven_Bot> *>
 PUBLIC	??$construct@U_Container_proxy@std@@U12@@?$allocator_traits@V?$allocator@U_Container_proxy@std@@@std@@@std@@SAXAAV?$allocator@U_Container_proxy@std@@@1@PAU_Container_proxy@1@$$QAU31@@Z ; std::allocator_traits<std::allocator<std::_Container_proxy> >::construct<std::_Container_proxy,std::_Container_proxy>
@@ -1268,16 +1268,16 @@ PUBLIC	??_C@_1EG@FOHJJHAC@?$AAv?$AAe?$AAc?$AAt?$AAo?$AAr?$AA?5?$AAi?$AAt?$AAe?$A
 PUBLIC	??_C@_1OK@HJDJPPDC@?$AAs?$AAt?$AAd?$AA?3?$AA?3?$AA_?$AAV?$AAe?$AAc?$AAt?$AAo?$AAr?$AA_?$AAc?$AAo?$AAn?$AAs?$AAt?$AA_?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?$DM?$AAc?$AAl?$AAa?$AAs@ ; `string'
 PUBLIC	??_C@_1EE@EJDKCLKB@?$AAv?$AAe?$AAc?$AAt?$AAo?$AAr?$AA?5?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?5?$AAn?$AAo?$AAt?$AA?5?$AAi?$AAn?$AAc?$AAr?$AAe?$AAm?$AAe?$AAn?$AAt?$AAa?$AAb?$AAl@ ; `string'
 PUBLIC	??_C@_1OM@HMBNDJFP@?$AAs?$AAt?$AAd?$AA?3?$AA?3?$AA_?$AAV?$AAe?$AAc?$AAt?$AAo?$AAr?$AA_?$AAc?$AAo?$AAn?$AAs?$AAt?$AA_?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?$DM?$AAc?$AAl?$AAa?$AAs@ ; `string'
+PUBLIC	??_C@_0CI@FNPHFCCM@Standard?5C?$CL?$CL?5Libraries?5Invalid?5A@ ; `string'
+PUBLIC	??_C@_1FO@GJIHNDLM@?$AA?$CC?$AAS?$AAt?$AAa?$AAn?$AAd?$AAa?$AAr?$AAd?$AA?5?$AAC?$AA?$CL?$AA?$CL?$AA?5?$AAL?$AAi?$AAb?$AAr?$AAa?$AAr?$AAi?$AAe?$AAs?$AA?5?$AAI?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5@ ; `string'
+PUBLIC	??_C@_1CG@JNLFBNGN@?$AA?$CC?$AAi?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5?$AAa?$AAr?$AAg?$AAu?$AAm?$AAe?$AAn?$AAt?$AA?$CC?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1HM@OMDAGKFF@?$AAC?$AA?3?$AA?2?$AAP?$AAr?$AAo?$AAg?$AAr?$AAa?$AAm?$AA?5?$AAF?$AAi?$AAl?$AAe?$AAs?$AA?2?$AAM?$AAi?$AAc?$AAr?$AAo?$AAs?$AAo?$AAf?$AAt?$AA?5?$AAV?$AAi?$AAs?$AAu?$AAa@ ; `string'
 PUBLIC	??_C@_1EC@HILJLMMC@?$AAl?$AAi?$AAs?$AAt?$AA?5?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?5?$AAn?$AAo?$AAt?$AA?5?$AAd?$AAe?$AAr?$AAe?$AAf?$AAe?$AAr?$AAe?$AAn?$AAc?$AAa?$AAb?$AAl?$AAe@ ; `string'
 PUBLIC	??_C@_1PK@KKMOJEL@?$AAs?$AAt?$AAd?$AA?3?$AA?3?$AA_?$AAL?$AAi?$AAs?$AAt?$AA_?$AAc?$AAo?$AAn?$AAs?$AAt?$AA_?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?$DM?$AAc?$AAl?$AAa?$AAs?$AAs?$AA?5@ ; `string'
 PUBLIC	??_C@_1EA@DOGAGKDH@?$AAl?$AAi?$AAs?$AAt?$AA?5?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?5?$AAn?$AAo?$AAt?$AA?5?$AAi?$AAn?$AAc?$AAr?$AAe?$AAm?$AAe?$AAn?$AAt?$AAa?$AAb?$AAl?$AAe?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1PM@HGDEDNCE@?$AAs?$AAt?$AAd?$AA?3?$AA?3?$AA_?$AAL?$AAi?$AAs?$AAt?$AA_?$AAc?$AAo?$AAn?$AAs?$AAt?$AA_?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?$DM?$AAc?$AAl?$AAa?$AAs?$AAs?$AA?5@ ; `string'
 PUBLIC	??_C@_1DI@MDELDGPI@?$AAl?$AAi?$AAs?$AAt?$AA?5?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AAs?$AA?5?$AAi?$AAn?$AAc?$AAo?$AAm?$AAp?$AAa?$AAt?$AAi?$AAb?$AAl?$AAe?$AA?$AA@ ; `string'
-PUBLIC	??_C@_0CI@FNPHFCCM@Standard?5C?$CL?$CL?5Libraries?5Invalid?5A@ ; `string'
-PUBLIC	??_C@_1FO@GJIHNDLM@?$AA?$CC?$AAS?$AAt?$AAa?$AAn?$AAd?$AAa?$AAr?$AAd?$AA?5?$AAC?$AA?$CL?$AA?$CL?$AA?5?$AAL?$AAi?$AAb?$AAr?$AAa?$AAr?$AAi?$AAe?$AAs?$AA?5?$AAI?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5@ ; `string'
 PUBLIC	??_C@_1PM@NGMJNEOB@?$AAs?$AAt?$AAd?$AA?3?$AA?3?$AA_?$AAL?$AAi?$AAs?$AAt?$AA_?$AAc?$AAo?$AAn?$AAs?$AAt?$AA_?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?$DM?$AAc?$AAl?$AAa?$AAs?$AAs?$AA?5@ ; `string'
-PUBLIC	??_C@_1CG@JNLFBNGN@?$AA?$CC?$AAi?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5?$AAa?$AAr?$AAg?$AAu?$AAm?$AAe?$AAn?$AAt?$AA?$CC?$AA?$AA@ ; `string'
 PUBLIC	??_C@_0BI@CFPLBAOH@invalid?5string?5position?$AA@ ; `string'
 PUBLIC	??_C@_0BD@OLBABOEK@vector?$DMT?$DO?5too?5long?$AA@ ; `string'
 PUBLIC	??_C@_1DM@HINDPMBP@?$AAv?$AAe?$AAc?$AAt?$AAo?$AAr?$AA?5?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AAs?$AA?5?$AAi?$AAn?$AAc?$AAo?$AAm?$AAp?$AAa?$AAt?$AAi?$AAb?$AAl?$AAe?$AA?$AA@ ; `string'
@@ -2333,13 +2333,6 @@ CONST	SEGMENT
 ??_C@_0BI@CFPLBAOH@invalid?5string?5position?$AA@ DB 'invalid string posi'
 	DB	'tion', 00H					; `string'
 CONST	ENDS
-;	COMDAT ??_C@_1CG@JNLFBNGN@?$AA?$CC?$AAi?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5?$AAa?$AAr?$AAg?$AAu?$AAm?$AAe?$AAn?$AAt?$AA?$CC?$AA?$AA@
-CONST	SEGMENT
-??_C@_1CG@JNLFBNGN@?$AA?$CC?$AAi?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5?$AAa?$AAr?$AAg?$AAu?$AAm?$AAe?$AAn?$AAt?$AA?$CC?$AA?$AA@ DB '"'
-	DB	00H, 'i', 00H, 'n', 00H, 'v', 00H, 'a', 00H, 'l', 00H, 'i', 00H
-	DB	'd', 00H, ' ', 00H, 'a', 00H, 'r', 00H, 'g', 00H, 'u', 00H, 'm'
-	DB	00H, 'e', 00H, 'n', 00H, 't', 00H, '"', 00H, 00H, 00H ; `string'
-CONST	ENDS
 ;	COMDAT ??_C@_1PM@NGMJNEOB@?$AAs?$AAt?$AAd?$AA?3?$AA?3?$AA_?$AAL?$AAi?$AAs?$AAt?$AA_?$AAc?$AAo?$AAn?$AAs?$AAt?$AA_?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?$DM?$AAc?$AAl?$AAa?$AAs?$AAs?$AA?5@
 CONST	SEGMENT
 ??_C@_1PM@NGMJNEOB@?$AAs?$AAt?$AAd?$AA?3?$AA?3?$AA_?$AAL?$AAi?$AAs?$AAt?$AA_?$AAc?$AAo?$AAn?$AAs?$AAt?$AA_?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?$DM?$AAc?$AAl?$AAa?$AAs?$AAs?$AA?5@ DB 's'
@@ -2363,23 +2356,6 @@ CONST	SEGMENT
 	DB	'>', 00H, ':', 00H, ':', 00H, 'o', 00H, 'p', 00H, 'e', 00H, 'r'
 	DB	00H, 'a', 00H, 't', 00H, 'o', 00H, 'r', 00H, ' ', 00H, '=', 00H
 	DB	'=', 00H, 00H, 00H				; `string'
-CONST	ENDS
-;	COMDAT ??_C@_1FO@GJIHNDLM@?$AA?$CC?$AAS?$AAt?$AAa?$AAn?$AAd?$AAa?$AAr?$AAd?$AA?5?$AAC?$AA?$CL?$AA?$CL?$AA?5?$AAL?$AAi?$AAb?$AAr?$AAa?$AAr?$AAi?$AAe?$AAs?$AA?5?$AAI?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5@
-CONST	SEGMENT
-??_C@_1FO@GJIHNDLM@?$AA?$CC?$AAS?$AAt?$AAa?$AAn?$AAd?$AAa?$AAr?$AAd?$AA?5?$AAC?$AA?$CL?$AA?$CL?$AA?5?$AAL?$AAi?$AAb?$AAr?$AAa?$AAr?$AAi?$AAe?$AAs?$AA?5?$AAI?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5@ DB '"'
-	DB	00H, 'S', 00H, 't', 00H, 'a', 00H, 'n', 00H, 'd', 00H, 'a', 00H
-	DB	'r', 00H, 'd', 00H, ' ', 00H, 'C', 00H, '+', 00H, '+', 00H, ' '
-	DB	00H, 'L', 00H, 'i', 00H, 'b', 00H, 'r', 00H, 'a', 00H, 'r', 00H
-	DB	'i', 00H, 'e', 00H, 's', 00H, ' ', 00H, 'I', 00H, 'n', 00H, 'v'
-	DB	00H, 'a', 00H, 'l', 00H, 'i', 00H, 'd', 00H, ' ', 00H, 'A', 00H
-	DB	'r', 00H, 'g', 00H, 'u', 00H, 'm', 00H, 'e', 00H, 'n', 00H, 't'
-	DB	00H, '"', 00H, ' ', 00H, '&', 00H, '&', 00H, ' ', 00H, '0', 00H
-	DB	00H, 00H					; `string'
-CONST	ENDS
-;	COMDAT ??_C@_0CI@FNPHFCCM@Standard?5C?$CL?$CL?5Libraries?5Invalid?5A@
-CONST	SEGMENT
-??_C@_0CI@FNPHFCCM@Standard?5C?$CL?$CL?5Libraries?5Invalid?5A@ DB 'Standa'
-	DB	'rd C++ Libraries Invalid Argument', 00H	; `string'
 CONST	ENDS
 ;	COMDAT ??_C@_1DI@MDELDGPI@?$AAl?$AAi?$AAs?$AAt?$AA?5?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AAs?$AA?5?$AAi?$AAn?$AAc?$AAo?$AAm?$AAp?$AAa?$AAt?$AAi?$AAb?$AAl?$AAe?$AA?$AA@
 CONST	SEGMENT
@@ -2469,6 +2445,30 @@ CONST	SEGMENT
 	DB	'V', 00H, 'C', 00H, '\', 00H, 'i', 00H, 'n', 00H, 'c', 00H, 'l'
 	DB	00H, 'u', 00H, 'd', 00H, 'e', 00H, '\', 00H, 'l', 00H, 'i', 00H
 	DB	's', 00H, 't', 00H, 00H, 00H			; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1CG@JNLFBNGN@?$AA?$CC?$AAi?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5?$AAa?$AAr?$AAg?$AAu?$AAm?$AAe?$AAn?$AAt?$AA?$CC?$AA?$AA@
+CONST	SEGMENT
+??_C@_1CG@JNLFBNGN@?$AA?$CC?$AAi?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5?$AAa?$AAr?$AAg?$AAu?$AAm?$AAe?$AAn?$AAt?$AA?$CC?$AA?$AA@ DB '"'
+	DB	00H, 'i', 00H, 'n', 00H, 'v', 00H, 'a', 00H, 'l', 00H, 'i', 00H
+	DB	'd', 00H, ' ', 00H, 'a', 00H, 'r', 00H, 'g', 00H, 'u', 00H, 'm'
+	DB	00H, 'e', 00H, 'n', 00H, 't', 00H, '"', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1FO@GJIHNDLM@?$AA?$CC?$AAS?$AAt?$AAa?$AAn?$AAd?$AAa?$AAr?$AAd?$AA?5?$AAC?$AA?$CL?$AA?$CL?$AA?5?$AAL?$AAi?$AAb?$AAr?$AAa?$AAr?$AAi?$AAe?$AAs?$AA?5?$AAI?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5@
+CONST	SEGMENT
+??_C@_1FO@GJIHNDLM@?$AA?$CC?$AAS?$AAt?$AAa?$AAn?$AAd?$AAa?$AAr?$AAd?$AA?5?$AAC?$AA?$CL?$AA?$CL?$AA?5?$AAL?$AAi?$AAb?$AAr?$AAa?$AAr?$AAi?$AAe?$AAs?$AA?5?$AAI?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5@ DB '"'
+	DB	00H, 'S', 00H, 't', 00H, 'a', 00H, 'n', 00H, 'd', 00H, 'a', 00H
+	DB	'r', 00H, 'd', 00H, ' ', 00H, 'C', 00H, '+', 00H, '+', 00H, ' '
+	DB	00H, 'L', 00H, 'i', 00H, 'b', 00H, 'r', 00H, 'a', 00H, 'r', 00H
+	DB	'i', 00H, 'e', 00H, 's', 00H, ' ', 00H, 'I', 00H, 'n', 00H, 'v'
+	DB	00H, 'a', 00H, 'l', 00H, 'i', 00H, 'd', 00H, ' ', 00H, 'A', 00H
+	DB	'r', 00H, 'g', 00H, 'u', 00H, 'm', 00H, 'e', 00H, 'n', 00H, 't'
+	DB	00H, '"', 00H, ' ', 00H, '&', 00H, '&', 00H, ' ', 00H, '0', 00H
+	DB	00H, 00H					; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0CI@FNPHFCCM@Standard?5C?$CL?$CL?5Libraries?5Invalid?5A@
+CONST	SEGMENT
+??_C@_0CI@FNPHFCCM@Standard?5C?$CL?$CL?5Libraries?5Invalid?5A@ DB 'Standa'
+	DB	'rd C++ Libraries Invalid Argument', 00H	; `string'
 CONST	ENDS
 ;	COMDAT ??_C@_1OM@HMBNDJFP@?$AAs?$AAt?$AAd?$AA?3?$AA?3?$AA_?$AAV?$AAe?$AAc?$AAt?$AAo?$AAr?$AA_?$AAc?$AAo?$AAn?$AAs?$AAt?$AA_?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?$DM?$AAc?$AAl?$AAa?$AAs@
 CONST	SEGMENT
@@ -5107,35 +5107,6 @@ __Ptr$ = 12						; size = 4
 ??$destroy@PAU?$_List_node@PAV?$Goal@VRaven_Bot@@@@PAX@std@@@?$allocator_traits@V?$allocator@U?$_List_node@PAV?$Goal@VRaven_Bot@@@@PAX@std@@@std@@@std@@SAXAAV?$allocator@U?$_List_node@PAV?$Goal@VRaven_Bot@@@@PAX@std@@@1@PAPAU?$_List_node@PAV?$Goal@VRaven_Bot@@@@PAX@1@@Z ENDP ; std::allocator_traits<std::allocator<std::_List_node<Goal<Raven_Bot> *,void *> > >::destroy<std::_List_node<Goal<Raven_Bot> *,void *> *>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
-; File c:\program files\microsoft visual studio 11.0\vc\include\xmemory0
-;	COMDAT ??$destroy@U_Container_proxy@std@@@?$allocator_traits@V?$allocator@U_Container_proxy@std@@@std@@@std@@SAXAAV?$allocator@U_Container_proxy@std@@@1@PAU_Container_proxy@1@@Z
-_TEXT	SEGMENT
-__Al$ = 8						; size = 4
-__Ptr$ = 12						; size = 4
-??$destroy@U_Container_proxy@std@@@?$allocator_traits@V?$allocator@U_Container_proxy@std@@@std@@@std@@SAXAAV?$allocator@U_Container_proxy@std@@@1@PAU_Container_proxy@1@@Z PROC ; std::allocator_traits<std::allocator<std::_Container_proxy> >::destroy<std::_Container_proxy>, COMDAT
-
-; 755  : 		static void destroy(_Alloc& _Al, _Uty *_Ptr)
-
-	push	ebp
-	mov	ebp, esp
-
-; 756  : 		{	// destroy object at _Ptr
-; 757  : 		_Al.destroy(_Ptr);
-
-	mov	eax, DWORD PTR __Ptr$[ebp]
-	push	eax
-	mov	ecx, DWORD PTR __Al$[ebp]
-	call	??$destroy@U_Container_proxy@std@@@?$allocator@U_Container_proxy@std@@@std@@QAEXPAU_Container_proxy@1@@Z ; std::allocator<std::_Container_proxy>::destroy<std::_Container_proxy>
-
-; 758  : 		}
-
-	cmp	ebp, esp
-	call	__RTC_CheckEsp
-	pop	ebp
-	ret	0
-??$destroy@U_Container_proxy@std@@@?$allocator_traits@V?$allocator@U_Container_proxy@std@@@std@@@std@@SAXAAV?$allocator@U_Container_proxy@std@@@1@PAU_Container_proxy@1@@Z ENDP ; std::allocator_traits<std::allocator<std::_Container_proxy> >::destroy<std::_Container_proxy>
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
 ; File c:\program files\microsoft visual studio 11.0\vc\include\xmemory
 ;	COMDAT ??$_Uninitialized_move@PAPAVGoal_Evaluator@@PAPAV1@U?$_Wrap_alloc@V?$allocator@PAVGoal_Evaluator@@@std@@@std@@@std@@YAPAPAVGoal_Evaluator@@PAPAV1@00AAU?$_Wrap_alloc@V?$allocator@PAVGoal_Evaluator@@@std@@@0@@Z
 _TEXT	SEGMENT
@@ -5262,6 +5233,35 @@ $LN3@Ptr_cat:
 	DB	116					; 00000074H
 	DB	0
 ??$_Ptr_cat@PAVGoal_Evaluator@@PAV1@@std@@YA?AU_Scalar_ptr_iterator_tag@0@PAPAVGoal_Evaluator@@0@Z ENDP ; std::_Ptr_cat<Goal_Evaluator *,Goal_Evaluator *>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File c:\program files\microsoft visual studio 11.0\vc\include\xmemory0
+;	COMDAT ??$destroy@U_Container_proxy@std@@@?$allocator_traits@V?$allocator@U_Container_proxy@std@@@std@@@std@@SAXAAV?$allocator@U_Container_proxy@std@@@1@PAU_Container_proxy@1@@Z
+_TEXT	SEGMENT
+__Al$ = 8						; size = 4
+__Ptr$ = 12						; size = 4
+??$destroy@U_Container_proxy@std@@@?$allocator_traits@V?$allocator@U_Container_proxy@std@@@std@@@std@@SAXAAV?$allocator@U_Container_proxy@std@@@1@PAU_Container_proxy@1@@Z PROC ; std::allocator_traits<std::allocator<std::_Container_proxy> >::destroy<std::_Container_proxy>, COMDAT
+
+; 755  : 		static void destroy(_Alloc& _Al, _Uty *_Ptr)
+
+	push	ebp
+	mov	ebp, esp
+
+; 756  : 		{	// destroy object at _Ptr
+; 757  : 		_Al.destroy(_Ptr);
+
+	mov	eax, DWORD PTR __Ptr$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR __Al$[ebp]
+	call	??$destroy@U_Container_proxy@std@@@?$allocator@U_Container_proxy@std@@@std@@QAEXPAU_Container_proxy@1@@Z ; std::allocator<std::_Container_proxy>::destroy<std::_Container_proxy>
+
+; 758  : 		}
+
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	pop	ebp
+	ret	0
+??$destroy@U_Container_proxy@std@@@?$allocator_traits@V?$allocator@U_Container_proxy@std@@@std@@@std@@SAXAAV?$allocator@U_Container_proxy@std@@@1@PAU_Container_proxy@1@@Z ENDP ; std::allocator_traits<std::allocator<std::_Container_proxy> >::destroy<std::_Container_proxy>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File c:\program files\microsoft visual studio 11.0\vc\include\type_traits
@@ -6684,6 +6684,132 @@ __Val$ = 8						; size = 4
 ??$addressof@PAU?$_List_node@PAV?$Goal@VRaven_Bot@@@@PAX@std@@@std@@YAPAPAU?$_List_node@PAV?$Goal@VRaven_Bot@@@@PAX@0@AAPAU10@@Z ENDP ; std::addressof<std::_List_node<Goal<Raven_Bot> *,void *> *>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
+; File c:\program files\microsoft visual studio 11.0\vc\include\vector
+;	COMDAT ??$_Umove@PAPAVGoal_Evaluator@@@?$vector@PAVGoal_Evaluator@@V?$allocator@PAVGoal_Evaluator@@@std@@@std@@IAEPAPAVGoal_Evaluator@@PAPAV2@00@Z
+_TEXT	SEGMENT
+__Alval$ = -9						; size = 1
+_this$ = -4						; size = 4
+__First$ = 8						; size = 4
+__Last$ = 12						; size = 4
+__Ptr$ = 16						; size = 4
+??$_Umove@PAPAVGoal_Evaluator@@@?$vector@PAVGoal_Evaluator@@V?$allocator@PAVGoal_Evaluator@@@std@@@std@@IAEPAPAVGoal_Evaluator@@PAPAV2@00@Z PROC ; std::vector<Goal_Evaluator *,std::allocator<Goal_Evaluator *> >::_Umove<Goal_Evaluator * *>, COMDAT
+; _this$ = ecx
+
+; 1557 : 		pointer _Umove(_Iter _First, _Iter _Last, pointer _Ptr)
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 16					; 00000010H
+	mov	eax, -858993460				; ccccccccH
+	mov	DWORD PTR [ebp-16], eax
+	mov	DWORD PTR [ebp-12], eax
+	mov	DWORD PTR [ebp-8], eax
+	mov	DWORD PTR [ebp-4], eax
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 1558 : 		{	// move initializing [_First, _Last), using allocator
+; 1559 : 		_Alty _Alval(this->_Getal());
+
+	lea	eax, DWORD PTR __Alval$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?_Getal@?$_Vector_alloc@$0A@U?$_Vec_base_types@PAVGoal_Evaluator@@V?$allocator@PAVGoal_Evaluator@@@std@@@std@@@std@@QBE?AU?$_Wrap_alloc@V?$allocator@PAVGoal_Evaluator@@@std@@@2@XZ ; std::_Vector_alloc<0,std::_Vec_base_types<Goal_Evaluator *,std::allocator<Goal_Evaluator *> > >::_Getal
+
+; 1560 : 		return (_Uninitialized_move(_First, _Last,
+; 1561 : 			_Ptr, _Alval));
+
+	lea	ecx, DWORD PTR __Alval$[ebp]
+	push	ecx
+	mov	edx, DWORD PTR __Ptr$[ebp]
+	push	edx
+	mov	eax, DWORD PTR __Last$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR __First$[ebp]
+	push	ecx
+	call	??$_Uninitialized_move@PAPAVGoal_Evaluator@@PAPAV1@U?$_Wrap_alloc@V?$allocator@PAVGoal_Evaluator@@@std@@@std@@@std@@YAPAPAVGoal_Evaluator@@PAPAV1@00AAU?$_Wrap_alloc@V?$allocator@PAVGoal_Evaluator@@@std@@@0@@Z ; std::_Uninitialized_move<Goal_Evaluator * *,Goal_Evaluator * *,std::_Wrap_alloc<std::allocator<Goal_Evaluator *> > >
+	add	esp, 16					; 00000010H
+
+; 1562 : 		}
+
+	push	edx
+	mov	ecx, ebp
+	push	eax
+	lea	edx, DWORD PTR $LN5@Umove
+	call	@_RTC_CheckStackVars@8
+	pop	eax
+	pop	edx
+	add	esp, 16					; 00000010H
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	12					; 0000000cH
+	npad	1
+$LN5@Umove:
+	DD	1
+	DD	$LN4@Umove
+$LN4@Umove:
+	DD	-9					; fffffff7H
+	DD	1
+	DD	$LN3@Umove
+$LN3@Umove:
+	DB	95					; 0000005fH
+	DB	65					; 00000041H
+	DB	108					; 0000006cH
+	DB	118					; 00000076H
+	DB	97					; 00000061H
+	DB	108					; 0000006cH
+	DB	0
+??$_Umove@PAPAVGoal_Evaluator@@@?$vector@PAVGoal_Evaluator@@V?$allocator@PAVGoal_Evaluator@@@std@@@std@@IAEPAPAVGoal_Evaluator@@PAPAV2@00@Z ENDP ; std::vector<Goal_Evaluator *,std::allocator<Goal_Evaluator *> >::_Umove<Goal_Evaluator * *>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File c:\program files\microsoft visual studio 11.0\vc\include\xmemory0
+;	COMDAT ??$_Destroy_range@U?$_Wrap_alloc@V?$allocator@PAVGoal_Evaluator@@@std@@@std@@@std@@YAXPAPAVGoal_Evaluator@@0AAU?$_Wrap_alloc@V?$allocator@PAVGoal_Evaluator@@@std@@@0@@Z
+_TEXT	SEGMENT
+$T1 = -1						; size = 1
+__First$ = 8						; size = 4
+__Last$ = 12						; size = 4
+__Al$ = 16						; size = 4
+??$_Destroy_range@U?$_Wrap_alloc@V?$allocator@PAVGoal_Evaluator@@@std@@@std@@@std@@YAXPAPAVGoal_Evaluator@@0AAU?$_Wrap_alloc@V?$allocator@PAVGoal_Evaluator@@@std@@@0@@Z PROC ; std::_Destroy_range<std::_Wrap_alloc<std::allocator<Goal_Evaluator *> > >, COMDAT
+
+; 79   : 	{	// destroy [_First, _Last)
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+
+; 80   : 	_Destroy_range(_First, _Last, _Al, _Ptr_cat(_First, _Last));
+
+	mov	eax, DWORD PTR __Last$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR __First$[ebp]
+	push	ecx
+	call	??$_Ptr_cat@PAVGoal_Evaluator@@PAV1@@std@@YA?AU_Scalar_ptr_iterator_tag@0@PAPAVGoal_Evaluator@@0@Z ; std::_Ptr_cat<Goal_Evaluator *,Goal_Evaluator *>
+	add	esp, 8
+	mov	BYTE PTR $T1[ebp], al
+	movzx	edx, BYTE PTR $T1[ebp]
+	push	edx
+	mov	eax, DWORD PTR __Al$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR __Last$[ebp]
+	push	ecx
+	mov	edx, DWORD PTR __First$[ebp]
+	push	edx
+	call	??$_Destroy_range@U?$_Wrap_alloc@V?$allocator@PAVGoal_Evaluator@@@std@@@std@@@std@@YAXPAPAVGoal_Evaluator@@0AAU?$_Wrap_alloc@V?$allocator@PAVGoal_Evaluator@@@std@@@0@U_Scalar_ptr_iterator_tag@0@@Z ; std::_Destroy_range<std::_Wrap_alloc<std::allocator<Goal_Evaluator *> > >
+	add	esp, 16					; 00000010H
+
+; 81   : 	}
+
+	add	esp, 4
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+??$_Destroy_range@U?$_Wrap_alloc@V?$allocator@PAVGoal_Evaluator@@@std@@@std@@@std@@YAXPAPAVGoal_Evaluator@@0AAU?$_Wrap_alloc@V?$allocator@PAVGoal_Evaluator@@@std@@@0@@Z ENDP ; std::_Destroy_range<std::_Wrap_alloc<std::allocator<Goal_Evaluator *> > >
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
 ; File c:\program files\microsoft visual studio 11.0\vc\include\xmemory0
 ;	COMDAT ??$destroy@U_Container_proxy@std@@@?$_Wrap_alloc@V?$allocator@U_Container_proxy@std@@@std@@@std@@QAEXPAU_Container_proxy@1@@Z
 _TEXT	SEGMENT
@@ -6819,132 +6945,6 @@ _this$ = -4						; size = 4
 	pop	ebp
 	ret	0
 ??0?$_Wrap_alloc@V?$allocator@U_Container_proxy@std@@@std@@@std@@QAE@XZ ENDP ; std::_Wrap_alloc<std::allocator<std::_Container_proxy> >::_Wrap_alloc<std::allocator<std::_Container_proxy> >
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
-; File c:\program files\microsoft visual studio 11.0\vc\include\vector
-;	COMDAT ??$_Umove@PAPAVGoal_Evaluator@@@?$vector@PAVGoal_Evaluator@@V?$allocator@PAVGoal_Evaluator@@@std@@@std@@IAEPAPAVGoal_Evaluator@@PAPAV2@00@Z
-_TEXT	SEGMENT
-__Alval$ = -9						; size = 1
-_this$ = -4						; size = 4
-__First$ = 8						; size = 4
-__Last$ = 12						; size = 4
-__Ptr$ = 16						; size = 4
-??$_Umove@PAPAVGoal_Evaluator@@@?$vector@PAVGoal_Evaluator@@V?$allocator@PAVGoal_Evaluator@@@std@@@std@@IAEPAPAVGoal_Evaluator@@PAPAV2@00@Z PROC ; std::vector<Goal_Evaluator *,std::allocator<Goal_Evaluator *> >::_Umove<Goal_Evaluator * *>, COMDAT
-; _this$ = ecx
-
-; 1557 : 		pointer _Umove(_Iter _First, _Iter _Last, pointer _Ptr)
-
-	push	ebp
-	mov	ebp, esp
-	sub	esp, 16					; 00000010H
-	mov	eax, -858993460				; ccccccccH
-	mov	DWORD PTR [ebp-16], eax
-	mov	DWORD PTR [ebp-12], eax
-	mov	DWORD PTR [ebp-8], eax
-	mov	DWORD PTR [ebp-4], eax
-	mov	DWORD PTR _this$[ebp], ecx
-
-; 1558 : 		{	// move initializing [_First, _Last), using allocator
-; 1559 : 		_Alty _Alval(this->_Getal());
-
-	lea	eax, DWORD PTR __Alval$[ebp]
-	push	eax
-	mov	ecx, DWORD PTR _this$[ebp]
-	call	?_Getal@?$_Vector_alloc@$0A@U?$_Vec_base_types@PAVGoal_Evaluator@@V?$allocator@PAVGoal_Evaluator@@@std@@@std@@@std@@QBE?AU?$_Wrap_alloc@V?$allocator@PAVGoal_Evaluator@@@std@@@2@XZ ; std::_Vector_alloc<0,std::_Vec_base_types<Goal_Evaluator *,std::allocator<Goal_Evaluator *> > >::_Getal
-
-; 1560 : 		return (_Uninitialized_move(_First, _Last,
-; 1561 : 			_Ptr, _Alval));
-
-	lea	ecx, DWORD PTR __Alval$[ebp]
-	push	ecx
-	mov	edx, DWORD PTR __Ptr$[ebp]
-	push	edx
-	mov	eax, DWORD PTR __Last$[ebp]
-	push	eax
-	mov	ecx, DWORD PTR __First$[ebp]
-	push	ecx
-	call	??$_Uninitialized_move@PAPAVGoal_Evaluator@@PAPAV1@U?$_Wrap_alloc@V?$allocator@PAVGoal_Evaluator@@@std@@@std@@@std@@YAPAPAVGoal_Evaluator@@PAPAV1@00AAU?$_Wrap_alloc@V?$allocator@PAVGoal_Evaluator@@@std@@@0@@Z ; std::_Uninitialized_move<Goal_Evaluator * *,Goal_Evaluator * *,std::_Wrap_alloc<std::allocator<Goal_Evaluator *> > >
-	add	esp, 16					; 00000010H
-
-; 1562 : 		}
-
-	push	edx
-	mov	ecx, ebp
-	push	eax
-	lea	edx, DWORD PTR $LN5@Umove
-	call	@_RTC_CheckStackVars@8
-	pop	eax
-	pop	edx
-	add	esp, 16					; 00000010H
-	cmp	ebp, esp
-	call	__RTC_CheckEsp
-	mov	esp, ebp
-	pop	ebp
-	ret	12					; 0000000cH
-	npad	1
-$LN5@Umove:
-	DD	1
-	DD	$LN4@Umove
-$LN4@Umove:
-	DD	-9					; fffffff7H
-	DD	1
-	DD	$LN3@Umove
-$LN3@Umove:
-	DB	95					; 0000005fH
-	DB	65					; 00000041H
-	DB	108					; 0000006cH
-	DB	118					; 00000076H
-	DB	97					; 00000061H
-	DB	108					; 0000006cH
-	DB	0
-??$_Umove@PAPAVGoal_Evaluator@@@?$vector@PAVGoal_Evaluator@@V?$allocator@PAVGoal_Evaluator@@@std@@@std@@IAEPAPAVGoal_Evaluator@@PAPAV2@00@Z ENDP ; std::vector<Goal_Evaluator *,std::allocator<Goal_Evaluator *> >::_Umove<Goal_Evaluator * *>
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
-; File c:\program files\microsoft visual studio 11.0\vc\include\xmemory0
-;	COMDAT ??$_Destroy_range@U?$_Wrap_alloc@V?$allocator@PAVGoal_Evaluator@@@std@@@std@@@std@@YAXPAPAVGoal_Evaluator@@0AAU?$_Wrap_alloc@V?$allocator@PAVGoal_Evaluator@@@std@@@0@@Z
-_TEXT	SEGMENT
-$T1 = -1						; size = 1
-__First$ = 8						; size = 4
-__Last$ = 12						; size = 4
-__Al$ = 16						; size = 4
-??$_Destroy_range@U?$_Wrap_alloc@V?$allocator@PAVGoal_Evaluator@@@std@@@std@@@std@@YAXPAPAVGoal_Evaluator@@0AAU?$_Wrap_alloc@V?$allocator@PAVGoal_Evaluator@@@std@@@0@@Z PROC ; std::_Destroy_range<std::_Wrap_alloc<std::allocator<Goal_Evaluator *> > >, COMDAT
-
-; 79   : 	{	// destroy [_First, _Last)
-
-	push	ebp
-	mov	ebp, esp
-	push	ecx
-	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
-
-; 80   : 	_Destroy_range(_First, _Last, _Al, _Ptr_cat(_First, _Last));
-
-	mov	eax, DWORD PTR __Last$[ebp]
-	push	eax
-	mov	ecx, DWORD PTR __First$[ebp]
-	push	ecx
-	call	??$_Ptr_cat@PAVGoal_Evaluator@@PAV1@@std@@YA?AU_Scalar_ptr_iterator_tag@0@PAPAVGoal_Evaluator@@0@Z ; std::_Ptr_cat<Goal_Evaluator *,Goal_Evaluator *>
-	add	esp, 8
-	mov	BYTE PTR $T1[ebp], al
-	movzx	edx, BYTE PTR $T1[ebp]
-	push	edx
-	mov	eax, DWORD PTR __Al$[ebp]
-	push	eax
-	mov	ecx, DWORD PTR __Last$[ebp]
-	push	ecx
-	mov	edx, DWORD PTR __First$[ebp]
-	push	edx
-	call	??$_Destroy_range@U?$_Wrap_alloc@V?$allocator@PAVGoal_Evaluator@@@std@@@std@@@std@@YAXPAPAVGoal_Evaluator@@0AAU?$_Wrap_alloc@V?$allocator@PAVGoal_Evaluator@@@std@@@0@U_Scalar_ptr_iterator_tag@0@@Z ; std::_Destroy_range<std::_Wrap_alloc<std::allocator<Goal_Evaluator *> > >
-	add	esp, 16					; 00000010H
-
-; 81   : 	}
-
-	add	esp, 4
-	cmp	ebp, esp
-	call	__RTC_CheckEsp
-	mov	esp, ebp
-	pop	ebp
-	ret	0
-??$_Destroy_range@U?$_Wrap_alloc@V?$allocator@PAVGoal_Evaluator@@@std@@@std@@@std@@YAXPAPAVGoal_Evaluator@@0AAU?$_Wrap_alloc@V?$allocator@PAVGoal_Evaluator@@@std@@@0@@Z ENDP ; std::_Destroy_range<std::_Wrap_alloc<std::allocator<Goal_Evaluator *> > >
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File c:\program files\microsoft visual studio 11.0\vc\include\xmemory0
@@ -11482,13 +11482,13 @@ $LN2@Arbitrate:
 
 	cmp	DWORD PTR _MostDesirable$[ebp], 0
 	je	SHORT $LN7@Arbitrate
-	mov	ecx, OFFSET $SG152863
+	mov	ecx, OFFSET $SG159066
 	test	ecx, ecx
 	jne	SHORT $LN8@Arbitrate
 $LN7@Arbitrate:
 	push	116					; 00000074H
-	push	OFFSET $SG152864
-	push	OFFSET $SG152865
+	push	OFFSET $SG159067
+	push	OFFSET $SG159068
 	call	__wassert
 	add	esp, 12					; 0000000cH
 $LN8@Arbitrate:
@@ -18410,7 +18410,7 @@ _this$ = -4						; size = 4
 ?isPossessed@Raven_Bot@@QBE_NXZ PROC			; Raven_Bot::isPossessed, COMDAT
 ; _this$ = ecx
 
-; 155  :   bool          isPossessed()const{return m_bPossessed;}
+; 159  :   bool          isPossessed()const{return m_bPossessed;}
 
 	push	ebp
 	mov	ebp, esp
@@ -18418,7 +18418,7 @@ _this$ = -4						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	al, BYTE PTR [eax+237]
+	mov	al, BYTE PTR [eax+269]
 	mov	esp, ebp
 	pop	ebp
 	ret	0

@@ -718,33 +718,12 @@ CONST	ENDS
 CONST	SEGMENT
 ?is_signed@?$numeric_limits@_W@std@@2_NB DB 00H		; std::numeric_limits<wchar_t>::is_signed
 CONST	ENDS
-;	COMDAT ?digits10@?$numeric_limits@D@std@@2HB
 CONST	SEGMENT
-?digits10@?$numeric_limits@D@std@@2HB DD 02H		; std::numeric_limits<char>::digits10
-CONST	ENDS
-;	COMDAT ?digits@?$numeric_limits@D@std@@2HB
-CONST	SEGMENT
-?digits@?$numeric_limits@D@std@@2HB DD 07H		; std::numeric_limits<char>::digits
-CONST	ENDS
-;	COMDAT ?is_signed@?$numeric_limits@D@std@@2_NB
-CONST	SEGMENT
-?is_signed@?$numeric_limits@D@std@@2_NB DB 01H		; std::numeric_limits<char>::is_signed
-CONST	ENDS
-;	COMDAT ?radix@_Num_float_base@std@@2HB
-CONST	SEGMENT
-?radix@_Num_float_base@std@@2HB DD 02H			; std::_Num_float_base::radix
-CONST	ENDS
-CONST	SEGMENT
-$SG181297 DB	'StartMap', 00H
+$SG187500 DB	'StartMap', 00H
 	ORG $+7
 _pi	DQ	0400921f9f01b866er		; 3.14159
-$SG183623 DB	'Map has no spawn points!', 00H
+$SG189826 DB	'Map has no spawn points!', 00H
 	ORG $+3
-$SG183776 DB	'GraveLifetime', 00H
-	ORG $+2
-$SG183782 DB	'MaxSearchCyclesPerUpdateStep', 00H
-	ORG $+3
-$SG183788 DB	'NumBots', 00H
 _colors	DD	0ffH
 	DD	0ff0000H
 	DD	0ff00H
@@ -760,10 +739,31 @@ _colors	DD	0ffH
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG184820 DB	'Queuing', 00H
+$SG189979 DB	'GraveLifetime', 00H
+	ORG $+2
+$SG189985 DB	'MaxSearchCyclesPerUpdateStep', 00H
+	ORG $+3
+$SG189991 DB	'NumBots', 00H
+$SG191023 DB	'Queuing', 00H
 _SmallestDelay DQ 03fd0000000000000r		; 0.25
 _SEND_MSG_IMMEDIATELY DQ 00000000000000000r	; 0
 _Pi	DQ	0400921f9f01b866er		; 3.14159
+CONST	ENDS
+;	COMDAT ?digits10@?$numeric_limits@D@std@@2HB
+CONST	SEGMENT
+?digits10@?$numeric_limits@D@std@@2HB DD 02H		; std::numeric_limits<char>::digits10
+CONST	ENDS
+;	COMDAT ?digits@?$numeric_limits@D@std@@2HB
+CONST	SEGMENT
+?digits@?$numeric_limits@D@std@@2HB DD 07H		; std::numeric_limits<char>::digits
+CONST	ENDS
+;	COMDAT ?is_signed@?$numeric_limits@D@std@@2_NB
+CONST	SEGMENT
+?is_signed@?$numeric_limits@D@std@@2_NB DB 01H		; std::numeric_limits<char>::is_signed
+CONST	ENDS
+;	COMDAT ?radix@_Num_float_base@std@@2HB
+CONST	SEGMENT
+?radix@_Num_float_base@std@@2HB DD 02H			; std::_Num_float_base::radix
 CONST	ENDS
 ;	COMDAT ?round_style@_Num_float_base@std@@2W4float_round_style@2@B
 CONST	SEGMENT
@@ -1687,20 +1687,20 @@ PUBLIC	??_C@_1EE@EJDKCLKB@?$AAv?$AAe?$AAc?$AAt?$AAo?$AAr?$AA?5?$AAi?$AAt?$AAe?$A
 PUBLIC	??_C@_1OE@BBIMGLEM@?$AAs?$AAt?$AAd?$AA?3?$AA?3?$AA_?$AAV?$AAe?$AAc?$AAt?$AAo?$AAr?$AA_?$AAc?$AAo?$AAn?$AAs?$AAt?$AA_?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?$DM?$AAc?$AAl?$AAa?$AAs@ ; `string'
 PUBLIC	??_C@_1OA@KBIPMKKA@?$AAs?$AAt?$AAd?$AA?3?$AA?3?$AA_?$AAV?$AAe?$AAc?$AAt?$AAo?$AAr?$AA_?$AAc?$AAo?$AAn?$AAs?$AAt?$AA_?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?$DM?$AAc?$AAl?$AAa?$AAs@ ; `string'
 PUBLIC	??_C@_1OC@GJNJMNFC@?$AAs?$AAt?$AAd?$AA?3?$AA?3?$AA_?$AAV?$AAe?$AAc?$AAt?$AAo?$AAr?$AA_?$AAc?$AAo?$AAn?$AAs?$AAt?$AA_?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?$DM?$AAc?$AAl?$AAa?$AAs@ ; `string'
-PUBLIC	??_C@_1DI@MDELDGPI@?$AAl?$AAi?$AAs?$AAt?$AA?5?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AAs?$AA?5?$AAi?$AAn?$AAc?$AAo?$AAm?$AAp?$AAa?$AAt?$AAi?$AAb?$AAl?$AAe?$AA?$AA@ ; `string'
 PUBLIC	??_C@_0CI@FNPHFCCM@Standard?5C?$CL?$CL?5Libraries?5Invalid?5A@ ; `string'
 PUBLIC	??_C@_1FO@GJIHNDLM@?$AA?$CC?$AAS?$AAt?$AAa?$AAn?$AAd?$AAa?$AAr?$AAd?$AA?5?$AAC?$AA?$CL?$AA?$CL?$AA?5?$AAL?$AAi?$AAb?$AAr?$AAa?$AAr?$AAi?$AAe?$AAs?$AA?5?$AAI?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5@ ; `string'
-PUBLIC	??_C@_1OE@HJIALJKP@?$AAs?$AAt?$AAd?$AA?3?$AA?3?$AA_?$AAL?$AAi?$AAs?$AAt?$AA_?$AAc?$AAo?$AAn?$AAs?$AAt?$AA_?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?$DM?$AAc?$AAl?$AAa?$AAs?$AAs?$AA?5@ ; `string'
 PUBLIC	??_C@_1CG@JNLFBNGN@?$AA?$CC?$AAi?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5?$AAa?$AAr?$AAg?$AAu?$AAm?$AAe?$AAn?$AAt?$AA?$CC?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1DI@MDELDGPI@?$AAl?$AAi?$AAs?$AAt?$AA?5?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AAs?$AA?5?$AAi?$AAn?$AAc?$AAo?$AAm?$AAp?$AAa?$AAt?$AAi?$AAb?$AAl?$AAe?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1OE@HJIALJKP@?$AAs?$AAt?$AAd?$AA?3?$AA?3?$AA_?$AAL?$AAi?$AAs?$AAt?$AA_?$AAc?$AAo?$AAn?$AAs?$AAt?$AA_?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?$DM?$AAc?$AAl?$AAa?$AAs?$AAs?$AA?5@ ; `string'
 PUBLIC	??_C@_1PC@EIOIMHJI@?$AAs?$AAt?$AAd?$AA?3?$AA?3?$AA_?$AAL?$AAi?$AAs?$AAt?$AA_?$AAc?$AAo?$AAn?$AAs?$AAt?$AA_?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?$DM?$AAc?$AAl?$AAa?$AAs?$AAs?$AA?5@ ; `string'
 PUBLIC	??_C@_1NG@DAPFFJEF@?$AAs?$AAt?$AAd?$AA?3?$AA?3?$AA_?$AAV?$AAe?$AAc?$AAt?$AAo?$AAr?$AA_?$AAc?$AAo?$AAn?$AAs?$AAt?$AA_?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?$DM?$AAc?$AAl?$AAa?$AAs@ ; `string'
 PUBLIC	??_C@_1NI@CDNGJJHP@?$AAs?$AAt?$AAd?$AA?3?$AA?3?$AA_?$AAV?$AAe?$AAc?$AAt?$AAo?$AAr?$AA_?$AAc?$AAo?$AAn?$AAs?$AAt?$AA_?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?$DM?$AAc?$AAl?$AAa?$AAs@ ; `string'
 PUBLIC	??_C@_0BA@JFNIOLAK@string?5too?5long?$AA@	; `string'
 PUBLIC	??_C@_0BI@CFPLBAOH@invalid?5string?5position?$AA@ ; `string'
 PUBLIC	??_C@_0BD@OLBABOEK@vector?$DMT?$DO?5too?5long?$AA@ ; `string'
+PUBLIC	??_C@_1DM@HINDPMBP@?$AAv?$AAe?$AAc?$AAt?$AAo?$AAr?$AA?5?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AAs?$AA?5?$AAi?$AAn?$AAc?$AAo?$AAm?$AAp?$AAa?$AAt?$AAi?$AAb?$AAl?$AAe?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1EA@JDNDELPC@?$AAl?$AAi?$AAs?$AAt?$AA?5?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?5?$AAn?$AAo?$AAt?$AA?5?$AAd?$AAe?$AAc?$AAr?$AAe?$AAm?$AAe?$AAn?$AAt?$AAa?$AAb?$AAl?$AAe?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1OE@CKEPOMKL@?$AAs?$AAt?$AAd?$AA?3?$AA?3?$AA_?$AAL?$AAi?$AAs?$AAt?$AA_?$AAc?$AAo?$AAn?$AAs?$AAt?$AA_?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?$DM?$AAc?$AAl?$AAa?$AAs?$AAs?$AA?5@ ; `string'
-PUBLIC	??_C@_1DM@HINDPMBP@?$AAv?$AAe?$AAc?$AAt?$AAo?$AAr?$AA?5?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AAs?$AA?5?$AAi?$AAn?$AAc?$AAo?$AAm?$AAp?$AAa?$AAt?$AAi?$AAb?$AAl?$AAe?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1NM@KMFABEMK@?$AAs?$AAt?$AAd?$AA?3?$AA?3?$AA_?$AAV?$AAe?$AAc?$AAt?$AAo?$AAr?$AA_?$AAc?$AAo?$AAn?$AAs?$AAt?$AA_?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?$DM?$AAc?$AAl?$AAa?$AAs@ ; `string'
 PUBLIC	??_C@_1NA@KDANOKNP@?$AAs?$AAt?$AAd?$AA?3?$AA?3?$AA_?$AAV?$AAe?$AAc?$AAt?$AAo?$AAr?$AA_?$AAc?$AAo?$AAn?$AAs?$AAt?$AA_?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?$DM?$AAc?$AAl?$AAa?$AAs@ ; `string'
 PUBLIC	??_C@_1NK@HJPPJFDK@?$AAs?$AAt?$AAd?$AA?3?$AA?3?$AA_?$AAV?$AAe?$AAc?$AAt?$AAo?$AAr?$AA_?$AAc?$AAo?$AAn?$AAs?$AAt?$AA_?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?$DM?$AAc?$AAl?$AAa?$AAs@ ; `string'
@@ -2519,15 +2519,6 @@ CONST	SEGMENT
 	DB	' ', 00H, '>', 00H, ':', 00H, ':', 00H, '_', 00H, 'C', 00H, 'o'
 	DB	00H, 'm', 00H, 'p', 00H, 'a', 00H, 't', 00H, 00H, 00H ; `string'
 CONST	ENDS
-;	COMDAT ??_C@_1DM@HINDPMBP@?$AAv?$AAe?$AAc?$AAt?$AAo?$AAr?$AA?5?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AAs?$AA?5?$AAi?$AAn?$AAc?$AAo?$AAm?$AAp?$AAa?$AAt?$AAi?$AAb?$AAl?$AAe?$AA?$AA@
-CONST	SEGMENT
-??_C@_1DM@HINDPMBP@?$AAv?$AAe?$AAc?$AAt?$AAo?$AAr?$AA?5?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AAs?$AA?5?$AAi?$AAn?$AAc?$AAo?$AAm?$AAp?$AAa?$AAt?$AAi?$AAb?$AAl?$AAe?$AA?$AA@ DB 'v'
-	DB	00H, 'e', 00H, 'c', 00H, 't', 00H, 'o', 00H, 'r', 00H, ' ', 00H
-	DB	'i', 00H, 't', 00H, 'e', 00H, 'r', 00H, 'a', 00H, 't', 00H, 'o'
-	DB	00H, 'r', 00H, 's', 00H, ' ', 00H, 'i', 00H, 'n', 00H, 'c', 00H
-	DB	'o', 00H, 'm', 00H, 'p', 00H, 'a', 00H, 't', 00H, 'i', 00H, 'b'
-	DB	00H, 'l', 00H, 'e', 00H, 00H, 00H		; `string'
-CONST	ENDS
 ;	COMDAT ??_C@_1OE@CKEPOMKL@?$AAs?$AAt?$AAd?$AA?3?$AA?3?$AA_?$AAL?$AAi?$AAs?$AAt?$AA_?$AAc?$AAo?$AAn?$AAs?$AAt?$AA_?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?$DM?$AAc?$AAl?$AAa?$AAs?$AAs?$AA?5@
 CONST	SEGMENT
 ??_C@_1OE@CKEPOMKL@?$AAs?$AAt?$AAd?$AA?3?$AA?3?$AA_?$AAL?$AAi?$AAs?$AAt?$AA_?$AAc?$AAo?$AAn?$AAs?$AAt?$AA_?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?$DM?$AAc?$AAl?$AAa?$AAs?$AAs?$AA?5@ DB 's'
@@ -2558,6 +2549,15 @@ CONST	SEGMENT
 	DB	00H, 'n', 00H, 'o', 00H, 't', 00H, ' ', 00H, 'd', 00H, 'e', 00H
 	DB	'c', 00H, 'r', 00H, 'e', 00H, 'm', 00H, 'e', 00H, 'n', 00H, 't'
 	DB	00H, 'a', 00H, 'b', 00H, 'l', 00H, 'e', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1DM@HINDPMBP@?$AAv?$AAe?$AAc?$AAt?$AAo?$AAr?$AA?5?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AAs?$AA?5?$AAi?$AAn?$AAc?$AAo?$AAm?$AAp?$AAa?$AAt?$AAi?$AAb?$AAl?$AAe?$AA?$AA@
+CONST	SEGMENT
+??_C@_1DM@HINDPMBP@?$AAv?$AAe?$AAc?$AAt?$AAo?$AAr?$AA?5?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AAs?$AA?5?$AAi?$AAn?$AAc?$AAo?$AAm?$AAp?$AAa?$AAt?$AAi?$AAb?$AAl?$AAe?$AA?$AA@ DB 'v'
+	DB	00H, 'e', 00H, 'c', 00H, 't', 00H, 'o', 00H, 'r', 00H, ' ', 00H
+	DB	'i', 00H, 't', 00H, 'e', 00H, 'r', 00H, 'a', 00H, 't', 00H, 'o'
+	DB	00H, 'r', 00H, 's', 00H, ' ', 00H, 'i', 00H, 'n', 00H, 'c', 00H
+	DB	'o', 00H, 'm', 00H, 'p', 00H, 'a', 00H, 't', 00H, 'i', 00H, 'b'
+	DB	00H, 'l', 00H, 'e', 00H, 00H, 00H		; `string'
 CONST	ENDS
 ;	COMDAT ??_C@_0BD@OLBABOEK@vector?$DMT?$DO?5too?5long?$AA@
 CONST	SEGMENT
@@ -2638,13 +2638,6 @@ CONST	SEGMENT
 	DB	'e', 00H, 'r', 00H, 'a', 00H, 't', 00H, 'o', 00H, 'r', 00H, ' '
 	DB	00H, '=', 00H, '=', 00H, 00H, 00H		; `string'
 CONST	ENDS
-;	COMDAT ??_C@_1CG@JNLFBNGN@?$AA?$CC?$AAi?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5?$AAa?$AAr?$AAg?$AAu?$AAm?$AAe?$AAn?$AAt?$AA?$CC?$AA?$AA@
-CONST	SEGMENT
-??_C@_1CG@JNLFBNGN@?$AA?$CC?$AAi?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5?$AAa?$AAr?$AAg?$AAu?$AAm?$AAe?$AAn?$AAt?$AA?$CC?$AA?$AA@ DB '"'
-	DB	00H, 'i', 00H, 'n', 00H, 'v', 00H, 'a', 00H, 'l', 00H, 'i', 00H
-	DB	'd', 00H, ' ', 00H, 'a', 00H, 'r', 00H, 'g', 00H, 'u', 00H, 'm'
-	DB	00H, 'e', 00H, 'n', 00H, 't', 00H, '"', 00H, 00H, 00H ; `string'
-CONST	ENDS
 ;	COMDAT ??_C@_1OE@HJIALJKP@?$AAs?$AAt?$AAd?$AA?3?$AA?3?$AA_?$AAL?$AAi?$AAs?$AAt?$AA_?$AAc?$AAo?$AAn?$AAs?$AAt?$AA_?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?$DM?$AAc?$AAl?$AAa?$AAs?$AAs?$AA?5@
 CONST	SEGMENT
 ??_C@_1OE@HJIALJKP@?$AAs?$AAt?$AAd?$AA?3?$AA?3?$AA_?$AAL?$AAi?$AAs?$AAt?$AA_?$AAc?$AAo?$AAn?$AAs?$AAt?$AA_?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?$DM?$AAc?$AAl?$AAa?$AAs?$AAs?$AA?5@ DB 's'
@@ -2667,6 +2660,22 @@ CONST	SEGMENT
 	DB	00H, 'r', 00H, 'a', 00H, 't', 00H, 'o', 00H, 'r', 00H, ' ', 00H
 	DB	'=', 00H, '=', 00H, 00H, 00H			; `string'
 CONST	ENDS
+;	COMDAT ??_C@_1DI@MDELDGPI@?$AAl?$AAi?$AAs?$AAt?$AA?5?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AAs?$AA?5?$AAi?$AAn?$AAc?$AAo?$AAm?$AAp?$AAa?$AAt?$AAi?$AAb?$AAl?$AAe?$AA?$AA@
+CONST	SEGMENT
+??_C@_1DI@MDELDGPI@?$AAl?$AAi?$AAs?$AAt?$AA?5?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AAs?$AA?5?$AAi?$AAn?$AAc?$AAo?$AAm?$AAp?$AAa?$AAt?$AAi?$AAb?$AAl?$AAe?$AA?$AA@ DB 'l'
+	DB	00H, 'i', 00H, 's', 00H, 't', 00H, ' ', 00H, 'i', 00H, 't', 00H
+	DB	'e', 00H, 'r', 00H, 'a', 00H, 't', 00H, 'o', 00H, 'r', 00H, 's'
+	DB	00H, ' ', 00H, 'i', 00H, 'n', 00H, 'c', 00H, 'o', 00H, 'm', 00H
+	DB	'p', 00H, 'a', 00H, 't', 00H, 'i', 00H, 'b', 00H, 'l', 00H, 'e'
+	DB	00H, 00H, 00H				; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1CG@JNLFBNGN@?$AA?$CC?$AAi?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5?$AAa?$AAr?$AAg?$AAu?$AAm?$AAe?$AAn?$AAt?$AA?$CC?$AA?$AA@
+CONST	SEGMENT
+??_C@_1CG@JNLFBNGN@?$AA?$CC?$AAi?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5?$AAa?$AAr?$AAg?$AAu?$AAm?$AAe?$AAn?$AAt?$AA?$CC?$AA?$AA@ DB '"'
+	DB	00H, 'i', 00H, 'n', 00H, 'v', 00H, 'a', 00H, 'l', 00H, 'i', 00H
+	DB	'd', 00H, ' ', 00H, 'a', 00H, 'r', 00H, 'g', 00H, 'u', 00H, 'm'
+	DB	00H, 'e', 00H, 'n', 00H, 't', 00H, '"', 00H, 00H, 00H ; `string'
+CONST	ENDS
 ;	COMDAT ??_C@_1FO@GJIHNDLM@?$AA?$CC?$AAS?$AAt?$AAa?$AAn?$AAd?$AAa?$AAr?$AAd?$AA?5?$AAC?$AA?$CL?$AA?$CL?$AA?5?$AAL?$AAi?$AAb?$AAr?$AAa?$AAr?$AAi?$AAe?$AAs?$AA?5?$AAI?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5@
 CONST	SEGMENT
 ??_C@_1FO@GJIHNDLM@?$AA?$CC?$AAS?$AAt?$AAa?$AAn?$AAd?$AAa?$AAr?$AAd?$AA?5?$AAC?$AA?$CL?$AA?$CL?$AA?5?$AAL?$AAi?$AAb?$AAr?$AAa?$AAr?$AAi?$AAe?$AAs?$AA?5?$AAI?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5@ DB '"'
@@ -2683,15 +2692,6 @@ CONST	ENDS
 CONST	SEGMENT
 ??_C@_0CI@FNPHFCCM@Standard?5C?$CL?$CL?5Libraries?5Invalid?5A@ DB 'Standa'
 	DB	'rd C++ Libraries Invalid Argument', 00H	; `string'
-CONST	ENDS
-;	COMDAT ??_C@_1DI@MDELDGPI@?$AAl?$AAi?$AAs?$AAt?$AA?5?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AAs?$AA?5?$AAi?$AAn?$AAc?$AAo?$AAm?$AAp?$AAa?$AAt?$AAi?$AAb?$AAl?$AAe?$AA?$AA@
-CONST	SEGMENT
-??_C@_1DI@MDELDGPI@?$AAl?$AAi?$AAs?$AAt?$AA?5?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AAs?$AA?5?$AAi?$AAn?$AAc?$AAo?$AAm?$AAp?$AAa?$AAt?$AAi?$AAb?$AAl?$AAe?$AA?$AA@ DB 'l'
-	DB	00H, 'i', 00H, 's', 00H, 't', 00H, ' ', 00H, 'i', 00H, 't', 00H
-	DB	'e', 00H, 'r', 00H, 'a', 00H, 't', 00H, 'o', 00H, 'r', 00H, 's'
-	DB	00H, ' ', 00H, 'i', 00H, 'n', 00H, 'c', 00H, 'o', 00H, 'm', 00H
-	DB	'p', 00H, 'a', 00H, 't', 00H, 'i', 00H, 'b', 00H, 'l', 00H, 'e'
-	DB	00H, 00H, 00H				; `string'
 CONST	ENDS
 ;	COMDAT ??_C@_1OC@GJNJMNFC@?$AAs?$AAt?$AAd?$AA?3?$AA?3?$AA_?$AAV?$AAe?$AAc?$AAt?$AAo?$AAr?$AA_?$AAc?$AAo?$AAn?$AAs?$AAt?$AA_?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?$DM?$AAc?$AAl?$AAa?$AAs@
 CONST	SEGMENT
@@ -35391,7 +35391,7 @@ $LN2@AddBots:
 ; 252  :     //not be rendered until it is spawned)
 ; 253  :     Raven_Bot* rb = new Raven_Bot(this, Vector2D());
 
-	push	272					; 00000110H
+	push	304					; 00000130H
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
 	mov	DWORD PTR $T3[ebp], eax
@@ -35642,7 +35642,7 @@ $LN9@LoadMap:
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
 	cmp	DWORD PTR $T6[ebp], 0
 	je	SHORT $LN10@LoadMap
-	push	OFFSET $SG183776
+	push	OFFSET $SG189979
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
@@ -35671,7 +35671,7 @@ $LN11@LoadMap:
 	mov	DWORD PTR __$EHRec$[ebp+8], 1
 	cmp	DWORD PTR $T4[ebp], 0
 	je	SHORT $LN12@LoadMap
-	push	OFFSET $SG183782
+	push	OFFSET $SG189985
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetInt@Scriptor@@QAEHPAD@Z		; Scriptor::GetInt
@@ -35738,7 +35738,7 @@ $LN15@LoadMap:
 ; 398  :   { 
 ; 399  :     AddBots(script->GetInt("NumBots"));
 
-	push	OFFSET $SG183788
+	push	OFFSET $SG189991
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetInt@Scriptor@@QAEHPAD@Z		; Scriptor::GetInt
@@ -37249,7 +37249,7 @@ $LN2@Render:
 
 ; 793  :       gdi->TextAtPos(GetClientCursorPosition(), "Queuing");
 
-	push	OFFSET $SG184820
+	push	OFFSET $SG191023
 	lea	ecx, DWORD PTR $T16[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	BYTE PTR __$EHRec$[ebp+8], 13		; 0000000dH
@@ -37612,7 +37612,7 @@ __$EHRec$ = -12						; size = 12
 ; 44   :   //load in the default map
 ; 45   :   LoadMap(script->GetString("StartMap"));
 
-	push	OFFSET $SG181297
+	push	OFFSET $SG187500
 	lea	eax, DWORD PTR $T2[ebp]
 	push	eax
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
@@ -37894,7 +37894,7 @@ _pBot$ = 8						; size = 4
 ; 205  :   {
 ; 206  :     ErrorBox("Map has no spawn points!"); return false;
 
-	push	OFFSET $SG183623
+	push	OFFSET $SG189826
 	call	?ErrorBox@@YAXPAD@Z			; ErrorBox
 	add	esp, 4
 	xor	al, al
@@ -42956,7 +42956,7 @@ _this$ = -4						; size = 4
 ?GetSensoryMem@Raven_Bot@@QBEQAVRaven_SensoryMemory@@XZ PROC ; Raven_Bot::GetSensoryMem, COMDAT
 ; _this$ = ecx
 
-; 211  :   Raven_SensoryMemory* const         GetSensoryMem()const{return m_pSensoryMem;}
+; 215  :   Raven_SensoryMemory* const         GetSensoryMem()const{return m_pSensoryMem;}
 
 	push	ebp
 	mov	ebp, esp
@@ -42964,7 +42964,7 @@ _this$ = -4						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR [eax+156]
+	mov	eax, DWORD PTR [eax+184]
 	mov	esp, ebp
 	pop	ebp
 	ret	0
@@ -42978,7 +42978,7 @@ _this$ = -4						; size = 4
 ?GetWeaponSys@Raven_Bot@@QBEQAVRaven_WeaponSystem@@XZ PROC ; Raven_Bot::GetWeaponSys, COMDAT
 ; _this$ = ecx
 
-; 210  :   Raven_WeaponSystem* const          GetWeaponSys()const{return m_pWeaponSys;}
+; 214  :   Raven_WeaponSystem* const          GetWeaponSys()const{return m_pWeaponSys;}
 
 	push	ebp
 	mov	ebp, esp
@@ -42986,7 +42986,7 @@ _this$ = -4						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR [eax+172]
+	mov	eax, DWORD PTR [eax+200]
 	mov	esp, ebp
 	pop	ebp
 	ret	0
@@ -43000,7 +43000,7 @@ _this$ = -4						; size = 4
 ?GetTargetBot@Raven_Bot@@QBEQAV1@XZ PROC		; Raven_Bot::GetTargetBot, COMDAT
 ; _this$ = ecx
 
-; 209  :   Raven_Bot* const                   GetTargetBot()const{return m_pTargSys->GetTarget();}
+; 213  :   Raven_Bot* const                   GetTargetBot()const{return m_pTargSys->GetTarget();}
 
 	push	ebp
 	mov	ebp, esp
@@ -43008,7 +43008,7 @@ _this$ = -4						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	ecx, DWORD PTR [eax+168]
+	mov	ecx, DWORD PTR [eax+196]
 	call	?GetTarget@Raven_TargetingSystem@@QBEPAVRaven_Bot@@XZ ; Raven_TargetingSystem::GetTarget
 	add	esp, 4
 	cmp	ebp, esp
@@ -43026,7 +43026,7 @@ _this$ = -4						; size = 4
 ?GetBrain@Raven_Bot@@QAEQAVGoal_Think@@XZ PROC		; Raven_Bot::GetBrain, COMDAT
 ; _this$ = ecx
 
-; 206  :   Goal_Think* const                  GetBrain(){return m_pBrain;}
+; 210  :   Goal_Think* const                  GetBrain(){return m_pBrain;}
 
 	push	ebp
 	mov	ebp, esp
@@ -43034,7 +43034,7 @@ _this$ = -4						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR [eax+152]
+	mov	eax, DWORD PTR [eax+180]
 	mov	esp, ebp
 	pop	ebp
 	ret	0
@@ -43048,7 +43048,7 @@ _this$ = -4						; size = 4
 ?GetSteering@Raven_Bot@@QAEQAVRaven_Steering@@XZ PROC	; Raven_Bot::GetSteering, COMDAT
 ; _this$ = ecx
 
-; 204  :   Raven_Steering* const              GetSteering(){return m_pSteering;}
+; 208  :   Raven_Steering* const              GetSteering(){return m_pSteering;}
 
 	push	ebp
 	mov	ebp, esp
@@ -43056,7 +43056,7 @@ _this$ = -4						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR [eax+160]
+	mov	eax, DWORD PTR [eax+188]
 	mov	esp, ebp
 	pop	ebp
 	ret	0
@@ -43070,7 +43070,7 @@ _this$ = -4						; size = 4
 ?SetSpawning@Raven_Bot@@QAEXXZ PROC			; Raven_Bot::SetSpawning, COMDAT
 ; _this$ = ecx
 
-; 160  :   void          SetSpawning(){m_Status = spawning;}
+; 164  :   void          SetSpawning(){m_Status = spawning;}
 
 	push	ebp
 	mov	ebp, esp
@@ -43078,7 +43078,7 @@ _this$ = -4						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	DWORD PTR [eax+144], 2
+	mov	DWORD PTR [eax+172], 2
 	mov	esp, ebp
 	pop	ebp
 	ret	0
@@ -43093,7 +43093,7 @@ _this$ = -4						; size = 4
 ?isSpawning@Raven_Bot@@QBE_NXZ PROC			; Raven_Bot::isSpawning, COMDAT
 ; _this$ = ecx
 
-; 158  :   bool          isSpawning()const{return m_Status == spawning;}
+; 162  :   bool          isSpawning()const{return m_Status == spawning;}
 
 	push	ebp
 	mov	ebp, esp
@@ -43102,7 +43102,7 @@ _this$ = -4						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	eax, DWORD PTR _this$[ebp]
-	cmp	DWORD PTR [eax+144], 2
+	cmp	DWORD PTR [eax+172], 2
 	jne	SHORT $LN3@isSpawning
 	mov	DWORD PTR tv66[ebp], 1
 	jmp	SHORT $LN4@isSpawning
@@ -43124,7 +43124,7 @@ _this$ = -4						; size = 4
 ?isAlive@Raven_Bot@@QBE_NXZ PROC			; Raven_Bot::isAlive, COMDAT
 ; _this$ = ecx
 
-; 157  :   bool          isAlive()const{return m_Status == alive;}
+; 161  :   bool          isAlive()const{return m_Status == alive;}
 
 	push	ebp
 	mov	ebp, esp
@@ -43133,7 +43133,7 @@ _this$ = -4						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	eax, DWORD PTR _this$[ebp]
-	cmp	DWORD PTR [eax+144], 0
+	cmp	DWORD PTR [eax+172], 0
 	jne	SHORT $LN3@isAlive
 	mov	DWORD PTR tv66[ebp], 1
 	jmp	SHORT $LN4@isAlive
@@ -43155,7 +43155,7 @@ _this$ = -4						; size = 4
 ?isDead@Raven_Bot@@QBE_NXZ PROC				; Raven_Bot::isDead, COMDAT
 ; _this$ = ecx
 
-; 156  :   bool          isDead()const{return m_Status == dead;}
+; 160  :   bool          isDead()const{return m_Status == dead;}
 
 	push	ebp
 	mov	ebp, esp
@@ -43164,7 +43164,7 @@ _this$ = -4						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	eax, DWORD PTR _this$[ebp]
-	cmp	DWORD PTR [eax+144], 1
+	cmp	DWORD PTR [eax+172], 1
 	jne	SHORT $LN3@isDead
 	mov	DWORD PTR tv66[ebp], 1
 	jmp	SHORT $LN4@isDead
@@ -43185,7 +43185,7 @@ _this$ = -4						; size = 4
 ?isPossessed@Raven_Bot@@QBE_NXZ PROC			; Raven_Bot::isPossessed, COMDAT
 ; _this$ = ecx
 
-; 155  :   bool          isPossessed()const{return m_bPossessed;}
+; 159  :   bool          isPossessed()const{return m_bPossessed;}
 
 	push	ebp
 	mov	ebp, esp
@@ -43193,7 +43193,7 @@ _this$ = -4						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	al, BYTE PTR [eax+237]
+	mov	al, BYTE PTR [eax+269]
 	mov	esp, ebp
 	pop	ebp
 	ret	0
@@ -43207,7 +43207,7 @@ _this$ = -4						; size = 4
 ?FieldOfView@Raven_Bot@@QBENXZ PROC			; Raven_Bot::FieldOfView, COMDAT
 ; _this$ = ecx
 
-; 153  :   double        FieldOfView()const{return m_dFieldOfView;}
+; 157  :   double        FieldOfView()const{return m_dFieldOfView;}
 
 	push	ebp
 	mov	ebp, esp
@@ -43215,7 +43215,7 @@ _this$ = -4						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	eax, DWORD PTR _this$[ebp]
-	fld	QWORD PTR [eax+224]
+	fld	QWORD PTR [eax+256]
 	mov	esp, ebp
 	pop	ebp
 	ret	0
@@ -43230,7 +43230,7 @@ ___$ReturnUdt$ = 8					; size = 4
 ?Facing@Raven_Bot@@QBE?AUVector2D@@XZ PROC		; Raven_Bot::Facing, COMDAT
 ; _this$ = ecx
 
-; 152  :   Vector2D      Facing()const{return m_vFacing;}
+; 156  :   Vector2D      Facing()const{return m_vFacing;}
 
 	push	ebp
 	mov	ebp, esp
@@ -43238,7 +43238,7 @@ ___$ReturnUdt$ = 8					; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	eax, DWORD PTR _this$[ebp]
-	add	eax, 208				; 000000d0H
+	add	eax, 240				; 000000f0H
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	DWORD PTR [ecx], edx

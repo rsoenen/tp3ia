@@ -578,7 +578,7 @@ _colors	DD	0ffH
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG170409 DB	'<Goal_FollowPath::Activate>: Unrecognized edge type', 00H
+$SG176612 DB	'<Goal_FollowPath::Activate>: Unrecognized edge type', 00H
 _pi	DQ	0400921f9f01b866er		; 3.14159
 _Pi	DQ	0400921f9f01b866er		; 3.14159
 CONST	ENDS
@@ -1102,13 +1102,13 @@ PUBLIC	?deallocate@?$allocator@U_Container_proxy@std@@@std@@QAEXPAU_Container_pr
 PUBLIC	?allocate@?$allocator@U_Container_proxy@std@@@std@@QAEPAU_Container_proxy@2@I@Z ; std::allocator<std::_Container_proxy>::allocate
 PUBLIC	??$construct@U_Container_proxy@std@@U12@@?$allocator@U_Container_proxy@std@@@std@@QAEXPAU_Container_proxy@1@$$QAU21@@Z ; std::allocator<std::_Container_proxy>::construct<std::_Container_proxy,std::_Container_proxy>
 PUBLIC	??$destroy@U_Container_proxy@std@@@?$allocator@U_Container_proxy@std@@@std@@QAEXPAU_Container_proxy@1@@Z ; std::allocator<std::_Container_proxy>::destroy<std::_Container_proxy>
-PUBLIC	??$addressof@PAU?$_List_node@VPathEdge@@PAX@std@@@std@@YAPAPAU?$_List_node@VPathEdge@@PAX@0@AAPAU10@@Z ; std::addressof<std::_List_node<PathEdge,void *> *>
-PUBLIC	??$destroy@PAU?$_List_node@VPathEdge@@PAX@std@@@?$_Wrap_alloc@V?$allocator@U?$_List_node@VPathEdge@@PAX@std@@@std@@@std@@QAEXPAPAU?$_List_node@VPathEdge@@PAX@1@@Z ; std::_Wrap_alloc<std::allocator<std::_List_node<PathEdge,void *> > >::destroy<std::_List_node<PathEdge,void *> *>
-PUBLIC	??$destroy@VPathEdge@@@?$_Wrap_alloc@V?$allocator@U?$_List_node@VPathEdge@@PAX@std@@@std@@@std@@QAEXPAVPathEdge@@@Z ; std::_Wrap_alloc<std::allocator<std::_List_node<PathEdge,void *> > >::destroy<PathEdge>
 PUBLIC	??0?$_Wrap_alloc@V?$allocator@U_Container_proxy@std@@@std@@@std@@QAE@XZ ; std::_Wrap_alloc<std::allocator<std::_Container_proxy> >::_Wrap_alloc<std::allocator<std::_Container_proxy> >
 PUBLIC	?allocate@?$_Wrap_alloc@V?$allocator@U_Container_proxy@std@@@std@@@std@@QAEPAU_Container_proxy@2@I@Z ; std::_Wrap_alloc<std::allocator<std::_Container_proxy> >::allocate
 PUBLIC	?deallocate@?$_Wrap_alloc@V?$allocator@U_Container_proxy@std@@@std@@@std@@QAEXPAU_Container_proxy@2@I@Z ; std::_Wrap_alloc<std::allocator<std::_Container_proxy> >::deallocate
 PUBLIC	??$destroy@U_Container_proxy@std@@@?$_Wrap_alloc@V?$allocator@U_Container_proxy@std@@@std@@@std@@QAEXPAU_Container_proxy@1@@Z ; std::_Wrap_alloc<std::allocator<std::_Container_proxy> >::destroy<std::_Container_proxy>
+PUBLIC	??$addressof@PAU?$_List_node@VPathEdge@@PAX@std@@@std@@YAPAPAU?$_List_node@VPathEdge@@PAX@0@AAPAU10@@Z ; std::addressof<std::_List_node<PathEdge,void *> *>
+PUBLIC	??$destroy@PAU?$_List_node@VPathEdge@@PAX@std@@@?$_Wrap_alloc@V?$allocator@U?$_List_node@VPathEdge@@PAX@std@@@std@@@std@@QAEXPAPAU?$_List_node@VPathEdge@@PAX@1@@Z ; std::_Wrap_alloc<std::allocator<std::_List_node<PathEdge,void *> > >::destroy<std::_List_node<PathEdge,void *> *>
+PUBLIC	??$destroy@VPathEdge@@@?$_Wrap_alloc@V?$allocator@U?$_List_node@VPathEdge@@PAX@std@@@std@@@std@@QAEXPAVPathEdge@@@Z ; std::_Wrap_alloc<std::allocator<std::_List_node<PathEdge,void *> > >::destroy<PathEdge>
 PUBLIC	??$addressof@PAU?$_List_node@PAV?$Goal@VRaven_Bot@@@@PAX@std@@@std@@YAPAPAU?$_List_node@PAV?$Goal@VRaven_Bot@@@@PAX@0@AAPAU10@@Z ; std::addressof<std::_List_node<Goal<Raven_Bot> *,void *> *>
 PUBLIC	??$destroy@PAU?$_List_node@PAV?$Goal@VRaven_Bot@@@@PAX@std@@@?$_Wrap_alloc@V?$allocator@U?$_List_node@PAV?$Goal@VRaven_Bot@@@@PAX@std@@@std@@@std@@QAEXPAPAU?$_List_node@PAV?$Goal@VRaven_Bot@@@@PAX@1@@Z ; std::_Wrap_alloc<std::allocator<std::_List_node<Goal<Raven_Bot> *,void *> > >::destroy<std::_List_node<Goal<Raven_Bot> *,void *> *>
 PUBLIC	??$construct@U_Container_proxy@std@@U12@@?$_Wrap_alloc@V?$allocator@U_Container_proxy@std@@@std@@@std@@QAEXPAU_Container_proxy@1@$$QAU21@@Z ; std::_Wrap_alloc<std::allocator<std::_Container_proxy> >::construct<std::_Container_proxy,std::_Container_proxy>
@@ -1166,9 +1166,9 @@ PUBLIC	??$forward@AAPAD@std@@YAAAPADAAPAD@Z		; std::forward<char * &>
 PUBLIC	??$construct@PADAAPAD@?$allocator_traits@V?$allocator@D@std@@@std@@SAXAAV?$allocator@D@1@PAPADAAPAD@Z ; std::allocator_traits<std::allocator<char> >::construct<char *,char * &>
 PUBLIC	??$destroy@PAD@?$allocator_traits@V?$allocator@D@std@@@std@@SAXAAV?$allocator@D@1@PAPAD@Z ; std::allocator_traits<std::allocator<char> >::destroy<char *>
 PUBLIC	??$forward@U_Container_proxy@std@@@std@@YA$$QAU_Container_proxy@0@AAU10@@Z ; std::forward<std::_Container_proxy>
+PUBLIC	??$destroy@U_Container_proxy@std@@@?$allocator_traits@V?$allocator@U_Container_proxy@std@@@std@@@std@@SAXAAV?$allocator@U_Container_proxy@std@@@1@PAU_Container_proxy@1@@Z ; std::allocator_traits<std::allocator<std::_Container_proxy> >::destroy<std::_Container_proxy>
 PUBLIC	??$destroy@PAU?$_List_node@VPathEdge@@PAX@std@@@?$allocator_traits@V?$allocator@U?$_List_node@VPathEdge@@PAX@std@@@std@@@std@@SAXAAV?$allocator@U?$_List_node@VPathEdge@@PAX@std@@@1@PAPAU?$_List_node@VPathEdge@@PAX@1@@Z ; std::allocator_traits<std::allocator<std::_List_node<PathEdge,void *> > >::destroy<std::_List_node<PathEdge,void *> *>
 PUBLIC	??$destroy@VPathEdge@@@?$allocator_traits@V?$allocator@U?$_List_node@VPathEdge@@PAX@std@@@std@@@std@@SAXAAV?$allocator@U?$_List_node@VPathEdge@@PAX@std@@@1@PAVPathEdge@@@Z ; std::allocator_traits<std::allocator<std::_List_node<PathEdge,void *> > >::destroy<PathEdge>
-PUBLIC	??$destroy@U_Container_proxy@std@@@?$allocator_traits@V?$allocator@U_Container_proxy@std@@@std@@@std@@SAXAAV?$allocator@U_Container_proxy@std@@@1@PAU_Container_proxy@1@@Z ; std::allocator_traits<std::allocator<std::_Container_proxy> >::destroy<std::_Container_proxy>
 PUBLIC	??$destroy@PAU?$_List_node@PAV?$Goal@VRaven_Bot@@@@PAX@std@@@?$allocator_traits@V?$allocator@U?$_List_node@PAV?$Goal@VRaven_Bot@@@@PAX@std@@@std@@@std@@SAXAAV?$allocator@U?$_List_node@PAV?$Goal@VRaven_Bot@@@@PAX@std@@@1@PAPAU?$_List_node@PAV?$Goal@VRaven_Bot@@@@PAX@1@@Z ; std::allocator_traits<std::allocator<std::_List_node<Goal<Raven_Bot> *,void *> > >::destroy<std::_List_node<Goal<Raven_Bot> *,void *> *>
 PUBLIC	??$construct@U_Container_proxy@std@@U12@@?$allocator_traits@V?$allocator@U_Container_proxy@std@@@std@@@std@@SAXAAV?$allocator@U_Container_proxy@std@@@1@PAU_Container_proxy@1@$$QAU31@@Z ; std::allocator_traits<std::allocator<std::_Container_proxy> >::construct<std::_Container_proxy,std::_Container_proxy>
 PUBLIC	??$destroy@PAV?$Goal@VRaven_Bot@@@@@?$allocator_traits@V?$allocator@U?$_List_node@PAV?$Goal@VRaven_Bot@@@@PAX@std@@@std@@@std@@SAXAAV?$allocator@U?$_List_node@PAV?$Goal@VRaven_Bot@@@@PAX@std@@@1@PAPAV?$Goal@VRaven_Bot@@@@@Z ; std::allocator_traits<std::allocator<std::_List_node<Goal<Raven_Bot> *,void *> > >::destroy<Goal<Raven_Bot> *>
@@ -1240,15 +1240,15 @@ PUBLIC	??_C@_15GANGMFKL@?$AA?$CF?$AAs?$AA?$AA@		; `string'
 PUBLIC	??_C@_1BO@MEPPHOO@?$AA?$CC?$AAo?$AAu?$AAt?$AA?5?$AAo?$AAf?$AA?5?$AAr?$AAa?$AAn?$AAg?$AAe?$AA?$CC?$AA?$AA@ ; `string'
 PUBLIC	?id@?$codecvt@DDH@std@@2V0locale@2@A		; std::codecvt<char,char,int>::id
 PUBLIC	??_C@_0CB@OHIHCHGJ@Cannot?5add?5goals?5to?5atomic?5goals@ ; `string'
+PUBLIC	??_C@_0CI@FNPHFCCM@Standard?5C?$CL?$CL?5Libraries?5Invalid?5A@ ; `string'
+PUBLIC	??_C@_1FO@GJIHNDLM@?$AA?$CC?$AAS?$AAt?$AAa?$AAn?$AAd?$AAa?$AAr?$AAd?$AA?5?$AAC?$AA?$CL?$AA?$CL?$AA?5?$AAL?$AAi?$AAb?$AAr?$AAa?$AAr?$AAi?$AAe?$AAs?$AA?5?$AAI?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5@ ; `string'
+PUBLIC	??_C@_1CG@JNLFBNGN@?$AA?$CC?$AAi?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5?$AAa?$AAr?$AAg?$AAu?$AAm?$AAe?$AAn?$AAt?$AA?$CC?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1HM@OMDAGKFF@?$AAC?$AA?3?$AA?2?$AAP?$AAr?$AAo?$AAg?$AAr?$AAa?$AAm?$AA?5?$AAF?$AAi?$AAl?$AAe?$AAs?$AA?2?$AAM?$AAi?$AAc?$AAr?$AAo?$AAs?$AAo?$AAf?$AAt?$AA?5?$AAV?$AAi?$AAs?$AAu?$AAa@ ; `string'
 PUBLIC	??_C@_1EE@BBMFLDOC@?$AAl?$AAi?$AAs?$AAt?$AA?5?$AAe?$AAr?$AAa?$AAs?$AAe?$AA?5?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?5?$AAo?$AAu?$AAt?$AAs?$AAi?$AAd?$AAe?$AA?5?$AAr?$AAa?$AAn?$AAg@ ; `string'
 PUBLIC	??_C@_1EA@DOGAGKDH@?$AAl?$AAi?$AAs?$AAt?$AA?5?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?5?$AAn?$AAo?$AAt?$AA?5?$AAi?$AAn?$AAc?$AAr?$AAe?$AAm?$AAe?$AAn?$AAt?$AAa?$AAb?$AAl?$AAe?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1NO@NMPGMCFD@?$AAs?$AAt?$AAd?$AA?3?$AA?3?$AA_?$AAL?$AAi?$AAs?$AAt?$AA_?$AAc?$AAo?$AAn?$AAs?$AAt?$AA_?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?$DM?$AAc?$AAl?$AAa?$AAs?$AAs?$AA?5@ ; `string'
 PUBLIC	??_C@_1DI@MDELDGPI@?$AAl?$AAi?$AAs?$AAt?$AA?5?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AAs?$AA?5?$AAi?$AAn?$AAc?$AAo?$AAm?$AAp?$AAa?$AAt?$AAi?$AAb?$AAl?$AAe?$AA?$AA@ ; `string'
-PUBLIC	??_C@_0CI@FNPHFCCM@Standard?5C?$CL?$CL?5Libraries?5Invalid?5A@ ; `string'
-PUBLIC	??_C@_1FO@GJIHNDLM@?$AA?$CC?$AAS?$AAt?$AAa?$AAn?$AAd?$AAa?$AAr?$AAd?$AA?5?$AAC?$AA?$CL?$AA?$CL?$AA?5?$AAL?$AAi?$AAb?$AAr?$AAa?$AAr?$AAi?$AAe?$AAs?$AA?5?$AAI?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5@ ; `string'
 PUBLIC	??_C@_1NO@HMALCLJG@?$AAs?$AAt?$AAd?$AA?3?$AA?3?$AA_?$AAL?$AAi?$AAs?$AAt?$AA_?$AAc?$AAo?$AAn?$AAs?$AAt?$AA_?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?$DM?$AAc?$AAl?$AAa?$AAs?$AAs?$AA?5@ ; `string'
-PUBLIC	??_C@_1CG@JNLFBNGN@?$AA?$CC?$AAi?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5?$AAa?$AAr?$AAg?$AAu?$AAm?$AAe?$AAn?$AAt?$AA?$CC?$AA?$AA@ ; `string'
 PUBLIC	??_C@_0BA@JFNIOLAK@string?5too?5long?$AA@	; `string'
 PUBLIC	??_C@_0BI@CFPLBAOH@invalid?5string?5position?$AA@ ; `string'
 PUBLIC	??_C@_1EC@HILJLMMC@?$AAl?$AAi?$AAs?$AAt?$AA?5?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?5?$AAn?$AAo?$AAt?$AA?5?$AAd?$AAe?$AAr?$AAe?$AAf?$AAe?$AAr?$AAe?$AAn?$AAc?$AAa?$AAb?$AAl?$AAe@ ; `string'
@@ -1989,13 +1989,6 @@ CONST	ENDS
 CONST	SEGMENT
 ??_C@_0BA@JFNIOLAK@string?5too?5long?$AA@ DB 'string too long', 00H ; `string'
 CONST	ENDS
-;	COMDAT ??_C@_1CG@JNLFBNGN@?$AA?$CC?$AAi?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5?$AAa?$AAr?$AAg?$AAu?$AAm?$AAe?$AAn?$AAt?$AA?$CC?$AA?$AA@
-CONST	SEGMENT
-??_C@_1CG@JNLFBNGN@?$AA?$CC?$AAi?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5?$AAa?$AAr?$AAg?$AAu?$AAm?$AAe?$AAn?$AAt?$AA?$CC?$AA?$AA@ DB '"'
-	DB	00H, 'i', 00H, 'n', 00H, 'v', 00H, 'a', 00H, 'l', 00H, 'i', 00H
-	DB	'd', 00H, ' ', 00H, 'a', 00H, 'r', 00H, 'g', 00H, 'u', 00H, 'm'
-	DB	00H, 'e', 00H, 'n', 00H, 't', 00H, '"', 00H, 00H, 00H ; `string'
-CONST	ENDS
 ;	COMDAT ??_C@_1NO@HMALCLJG@?$AAs?$AAt?$AAd?$AA?3?$AA?3?$AA_?$AAL?$AAi?$AAs?$AAt?$AA_?$AAc?$AAo?$AAn?$AAs?$AAt?$AA_?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?$DM?$AAc?$AAl?$AAa?$AAs?$AAs?$AA?5@
 CONST	SEGMENT
 ??_C@_1NO@HMALCLJG@?$AAs?$AAt?$AAd?$AA?3?$AA?3?$AA_?$AAL?$AAi?$AAs?$AAt?$AA_?$AAc?$AAo?$AAn?$AAs?$AAt?$AA_?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?$DM?$AAc?$AAl?$AAa?$AAs?$AAs?$AA?5@ DB 's'
@@ -2016,23 +2009,6 @@ CONST	SEGMENT
 	DB	00H, '>', 00H, ' ', 00H, '>', 00H, ' ', 00H, '>', 00H, ':', 00H
 	DB	':', 00H, 'o', 00H, 'p', 00H, 'e', 00H, 'r', 00H, 'a', 00H, 't'
 	DB	00H, 'o', 00H, 'r', 00H, ' ', 00H, '=', 00H, '=', 00H, 00H, 00H ; `string'
-CONST	ENDS
-;	COMDAT ??_C@_1FO@GJIHNDLM@?$AA?$CC?$AAS?$AAt?$AAa?$AAn?$AAd?$AAa?$AAr?$AAd?$AA?5?$AAC?$AA?$CL?$AA?$CL?$AA?5?$AAL?$AAi?$AAb?$AAr?$AAa?$AAr?$AAi?$AAe?$AAs?$AA?5?$AAI?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5@
-CONST	SEGMENT
-??_C@_1FO@GJIHNDLM@?$AA?$CC?$AAS?$AAt?$AAa?$AAn?$AAd?$AAa?$AAr?$AAd?$AA?5?$AAC?$AA?$CL?$AA?$CL?$AA?5?$AAL?$AAi?$AAb?$AAr?$AAa?$AAr?$AAi?$AAe?$AAs?$AA?5?$AAI?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5@ DB '"'
-	DB	00H, 'S', 00H, 't', 00H, 'a', 00H, 'n', 00H, 'd', 00H, 'a', 00H
-	DB	'r', 00H, 'd', 00H, ' ', 00H, 'C', 00H, '+', 00H, '+', 00H, ' '
-	DB	00H, 'L', 00H, 'i', 00H, 'b', 00H, 'r', 00H, 'a', 00H, 'r', 00H
-	DB	'i', 00H, 'e', 00H, 's', 00H, ' ', 00H, 'I', 00H, 'n', 00H, 'v'
-	DB	00H, 'a', 00H, 'l', 00H, 'i', 00H, 'd', 00H, ' ', 00H, 'A', 00H
-	DB	'r', 00H, 'g', 00H, 'u', 00H, 'm', 00H, 'e', 00H, 'n', 00H, 't'
-	DB	00H, '"', 00H, ' ', 00H, '&', 00H, '&', 00H, ' ', 00H, '0', 00H
-	DB	00H, 00H					; `string'
-CONST	ENDS
-;	COMDAT ??_C@_0CI@FNPHFCCM@Standard?5C?$CL?$CL?5Libraries?5Invalid?5A@
-CONST	SEGMENT
-??_C@_0CI@FNPHFCCM@Standard?5C?$CL?$CL?5Libraries?5Invalid?5A@ DB 'Standa'
-	DB	'rd C++ Libraries Invalid Argument', 00H	; `string'
 CONST	ENDS
 ;	COMDAT ??_C@_1DI@MDELDGPI@?$AAl?$AAi?$AAs?$AAt?$AA?5?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AAs?$AA?5?$AAi?$AAn?$AAc?$AAo?$AAm?$AAp?$AAa?$AAt?$AAi?$AAb?$AAl?$AAe?$AA?$AA@
 CONST	SEGMENT
@@ -2096,6 +2072,30 @@ CONST	SEGMENT
 	DB	'V', 00H, 'C', 00H, '\', 00H, 'i', 00H, 'n', 00H, 'c', 00H, 'l'
 	DB	00H, 'u', 00H, 'd', 00H, 'e', 00H, '\', 00H, 'l', 00H, 'i', 00H
 	DB	's', 00H, 't', 00H, 00H, 00H			; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1CG@JNLFBNGN@?$AA?$CC?$AAi?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5?$AAa?$AAr?$AAg?$AAu?$AAm?$AAe?$AAn?$AAt?$AA?$CC?$AA?$AA@
+CONST	SEGMENT
+??_C@_1CG@JNLFBNGN@?$AA?$CC?$AAi?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5?$AAa?$AAr?$AAg?$AAu?$AAm?$AAe?$AAn?$AAt?$AA?$CC?$AA?$AA@ DB '"'
+	DB	00H, 'i', 00H, 'n', 00H, 'v', 00H, 'a', 00H, 'l', 00H, 'i', 00H
+	DB	'd', 00H, ' ', 00H, 'a', 00H, 'r', 00H, 'g', 00H, 'u', 00H, 'm'
+	DB	00H, 'e', 00H, 'n', 00H, 't', 00H, '"', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1FO@GJIHNDLM@?$AA?$CC?$AAS?$AAt?$AAa?$AAn?$AAd?$AAa?$AAr?$AAd?$AA?5?$AAC?$AA?$CL?$AA?$CL?$AA?5?$AAL?$AAi?$AAb?$AAr?$AAa?$AAr?$AAi?$AAe?$AAs?$AA?5?$AAI?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5@
+CONST	SEGMENT
+??_C@_1FO@GJIHNDLM@?$AA?$CC?$AAS?$AAt?$AAa?$AAn?$AAd?$AAa?$AAr?$AAd?$AA?5?$AAC?$AA?$CL?$AA?$CL?$AA?5?$AAL?$AAi?$AAb?$AAr?$AAa?$AAr?$AAi?$AAe?$AAs?$AA?5?$AAI?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5@ DB '"'
+	DB	00H, 'S', 00H, 't', 00H, 'a', 00H, 'n', 00H, 'd', 00H, 'a', 00H
+	DB	'r', 00H, 'd', 00H, ' ', 00H, 'C', 00H, '+', 00H, '+', 00H, ' '
+	DB	00H, 'L', 00H, 'i', 00H, 'b', 00H, 'r', 00H, 'a', 00H, 'r', 00H
+	DB	'i', 00H, 'e', 00H, 's', 00H, ' ', 00H, 'I', 00H, 'n', 00H, 'v'
+	DB	00H, 'a', 00H, 'l', 00H, 'i', 00H, 'd', 00H, ' ', 00H, 'A', 00H
+	DB	'r', 00H, 'g', 00H, 'u', 00H, 'm', 00H, 'e', 00H, 'n', 00H, 't'
+	DB	00H, '"', 00H, ' ', 00H, '&', 00H, '&', 00H, ' ', 00H, '0', 00H
+	DB	00H, 00H					; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0CI@FNPHFCCM@Standard?5C?$CL?$CL?5Libraries?5Invalid?5A@
+CONST	SEGMENT
+??_C@_0CI@FNPHFCCM@Standard?5C?$CL?$CL?5Libraries?5Invalid?5A@ DB 'Standa'
+	DB	'rd C++ Libraries Invalid Argument', 00H	; `string'
 CONST	ENDS
 ;	COMDAT ??_C@_0CB@OHIHCHGJ@Cannot?5add?5goals?5to?5atomic?5goals@
 CONST	SEGMENT
@@ -4982,35 +4982,6 @@ __Ptr$ = 12						; size = 4
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File c:\program files\microsoft visual studio 11.0\vc\include\xmemory0
-;	COMDAT ??$destroy@U_Container_proxy@std@@@?$allocator_traits@V?$allocator@U_Container_proxy@std@@@std@@@std@@SAXAAV?$allocator@U_Container_proxy@std@@@1@PAU_Container_proxy@1@@Z
-_TEXT	SEGMENT
-__Al$ = 8						; size = 4
-__Ptr$ = 12						; size = 4
-??$destroy@U_Container_proxy@std@@@?$allocator_traits@V?$allocator@U_Container_proxy@std@@@std@@@std@@SAXAAV?$allocator@U_Container_proxy@std@@@1@PAU_Container_proxy@1@@Z PROC ; std::allocator_traits<std::allocator<std::_Container_proxy> >::destroy<std::_Container_proxy>, COMDAT
-
-; 755  : 		static void destroy(_Alloc& _Al, _Uty *_Ptr)
-
-	push	ebp
-	mov	ebp, esp
-
-; 756  : 		{	// destroy object at _Ptr
-; 757  : 		_Al.destroy(_Ptr);
-
-	mov	eax, DWORD PTR __Ptr$[ebp]
-	push	eax
-	mov	ecx, DWORD PTR __Al$[ebp]
-	call	??$destroy@U_Container_proxy@std@@@?$allocator@U_Container_proxy@std@@@std@@QAEXPAU_Container_proxy@1@@Z ; std::allocator<std::_Container_proxy>::destroy<std::_Container_proxy>
-
-; 758  : 		}
-
-	cmp	ebp, esp
-	call	__RTC_CheckEsp
-	pop	ebp
-	ret	0
-??$destroy@U_Container_proxy@std@@@?$allocator_traits@V?$allocator@U_Container_proxy@std@@@std@@@std@@SAXAAV?$allocator@U_Container_proxy@std@@@1@PAU_Container_proxy@1@@Z ENDP ; std::allocator_traits<std::allocator<std::_Container_proxy> >::destroy<std::_Container_proxy>
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
-; File c:\program files\microsoft visual studio 11.0\vc\include\xmemory0
 ;	COMDAT ??$destroy@VPathEdge@@@?$allocator_traits@V?$allocator@U?$_List_node@VPathEdge@@PAX@std@@@std@@@std@@SAXAAV?$allocator@U?$_List_node@VPathEdge@@PAX@std@@@1@PAVPathEdge@@@Z
 _TEXT	SEGMENT
 __Al$ = 8						; size = 4
@@ -5066,6 +5037,35 @@ __Ptr$ = 12						; size = 4
 	pop	ebp
 	ret	0
 ??$destroy@PAU?$_List_node@VPathEdge@@PAX@std@@@?$allocator_traits@V?$allocator@U?$_List_node@VPathEdge@@PAX@std@@@std@@@std@@SAXAAV?$allocator@U?$_List_node@VPathEdge@@PAX@std@@@1@PAPAU?$_List_node@VPathEdge@@PAX@1@@Z ENDP ; std::allocator_traits<std::allocator<std::_List_node<PathEdge,void *> > >::destroy<std::_List_node<PathEdge,void *> *>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File c:\program files\microsoft visual studio 11.0\vc\include\xmemory0
+;	COMDAT ??$destroy@U_Container_proxy@std@@@?$allocator_traits@V?$allocator@U_Container_proxy@std@@@std@@@std@@SAXAAV?$allocator@U_Container_proxy@std@@@1@PAU_Container_proxy@1@@Z
+_TEXT	SEGMENT
+__Al$ = 8						; size = 4
+__Ptr$ = 12						; size = 4
+??$destroy@U_Container_proxy@std@@@?$allocator_traits@V?$allocator@U_Container_proxy@std@@@std@@@std@@SAXAAV?$allocator@U_Container_proxy@std@@@1@PAU_Container_proxy@1@@Z PROC ; std::allocator_traits<std::allocator<std::_Container_proxy> >::destroy<std::_Container_proxy>, COMDAT
+
+; 755  : 		static void destroy(_Alloc& _Al, _Uty *_Ptr)
+
+	push	ebp
+	mov	ebp, esp
+
+; 756  : 		{	// destroy object at _Ptr
+; 757  : 		_Al.destroy(_Ptr);
+
+	mov	eax, DWORD PTR __Ptr$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR __Al$[ebp]
+	call	??$destroy@U_Container_proxy@std@@@?$allocator@U_Container_proxy@std@@@std@@QAEXPAU_Container_proxy@1@@Z ; std::allocator<std::_Container_proxy>::destroy<std::_Container_proxy>
+
+; 758  : 		}
+
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	pop	ebp
+	ret	0
+??$destroy@U_Container_proxy@std@@@?$allocator_traits@V?$allocator@U_Container_proxy@std@@@std@@@std@@SAXAAV?$allocator@U_Container_proxy@std@@@1@PAU_Container_proxy@1@@Z ENDP ; std::allocator_traits<std::allocator<std::_Container_proxy> >::destroy<std::_Container_proxy>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File c:\program files\microsoft visual studio 11.0\vc\include\type_traits
@@ -7821,6 +7821,104 @@ __Val$ = 8						; size = 4
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File c:\program files\microsoft visual studio 11.0\vc\include\xmemory0
+;	COMDAT ??$destroy@VPathEdge@@@?$_Wrap_alloc@V?$allocator@U?$_List_node@VPathEdge@@PAX@std@@@std@@@std@@QAEXPAVPathEdge@@@Z
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+__Ptr$ = 8						; size = 4
+??$destroy@VPathEdge@@@?$_Wrap_alloc@V?$allocator@U?$_List_node@VPathEdge@@PAX@std@@@std@@@std@@QAEXPAVPathEdge@@@Z PROC ; std::_Wrap_alloc<std::allocator<std::_List_node<PathEdge,void *> > >::destroy<PathEdge>, COMDAT
+; _this$ = ecx
+
+; 907  : 		void destroy(_Ty *_Ptr)
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 908  : 		{	// destroy object at _Ptr
+; 909  : 		_Mytraits::destroy(*this, _Ptr);
+
+	mov	eax, DWORD PTR __Ptr$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR _this$[ebp]
+	push	ecx
+	call	??$destroy@VPathEdge@@@?$allocator_traits@V?$allocator@U?$_List_node@VPathEdge@@PAX@std@@@std@@@std@@SAXAAV?$allocator@U?$_List_node@VPathEdge@@PAX@std@@@1@PAVPathEdge@@@Z ; std::allocator_traits<std::allocator<std::_List_node<PathEdge,void *> > >::destroy<PathEdge>
+	add	esp, 8
+
+; 910  : 		}
+
+	add	esp, 4
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+??$destroy@VPathEdge@@@?$_Wrap_alloc@V?$allocator@U?$_List_node@VPathEdge@@PAX@std@@@std@@@std@@QAEXPAVPathEdge@@@Z ENDP ; std::_Wrap_alloc<std::allocator<std::_List_node<PathEdge,void *> > >::destroy<PathEdge>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File c:\program files\microsoft visual studio 11.0\vc\include\xmemory0
+;	COMDAT ??$destroy@PAU?$_List_node@VPathEdge@@PAX@std@@@?$_Wrap_alloc@V?$allocator@U?$_List_node@VPathEdge@@PAX@std@@@std@@@std@@QAEXPAPAU?$_List_node@VPathEdge@@PAX@1@@Z
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+__Ptr$ = 8						; size = 4
+??$destroy@PAU?$_List_node@VPathEdge@@PAX@std@@@?$_Wrap_alloc@V?$allocator@U?$_List_node@VPathEdge@@PAX@std@@@std@@@std@@QAEXPAPAU?$_List_node@VPathEdge@@PAX@1@@Z PROC ; std::_Wrap_alloc<std::allocator<std::_List_node<PathEdge,void *> > >::destroy<std::_List_node<PathEdge,void *> *>, COMDAT
+; _this$ = ecx
+
+; 907  : 		void destroy(_Ty *_Ptr)
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 908  : 		{	// destroy object at _Ptr
+; 909  : 		_Mytraits::destroy(*this, _Ptr);
+
+	mov	eax, DWORD PTR __Ptr$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR _this$[ebp]
+	push	ecx
+	call	??$destroy@PAU?$_List_node@VPathEdge@@PAX@std@@@?$allocator_traits@V?$allocator@U?$_List_node@VPathEdge@@PAX@std@@@std@@@std@@SAXAAV?$allocator@U?$_List_node@VPathEdge@@PAX@std@@@1@PAPAU?$_List_node@VPathEdge@@PAX@1@@Z ; std::allocator_traits<std::allocator<std::_List_node<PathEdge,void *> > >::destroy<std::_List_node<PathEdge,void *> *>
+	add	esp, 8
+
+; 910  : 		}
+
+	add	esp, 4
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+??$destroy@PAU?$_List_node@VPathEdge@@PAX@std@@@?$_Wrap_alloc@V?$allocator@U?$_List_node@VPathEdge@@PAX@std@@@std@@@std@@QAEXPAPAU?$_List_node@VPathEdge@@PAX@1@@Z ENDP ; std::_Wrap_alloc<std::allocator<std::_List_node<PathEdge,void *> > >::destroy<std::_List_node<PathEdge,void *> *>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File c:\program files\microsoft visual studio 11.0\vc\include\xstddef
+;	COMDAT ??$addressof@PAU?$_List_node@VPathEdge@@PAX@std@@@std@@YAPAPAU?$_List_node@VPathEdge@@PAX@0@AAPAU10@@Z
+_TEXT	SEGMENT
+__Val$ = 8						; size = 4
+??$addressof@PAU?$_List_node@VPathEdge@@PAX@std@@@std@@YAPAPAU?$_List_node@VPathEdge@@PAX@0@AAPAU10@@Z PROC ; std::addressof<std::_List_node<PathEdge,void *> *>, COMDAT
+
+; 85   : 	{	// return address of _Val
+
+	push	ebp
+	mov	ebp, esp
+
+; 86   : 	return (reinterpret_cast<_Ty *>(
+; 87   : 		(&const_cast<char&>(
+; 88   : 		reinterpret_cast<const volatile char&>(_Val)))));
+
+	mov	eax, DWORD PTR __Val$[ebp]
+
+; 89   : 	}
+
+	pop	ebp
+	ret	0
+??$addressof@PAU?$_List_node@VPathEdge@@PAX@std@@@std@@YAPAPAU?$_List_node@VPathEdge@@PAX@0@AAPAU10@@Z ENDP ; std::addressof<std::_List_node<PathEdge,void *> *>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File c:\program files\microsoft visual studio 11.0\vc\include\xmemory0
 ;	COMDAT ??$destroy@U_Container_proxy@std@@@?$_Wrap_alloc@V?$allocator@U_Container_proxy@std@@@std@@@std@@QAEXPAU_Container_proxy@1@@Z
 _TEXT	SEGMENT
 _this$ = -4						; size = 4
@@ -7955,104 +8053,6 @@ _this$ = -4						; size = 4
 	pop	ebp
 	ret	0
 ??0?$_Wrap_alloc@V?$allocator@U_Container_proxy@std@@@std@@@std@@QAE@XZ ENDP ; std::_Wrap_alloc<std::allocator<std::_Container_proxy> >::_Wrap_alloc<std::allocator<std::_Container_proxy> >
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
-; File c:\program files\microsoft visual studio 11.0\vc\include\xmemory0
-;	COMDAT ??$destroy@VPathEdge@@@?$_Wrap_alloc@V?$allocator@U?$_List_node@VPathEdge@@PAX@std@@@std@@@std@@QAEXPAVPathEdge@@@Z
-_TEXT	SEGMENT
-_this$ = -4						; size = 4
-__Ptr$ = 8						; size = 4
-??$destroy@VPathEdge@@@?$_Wrap_alloc@V?$allocator@U?$_List_node@VPathEdge@@PAX@std@@@std@@@std@@QAEXPAVPathEdge@@@Z PROC ; std::_Wrap_alloc<std::allocator<std::_List_node<PathEdge,void *> > >::destroy<PathEdge>, COMDAT
-; _this$ = ecx
-
-; 907  : 		void destroy(_Ty *_Ptr)
-
-	push	ebp
-	mov	ebp, esp
-	push	ecx
-	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
-	mov	DWORD PTR _this$[ebp], ecx
-
-; 908  : 		{	// destroy object at _Ptr
-; 909  : 		_Mytraits::destroy(*this, _Ptr);
-
-	mov	eax, DWORD PTR __Ptr$[ebp]
-	push	eax
-	mov	ecx, DWORD PTR _this$[ebp]
-	push	ecx
-	call	??$destroy@VPathEdge@@@?$allocator_traits@V?$allocator@U?$_List_node@VPathEdge@@PAX@std@@@std@@@std@@SAXAAV?$allocator@U?$_List_node@VPathEdge@@PAX@std@@@1@PAVPathEdge@@@Z ; std::allocator_traits<std::allocator<std::_List_node<PathEdge,void *> > >::destroy<PathEdge>
-	add	esp, 8
-
-; 910  : 		}
-
-	add	esp, 4
-	cmp	ebp, esp
-	call	__RTC_CheckEsp
-	mov	esp, ebp
-	pop	ebp
-	ret	4
-??$destroy@VPathEdge@@@?$_Wrap_alloc@V?$allocator@U?$_List_node@VPathEdge@@PAX@std@@@std@@@std@@QAEXPAVPathEdge@@@Z ENDP ; std::_Wrap_alloc<std::allocator<std::_List_node<PathEdge,void *> > >::destroy<PathEdge>
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
-; File c:\program files\microsoft visual studio 11.0\vc\include\xmemory0
-;	COMDAT ??$destroy@PAU?$_List_node@VPathEdge@@PAX@std@@@?$_Wrap_alloc@V?$allocator@U?$_List_node@VPathEdge@@PAX@std@@@std@@@std@@QAEXPAPAU?$_List_node@VPathEdge@@PAX@1@@Z
-_TEXT	SEGMENT
-_this$ = -4						; size = 4
-__Ptr$ = 8						; size = 4
-??$destroy@PAU?$_List_node@VPathEdge@@PAX@std@@@?$_Wrap_alloc@V?$allocator@U?$_List_node@VPathEdge@@PAX@std@@@std@@@std@@QAEXPAPAU?$_List_node@VPathEdge@@PAX@1@@Z PROC ; std::_Wrap_alloc<std::allocator<std::_List_node<PathEdge,void *> > >::destroy<std::_List_node<PathEdge,void *> *>, COMDAT
-; _this$ = ecx
-
-; 907  : 		void destroy(_Ty *_Ptr)
-
-	push	ebp
-	mov	ebp, esp
-	push	ecx
-	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
-	mov	DWORD PTR _this$[ebp], ecx
-
-; 908  : 		{	// destroy object at _Ptr
-; 909  : 		_Mytraits::destroy(*this, _Ptr);
-
-	mov	eax, DWORD PTR __Ptr$[ebp]
-	push	eax
-	mov	ecx, DWORD PTR _this$[ebp]
-	push	ecx
-	call	??$destroy@PAU?$_List_node@VPathEdge@@PAX@std@@@?$allocator_traits@V?$allocator@U?$_List_node@VPathEdge@@PAX@std@@@std@@@std@@SAXAAV?$allocator@U?$_List_node@VPathEdge@@PAX@std@@@1@PAPAU?$_List_node@VPathEdge@@PAX@1@@Z ; std::allocator_traits<std::allocator<std::_List_node<PathEdge,void *> > >::destroy<std::_List_node<PathEdge,void *> *>
-	add	esp, 8
-
-; 910  : 		}
-
-	add	esp, 4
-	cmp	ebp, esp
-	call	__RTC_CheckEsp
-	mov	esp, ebp
-	pop	ebp
-	ret	4
-??$destroy@PAU?$_List_node@VPathEdge@@PAX@std@@@?$_Wrap_alloc@V?$allocator@U?$_List_node@VPathEdge@@PAX@std@@@std@@@std@@QAEXPAPAU?$_List_node@VPathEdge@@PAX@1@@Z ENDP ; std::_Wrap_alloc<std::allocator<std::_List_node<PathEdge,void *> > >::destroy<std::_List_node<PathEdge,void *> *>
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
-; File c:\program files\microsoft visual studio 11.0\vc\include\xstddef
-;	COMDAT ??$addressof@PAU?$_List_node@VPathEdge@@PAX@std@@@std@@YAPAPAU?$_List_node@VPathEdge@@PAX@0@AAPAU10@@Z
-_TEXT	SEGMENT
-__Val$ = 8						; size = 4
-??$addressof@PAU?$_List_node@VPathEdge@@PAX@std@@@std@@YAPAPAU?$_List_node@VPathEdge@@PAX@0@AAPAU10@@Z PROC ; std::addressof<std::_List_node<PathEdge,void *> *>, COMDAT
-
-; 85   : 	{	// return address of _Val
-
-	push	ebp
-	mov	ebp, esp
-
-; 86   : 	return (reinterpret_cast<_Ty *>(
-; 87   : 		(&const_cast<char&>(
-; 88   : 		reinterpret_cast<const volatile char&>(_Val)))));
-
-	mov	eax, DWORD PTR __Val$[ebp]
-
-; 89   : 	}
-
-	pop	ebp
-	ret	0
-??$addressof@PAU?$_List_node@VPathEdge@@PAX@std@@@std@@YAPAPAU?$_List_node@VPathEdge@@PAX@0@AAPAU10@@Z ENDP ; std::addressof<std::_List_node<PathEdge,void *> *>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File c:\program files\microsoft visual studio 11.0\vc\include\xmemory0
@@ -10851,7 +10851,7 @@ $LN1@Activate:
 ; 69   : 
 ; 70   :     throw std::runtime_error("<Goal_FollowPath::Activate>: Unrecognized edge type");
 
-	push	OFFSET $SG170409
+	push	OFFSET $SG176612
 	lea	ecx, DWORD PTR $T2[ebp]
 	call	??0runtime_error@std@@QAE@PBD@Z		; std::runtime_error::runtime_error
 	push	OFFSET __TI2?AVruntime_error@std@@

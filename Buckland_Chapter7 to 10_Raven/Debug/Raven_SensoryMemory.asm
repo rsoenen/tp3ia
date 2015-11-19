@@ -696,7 +696,7 @@ _colors	DD	0ffH
 	DD	0c8c8c8H
 	DD	0e6e6ffH
 	ORG $+4
-$SG156206 DB	'< Raven_SensoryMemory::GetLastRecordedPositionOfOpponent'
+$SG162409 DB	'< Raven_SensoryMemory::GetLastRecordedPositionOfOpponent'
 	DB	'>: Attempting to get position of unrecorded bot', 00H
 _Pi	DQ	0400921f9f01b866er		; 3.14159
 CONST	ENDS
@@ -14162,7 +14162,7 @@ _this$ = -4						; size = 4
 ?GetWorld@Raven_Bot@@QAEQAVRaven_Game@@XZ PROC		; Raven_Bot::GetWorld, COMDAT
 ; _this$ = ecx
 
-; 203  :   Raven_Game* const                  GetWorld(){return m_pWorld;} 
+; 207  :   Raven_Game* const                  GetWorld(){return m_pWorld;} 
 
 	push	ebp
 	mov	ebp, esp
@@ -14170,7 +14170,7 @@ _this$ = -4						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR [eax+148]
+	mov	eax, DWORD PTR [eax+176]
 	mov	esp, ebp
 	pop	ebp
 	ret	0
@@ -14184,7 +14184,7 @@ _this$ = -4						; size = 4
 ?FieldOfView@Raven_Bot@@QBENXZ PROC			; Raven_Bot::FieldOfView, COMDAT
 ; _this$ = ecx
 
-; 153  :   double        FieldOfView()const{return m_dFieldOfView;}
+; 157  :   double        FieldOfView()const{return m_dFieldOfView;}
 
 	push	ebp
 	mov	ebp, esp
@@ -14192,7 +14192,7 @@ _this$ = -4						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	eax, DWORD PTR _this$[ebp]
-	fld	QWORD PTR [eax+224]
+	fld	QWORD PTR [eax+256]
 	mov	esp, ebp
 	pop	ebp
 	ret	0
@@ -14207,7 +14207,7 @@ ___$ReturnUdt$ = 8					; size = 4
 ?Facing@Raven_Bot@@QBE?AUVector2D@@XZ PROC		; Raven_Bot::Facing, COMDAT
 ; _this$ = ecx
 
-; 152  :   Vector2D      Facing()const{return m_vFacing;}
+; 156  :   Vector2D      Facing()const{return m_vFacing;}
 
 	push	ebp
 	mov	ebp, esp
@@ -14215,7 +14215,7 @@ ___$ReturnUdt$ = 8					; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	eax, DWORD PTR _this$[ebp]
-	add	eax, 208				; 000000d0H
+	add	eax, 240				; 000000f0H
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	DWORD PTR [ecx], edx
@@ -15531,7 +15531,7 @@ $LN1@GetLastRec:
 ; 208  : 
 ; 209  :   throw std::runtime_error("< Raven_SensoryMemory::GetLastRecordedPositionOfOpponent>: Attempting to get position of unrecorded bot");
 
-	push	OFFSET $SG156206
+	push	OFFSET $SG162409
 	lea	ecx, DWORD PTR $T2[ebp]
 	call	??0runtime_error@std@@QAE@PBD@Z		; std::runtime_error::runtime_error
 	push	OFFSET __TI2?AVruntime_error@std@@

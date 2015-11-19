@@ -498,52 +498,52 @@ _colors	DD	0ffH
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG167775 DB	'RailGun_IdealRange', 00H
+$SG167777 DB	'RailGun_IdealRange', 00H
 	ORG $+1
 _pi	DQ	0400921f9f01b866er		; 3.14159
 _Pi	DQ	0400921f9f01b866er		; 3.14159
-$SG167774 DB	'Slug_MaxSpeed', 00H
+$SG167776 DB	'Slug_MaxSpeed', 00H
 	ORG $+2
-$SG167776 DB	'RailGun_FiringFreq', 00H
+$SG167778 DB	'RailGun_FiringFreq', 00H
 	ORG $+1
-$SG167777 DB	'RailGun_MaxRoundsCarried', 00H
+$SG167779 DB	'RailGun_MaxRoundsCarried', 00H
 	ORG $+3
-$SG167778 DB	'RailGun_DefaultRounds', 00H
+$SG167780 DB	'RailGun_DefaultRounds', 00H
 	ORG $+2
-$SG167808 DB	'DistanceToTarget', 00H
+$SG167810 DB	'DistanceToTarget', 00H
 	ORG $+3
-$SG167811 DB	'AmmoStatus', 00H
+$SG167813 DB	'AmmoStatus', 00H
 	ORG $+1
-$SG167813 DB	'Desirability', 00H
+$SG167815 DB	'Desirability', 00H
 	ORG $+3
-$SG167819 DB	'DistanceToTarget', 00H
+$SG167821 DB	'DistanceToTarget', 00H
 	ORG $+3
-$SG167824 DB	'Target_Contact', 00H
+$SG167826 DB	'Target_Contact', 00H
 	ORG $+1
-$SG167829 DB	'Target_Close', 00H
+$SG167831 DB	'Target_Close', 00H
 	ORG $+3
-$SG167834 DB	'Target_Medium', 00H
+$SG167836 DB	'Target_Medium', 00H
 	ORG $+2
-$SG167839 DB	'Target_Far', 00H
+$SG167841 DB	'Target_Far', 00H
 	ORG $+1
-$SG167844 DB	'Target_VeryFar', 00H
+$SG167846 DB	'Target_VeryFar', 00H
 	ORG $+1
-$SG167847 DB	'Desirability', 00H
+$SG167849 DB	'Desirability', 00H
 	ORG $+3
-$SG167852 DB	'VeryDesirable', 00H
+$SG167854 DB	'VeryDesirable', 00H
 	ORG $+2
-$SG167857 DB	'Desirable', 00H
+$SG167859 DB	'Desirable', 00H
 	ORG $+2
-$SG167862 DB	'Undesirable', 00H
-$SG167865 DB	'AmmoStatus', 00H
+$SG167864 DB	'Undesirable', 00H
+$SG167867 DB	'AmmoStatus', 00H
 	ORG $+1
-$SG167870 DB	'Ammo_Loads', 00H
+$SG167872 DB	'Ammo_Loads', 00H
 	ORG $+1
-$SG167875 DB	'Ammo_Okay', 00H
+$SG167877 DB	'Ammo_Okay', 00H
 	ORG $+2
-$SG167880 DB	'Ammo_Low', 00H
+$SG167882 DB	'Ammo_Low', 00H
 	ORG $+3
-$SG167885 DB	'Ammo_VeryLow', 00H
+$SG167887 DB	'Ammo_VeryLow', 00H
 CONST	ENDS
 ;	COMDAT ?_Noreplace@?$_Iosb@H@std@@2W4_Openmode@12@B
 CONST	SEGMENT
@@ -1045,8 +1045,6 @@ PUBLIC	?_Orphan_range@?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@IB
 PUBLIC	?WorldTransform@@YA?AV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@AAV12@ABUVector2D@@111@Z ; WorldTransform
 PUBLIC	?Pos@BaseGameEntity@@QBE?AUVector2D@@XZ		; BaseGameEntity::Pos
 PUBLIC	?Scale@BaseGameEntity@@QBE?AUVector2D@@XZ	; BaseGameEntity::Scale
-PUBLIC	?Facing@Raven_Bot@@QBE?AUVector2D@@XZ		; Raven_Bot::Facing
-PUBLIC	?GetWorld@Raven_Bot@@QAEQAVRaven_Game@@XZ	; Raven_Bot::GetWorld
 PUBLIC	?ORwithDOM@FuzzySet@@QAEXN@Z			; FuzzySet::ORwithDOM
 PUBLIC	?ClearDOM@FuzzySet@@QAEXXZ			; FuzzySet::ClearDOM
 PUBLIC	?GetDOM@FuzzySet@@QBENXZ			; FuzzySet::GetDOM
@@ -1188,6 +1186,8 @@ PUBLIC	??0?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PAVFuzzyRule@@@std@
 PUBLIC	??D?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PAVFuzzyRule@@@std@@@std@@@std@@QBEAAPAVFuzzyRule@@XZ ; std::_Vector_iterator<std::_Vector_val<std::_Simple_types<FuzzyRule *> > >::operator*
 PUBLIC	??E?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PAVFuzzyRule@@@std@@@std@@@std@@QAEAAV01@XZ ; std::_Vector_iterator<std::_Vector_val<std::_Simple_types<FuzzyRule *> > >::operator++
 PUBLIC	??1?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PAVFuzzyRule@@@std@@@std@@@std@@QAE@XZ ; std::_Vector_iterator<std::_Vector_val<std::_Simple_types<FuzzyRule *> > >::~_Vector_iterator<std::_Vector_val<std::_Simple_types<FuzzyRule *> > >
+PUBLIC	?Facing@Raven_Bot@@QBE?AUVector2D@@XZ		; Raven_Bot::Facing
+PUBLIC	?GetWorld@Raven_Bot@@QAEQAVRaven_Game@@XZ	; Raven_Bot::GetWorld
 PUBLIC	?isReadyForNextShot@Raven_Weapon@@IAE_NXZ	; Raven_Weapon::isReadyForNextShot
 PUBLIC	?UpdateTimeWeaponIsNextAvailable@Raven_Weapon@@IAEXXZ ; Raven_Weapon::UpdateTimeWeaponIsNextAvailable
 PUBLIC	??0Raven_Weapon@@QAE@IIINNNPAVRaven_Bot@@@Z	; Raven_Weapon::Raven_Weapon
@@ -1486,11 +1486,6 @@ PUBLIC	??_R0?AV_System_error_category@std@@@8		; std::_System_error_category `RT
 PUBLIC	??_R3_System_error_category@std@@8		; std::_System_error_category::`RTTI Class Hierarchy Descriptor'
 PUBLIC	??_R2_System_error_category@std@@8		; std::_System_error_category::`RTTI Base Class Array'
 PUBLIC	??_R1A@?0A@EA@_System_error_category@std@@8	; std::_System_error_category::`RTTI Base Class Descriptor at (0,-1,0,64)'
-PUBLIC	??_R4Raven_Weapon@@6B@				; Raven_Weapon::`RTTI Complete Object Locator'
-PUBLIC	??_R0?AVRaven_Weapon@@@8			; Raven_Weapon `RTTI Type Descriptor'
-PUBLIC	??_R3Raven_Weapon@@8				; Raven_Weapon::`RTTI Class Hierarchy Descriptor'
-PUBLIC	??_R2Raven_Weapon@@8				; Raven_Weapon::`RTTI Base Class Array'
-PUBLIC	??_R1A@?0A@EA@Raven_Weapon@@8			; Raven_Weapon::`RTTI Base Class Descriptor at (0,-1,0,64)'
 PUBLIC	??_R1A@?0A@EA@FuzzyTerm@@8			; FuzzyTerm::`RTTI Base Class Descriptor at (0,-1,0,64)'
 PUBLIC	??_R0?AVFuzzyTerm@@@8				; FuzzyTerm `RTTI Type Descriptor'
 PUBLIC	??_R3FuzzyTerm@@8				; FuzzyTerm::`RTTI Class Hierarchy Descriptor'
@@ -1506,6 +1501,11 @@ PUBLIC	??_R0?AVFzFairly@@@8				; FzFairly `RTTI Type Descriptor'
 PUBLIC	??_R3FzFairly@@8				; FzFairly::`RTTI Class Hierarchy Descriptor'
 PUBLIC	??_R2FzFairly@@8				; FzFairly::`RTTI Base Class Array'
 PUBLIC	??_R1A@?0A@EA@FzFairly@@8			; FzFairly::`RTTI Base Class Descriptor at (0,-1,0,64)'
+PUBLIC	??_R4Raven_Weapon@@6B@				; Raven_Weapon::`RTTI Complete Object Locator'
+PUBLIC	??_R0?AVRaven_Weapon@@@8			; Raven_Weapon `RTTI Type Descriptor'
+PUBLIC	??_R3Raven_Weapon@@8				; Raven_Weapon::`RTTI Class Hierarchy Descriptor'
+PUBLIC	??_R2Raven_Weapon@@8				; Raven_Weapon::`RTTI Base Class Array'
+PUBLIC	??_R1A@?0A@EA@Raven_Weapon@@8			; Raven_Weapon::`RTTI Base Class Descriptor at (0,-1,0,64)'
 PUBLIC	??_R4RailGun@@6B@				; RailGun::`RTTI Complete Object Locator'
 PUBLIC	??_R0?AVRailGun@@@8				; RailGun `RTTI Type Descriptor'
 PUBLIC	??_R3RailGun@@8					; RailGun::`RTTI Class Hierarchy Descriptor'
@@ -1814,6 +1814,41 @@ rdata$r	SEGMENT
 	DD	FLAT:??_R0?AVRailGun@@@8
 	DD	FLAT:??_R3RailGun@@8
 rdata$r	ENDS
+;	COMDAT ??_R1A@?0A@EA@Raven_Weapon@@8
+rdata$r	SEGMENT
+??_R1A@?0A@EA@Raven_Weapon@@8 DD FLAT:??_R0?AVRaven_Weapon@@@8 ; Raven_Weapon::`RTTI Base Class Descriptor at (0,-1,0,64)'
+	DD	00H
+	DD	00H
+	DD	0ffffffffH
+	DD	00H
+	DD	040H
+	DD	FLAT:??_R3Raven_Weapon@@8
+rdata$r	ENDS
+;	COMDAT ??_R2Raven_Weapon@@8
+rdata$r	SEGMENT
+??_R2Raven_Weapon@@8 DD FLAT:??_R1A@?0A@EA@Raven_Weapon@@8 ; Raven_Weapon::`RTTI Base Class Array'
+rdata$r	ENDS
+;	COMDAT ??_R3Raven_Weapon@@8
+rdata$r	SEGMENT
+??_R3Raven_Weapon@@8 DD 00H				; Raven_Weapon::`RTTI Class Hierarchy Descriptor'
+	DD	00H
+	DD	01H
+	DD	FLAT:??_R2Raven_Weapon@@8
+rdata$r	ENDS
+;	COMDAT ??_R0?AVRaven_Weapon@@@8
+_DATA	SEGMENT
+??_R0?AVRaven_Weapon@@@8 DD FLAT:??_7type_info@@6B@	; Raven_Weapon `RTTI Type Descriptor'
+	DD	00H
+	DB	'.?AVRaven_Weapon@@', 00H
+_DATA	ENDS
+;	COMDAT ??_R4Raven_Weapon@@6B@
+rdata$r	SEGMENT
+??_R4Raven_Weapon@@6B@ DD 00H				; Raven_Weapon::`RTTI Complete Object Locator'
+	DD	00H
+	DD	00H
+	DD	FLAT:??_R0?AVRaven_Weapon@@@8
+	DD	FLAT:??_R3Raven_Weapon@@8
+rdata$r	ENDS
 ;	COMDAT ??_R1A@?0A@EA@FzFairly@@8
 rdata$r	SEGMENT
 ??_R1A@?0A@EA@FzFairly@@8 DD FLAT:??_R0?AVFzFairly@@@8	; FzFairly::`RTTI Base Class Descriptor at (0,-1,0,64)'
@@ -1920,41 +1955,6 @@ rdata$r	SEGMENT
 	DD	00H
 	DD	040H
 	DD	FLAT:??_R3FuzzyTerm@@8
-rdata$r	ENDS
-;	COMDAT ??_R1A@?0A@EA@Raven_Weapon@@8
-rdata$r	SEGMENT
-??_R1A@?0A@EA@Raven_Weapon@@8 DD FLAT:??_R0?AVRaven_Weapon@@@8 ; Raven_Weapon::`RTTI Base Class Descriptor at (0,-1,0,64)'
-	DD	00H
-	DD	00H
-	DD	0ffffffffH
-	DD	00H
-	DD	040H
-	DD	FLAT:??_R3Raven_Weapon@@8
-rdata$r	ENDS
-;	COMDAT ??_R2Raven_Weapon@@8
-rdata$r	SEGMENT
-??_R2Raven_Weapon@@8 DD FLAT:??_R1A@?0A@EA@Raven_Weapon@@8 ; Raven_Weapon::`RTTI Base Class Array'
-rdata$r	ENDS
-;	COMDAT ??_R3Raven_Weapon@@8
-rdata$r	SEGMENT
-??_R3Raven_Weapon@@8 DD 00H				; Raven_Weapon::`RTTI Class Hierarchy Descriptor'
-	DD	00H
-	DD	01H
-	DD	FLAT:??_R2Raven_Weapon@@8
-rdata$r	ENDS
-;	COMDAT ??_R0?AVRaven_Weapon@@@8
-_DATA	SEGMENT
-??_R0?AVRaven_Weapon@@@8 DD FLAT:??_7type_info@@6B@	; Raven_Weapon `RTTI Type Descriptor'
-	DD	00H
-	DB	'.?AVRaven_Weapon@@', 00H
-_DATA	ENDS
-;	COMDAT ??_R4Raven_Weapon@@6B@
-rdata$r	SEGMENT
-??_R4Raven_Weapon@@6B@ DD 00H				; Raven_Weapon::`RTTI Complete Object Locator'
-	DD	00H
-	DD	00H
-	DD	FLAT:??_R0?AVRaven_Weapon@@@8
-	DD	FLAT:??_R3Raven_Weapon@@8
 rdata$r	ENDS
 ;	COMDAT ??_R1A@?0A@EA@_System_error_category@std@@8
 rdata$r	SEGMENT
@@ -17732,7 +17732,7 @@ $LN2@GetDesirab:
 ; 73   :     //fuzzify distance and amount of ammo
 ; 74   :     m_FuzzyModule.Fuzzify("DistanceToTarget", DistToTarget);
 
-	push	OFFSET $SG167808
+	push	OFFSET $SG167810
 	lea	ecx, DWORD PTR $T4[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
@@ -17750,7 +17750,7 @@ $LN2@GetDesirab:
 
 ; 75   :     m_FuzzyModule.Fuzzify("AmmoStatus", (double)m_iNumRoundsLeft);
 
-	push	OFFSET $SG167811
+	push	OFFSET $SG167813
 	lea	ecx, DWORD PTR $T3[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR __$EHRec$[ebp+8], 1
@@ -17775,7 +17775,7 @@ $LN2@GetDesirab:
 ; 76   : 
 ; 77   :     m_dLastDesirabilityScore = m_FuzzyModule.DeFuzzify("Desirability", FuzzyModule::max_av);
 
-	push	OFFSET $SG167813
+	push	OFFSET $SG167815
 	lea	ecx, DWORD PTR $T2[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR __$EHRec$[ebp+8], 2
@@ -18114,18 +18114,6 @@ _owner$ = 8						; size = 4
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	eax, DWORD PTR _owner$[ebp]
 	push	eax
-	push	OFFSET $SG167774
-	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
-	mov	ecx, eax
-	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
-	sub	esp, 8
-	fstp	QWORD PTR [esp]
-	push	OFFSET $SG167775
-	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
-	mov	ecx, eax
-	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
-	sub	esp, 8
-	fstp	QWORD PTR [esp]
 	push	OFFSET $SG167776
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
@@ -18135,9 +18123,21 @@ _owner$ = 8						; size = 4
 	push	OFFSET $SG167777
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
+	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
+	sub	esp, 8
+	fstp	QWORD PTR [esp]
+	push	OFFSET $SG167778
+	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
+	mov	ecx, eax
+	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
+	sub	esp, 8
+	fstp	QWORD PTR [esp]
+	push	OFFSET $SG167779
+	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
+	mov	ecx, eax
 	call	?GetInt@Scriptor@@QAEHPAD@Z		; Scriptor::GetInt
 	push	eax
-	push	OFFSET $SG167778
+	push	OFFSET $SG167780
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetInt@Scriptor@@QAEHPAD@Z		; Scriptor::GetInt
@@ -18490,7 +18490,7 @@ __$EHRec$ = -12						; size = 12
 ; 89   : 
 ; 90   :   FuzzyVariable& DistanceToTarget = m_FuzzyModule.CreateFLV("DistanceToTarget");
 
-	push	OFFSET $SG167819
+	push	OFFSET $SG167821
 	lea	ecx, DWORD PTR $T47[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
@@ -18519,7 +18519,7 @@ __$EHRec$ = -12						; size = 12
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
 	mov	DWORD PTR $T44[ebp], esp
-	push	OFFSET $SG167824
+	push	OFFSET $SG167826
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR tv1108[ebp], eax
 	lea	ecx, DWORD PTR _$S1$[ebp]
@@ -18545,7 +18545,7 @@ __$EHRec$ = -12						; size = 12
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
 	mov	DWORD PTR $T43[ebp], esp
-	push	OFFSET $SG167829
+	push	OFFSET $SG167831
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR tv1114[ebp], eax
 	lea	eax, DWORD PTR _$S2$[ebp]
@@ -18571,7 +18571,7 @@ __$EHRec$ = -12						; size = 12
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
 	mov	DWORD PTR $T42[ebp], esp
-	push	OFFSET $SG167834
+	push	OFFSET $SG167836
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR tv1120[ebp], eax
 	lea	edx, DWORD PTR _$S3$[ebp]
@@ -18597,7 +18597,7 @@ __$EHRec$ = -12						; size = 12
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
 	mov	DWORD PTR $T41[ebp], esp
-	push	OFFSET $SG167839
+	push	OFFSET $SG167841
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR tv1126[ebp], eax
 	lea	ecx, DWORD PTR _$S4$[ebp]
@@ -18623,7 +18623,7 @@ __$EHRec$ = -12						; size = 12
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
 	mov	DWORD PTR $T40[ebp], esp
-	push	OFFSET $SG167844
+	push	OFFSET $SG167846
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR tv1132[ebp], eax
 	lea	eax, DWORD PTR _$S5$[ebp]
@@ -18638,7 +18638,7 @@ __$EHRec$ = -12						; size = 12
 ; 97   : 
 ; 98   :   FuzzyVariable& Desirability = m_FuzzyModule.CreateFLV("Desirability");
 
-	push	OFFSET $SG167847
+	push	OFFSET $SG167849
 	lea	ecx, DWORD PTR $T46[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	BYTE PTR __$EHRec$[ebp+8], 6
@@ -18667,7 +18667,7 @@ __$EHRec$ = -12						; size = 12
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
 	mov	DWORD PTR $T39[ebp], esp
-	push	OFFSET $SG167852
+	push	OFFSET $SG167854
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR tv1139[ebp], eax
 	lea	eax, DWORD PTR _$S6$[ebp]
@@ -18693,7 +18693,7 @@ __$EHRec$ = -12						; size = 12
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
 	mov	DWORD PTR $T38[ebp], esp
-	push	OFFSET $SG167857
+	push	OFFSET $SG167859
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR tv1145[ebp], eax
 	lea	edx, DWORD PTR _$S7$[ebp]
@@ -18719,7 +18719,7 @@ __$EHRec$ = -12						; size = 12
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
 	mov	DWORD PTR $T37[ebp], esp
-	push	OFFSET $SG167862
+	push	OFFSET $SG167864
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR tv1151[ebp], eax
 	lea	ecx, DWORD PTR _$S8$[ebp]
@@ -18734,7 +18734,7 @@ __$EHRec$ = -12						; size = 12
 ; 103  : 
 ; 104  :   FuzzyVariable& AmmoStatus = m_FuzzyModule.CreateFLV("AmmoStatus");
 
-	push	OFFSET $SG167865
+	push	OFFSET $SG167867
 	lea	ecx, DWORD PTR $T45[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	BYTE PTR __$EHRec$[ebp+8], 10		; 0000000aH
@@ -18762,7 +18762,7 @@ __$EHRec$ = -12						; size = 12
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
 	mov	DWORD PTR $T36[ebp], esp
-	push	OFFSET $SG167870
+	push	OFFSET $SG167872
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR tv1158[ebp], eax
 	lea	ecx, DWORD PTR _$S9$[ebp]
@@ -18788,7 +18788,7 @@ __$EHRec$ = -12						; size = 12
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
 	mov	DWORD PTR $T35[ebp], esp
-	push	OFFSET $SG167875
+	push	OFFSET $SG167877
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR tv1164[ebp], eax
 	lea	eax, DWORD PTR _$S10$[ebp]
@@ -18814,7 +18814,7 @@ __$EHRec$ = -12						; size = 12
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
 	mov	DWORD PTR $T34[ebp], esp
-	push	OFFSET $SG167880
+	push	OFFSET $SG167882
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR tv1170[ebp], eax
 	lea	edx, DWORD PTR _$S11$[ebp]
@@ -18840,7 +18840,7 @@ __$EHRec$ = -12						; size = 12
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
 	mov	DWORD PTR $T33[ebp], esp
-	push	OFFSET $SG167885
+	push	OFFSET $SG167887
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR tv1176[ebp], eax
 	lea	ecx, DWORD PTR _$S12$[ebp]
@@ -20055,6 +20055,61 @@ $LN2@isReadyFor:
 	pop	ebp
 	ret	0
 ?isReadyForNextShot@Raven_Weapon@@IAE_NXZ ENDP		; Raven_Weapon::isReadyForNextShot
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File c:\users\romain s\documents\workspace\workspace_ia\tp3ia\buckland_chapter7 to 10_raven\raven_bot.h
+;	COMDAT ?GetWorld@Raven_Bot@@QAEQAVRaven_Game@@XZ
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+?GetWorld@Raven_Bot@@QAEQAVRaven_Game@@XZ PROC		; Raven_Bot::GetWorld, COMDAT
+; _this$ = ecx
+
+; 207  :   Raven_Game* const                  GetWorld(){return m_pWorld;} 
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR [eax+176]
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?GetWorld@Raven_Bot@@QAEQAVRaven_Game@@XZ ENDP		; Raven_Bot::GetWorld
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File c:\users\romain s\documents\workspace\workspace_ia\tp3ia\buckland_chapter7 to 10_raven\raven_bot.h
+;	COMDAT ?Facing@Raven_Bot@@QBE?AUVector2D@@XZ
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+___$ReturnUdt$ = 8					; size = 4
+?Facing@Raven_Bot@@QBE?AUVector2D@@XZ PROC		; Raven_Bot::Facing, COMDAT
+; _this$ = ecx
+
+; 156  :   Vector2D      Facing()const{return m_vFacing;}
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	add	eax, 240				; 000000f0H
+	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
+	mov	edx, DWORD PTR [eax]
+	mov	DWORD PTR [ecx], edx
+	mov	edx, DWORD PTR [eax+4]
+	mov	DWORD PTR [ecx+4], edx
+	mov	edx, DWORD PTR [eax+8]
+	mov	DWORD PTR [ecx+8], edx
+	mov	eax, DWORD PTR [eax+12]
+	mov	DWORD PTR [ecx+12], eax
+	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?Facing@Raven_Bot@@QBE?AUVector2D@@XZ ENDP		; Raven_Bot::Facing
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ;	COMDAT ??1?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PAVFuzzyRule@@@std@@@std@@@std@@QAE@XZ
@@ -29363,61 +29418,6 @@ $LN1@ORwithDOM:
 	pop	ebp
 	ret	8
 ?ORwithDOM@FuzzySet@@QAEXN@Z ENDP			; FuzzySet::ORwithDOM
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
-; File c:\users\romain s\documents\workspace\workspace_ia\tp3ia\buckland_chapter7 to 10_raven\raven_bot.h
-;	COMDAT ?GetWorld@Raven_Bot@@QAEQAVRaven_Game@@XZ
-_TEXT	SEGMENT
-_this$ = -4						; size = 4
-?GetWorld@Raven_Bot@@QAEQAVRaven_Game@@XZ PROC		; Raven_Bot::GetWorld, COMDAT
-; _this$ = ecx
-
-; 203  :   Raven_Game* const                  GetWorld(){return m_pWorld;} 
-
-	push	ebp
-	mov	ebp, esp
-	push	ecx
-	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
-	mov	DWORD PTR _this$[ebp], ecx
-	mov	eax, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR [eax+148]
-	mov	esp, ebp
-	pop	ebp
-	ret	0
-?GetWorld@Raven_Bot@@QAEQAVRaven_Game@@XZ ENDP		; Raven_Bot::GetWorld
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
-; File c:\users\romain s\documents\workspace\workspace_ia\tp3ia\buckland_chapter7 to 10_raven\raven_bot.h
-;	COMDAT ?Facing@Raven_Bot@@QBE?AUVector2D@@XZ
-_TEXT	SEGMENT
-_this$ = -4						; size = 4
-___$ReturnUdt$ = 8					; size = 4
-?Facing@Raven_Bot@@QBE?AUVector2D@@XZ PROC		; Raven_Bot::Facing, COMDAT
-; _this$ = ecx
-
-; 152  :   Vector2D      Facing()const{return m_vFacing;}
-
-	push	ebp
-	mov	ebp, esp
-	push	ecx
-	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
-	mov	DWORD PTR _this$[ebp], ecx
-	mov	eax, DWORD PTR _this$[ebp]
-	add	eax, 208				; 000000d0H
-	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
-	mov	edx, DWORD PTR [eax]
-	mov	DWORD PTR [ecx], edx
-	mov	edx, DWORD PTR [eax+4]
-	mov	DWORD PTR [ecx+4], edx
-	mov	edx, DWORD PTR [eax+8]
-	mov	DWORD PTR [ecx+8], edx
-	mov	eax, DWORD PTR [eax+12]
-	mov	DWORD PTR [ecx+12], eax
-	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
-	mov	esp, ebp
-	pop	ebp
-	ret	4
-?Facing@Raven_Bot@@QBE?AUVector2D@@XZ ENDP		; Raven_Bot::Facing
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File c:\users\romain s\documents\workspace\workspace_ia\tp3ia\common\game\basegameentity.h

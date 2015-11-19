@@ -15,6 +15,7 @@
 
 #include "../Common/game/MovingEntity.h"
 #include "../Common/misc/utils.h"
+#include "../../Common/Fuzzy/FuzzyModule.h"
 #include "Raven_TargetingSystem.h"
 
 
@@ -38,8 +39,11 @@ private:
 
   enum Status{alive, dead, spawning};
 
-private:
+protected:
 
+	void InitializeFuzzyModule();
+
+	FuzzyModule m_FuzzyModulePrecision;
   //alive, dead or spawning?
   Status                             m_Status;
 

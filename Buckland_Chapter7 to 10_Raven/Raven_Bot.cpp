@@ -12,6 +12,7 @@
 #include "Raven_WeaponSystem.h"
 #include "Raven_SensoryMemory.h"
 
+
 #include "../Common/Messaging/Telegram.h"
 #include "Raven_Messages.h"
 #include "../Common/Messaging/MessageDispatcher.h"
@@ -384,7 +385,46 @@ void Raven_Bot::ChangeWeapon(unsigned int type)
 //-----------------------------------------------------------------------------
 void Raven_Bot::FireWeapon(Vector2D pos)
 {
+
+
+
+
   m_pWeaponSys->ShootAt(pos);
+}
+
+void Raven_Bot::InitializeFuzzyModule()
+{
+  FuzzyVariable& DistToTarget = m_FuzzyModulePrecision.CreateFLV("DistToTarget");
+  FzSet& Target_Contact = DistToTarget.AddLeftShoulderSet("Target_Contact",0,25,50);
+  FzSet& Target_Close = DistToTarget.AddTriangularSet("Target_Close",25,50,150);
+  FzSet& Target_Medium = DistToTarget.AddTriangularSet("Target_Medium",50,150,300);
+  FzSet& Target_Far = DistToTarget.AddTriangularSet("Target_Far",150,300,500);
+  FzSet& Target_VeryFar = DistToTarget.AddRightShoulderSet("Target_VeryFar",300,500,1000);
+
+  FuzzyVariable& Velocity = m_FuzzyModulePrecision.CreateFLV("Velocity");
+  FzSet& FastSpeed = Velocity.AddRightShoulderSet("FastSpeed",.5*m_dMaxSpeed,.75*m_dMaxSpeed,m_dMaxSpeed);
+  FzSet& MediumSpeed = Velocity.AddTriangularSet("MediumSpeed",.25*m_dMaxSpeed,.5*m_dMaxSpeed,.75*m_dMaxSpeed);
+  FzSet& LowSpeed = Velocity.AddLeftShoulderSet("LowSpeed",0,.25*m_dMaxSpeed,.5*m_dMaxSpeed);
+
+  FuzzyVariable& TimeVisibility = m_FuzzyModulePrecision.CreateFLV("TimeVisibility");
+  FzSet& ShortTime = TimeVisibility.AddLeftShoulderSet("ShortTime",0,0.25,0.5);
+  FzSet& MediumTime = TimeVisibility.AddTriangularSet("MediumTime",0.25,0.5,1);
+  FzSet& LongTime = TimeVisibility.AddRightShoulderSet("LongTime",0.5,1,100);
+
+  //Utiliser Raven_TargetingSystem::GetTimeTargetHasBeenVisible()
+
+  FuzzyVariable& Precision = m_FuzzyModulePrecision.CreateFLV("Precision"); 
+  FzSet& VeryHighPrecision = Precision.AddRightShoulderSet("VeryHighPrecision", 75, 100, 100);
+  FzSet& HighPrecision = Precision.AddTriangularSet("HighPrecision", 50, 75, 100);
+  FzSet& MediumPrecision = Precision.AddTriangularSet("MediumPrecision", 25, 50, 75);
+  FzSet& LowPrecision = Precision.AddTriangularSet("LowPrecision", 0, 25, 50);
+  FzSet& VeryLowPrecision = Precision.AddTriangularSet("VeryLowPrecision", 0, 0, 25);
+
+  /*m_FuzzyModulePrecision.AddRule(Target_Contact, FzFairly(Desirable));
+  m_FuzzyModulePrecision.AddRule(Target_Close, VeryDesirable);
+  m_FuzzyModulePrecision.AddRule(Target_Medium, FzFairly(Desirable));
+  m_FuzzyModulePrecision.AddRule(Target_Far, Undesirable);
+  m_FuzzyModulePrecision.AddRule(Target_VeryFar, FzVery(Undesirable));*/
 }
 
 //----------------- CalculateExpectedTimeToReachPosition ----------------------

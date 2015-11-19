@@ -3407,7 +3407,7 @@ _this$ = -4						; size = 4
 ?GetTargetBot@Raven_Bot@@QBEQAV1@XZ PROC		; Raven_Bot::GetTargetBot, COMDAT
 ; _this$ = ecx
 
-; 209  :   Raven_Bot* const                   GetTargetBot()const{return m_pTargSys->GetTarget();}
+; 213  :   Raven_Bot* const                   GetTargetBot()const{return m_pTargSys->GetTarget();}
 
 	push	ebp
 	mov	ebp, esp
@@ -3415,7 +3415,7 @@ _this$ = -4						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	ecx, DWORD PTR [eax+168]
+	mov	ecx, DWORD PTR [eax+196]
 	call	?GetTarget@Raven_TargetingSystem@@QBEPAVRaven_Bot@@XZ ; Raven_TargetingSystem::GetTarget
 	add	esp, 4
 	cmp	ebp, esp
@@ -3433,7 +3433,7 @@ _this$ = -4						; size = 4
 ?GetSteering@Raven_Bot@@QAEQAVRaven_Steering@@XZ PROC	; Raven_Bot::GetSteering, COMDAT
 ; _this$ = ecx
 
-; 204  :   Raven_Steering* const              GetSteering(){return m_pSteering;}
+; 208  :   Raven_Steering* const              GetSteering(){return m_pSteering;}
 
 	push	ebp
 	mov	ebp, esp
@@ -3441,7 +3441,7 @@ _this$ = -4						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR [eax+160]
+	mov	eax, DWORD PTR [eax+188]
 	mov	esp, ebp
 	pop	ebp
 	ret	0

@@ -82,9 +82,6 @@ PUBLIC	?binary@?$_Iosb@H@std@@2W4_Openmode@12@B	; std::_Iosb<int>::binary
 PUBLIC	?beg@?$_Iosb@H@std@@2W4_Seekdir@12@B		; std::_Iosb<int>::beg
 PUBLIC	?cur@?$_Iosb@H@std@@2W4_Seekdir@12@B		; std::_Iosb<int>::cur
 PUBLIC	?end@?$_Iosb@H@std@@2W4_Seekdir@12@B		; std::_Iosb<int>::end
-PUBLIC	?g_szApplicationName@@3PADA			; g_szApplicationName
-PUBLIC	?g_szWindowClassName@@3PADA			; g_szWindowClassName
-PUBLIC	?g_pRaven@@3PAVRaven_Game@@A			; g_pRaven
 PUBLIC	?_Stream_err@failure@ios_base@std@@0W4io_errc@43@B ; std::ios_base::failure::_Stream_err
 PUBLIC	?has_denorm@_Num_base@std@@2W4float_denorm_style@2@B ; std::_Num_base::has_denorm
 PUBLIC	?has_denorm_loss@_Num_base@std@@2_NB		; std::_Num_base::has_denorm_loss
@@ -93,7 +90,10 @@ PUBLIC	?has_quiet_NaN@_Num_base@std@@2_NB		; std::_Num_base::has_quiet_NaN
 PUBLIC	?has_signaling_NaN@_Num_base@std@@2_NB		; std::_Num_base::has_signaling_NaN
 PUBLIC	?is_bounded@_Num_base@std@@2_NB			; std::_Num_base::is_bounded
 PUBLIC	?is_exact@_Num_base@std@@2_NB			; std::_Num_base::is_exact
+PUBLIC	?g_szApplicationName@@3PADA			; g_szApplicationName
+PUBLIC	?g_szWindowClassName@@3PADA			; g_szWindowClassName
 PUBLIC	?is_iec559@_Num_base@std@@2_NB			; std::_Num_base::is_iec559
+PUBLIC	?g_pRaven@@3PAVRaven_Game@@A			; g_pRaven
 PUBLIC	?is_integer@_Num_base@std@@2_NB			; std::_Num_base::is_integer
 PUBLIC	?is_modulo@_Num_base@std@@2_NB			; std::_Num_base::is_modulo
 PUBLIC	?is_signed@_Num_base@std@@2_NB			; std::_Num_base::is_signed
@@ -476,6 +476,10 @@ CONST	ENDS
 CONST	SEGMENT
 ?is_iec559@_Num_base@std@@2_NB DB 00H			; std::_Num_base::is_iec559
 CONST	ENDS
+_DATA	SEGMENT
+?g_szApplicationName@@3PADA DD FLAT:$SG167371		; g_szApplicationName
+?g_szWindowClassName@@3PADA DD FLAT:$SG167373		; g_szWindowClassName
+_DATA	ENDS
 ;	COMDAT ?is_exact@_Num_base@std@@2_NB
 CONST	SEGMENT
 ?is_exact@_Num_base@std@@2_NB DB 00H			; std::_Num_base::is_exact
@@ -508,10 +512,6 @@ CONST	ENDS
 CONST	SEGMENT
 ?_Stream_err@failure@ios_base@std@@0W4io_errc@43@B DD 01H ; std::ios_base::failure::_Stream_err
 CONST	ENDS
-_DATA	SEGMENT
-?g_szApplicationName@@3PADA DD FLAT:$SG161168		; g_szApplicationName
-?g_szWindowClassName@@3PADA DD FLAT:$SG161170		; g_szWindowClassName
-_DATA	ENDS
 ;	COMDAT ?end@?$_Iosb@H@std@@2W4_Seekdir@12@B
 CONST	SEGMENT
 ?end@?$_Iosb@H@std@@2W4_Seekdir@12@B DD 02H		; std::_Iosb<int>::end
@@ -628,25 +628,25 @@ _colors	DD	0ffH
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG161168 DB	'Raven', 00H
-$SG161243 DB	00H
+$SG167371 DB	'Raven', 00H
+$SG167446 DB	00H
 	ORG $+1
-$SG161170 DB	'MyWindowClass', 00H
+$SG167373 DB	'MyWindowClass', 00H
 	ORG $+2
-$SG161231 DB	'map', 00H
-$SG161232 DB	'Raven map file (*.map)', 00H
+$SG167434 DB	'map', 00H
+$SG167435 DB	'Raven map file (*.map)', 00H
 	ORG $+1
-$SG161242 DB	'Filename: ', 00H
-	ORG $+1
-$SG161295 DB	'Error', 00H
-	ORG $+2
-$SG161296 DB	'Registration Failed!', 00H
-	ORG $+3
-$SG161299 DB	'Error!', 00H
-	ORG $+1
-$SG161300 DB	'CreateWindowEx Failed!', 00H
+$SG167445 DB	'Filename: ', 00H
 	ORG $+5
 _pi	DQ	0400921f9f01b866er		; 3.14159
+$SG167498 DB	'Error', 00H
+	ORG $+2
+$SG167499 DB	'Registration Failed!', 00H
+	ORG $+3
+$SG167502 DB	'Error!', 00H
+	ORG $+1
+$SG167503 DB	'CreateWindowEx Failed!', 00H
+	ORG $+1
 _Pi	DQ	0400921f9f01b866er		; 3.14159
 CONST	ENDS
 ;	COMDAT ?_Stdio@?$_Iosb@H@std@@2W4_Fmtflags@12@B
@@ -1272,6 +1272,7 @@ PUBLIC	??_C@_1FG@IBPIFFN@?$AA?$CC?$AAS?$AAt?$AAa?$AAn?$AAd?$AAa?$AAr?$AAd?$AA?5?
 PUBLIC	??_C@_15GANGMFKL@?$AA?$CF?$AAs?$AA?$AA@		; `string'
 PUBLIC	??_C@_1BO@MEPPHOO@?$AA?$CC?$AAo?$AAu?$AAt?$AA?5?$AAo?$AAf?$AA?5?$AAr?$AAa?$AAn?$AAg?$AAe?$AA?$CC?$AA?$AA@ ; `string'
 PUBLIC	?id@?$codecvt@DDH@std@@2V0locale@2@A		; std::codecvt<char,char,int>::id
+PUBLIC	??_C@_1EG@FOHJJHAC@?$AAv?$AAe?$AAc?$AAt?$AAo?$AAr?$AA?5?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?5?$AAn?$AAo?$AAt?$AA?5?$AAd?$AAe?$AAr?$AAe?$AAf?$AAe?$AAr?$AAe?$AAn?$AAc?$AAa?$AAb@ ; `string'
 PUBLIC	??_C@_0BA@JFNIOLAK@string?5too?5long?$AA@	; `string'
 PUBLIC	??_C@_0BI@CFPLBAOH@invalid?5string?5position?$AA@ ; `string'
 PUBLIC	??_C@_0BD@OLBABOEK@vector?$DMT?$DO?5too?5long?$AA@ ; `string'
@@ -1287,7 +1288,6 @@ PUBLIC	??_7?$basic_ostringstream@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@6
 PUBLIC	??_8?$basic_ostringstream@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@7B@ ; std::basic_ostringstream<char,std::char_traits<char>,std::allocator<char> >::`vbtable'
 PUBLIC	?id@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@2V0locale@2@A ; std::num_put<char,std::ostreambuf_iterator<char,std::char_traits<char> > >::id
 PUBLIC	??_C@_0ED@PAKPGNOG@C?3?2Program?5Files?2Microsoft?5Visua@ ; `string'
-PUBLIC	??_C@_1EG@FOHJJHAC@?$AAv?$AAe?$AAc?$AAt?$AAo?$AAr?$AA?5?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?5?$AAn?$AAo?$AAt?$AA?5?$AAd?$AAe?$AAr?$AAe?$AAf?$AAe?$AAr?$AAe?$AAn?$AAc?$AAa?$AAb@ ; `string'
 PUBLIC	??_C@_1BGO@ENKEMOHL@?$AAs?$AAt?$AAd?$AA?3?$AA?3?$AA_?$AAV?$AAe?$AAc?$AAt?$AAo?$AAr?$AA_?$AAc?$AAo?$AAn?$AAs?$AAt?$AA_?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?$DM?$AAc?$AAl?$AAa?$AAs@ ; `string'
 PUBLIC	??_C@_1EM@FKAOCOMF@?$AAv?$AAe?$AAc?$AAt?$AAo?$AAr?$AA?5?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?5?$AA?$CL?$AA?5?$AAo?$AAf?$AAf?$AAs?$AAe?$AAt?$AA?5?$AAo?$AAu?$AAt?$AA?5?$AAo?$AAf?$AA?5@ ; `string'
 PUBLIC	??_C@_1BHA@HJAKPBPH@?$AAs?$AAt?$AAd?$AA?3?$AA?3?$AA_?$AAV?$AAe?$AAc?$AAt?$AAo?$AAr?$AA_?$AAc?$AAo?$AAn?$AAs?$AAt?$AA_?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?$DM?$AAc?$AAl?$AAa?$AAs@ ; `string'
@@ -2450,16 +2450,6 @@ CONST	SEGMENT
 	DB	'a', 00H, 't', 00H, 'o', 00H, 'r', 00H, ' ', 00H, '*', 00H, 00H
 	DB	00H						; `string'
 CONST	ENDS
-;	COMDAT ??_C@_1EG@FOHJJHAC@?$AAv?$AAe?$AAc?$AAt?$AAo?$AAr?$AA?5?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?5?$AAn?$AAo?$AAt?$AA?5?$AAd?$AAe?$AAr?$AAe?$AAf?$AAe?$AAr?$AAe?$AAn?$AAc?$AAa?$AAb@
-CONST	SEGMENT
-??_C@_1EG@FOHJJHAC@?$AAv?$AAe?$AAc?$AAt?$AAo?$AAr?$AA?5?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?5?$AAn?$AAo?$AAt?$AA?5?$AAd?$AAe?$AAr?$AAe?$AAf?$AAe?$AAr?$AAe?$AAn?$AAc?$AAa?$AAb@ DB 'v'
-	DB	00H, 'e', 00H, 'c', 00H, 't', 00H, 'o', 00H, 'r', 00H, ' ', 00H
-	DB	'i', 00H, 't', 00H, 'e', 00H, 'r', 00H, 'a', 00H, 't', 00H, 'o'
-	DB	00H, 'r', 00H, ' ', 00H, 'n', 00H, 'o', 00H, 't', 00H, ' ', 00H
-	DB	'd', 00H, 'e', 00H, 'r', 00H, 'e', 00H, 'f', 00H, 'e', 00H, 'r'
-	DB	00H, 'e', 00H, 'n', 00H, 'c', 00H, 'a', 00H, 'b', 00H, 'l', 00H
-	DB	'e', 00H, 00H, 00H				; `string'
-CONST	ENDS
 ;	COMDAT ??_C@_0ED@PAKPGNOG@C?3?2Program?5Files?2Microsoft?5Visua@
 CONST	SEGMENT
 ??_C@_0ED@PAKPGNOG@C?3?2Program?5Files?2Microsoft?5Visua@ DB 'C:\Program '
@@ -2550,6 +2540,16 @@ CONST	ENDS
 ;	COMDAT ??_C@_0BA@JFNIOLAK@string?5too?5long?$AA@
 CONST	SEGMENT
 ??_C@_0BA@JFNIOLAK@string?5too?5long?$AA@ DB 'string too long', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1EG@FOHJJHAC@?$AAv?$AAe?$AAc?$AAt?$AAo?$AAr?$AA?5?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?5?$AAn?$AAo?$AAt?$AA?5?$AAd?$AAe?$AAr?$AAe?$AAf?$AAe?$AAr?$AAe?$AAn?$AAc?$AAa?$AAb@
+CONST	SEGMENT
+??_C@_1EG@FOHJJHAC@?$AAv?$AAe?$AAc?$AAt?$AAo?$AAr?$AA?5?$AAi?$AAt?$AAe?$AAr?$AAa?$AAt?$AAo?$AAr?$AA?5?$AAn?$AAo?$AAt?$AA?5?$AAd?$AAe?$AAr?$AAe?$AAf?$AAe?$AAr?$AAe?$AAn?$AAc?$AAa?$AAb@ DB 'v'
+	DB	00H, 'e', 00H, 'c', 00H, 't', 00H, 'o', 00H, 'r', 00H, ' ', 00H
+	DB	'i', 00H, 't', 00H, 'e', 00H, 'r', 00H, 'a', 00H, 't', 00H, 'o'
+	DB	00H, 'r', 00H, ' ', 00H, 'n', 00H, 'o', 00H, 't', 00H, ' ', 00H
+	DB	'd', 00H, 'e', 00H, 'r', 00H, 'e', 00H, 'f', 00H, 'e', 00H, 'r'
+	DB	00H, 'e', 00H, 'n', 00H, 'c', 00H, 'a', 00H, 'b', 00H, 'l', 00H
+	DB	'e', 00H, 00H, 00H				; `string'
 CONST	ENDS
 ;	COMDAT ??_C@_1BO@MEPPHOO@?$AA?$CC?$AAo?$AAu?$AAt?$AA?5?$AAo?$AAf?$AA?5?$AAr?$AAa?$AAn?$AAg?$AAe?$AA?$CC?$AA?$AA@
 CONST	SEGMENT
@@ -10631,11 +10631,11 @@ $LN20@WindowProc:
 ; 203  :           
 ; 204  :           FileOpenDlg(hwnd, szFileName, szTitleName, "Raven map file (*.map)", "map");
 
-	push	OFFSET $SG161231
+	push	OFFSET $SG167434
 	lea	ecx, DWORD PTR $T8[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR __$EHRec$[ebp+8], 1
-	push	OFFSET $SG161232
+	push	OFFSET $SG167435
 	lea	ecx, DWORD PTR $T7[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	BYTE PTR __$EHRec$[ebp+8], 2
@@ -10659,9 +10659,9 @@ $LN20@WindowProc:
 ; 205  : 
 ; 206  :           debug_con << "Filename: " << szTitleName << "";
 
-	push	OFFSET $SG161243
+	push	OFFSET $SG167446
 	push	OFFSET ?szTitleName@?1??WindowProc@@YGJPAUHWND__@@IIJ@Z@4PADA
-	push	OFFSET $SG161242
+	push	OFFSET $SG167445
 	call	?Instance@DebugConsole@@SAPAV1@XZ	; DebugConsole::Instance
 	mov	ecx, eax
 	call	??$?6$$BY0L@$$CBD@DebugConsole@@QAEAAV0@AAY0L@$$CBD@Z ; DebugConsole::operator<<<char const [11]>
@@ -26587,8 +26587,8 @@ _WinMain@16 PROC
 
 	mov	esi, esp
 	push	0
-	push	OFFSET $SG161295
-	push	OFFSET $SG161296
+	push	OFFSET $SG167498
+	push	OFFSET $SG167499
 	push	0
 	call	DWORD PTR __imp__MessageBoxA@16
 	cmp	esi, esp
@@ -26675,8 +26675,8 @@ $LN10@WinMain:
 
 	mov	esi, esp
 	push	0
-	push	OFFSET $SG161299
-	push	OFFSET $SG161300
+	push	OFFSET $SG167502
+	push	OFFSET $SG167503
 	push	0
 	call	DWORD PTR __imp__MessageBoxA@16
 	cmp	esi, esp
