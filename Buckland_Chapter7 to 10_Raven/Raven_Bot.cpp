@@ -385,14 +385,23 @@ void Raven_Bot::ChangeWeapon(unsigned int type)
 //-----------------------------------------------------------------------------
 void Raven_Bot::FireWeapon(Vector2D pos)
 {
+	/*double distToTarget= Vec2DDistance(Pos(),pos);
+	double myVitesse=Speed();
+	double tempsVisible=m_pTargSys->GetTimeTargetHasBeenVisible();
 
 
+	m_FuzzyModulePrecision.Fuzzify("DistToTarget", distToTarget);
+	m_FuzzyModulePrecision.Fuzzify("Velocity", myVitesse);
+    m_FuzzyModulePrecision.Fuzzify("TimeVisibility", tempsVisible);
 
-
-  m_pWeaponSys->ShootAt(pos);
+    m_dLastPrecisionScore = m_FuzzyModulePrecision.DeFuzzify("Precision", FuzzyModule::max_av);
+	
+	
+	debug_con << "Creating a " << m_dLastPrecisionScore << "";*/
+    m_pWeaponSys->ShootAt(pos);
 }
 
-void Raven_Bot::InitializeFuzzyModule()
+/*void Raven_Bot::InitializeFuzzyModule()
 {
   FuzzyVariable& DistToTarget = m_FuzzyModulePrecision.CreateFLV("DistToTarget");
   FzSet& Target_Contact = DistToTarget.AddLeftShoulderSet("Target_Contact",0,25,50);
@@ -411,7 +420,7 @@ void Raven_Bot::InitializeFuzzyModule()
   FzSet& MediumTime = TimeVisibility.AddTriangularSet("MediumTime",0.25,0.5,1);
   FzSet& LongTime = TimeVisibility.AddRightShoulderSet("LongTime",0.5,1,100);
 
-  //Utiliser Raven_TargetingSystem::GetTimeTargetHasBeenVisible()
+  
 
   FuzzyVariable& Precision = m_FuzzyModulePrecision.CreateFLV("Precision"); 
   FzSet& VeryHighPrecision = Precision.AddRightShoulderSet("VeryHighPrecision", 75, 100, 100);
@@ -420,12 +429,21 @@ void Raven_Bot::InitializeFuzzyModule()
   FzSet& LowPrecision = Precision.AddTriangularSet("LowPrecision", 0, 25, 50);
   FzSet& VeryLowPrecision = Precision.AddTriangularSet("VeryLowPrecision", 0, 0, 25);
 
-  /*m_FuzzyModulePrecision.AddRule(Target_Contact, FzFairly(Desirable));
-  m_FuzzyModulePrecision.AddRule(Target_Close, VeryDesirable);
-  m_FuzzyModulePrecision.AddRule(Target_Medium, FzFairly(Desirable));
-  m_FuzzyModulePrecision.AddRule(Target_Far, Undesirable);
-  m_FuzzyModulePrecision.AddRule(Target_VeryFar, FzVery(Undesirable));*/
-}
+  m_FuzzyModulePrecision.AddRule(Target_Contact, VeryHighPrecision);
+  m_FuzzyModulePrecision.AddRule(Target_Close, HighPrecision);
+  m_FuzzyModulePrecision.AddRule(Target_Medium, MediumPrecision);
+  m_FuzzyModulePrecision.AddRule(Target_Far, LowPrecision);
+  m_FuzzyModulePrecision.AddRule(Target_VeryFar, VeryLowPrecision);
+
+  m_FuzzyModulePrecision.AddRule(LowSpeed, HighPrecision);
+  m_FuzzyModulePrecision.AddRule(MediumSpeed,  MediumPrecision);
+  m_FuzzyModulePrecision.AddRule(FastSpeed, VeryLowPrecision);
+
+  m_FuzzyModulePrecision.AddRule(LongTime, VeryHighPrecision);
+  m_FuzzyModulePrecision.AddRule(MediumTime,  MediumPrecision);
+  m_FuzzyModulePrecision.AddRule(ShortTime, VeryLowPrecision);
+
+}*/
 
 //----------------- CalculateExpectedTimeToReachPosition ----------------------
 //

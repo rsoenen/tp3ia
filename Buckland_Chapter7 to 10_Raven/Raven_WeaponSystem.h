@@ -13,6 +13,7 @@
 //-----------------------------------------------------------------------------
 #include <map>
 #include "../Common/2d/vector2d.h"
+#include "../../Common/Fuzzy/FuzzyModule.h"
 
 class Raven_Bot;
 class Raven_Weapon;
@@ -26,8 +27,9 @@ private:
   //a map of weapon instances indexed into by type
   typedef std::map<int, Raven_Weapon*>  WeaponMap;
 
-private:
-
+protected:
+  FuzzyModule	   m_FuzzyModulePrecision;
+  double			 m_dLastPrecisionScore;
   Raven_Bot*       m_pOwner;
 
   //pointers to the weapons the bot is carrying (a bot may only carry one
@@ -76,7 +78,7 @@ public:
   //this method aims the bot's current weapon at the target (if there is a
   //target) and, if aimed correctly, fires a round. (Called each update-step
   //from Raven_Bot::Update)
-  void          TakeAimAndShoot()const;
+  void          TakeAimAndShoot()/*const*/;
 
   //this method determines the most appropriate weapon to use given the current
   //game state. (Called every n update-steps from Raven_Bot::Update)
@@ -93,6 +95,9 @@ public:
 
   //shoots the current weapon at the given position
   void          ShootAt(Vector2D pos)const;
+
+  void			InitializeFuzzyModule();
+
 
   //returns a pointer to the current weapon
   Raven_Weapon* GetCurrentWeapon()const{return m_pCurrentWeapon;} 

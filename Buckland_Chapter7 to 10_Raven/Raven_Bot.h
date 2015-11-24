@@ -47,6 +47,8 @@ protected:
   //alive, dead or spawning?
   Status                             m_Status;
 
+  double         m_dLastPrecisionScore;
+
   //a pointer to the world data
   Raven_Game*                        m_pWorld;
 

@@ -91,9 +91,9 @@ void RailGun::InitializeFuzzyModule()
   
   FzSet& Target_Contact = DistanceToTarget.AddLeftShoulderSet("Target_Contact",0,25,50);
   FzSet& Target_Close = DistanceToTarget.AddTriangularSet("Target_Close",25,50,150);
-  FzSet& Target_Medium =DistanceToTarget.AddTriangularSet("Target_Medium",50,150,300);
-  FzSet& Target_Far = DistanceToTarget.AddTriangularSet("Target_Far",150,300,500);
-  FzSet& Target_VeryFar = DistanceToTarget.AddRightShoulderSet("Target_VeryFar",300,500,1000);
+  FzSet& Target_Medium = DistanceToTarget.AddTriangularSet("Target_Medium",50,150,200);
+  FzSet& Target_Far = DistanceToTarget.AddTriangularSet("Target_Far",150,200,300);
+  FzSet& Target_VeryFar = DistanceToTarget.AddRightShoulderSet("Target_VeryFar",200,300,1000);
 
   FuzzyVariable& Desirability = m_FuzzyModule.CreateFLV("Desirability");
   

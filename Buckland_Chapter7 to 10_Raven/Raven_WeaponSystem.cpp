@@ -9,7 +9,7 @@
 #include "Raven_Game.h"
 #include "Raven_UserOptions.h"
 #include "../Common/2D/transformations.h"
-
+#include "../Common/Debug/DebugConsole.h"
 
 
 //------------------------- ctor ----------------------------------------------
@@ -43,6 +43,7 @@ void Raven_WeaponSystem::Initialize()
 {
   //delete any existing weapons
   WeaponMap::iterator curW;
+  InitializeFuzzyModule();
   for (curW = m_WeaponMap.begin(); curW != m_WeaponMap.end(); ++curW)
   {
     delete curW->second;
@@ -173,12 +174,16 @@ void Raven_WeaponSystem::ChangeWeapon(unsigned int type)
 //  this method aims the bots current weapon at the target (if there is a
 //  target) and, if aimed correctly, fires a round
 //-----------------------------------------------------------------------------
-void Raven_WeaponSystem::TakeAimAndShoot()const
+void Raven_WeaponSystem::TakeAimAndShoot()//const
 {
   //aim the weapon only if the current target is shootable or if it has only
   //very recently gone out of view (this latter condition is to ensure the 
   //weapon is aimed at the target even if it temporarily dodges behind a wall
   //or other cover)
+
+	
+
+
   if (m_pOwner->GetTargetSys()->isTargetShootable() ||
       (m_pOwner->GetTargetSys()->GetTimeTargetHasBeenOutOfView() < 
        m_dAimPersistance) )
@@ -186,6 +191,34 @@ void Raven_WeaponSystem::TakeAimAndShoot()const
     //the position the weapon will be aimed at
     Vector2D AimingPos = m_pOwner->GetTargetBot()->Pos();
     
+
+	double distToTarget= Vec2DDistance(m_pOwner->Pos(),AimingPos);
+	double myVitesse=m_pOwner->Speed();
+	double tempsVisible=m_pOwner->GetTargetSys()->GetTimeTargetHasBeenVisible();
+	
+
+	m_FuzzyModulePrecision.Fuzzify("DistToTarget", distToTarget);
+    m_FuzzyModulePrecision.Fuzzify("TimeVisibility", tempsVisible);
+
+    m_dLastPrecisionScore = m_FuzzyModulePrecision.DeFuzzify("Precision", FuzzyModule::max_av);
+	
+	
+	debug_con << "Distance " << distToTarget << "";
+
+	double signe=0.2;
+	int nbxRandom=rand()%2;
+	if (nbxRandom==0){
+		signe=-signe;
+	}
+	int rand1=rand() % (101 - (int) m_dLastPrecisionScore);
+	double posX=AimingPos.x+signe*rand1;
+
+	int rand2=rand() % (101 - (int) m_dLastPrecisionScore);
+	double posY=AimingPos.y+signe*rand2;
+
+	AimingPos= Vector2D(posX,posY);
+
+
     //if the current weapon is not an instant hit type gun the target position
     //must be adjusted to take into account the predicted movement of the 
     //target
@@ -231,6 +264,40 @@ void Raven_WeaponSystem::TakeAimAndShoot()const
   {
     m_pOwner->RotateFacingTowardPosition(m_pOwner->Pos()+ m_pOwner->Heading());
   }
+}
+
+void Raven_WeaponSystem::InitializeFuzzyModule()
+{
+  FuzzyVariable& DistToTarget = m_FuzzyModulePrecision.CreateFLV("DistToTarget");
+  FzSet& Target_Contact = DistToTarget.AddLeftShoulderSet("Target_Contact",0,25,50);
+  FzSet& Target_Close = DistToTarget.AddTriangularSet("Target_Close",25,50,150);
+  FzSet& Target_Medium = DistToTarget.AddTriangularSet("Target_Medium",50,150,200);
+  FzSet& Target_Far = DistToTarget.AddTriangularSet("Target_Far",150,200,300);
+  FzSet& Target_VeryFar = DistToTarget.AddRightShoulderSet("Target_VeryFar",200,300,1000);
+
+  FuzzyVariable& TimeVisibility = m_FuzzyModulePrecision.CreateFLV("TimeVisibility");
+  FzSet& ShortTime = TimeVisibility.AddLeftShoulderSet("ShortTime",0,0.25,0.5);
+  FzSet& MediumTime = TimeVisibility.AddTriangularSet("MediumTime",0.25,0.5,1);
+  FzSet& LongTime = TimeVisibility.AddRightShoulderSet("LongTime",0.5,1,100);
+
+  FuzzyVariable& Precision = m_FuzzyModulePrecision.CreateFLV("Precision"); 
+  FzSet& VeryHighPrecision = Precision.AddRightShoulderSet("VeryHighPrecision", 75, 100, 100);
+  FzSet& HighPrecision = Precision.AddTriangularSet("HighPrecision", 50, 75, 100);
+  FzSet& MediumPrecision = Precision.AddTriangularSet("MediumPrecision", 25, 50, 75);
+  FzSet& LowPrecision = Precision.AddTriangularSet("LowPrecision", 0, 25, 50);
+  FzSet& VeryLowPrecision = Precision.AddTriangularSet("VeryLowPrecision", 0, 0, 25);
+
+  m_FuzzyModulePrecision.AddRule(Target_Contact, VeryHighPrecision);
+  m_FuzzyModulePrecision.AddRule(Target_Close, HighPrecision);
+  m_FuzzyModulePrecision.AddRule(Target_Medium, MediumPrecision);
+  m_FuzzyModulePrecision.AddRule(Target_Far, LowPrecision);
+  m_FuzzyModulePrecision.AddRule(Target_VeryFar, VeryLowPrecision);
+
+
+  m_FuzzyModulePrecision.AddRule(LongTime, VeryHighPrecision);
+  m_FuzzyModulePrecision.AddRule(MediumTime,  MediumPrecision);
+  m_FuzzyModulePrecision.AddRule(ShortTime, VeryLowPrecision);
+
 }
 
 //---------------------------- AddNoiseToAim ----------------------------------

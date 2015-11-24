@@ -767,7 +767,7 @@ _colors	DD	0ffH
 	DD	0e6e6ffH
 	ORG $+4
 _Pi	DQ	0400921f9f01b866er		; 3.14159
-$SG162708 DB	'Bot_TriggerUpdateFreq', 00H
+$SG162709 DB	'Bot_TriggerUpdateFreq', 00H
 CONST	ENDS
 ;	COMDAT ?is_modulo@_Num_float_base@std@@2_NB
 CONST	SEGMENT
@@ -3543,7 +3543,7 @@ _range$ = 12						; size = 8
 	lea	eax, DWORD PTR __$EHRec$[ebp]
 	mov	DWORD PTR fs:0, eax
 	mov	DWORD PTR _this$[ebp], ecx
-	push	OFFSET $SG162708
+	push	OFFSET $SG162709
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetInt@Scriptor@@QAEHPAD@Z		; Scriptor::GetInt
