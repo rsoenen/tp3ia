@@ -718,15 +718,15 @@ _colors	DD	0ffH
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG159068 DB	'g', 00H, 'o', 00H, 'a', 00H, 'l', 00H, 's', 00H, '\', 00H
+$SG159073 DB	'g', 00H, 'o', 00H, 'a', 00H, 'l', 00H, 's', 00H, '\', 00H
 	DB	'G', 00H, 'o', 00H, 'a', 00H, 'l', 00H, '_', 00H, 'T', 00H, 'h'
 	DB	00H, 'i', 00H, 'n', 00H, 'k', 00H, '.', 00H, 'c', 00H, 'p', 00H
 	DB	'p', 00H, 00H, 00H
 	ORG $+2
 _pi	DQ	0400921f9f01b866er		; 3.14159
-$SG159067 DB	'<Goal_Think::Arbitrate>: no evaluator selected', 00H
+$SG159072 DB	'<Goal_Think::Arbitrate>: no evaluator selected', 00H
 	ORG $+1
-$SG159069 DB	'M', 00H, 'o', 00H, 's', 00H, 't', 00H, 'D', 00H, 'e', 00H
+$SG159074 DB	'M', 00H, 'o', 00H, 's', 00H, 't', 00H, 'D', 00H, 'e', 00H
 	DB	's', 00H, 'i', 00H, 'r', 00H, 'a', 00H, 'b', 00H, 'l', 00H, 'e'
 	DB	00H, ' ', 00H, '&', 00H, '&', 00H, ' ', 00H, '"', 00H, '<', 00H
 	DB	'G', 00H, 'o', 00H, 'a', 00H, 'l', 00H, '_', 00H, 'T', 00H, 'h'
@@ -3101,14 +3101,16 @@ __unwindtable$?AddGoal_AttackTarget@Goal_Think@@QAEXXZ DD 0ffffffffH
 	DD	FLAT:__unwindfunclet$?AddGoal_AttackTarget@Goal_Think@@QAEXXZ$0
 __unwindtable$?AddGoal_Explore@Goal_Think@@QAEXXZ DD 0ffffffffH
 	DD	FLAT:__unwindfunclet$?AddGoal_Explore@Goal_Think@@QAEXXZ$0
-__unwindtable$?AddGoal_GetItem@Goal_Think@@QAEXI@Z DD 0ffffffffH
-	DD	FLAT:__unwindfunclet$?AddGoal_GetItem@Goal_Think@@QAEXI@Z$0
 __unwindtable$?AddGoal_MoveToPosition@Goal_Think@@QAEXUVector2D@@@Z DD 0ffffffffH
 	DD	FLAT:__unwindfunclet$?AddGoal_MoveToPosition@Goal_Think@@QAEXUVector2D@@@Z$0
 __unwindtable$?RenderEvaluations@Goal_Think@@QBEXHH@Z DD 0ffffffffH
 	DD	FLAT:__unwindfunclet$?RenderEvaluations@Goal_Think@@QBEXHH@Z$0
 	DD	00H
 	DD	FLAT:__unwindfunclet$?RenderEvaluations@Goal_Think@@QBEXHH@Z$1
+__unwindtable$?AddGoal_GetItem@Goal_Think@@QAEXI@Z DD 0ffffffffH
+	DD	FLAT:__unwindfunclet$?AddGoal_GetItem@Goal_Think@@QAEXI@Z$0
+	DD	0ffffffffH
+	DD	FLAT:__unwindfunclet$?AddGoal_GetItem@Goal_Think@@QAEXI@Z$1
 __unwindtable$?Arbitrate@Goal_Think@@QAEXXZ DD 0ffffffffH
 	DD	FLAT:__unwindfunclet$?Arbitrate@Goal_Think@@QAEXXZ$0
 	DD	00H
@@ -3163,7 +3165,7 @@ __ehfuncinfo$?AddGoal_Explore@Goal_Think@@QAEXXZ DD 019930522H
 	DD	00H
 	DD	01H
 __ehfuncinfo$?AddGoal_GetItem@Goal_Think@@QAEXI@Z DD 019930522H
-	DD	01H
+	DD	02H
 	DD	FLAT:__unwindtable$?AddGoal_GetItem@Goal_Think@@QAEXI@Z
 	DD	2 DUP(00H)
 	DD	2 DUP(00H)
@@ -10235,7 +10237,7 @@ __$EHRec$ = -12						; size = 12
 ?Render@Goal_Think@@UAEXXZ PROC				; Goal_Think::Render
 ; _this$ = ecx
 
-; 194  : {
+; 195  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -10259,13 +10261,13 @@ __$EHRec$ = -12						; size = 12
 	mov	DWORD PTR fs:0, eax
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 195  :   std::list<Goal<Raven_Bot>*>::iterator curG;
+; 196  :   std::list<Goal<Raven_Bot>*>::iterator curG;
 
 	lea	ecx, DWORD PTR _curG$[ebp]
 	call	??0?$_List_iterator@V?$_List_val@U?$_List_simple_types@PAV?$Goal@VRaven_Bot@@@@@std@@@std@@@std@@QAE@XZ ; std::_List_iterator<std::_List_val<std::_List_simple_types<Goal<Raven_Bot> *> > >::_List_iterator<std::_List_val<std::_List_simple_types<Goal<Raven_Bot> *> > >
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
 
-; 196  :   for (curG=m_SubGoals.begin(); curG != m_SubGoals.end(); ++curG)
+; 197  :   for (curG=m_SubGoals.begin(); curG != m_SubGoals.end(); ++curG)
 
 	lea	eax, DWORD PTR $T4[ebp]
 	push	eax
@@ -10309,8 +10311,8 @@ $LN3@Render:
 	test	eax, eax
 	je	SHORT $LN1@Render
 
-; 197  :   {
-; 198  :     (*curG)->Render();
+; 198  :   {
+; 199  :     (*curG)->Render();
 
 	lea	ecx, DWORD PTR _curG$[ebp]
 	call	??D?$_List_iterator@V?$_List_val@U?$_List_simple_types@PAV?$Goal@VRaven_Bot@@@@@std@@@std@@@std@@QBEAAPAV?$Goal@VRaven_Bot@@@@XZ ; std::_List_iterator<std::_List_val<std::_List_simple_types<Goal<Raven_Bot> *> > >::operator*
@@ -10325,12 +10327,12 @@ $LN3@Render:
 	cmp	esi, esp
 	call	__RTC_CheckEsp
 
-; 199  :   }
+; 200  :   }
 
 	jmp	SHORT $LN2@Render
 $LN1@Render:
 
-; 200  : }
+; 201  : }
 
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _curG$[ebp]
@@ -10405,7 +10407,7 @@ _top$ = 12						; size = 4
 ?RenderEvaluations@Goal_Think@@QBEXHH@Z PROC		; Goal_Think::RenderEvaluations
 ; _this$ = ecx
 
-; 181  : {
+; 182  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -10429,15 +10431,15 @@ _top$ = 12						; size = 4
 	mov	DWORD PTR fs:0, eax
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 182  :   gdi->TextColor(Cgdi::black);
+; 183  :   gdi->TextColor(Cgdi::black);
 
 	push	3
 	call	?Instance@Cgdi@@SAPAV1@XZ		; Cgdi::Instance
 	mov	ecx, eax
 	call	?TextColor@Cgdi@@QAEXH@Z		; Cgdi::TextColor
 
-; 183  :   
-; 184  :   std::vector<Goal_Evaluator*>::const_iterator curDes = m_Evaluators.begin();
+; 184  :   
+; 185  :   std::vector<Goal_Evaluator*>::const_iterator curDes = m_Evaluators.begin();
 
 	lea	eax, DWORD PTR _curDes$[ebp]
 	push	eax
@@ -10448,7 +10450,7 @@ _top$ = 12						; size = 4
 	jmp	SHORT $LN3@RenderEval
 $LN2@RenderEval:
 
-; 185  :   for (curDes; curDes != m_Evaluators.end(); ++curDes)
+; 186  :   for (curDes; curDes != m_Evaluators.end(); ++curDes)
 
 	lea	ecx, DWORD PTR _curDes$[ebp]
 	call	??E?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PAVGoal_Evaluator@@@std@@@std@@@std@@QAEAAV01@XZ ; std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<Goal_Evaluator *> > >::operator++
@@ -10474,8 +10476,8 @@ $LN3@RenderEval:
 	test	ecx, ecx
 	je	SHORT $LN1@RenderEval
 
-; 186  :   {
-; 187  :     (*curDes)->RenderInfo(Vector2D(left, top), m_pOwner);
+; 187  :   {
+; 188  :     (*curDes)->RenderInfo(Vector2D(left, top), m_pOwner);
 
 	lea	ecx, DWORD PTR _curDes$[ebp]
 	call	??D?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PAVGoal_Evaluator@@@std@@@std@@@std@@QBEABQAVGoal_Evaluator@@XZ ; std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<Goal_Evaluator *> > >::operator*
@@ -10511,19 +10513,19 @@ $LN3@RenderEval:
 	cmp	esi, esp
 	call	__RTC_CheckEsp
 
-; 188  : 
-; 189  :     left += 75;
+; 189  : 
+; 190  :     left += 75;
 
 	mov	ecx, DWORD PTR _left$[ebp]
 	add	ecx, 75					; 0000004bH
 	mov	DWORD PTR _left$[ebp], ecx
 
-; 190  :   }
+; 191  :   }
 
 	jmp	$LN2@RenderEval
 $LN1@RenderEval:
 
-; 191  : }
+; 192  : }
 
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _curDes$[ebp]
@@ -10593,7 +10595,7 @@ _pos$ = 8						; size = 16
 ?QueueGoal_MoveToPosition@Goal_Think@@QAEXUVector2D@@@Z PROC ; Goal_Think::QueueGoal_MoveToPosition
 ; _this$ = ecx
 
-; 172  : {
+; 173  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -10615,7 +10617,7 @@ _pos$ = 8						; size = 16
 	mov	DWORD PTR fs:0, eax
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 173  :    m_SubGoals.push_back(new Goal_MoveToPosition(m_pOwner, pos));
+; 174  :    m_SubGoals.push_back(new Goal_MoveToPosition(m_pOwner, pos));
 
 	push	48					; 00000030H
 	call	??2@YAPAXI@Z				; operator new
@@ -10655,7 +10657,7 @@ $LN4@QueueGoal_:
 	add	ecx, 16					; 00000010H
 	call	?push_back@?$list@PAV?$Goal@VRaven_Bot@@@@V?$allocator@PAV?$Goal@VRaven_Bot@@@@@std@@@std@@QAEX$$QAPAV?$Goal@VRaven_Bot@@@@@Z ; std::list<Goal<Raven_Bot> *,std::allocator<Goal<Raven_Bot> *> >::push_back
 
-; 174  : }
+; 175  : }
 
 	mov	ecx, DWORD PTR __$EHRec$[ebp]
 	mov	DWORD PTR fs:0, ecx
@@ -10695,7 +10697,7 @@ __$EHRec$ = -12						; size = 12
 ?AddGoal_AttackTarget@Goal_Think@@QAEXXZ PROC		; Goal_Think::AddGoal_AttackTarget
 ; _this$ = ecx
 
-; 161  : {
+; 162  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -10717,7 +10719,7 @@ __$EHRec$ = -12						; size = 12
 	mov	DWORD PTR fs:0, eax
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 162  :   if (notPresent(goal_attack_target))
+; 163  :   if (notPresent(goal_attack_target))
 
 	push	13					; 0000000dH
 	mov	ecx, DWORD PTR _this$[ebp]
@@ -10726,13 +10728,13 @@ __$EHRec$ = -12						; size = 12
 	test	eax, eax
 	je	SHORT $LN2@AddGoal_At
 
-; 163  :   {
-; 164  :     RemoveAllSubgoals();
+; 164  :   {
+; 165  :     RemoveAllSubgoals();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?RemoveAllSubgoals@?$Goal_Composite@VRaven_Bot@@@@QAEXXZ ; Goal_Composite<Raven_Bot>::RemoveAllSubgoals
 
-; 165  :     AddSubgoal( new Goal_AttackTarget(m_pOwner));
+; 166  :     AddSubgoal( new Goal_AttackTarget(m_pOwner));
 
 	push	28					; 0000001cH
 	call	??2@YAPAXI@Z				; operator new
@@ -10766,8 +10768,8 @@ $LN5@AddGoal_At:
 	call	__RTC_CheckEsp
 $LN2@AddGoal_At:
 
-; 166  :   }
-; 167  : }
+; 167  :   }
+; 168  : }
 
 	mov	ecx, DWORD PTR __$EHRec$[ebp]
 	mov	DWORD PTR fs:0, ecx
@@ -10913,9 +10915,12 @@ text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File c:\users\romain s\documents\workspace\workspace_ia\tp3ia\buckland_chapter7 to 10_raven\goals\goal_think.cpp
 _TEXT	SEGMENT
-tv132 = -28						; size = 4
-$T2 = -24						; size = 4
-$T3 = -20						; size = 4
+tv157 = -40						; size = 4
+tv131 = -36						; size = 4
+$T2 = -32						; size = 4
+$T3 = -28						; size = 4
+$T4 = -24						; size = 4
+$T5 = -20						; size = 4
 _this$ = -16						; size = 4
 __$EHRec$ = -12						; size = 12
 _ItemType$ = 8						; size = 4
@@ -10930,9 +10935,12 @@ _ItemType$ = 8						; size = 4
 	push	__ehhandler$?AddGoal_GetItem@Goal_Think@@QAEXI@Z
 	mov	eax, DWORD PTR fs:0
 	push	eax
-	sub	esp, 16					; 00000010H
+	sub	esp, 28					; 0000001cH
 	push	esi
 	mov	eax, -858993460				; ccccccccH
+	mov	DWORD PTR [ebp-40], eax
+	mov	DWORD PTR [ebp-36], eax
+	mov	DWORD PTR [ebp-32], eax
 	mov	DWORD PTR [ebp-28], eax
 	mov	DWORD PTR [ebp-24], eax
 	mov	DWORD PTR [ebp-20], eax
@@ -10955,7 +10963,7 @@ _ItemType$ = 8						; size = 4
 	call	?notPresent@Goal_Think@@QBE_NI@Z	; Goal_Think::notPresent
 	movzx	ecx, al
 	test	ecx, ecx
-	je	SHORT $LN2@AddGoal_Ge
+	je	$LN2@AddGoal_Ge
 
 ; 154  :   {
 ; 155  :     RemoveAllSubgoals();
@@ -10963,35 +10971,68 @@ _ItemType$ = 8						; size = 4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?RemoveAllSubgoals@?$Goal_Composite@VRaven_Bot@@@@QAEXXZ ; Goal_Composite<Raven_Bot>::RemoveAllSubgoals
 
-; 156  :     AddSubgoal( new Goal_GetItem(m_pOwner, ItemType));
+; 156  : 	AddSubgoal( new Goal_AttackTarget(m_pOwner));
+
+	push	28					; 0000001cH
+	call	??2@YAPAXI@Z				; operator new
+	add	esp, 4
+	mov	DWORD PTR $T4[ebp], eax
+	mov	DWORD PTR __$EHRec$[ebp+8], 0
+	cmp	DWORD PTR $T4[ebp], 0
+	je	SHORT $LN4@AddGoal_Ge
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR [edx+8]
+	push	eax
+	mov	ecx, DWORD PTR $T4[ebp]
+	call	??0Goal_AttackTarget@@QAE@PAVRaven_Bot@@@Z ; Goal_AttackTarget::Goal_AttackTarget
+	mov	DWORD PTR tv131[ebp], eax
+	jmp	SHORT $LN5@AddGoal_Ge
+$LN4@AddGoal_Ge:
+	mov	DWORD PTR tv131[ebp], 0
+$LN5@AddGoal_Ge:
+	mov	ecx, DWORD PTR tv131[ebp]
+	mov	DWORD PTR $T5[ebp], ecx
+	mov	DWORD PTR __$EHRec$[ebp+8], -1
+	mov	esi, esp
+	mov	edx, DWORD PTR $T5[ebp]
+	push	edx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR [eax]
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR [edx+20]
+	call	eax
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+
+; 157  : 	AddSubgoal( new Goal_GetItem(m_pOwner, ItemType));
 
 	push	40					; 00000028H
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
 	mov	DWORD PTR $T2[ebp], eax
-	mov	DWORD PTR __$EHRec$[ebp+8], 0
+	mov	DWORD PTR __$EHRec$[ebp+8], 1
 	cmp	DWORD PTR $T2[ebp], 0
-	je	SHORT $LN4@AddGoal_Ge
-	mov	edx, DWORD PTR _ItemType$[ebp]
-	push	edx
-	mov	eax, DWORD PTR _this$[ebp]
-	mov	ecx, DWORD PTR [eax+8]
+	je	SHORT $LN6@AddGoal_Ge
+	mov	ecx, DWORD PTR _ItemType$[ebp]
 	push	ecx
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR [edx+8]
+	push	eax
 	mov	ecx, DWORD PTR $T2[ebp]
 	call	??0Goal_GetItem@@QAE@PAVRaven_Bot@@H@Z	; Goal_GetItem::Goal_GetItem
-	mov	DWORD PTR tv132[ebp], eax
-	jmp	SHORT $LN5@AddGoal_Ge
-$LN4@AddGoal_Ge:
-	mov	DWORD PTR tv132[ebp], 0
-$LN5@AddGoal_Ge:
-	mov	edx, DWORD PTR tv132[ebp]
-	mov	DWORD PTR $T3[ebp], edx
+	mov	DWORD PTR tv157[ebp], eax
+	jmp	SHORT $LN7@AddGoal_Ge
+$LN6@AddGoal_Ge:
+	mov	DWORD PTR tv157[ebp], 0
+$LN7@AddGoal_Ge:
+	mov	ecx, DWORD PTR tv157[ebp]
+	mov	DWORD PTR $T3[ebp], ecx
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	mov	esi, esp
-	mov	eax, DWORD PTR $T3[ebp]
-	push	eax
-	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR [ecx]
+	mov	edx, DWORD PTR $T3[ebp]
+	push	edx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR [eax]
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+20]
 	call	eax
@@ -10999,14 +11040,14 @@ $LN5@AddGoal_Ge:
 	call	__RTC_CheckEsp
 $LN2@AddGoal_Ge:
 
-; 157  :   }
-; 158  : }
+; 158  :   }
+; 159  : }
 
 	mov	ecx, DWORD PTR __$EHRec$[ebp]
 	mov	DWORD PTR fs:0, ecx
 	pop	ecx
 	pop	esi
-	add	esp, 28					; 0000001cH
+	add	esp, 40					; 00000028H
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
 	mov	esp, ebp
@@ -11015,6 +11056,12 @@ $LN2@AddGoal_Ge:
 _TEXT	ENDS
 text$x	SEGMENT
 __unwindfunclet$?AddGoal_GetItem@Goal_Think@@QAEXI@Z$0:
+	mov	eax, DWORD PTR $T4[ebp]
+	push	eax
+	call	??3@YAXPAX@Z				; operator delete
+	pop	ecx
+	ret	0
+__unwindfunclet$?AddGoal_GetItem@Goal_Think@@QAEXI@Z$1:
 	mov	eax, DWORD PTR $T2[ebp]
 	push	eax
 	call	??3@YAXPAX@Z				; operator delete
@@ -11023,7 +11070,7 @@ __unwindfunclet$?AddGoal_GetItem@Goal_Think@@QAEXI@Z$0:
 __ehhandler$?AddGoal_GetItem@Goal_Think@@QAEXI@Z:
 	mov	edx, DWORD PTR [esp+8]
 	lea	eax, DWORD PTR [edx+12]
-	mov	ecx, DWORD PTR [edx-24]
+	mov	ecx, DWORD PTR [edx-36]
 	xor	ecx, eax
 	call	@__security_check_cookie@4
 	mov	eax, OFFSET __ehfuncinfo$?AddGoal_GetItem@Goal_Think@@QAEXI@Z
@@ -11482,13 +11529,13 @@ $LN2@Arbitrate:
 
 	cmp	DWORD PTR _MostDesirable$[ebp], 0
 	je	SHORT $LN7@Arbitrate
-	mov	ecx, OFFSET $SG159067
+	mov	ecx, OFFSET $SG159072
 	test	ecx, ecx
 	jne	SHORT $LN8@Arbitrate
 $LN7@Arbitrate:
 	push	116					; 00000074H
-	push	OFFSET $SG159068
-	push	OFFSET $SG159069
+	push	OFFSET $SG159073
+	push	OFFSET $SG159074
 	call	__wassert
 	add	esp, 12					; 0000000cH
 $LN8@Arbitrate:
@@ -18410,7 +18457,7 @@ _this$ = -4						; size = 4
 ?isPossessed@Raven_Bot@@QBE_NXZ PROC			; Raven_Bot::isPossessed, COMDAT
 ; _this$ = ecx
 
-; 161  :   bool          isPossessed()const{return m_bPossessed;}
+; 164  :   bool          isPossessed()const{return m_bPossessed;}
 
 	push	ebp
 	mov	ebp, esp
@@ -18418,7 +18465,7 @@ _this$ = -4						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	al, BYTE PTR [eax+277]
+	mov	al, BYTE PTR [eax+285]
 	mov	esp, ebp
 	pop	ebp
 	ret	0

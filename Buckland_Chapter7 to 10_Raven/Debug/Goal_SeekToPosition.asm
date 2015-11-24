@@ -774,23 +774,11 @@ CONST	ENDS
 CONST	SEGMENT
 ?max_exponent10@?$numeric_limits@O@std@@2HB DD 0134H	; std::numeric_limits<long double>::max_exponent10
 CONST	ENDS
-;	COMDAT ?max_exponent@?$numeric_limits@O@std@@2HB
 CONST	SEGMENT
-?max_exponent@?$numeric_limits@O@std@@2HB DD 0400H	; std::numeric_limits<long double>::max_exponent
-CONST	ENDS
-;	COMDAT ?value@?$_Sizeof@HU_Nil@std@@U12@U12@U12@U12@U12@U12@@std@@2IB
-CONST	SEGMENT
-?value@?$_Sizeof@HU_Nil@std@@U12@U12@U12@U12@U12@U12@@std@@2IB DD 01H ; std::_Sizeof<int,std::_Nil,std::_Nil,std::_Nil,std::_Nil,std::_Nil,std::_Nil,std::_Nil>::value
-CONST	ENDS
-;	COMDAT ?max_digits10@?$numeric_limits@O@std@@2HB
-CONST	SEGMENT
-?max_digits10@?$numeric_limits@O@std@@2HB DD 011H	; std::numeric_limits<long double>::max_digits10
-CONST	ENDS
-CONST	SEGMENT
-$SG171033 DB	'BOT ', 00H
-$SG171035 DB	00H
+$SG171038 DB	'BOT ', 00H
+$SG171040 DB	00H
 	ORG $+2
-$SG171034 DB	' IS STUCK!!', 00H
+$SG171039 DB	' IS STUCK!!', 00H
 _colors	DD	0ffH
 	DD	0ff0000H
 	DD	0ff00H
@@ -808,6 +796,18 @@ _colors	DD	0ffH
 	DD	0e6e6ffH
 _pi	DQ	0400921f9f01b866er		; 3.14159
 _Pi	DQ	0400921f9f01b866er		; 3.14159
+CONST	ENDS
+;	COMDAT ?max_exponent@?$numeric_limits@O@std@@2HB
+CONST	SEGMENT
+?max_exponent@?$numeric_limits@O@std@@2HB DD 0400H	; std::numeric_limits<long double>::max_exponent
+CONST	ENDS
+;	COMDAT ?value@?$_Sizeof@HU_Nil@std@@U12@U12@U12@U12@U12@U12@@std@@2IB
+CONST	SEGMENT
+?value@?$_Sizeof@HU_Nil@std@@U12@U12@U12@U12@U12@U12@@std@@2IB DD 01H ; std::_Sizeof<int,std::_Nil,std::_Nil,std::_Nil,std::_Nil,std::_Nil,std::_Nil,std::_Nil>::value
+CONST	ENDS
+;	COMDAT ?max_digits10@?$numeric_limits@O@std@@2HB
+CONST	SEGMENT
+?max_digits10@?$numeric_limits@O@std@@2HB DD 011H	; std::numeric_limits<long double>::max_digits10
 CONST	ENDS
 ;	COMDAT ?digits10@?$numeric_limits@O@std@@2HB
 CONST	SEGMENT
@@ -19346,11 +19346,11 @@ _this$ = -4						; size = 4
 	mov	ecx, DWORD PTR [edx+8]
 	call	?ID@BaseGameEntity@@QBEHXZ		; BaseGameEntity::ID
 	mov	DWORD PTR $T1[ebp], eax
-	push	OFFSET $SG171035
-	push	OFFSET $SG171034
+	push	OFFSET $SG171040
+	push	OFFSET $SG171039
 	lea	eax, DWORD PTR $T1[ebp]
 	push	eax
-	push	OFFSET $SG171033
+	push	OFFSET $SG171038
 	call	?Instance@DebugConsole@@SAPAV1@XZ	; DebugConsole::Instance
 	mov	ecx, eax
 	call	??$?6$$BY04$$CBD@DebugConsole@@QAEAAV0@AAY04$$CBD@Z ; DebugConsole::operator<<<char const [5]>
@@ -19940,7 +19940,7 @@ _this$ = -4						; size = 4
 ?GetSteering@Raven_Bot@@QAEQAVRaven_Steering@@XZ PROC	; Raven_Bot::GetSteering, COMDAT
 ; _this$ = ecx
 
-; 210  :   Raven_Steering* const              GetSteering(){return m_pSteering;}
+; 214  :   Raven_Steering* const              GetSteering(){return m_pSteering;}
 
 	push	ebp
 	mov	ebp, esp
@@ -19948,7 +19948,7 @@ _this$ = -4						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR [eax+196]
+	mov	eax, DWORD PTR [eax+204]
 	mov	esp, ebp
 	pop	ebp
 	ret	0

@@ -153,7 +153,8 @@ void Goal_Think::AddGoal_GetItem(unsigned int ItemType)
   if (notPresent(ItemTypeToGoalType(ItemType)))
   {
     RemoveAllSubgoals();
-    AddSubgoal( new Goal_GetItem(m_pOwner, ItemType));
+	AddSubgoal( new Goal_AttackTarget(m_pOwner));
+	AddSubgoal( new Goal_GetItem(m_pOwner, ItemType));
   }
 }
 

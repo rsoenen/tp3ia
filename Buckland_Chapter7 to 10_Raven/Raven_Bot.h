@@ -41,7 +41,10 @@ private:
 
 protected:
 
+	//variable add
 	void InitializeFuzzyModule();
+	bool equipe;
+
 
 	FuzzyModule m_FuzzyModulePrecision;
   //alive, dead or spawning?
@@ -131,7 +134,7 @@ protected:
 
 public:
   
-  Raven_Bot(Raven_Game* world, Vector2D pos);
+  Raven_Bot(Raven_Game* world, Vector2D pos, bool equipe);
   virtual ~Raven_Bot();
 
   //the usual suspects
@@ -173,6 +176,7 @@ public:
 
   //returns true if the bot is close to the given position
   bool          isAtPosition(Vector2D pos)const;
+  bool			getEquipe(){return equipe;}
 
 
   //interface for human player

@@ -24,7 +24,7 @@
 #include "../Common/Debug/DebugConsole.h"
 
 //-------------------------- ctor ---------------------------------------------
-Raven_Bot::Raven_Bot(Raven_Game* world,Vector2D pos):
+Raven_Bot::Raven_Bot(Raven_Game* world,Vector2D pos, bool _equipe):
 
   MovingEntity(pos,
                script->GetDouble("Bot_Scale"),
@@ -53,7 +53,7 @@ Raven_Bot::Raven_Bot(Raven_Game* world,Vector2D pos):
   SetEntityType(type_bot);
 
   SetUpVertexBuffer();
-  
+  equipe=_equipe;
   //a bot starts off facing in the direction it is heading
   m_vFacing = m_vHeading;
 

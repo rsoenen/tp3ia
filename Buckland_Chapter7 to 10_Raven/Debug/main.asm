@@ -90,12 +90,12 @@ PUBLIC	?has_quiet_NaN@_Num_base@std@@2_NB		; std::_Num_base::has_quiet_NaN
 PUBLIC	?has_signaling_NaN@_Num_base@std@@2_NB		; std::_Num_base::has_signaling_NaN
 PUBLIC	?is_bounded@_Num_base@std@@2_NB			; std::_Num_base::is_bounded
 PUBLIC	?is_exact@_Num_base@std@@2_NB			; std::_Num_base::is_exact
-PUBLIC	?g_szApplicationName@@3PADA			; g_szApplicationName
 PUBLIC	?is_iec559@_Num_base@std@@2_NB			; std::_Num_base::is_iec559
-PUBLIC	?g_szWindowClassName@@3PADA			; g_szWindowClassName
-PUBLIC	?g_pRaven@@3PAVRaven_Game@@A			; g_pRaven
 PUBLIC	?is_integer@_Num_base@std@@2_NB			; std::_Num_base::is_integer
+PUBLIC	?g_szApplicationName@@3PADA			; g_szApplicationName
+PUBLIC	?g_szWindowClassName@@3PADA			; g_szWindowClassName
 PUBLIC	?is_modulo@_Num_base@std@@2_NB			; std::_Num_base::is_modulo
+PUBLIC	?g_pRaven@@3PAVRaven_Game@@A			; g_pRaven
 PUBLIC	?is_signed@_Num_base@std@@2_NB			; std::_Num_base::is_signed
 PUBLIC	?is_specialized@_Num_base@std@@2_NB		; std::_Num_base::is_specialized
 PUBLIC	?tinyness_before@_Num_base@std@@2_NB		; std::_Num_base::tinyness_before
@@ -468,6 +468,10 @@ CONST	ENDS
 CONST	SEGMENT
 ?is_modulo@_Num_base@std@@2_NB DB 00H			; std::_Num_base::is_modulo
 CONST	ENDS
+_DATA	SEGMENT
+?g_szApplicationName@@3PADA DD FLAT:$SG167377		; g_szApplicationName
+?g_szWindowClassName@@3PADA DD FLAT:$SG167379		; g_szWindowClassName
+_DATA	ENDS
 ;	COMDAT ?is_integer@_Num_base@std@@2_NB
 CONST	SEGMENT
 ?is_integer@_Num_base@std@@2_NB DB 00H			; std::_Num_base::is_integer
@@ -476,10 +480,6 @@ CONST	ENDS
 CONST	SEGMENT
 ?is_iec559@_Num_base@std@@2_NB DB 00H			; std::_Num_base::is_iec559
 CONST	ENDS
-_DATA	SEGMENT
-?g_szApplicationName@@3PADA DD FLAT:$SG167372		; g_szApplicationName
-?g_szWindowClassName@@3PADA DD FLAT:$SG167374		; g_szWindowClassName
-_DATA	ENDS
 ;	COMDAT ?is_exact@_Num_base@std@@2_NB
 CONST	SEGMENT
 ?is_exact@_Num_base@std@@2_NB DB 00H			; std::_Num_base::is_exact
@@ -628,25 +628,25 @@ _colors	DD	0ffH
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG167372 DB	'Raven', 00H
-$SG167447 DB	00H
+$SG167377 DB	'Raven', 00H
+$SG167452 DB	00H
 	ORG $+1
-$SG167374 DB	'MyWindowClass', 00H
+$SG167379 DB	'MyWindowClass', 00H
 	ORG $+2
-$SG167435 DB	'map', 00H
-$SG167436 DB	'Raven map file (*.map)', 00H
+$SG167440 DB	'map', 00H
+$SG167441 DB	'Raven map file (*.map)', 00H
 	ORG $+1
-$SG167446 DB	'Filename: ', 00H
-	ORG $+5
 _pi	DQ	0400921f9f01b866er		; 3.14159
-$SG167499 DB	'Error', 00H
+$SG167451 DB	'Filename: ', 00H
+	ORG $+1
+$SG167504 DB	'Error', 00H
 	ORG $+2
-$SG167500 DB	'Registration Failed!', 00H
+$SG167505 DB	'Registration Failed!', 00H
 	ORG $+3
-$SG167503 DB	'Error!', 00H
+$SG167508 DB	'Error!', 00H
 	ORG $+1
-$SG167504 DB	'CreateWindowEx Failed!', 00H
-	ORG $+1
+$SG167509 DB	'CreateWindowEx Failed!', 00H
+	ORG $+5
 _Pi	DQ	0400921f9f01b866er		; 3.14159
 CONST	ENDS
 ;	COMDAT ?_Stdio@?$_Iosb@H@std@@2W4_Fmtflags@12@B
@@ -10631,11 +10631,11 @@ $LN20@WindowProc:
 ; 203  :           
 ; 204  :           FileOpenDlg(hwnd, szFileName, szTitleName, "Raven map file (*.map)", "map");
 
-	push	OFFSET $SG167435
+	push	OFFSET $SG167440
 	lea	ecx, DWORD PTR $T8[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR __$EHRec$[ebp+8], 1
-	push	OFFSET $SG167436
+	push	OFFSET $SG167441
 	lea	ecx, DWORD PTR $T7[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	BYTE PTR __$EHRec$[ebp+8], 2
@@ -10659,9 +10659,9 @@ $LN20@WindowProc:
 ; 205  : 
 ; 206  :           debug_con << "Filename: " << szTitleName << "";
 
-	push	OFFSET $SG167447
+	push	OFFSET $SG167452
 	push	OFFSET ?szTitleName@?1??WindowProc@@YGJPAUHWND__@@IIJ@Z@4PADA
-	push	OFFSET $SG167446
+	push	OFFSET $SG167451
 	call	?Instance@DebugConsole@@SAPAV1@XZ	; DebugConsole::Instance
 	mov	ecx, eax
 	call	??$?6$$BY0L@$$CBD@DebugConsole@@QAEAAV0@AAY0L@$$CBD@Z ; DebugConsole::operator<<<char const [11]>
@@ -26587,8 +26587,8 @@ _WinMain@16 PROC
 
 	mov	esi, esp
 	push	0
-	push	OFFSET $SG167499
-	push	OFFSET $SG167500
+	push	OFFSET $SG167504
+	push	OFFSET $SG167505
 	push	0
 	call	DWORD PTR __imp__MessageBoxA@16
 	cmp	esi, esp
@@ -26675,8 +26675,8 @@ $LN10@WinMain:
 
 	mov	esi, esp
 	push	0
-	push	OFFSET $SG167503
-	push	OFFSET $SG167504
+	push	OFFSET $SG167508
+	push	OFFSET $SG167509
 	push	0
 	call	DWORD PTR __imp__MessageBoxA@16
 	cmp	esi, esp

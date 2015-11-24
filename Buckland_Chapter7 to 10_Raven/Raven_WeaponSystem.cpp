@@ -202,8 +202,6 @@ void Raven_WeaponSystem::TakeAimAndShoot()//const
 
     m_dLastPrecisionScore = m_FuzzyModulePrecision.DeFuzzify("Precision", FuzzyModule::max_av);
 	
-	
-	debug_con << "Distance " << distToTarget << "";
 
 	double signe=0.2;
 	int nbxRandom=rand()%2;

@@ -738,14 +738,6 @@ CONST	ENDS
 CONST	SEGMENT
 ?tinyness_before@_Num_float_base@std@@2_NB DB 01H	; std::_Num_float_base::tinyness_before
 CONST	ENDS
-;	COMDAT ?is_specialized@_Num_float_base@std@@2_NB
-CONST	SEGMENT
-?is_specialized@_Num_float_base@std@@2_NB DB 01H	; std::_Num_float_base::is_specialized
-CONST	ENDS
-;	COMDAT ?is_signed@_Num_float_base@std@@2_NB
-CONST	SEGMENT
-?is_signed@_Num_float_base@std@@2_NB DB 01H		; std::_Num_float_base::is_signed
-CONST	ENDS
 CONST	SEGMENT
 _SmallestDelay DQ 03fd0000000000000r		; 0.25
 _SEND_MSG_IMMEDIATELY DQ 00000000000000000r	; 0
@@ -767,7 +759,15 @@ _colors	DD	0ffH
 	DD	0e6e6ffH
 	ORG $+4
 _Pi	DQ	0400921f9f01b866er		; 3.14159
-$SG162709 DB	'Bot_TriggerUpdateFreq', 00H
+$SG162714 DB	'Bot_TriggerUpdateFreq', 00H
+CONST	ENDS
+;	COMDAT ?is_specialized@_Num_float_base@std@@2_NB
+CONST	SEGMENT
+?is_specialized@_Num_float_base@std@@2_NB DB 01H	; std::_Num_float_base::is_specialized
+CONST	ENDS
+;	COMDAT ?is_signed@_Num_float_base@std@@2_NB
+CONST	SEGMENT
+?is_signed@_Num_float_base@std@@2_NB DB 01H		; std::_Num_float_base::is_signed
 CONST	ENDS
 ;	COMDAT ?is_modulo@_Num_float_base@std@@2_NB
 CONST	SEGMENT
@@ -3543,7 +3543,7 @@ _range$ = 12						; size = 8
 	lea	eax, DWORD PTR __$EHRec$[ebp]
 	mov	DWORD PTR fs:0, eax
 	mov	DWORD PTR _this$[ebp], ecx
-	push	OFFSET $SG162709
+	push	OFFSET $SG162714
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetInt@Scriptor@@QAEHPAD@Z		; Scriptor::GetInt

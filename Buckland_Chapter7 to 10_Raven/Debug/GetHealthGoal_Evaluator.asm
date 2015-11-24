@@ -791,9 +791,9 @@ _colors	DD	0ffH
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG157566 DB	'H: ', 00H
+$SG157571 DB	'H: ', 00H
 _pi	DQ	0400921f9f01b866er		; 3.14159
-$SG157664 DB	', ', 00H
+$SG157669 DB	', ', 00H
 CONST	ENDS
 ;	COMDAT ?is_modulo@_Num_int_base@std@@2_NB
 CONST	SEGMENT
@@ -13897,7 +13897,7 @@ _pBot$ = 24						; size = 4
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
 	mov	ecx, DWORD PTR tv163[ebp]
 	push	ecx
-	push	OFFSET $SG157566
+	push	OFFSET $SG157571
 	lea	edx, DWORD PTR $T10[ebp]
 	push	edx
 	call	??$?HDU?$char_traits@D@std@@V?$allocator@D@1@@std@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@PBD$$QAV10@@Z ; std::operator+<char,std::char_traits<char>,std::allocator<char> >
@@ -13962,7 +13962,7 @@ _pBot$ = 24						; size = 4
 	mov	DWORD PTR __$EHRec$[ebp+8], 2
 	mov	ecx, DWORD PTR tv167[ebp]
 	push	ecx
-	push	OFFSET $SG157664
+	push	OFFSET $SG157669
 	push	2
 	lea	edx, DWORD PTR $T4[ebp]
 	push	edx
@@ -14313,7 +14313,7 @@ _this$ = -4						; size = 4
 ?GetBrain@Raven_Bot@@QAEQAVGoal_Think@@XZ PROC		; Raven_Bot::GetBrain, COMDAT
 ; _this$ = ecx
 
-; 212  :   Goal_Think* const                  GetBrain(){return m_pBrain;}
+; 216  :   Goal_Think* const                  GetBrain(){return m_pBrain;}
 
 	push	ebp
 	mov	ebp, esp
@@ -14321,7 +14321,7 @@ _this$ = -4						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR [eax+188]
+	mov	eax, DWORD PTR [eax+196]
 	mov	esp, ebp
 	pop	ebp
 	ret	0

@@ -25,6 +25,7 @@
 
 #include "goals/Goal_Think.h"
 #include "goals/Raven_Goal_Types.h"
+#include "../Common/Debug/DebugConsole.h"
 
 
 
@@ -250,7 +251,12 @@ void Raven_Game::AddBots(unsigned int NumBotsToAdd)
   {
     //create a bot. (its position is irrelevant at this point because it will
     //not be rendered until it is spawned)
-    Raven_Bot* rb = new Raven_Bot(this, Vector2D());
+	  bool equipe=true;
+	  if (m_Bots.size()%2==1){
+		equipe=false;
+	  }
+
+    Raven_Bot* rb = new Raven_Bot(this, Vector2D(),equipe);
 
     //switch the default steering behaviors on
     rb->GetSteering()->WallAvoidanceOn();
@@ -263,7 +269,7 @@ void Raven_Game::AddBots(unsigned int NumBotsToAdd)
 
     
 #ifdef LOG_CREATIONAL_STUFF
-  debug_con << "Adding bot with ID " << ttos(rb->ID()) << "";
+  debug_con << "Adding bot with ID " << ttos(rb->ID()) << " dans l'équipe " << equipe ;
 #endif
   }
 }
@@ -397,7 +403,7 @@ bool Raven_Game::LoadMap(const std::string& filename)
   if (m_pMap->LoadMap(filename))
   { 
     AddBots(script->GetInt("NumBots"));
-  
+    
     return true;
   }
 

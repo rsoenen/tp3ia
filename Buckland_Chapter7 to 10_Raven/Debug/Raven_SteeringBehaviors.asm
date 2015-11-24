@@ -725,20 +725,20 @@ _colors	DD	0ffH
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG167824 DB	'WallDetectionFeelerLength', 00H
+$SG167829 DB	'WallDetectionFeelerLength', 00H
 	ORG $+2
 _Pi	DQ	0400921f9f01b866er		; 3.14159
 _pi	DQ	0400921f9f01b866er		; 3.14159
-$SG167825 DB	'SeparationWeight', 00H
+$SG167830 DB	'SeparationWeight', 00H
 	ORG $+3
-$SG167826 DB	'WanderWeight', 00H
+$SG167831 DB	'WanderWeight', 00H
 	ORG $+3
-$SG167827 DB	'WallAvoidanceWeight', 00H
-$SG167828 DB	'SeekWeight', 00H
+$SG167832 DB	'WallAvoidanceWeight', 00H
+$SG167833 DB	'SeekWeight', 00H
 	ORG $+1
-$SG167829 DB	'ArriveWeight', 00H
+$SG167834 DB	'ArriveWeight', 00H
 	ORG $+3
-$SG167830 DB	'ViewDistance', 00H
+$SG167835 DB	'ViewDistance', 00H
 CONST	ENDS
 ;	COMDAT ?digits10@?$numeric_limits@_W@std@@2HB
 CONST	SEGMENT
@@ -9551,7 +9551,7 @@ _agent$ = 12						; size = 4
 	add	ecx, 56					; 00000038H
 	call	??0?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@QAE@I@Z ; std::vector<Vector2D,std::allocator<Vector2D> >::vector<Vector2D,std::allocator<Vector2D> >
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
-	push	OFFSET $SG167824
+	push	OFFSET $SG167829
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
@@ -9569,37 +9569,37 @@ _agent$ = 12						; size = 4
 	mov	ecx, DWORD PTR _this$[ebp]
 	movsd	xmm0, QWORD PTR _WanderDist
 	movsd	QWORD PTR [ecx+112], xmm0
-	push	OFFSET $SG167825
+	push	OFFSET $SG167830
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
 	mov	edx, DWORD PTR _this$[ebp]
 	fstp	QWORD PTR [edx+120]
-	push	OFFSET $SG167826
+	push	OFFSET $SG167831
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
 	mov	eax, DWORD PTR _this$[ebp]
 	fstp	QWORD PTR [eax+128]
-	push	OFFSET $SG167827
+	push	OFFSET $SG167832
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
 	mov	ecx, DWORD PTR _this$[ebp]
 	fstp	QWORD PTR [ecx+136]
-	push	OFFSET $SG167828
+	push	OFFSET $SG167833
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
 	mov	edx, DWORD PTR _this$[ebp]
 	fstp	QWORD PTR [edx+144]
-	push	OFFSET $SG167829
+	push	OFFSET $SG167834
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
 	mov	eax, DWORD PTR _this$[ebp]
 	fstp	QWORD PTR [eax+152]
-	push	OFFSET $SG167830
+	push	OFFSET $SG167835
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
