@@ -43,6 +43,9 @@ private:
  
   //a list of all the bots that are inhabiting the map
   std::list<Raven_Bot*>            m_Bots;
+  std::list<Raven_Bot*>            team1;
+  std::list<Raven_Bot*>            team2;
+
 
   //the user may select a bot to control manually. This is a pointer to that
   //bot
@@ -157,6 +160,8 @@ public:
   const Raven_Map* const                   GetMap()const{return m_pMap;}
   Raven_Map* const                         GetMap(){return m_pMap;}
   const std::list<Raven_Bot*>&             GetAllBots()const{return m_Bots;}
+  const std::list<Raven_Bot*>&             GetTeam1()const{return team1;}
+  const std::list<Raven_Bot*>&             GetTeam2()const{return team2;}
   PathManager<Raven_PathPlanner>* const    GetPathManager(){return m_pPathManager;}
   int                                      GetNumBots()const{return m_Bots.size();}
 

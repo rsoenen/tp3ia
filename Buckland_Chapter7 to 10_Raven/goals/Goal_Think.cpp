@@ -136,6 +136,7 @@ bool Goal_Think::notPresent(unsigned int GoalType)const
 
 void Goal_Think::AddGoal_MoveToPosition(Vector2D pos)
 {
+	//RemoveAllSubgoals();
   AddSubgoal( new Goal_MoveToPosition(m_pOwner, pos));
 }
 

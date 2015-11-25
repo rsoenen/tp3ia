@@ -92,10 +92,7 @@ PUBLIC	?is_bounded@_Num_base@std@@2_NB			; std::_Num_base::is_bounded
 PUBLIC	?is_exact@_Num_base@std@@2_NB			; std::_Num_base::is_exact
 PUBLIC	?is_iec559@_Num_base@std@@2_NB			; std::_Num_base::is_iec559
 PUBLIC	?is_integer@_Num_base@std@@2_NB			; std::_Num_base::is_integer
-PUBLIC	?g_szApplicationName@@3PADA			; g_szApplicationName
-PUBLIC	?g_szWindowClassName@@3PADA			; g_szWindowClassName
 PUBLIC	?is_modulo@_Num_base@std@@2_NB			; std::_Num_base::is_modulo
-PUBLIC	?g_pRaven@@3PAVRaven_Game@@A			; g_pRaven
 PUBLIC	?is_signed@_Num_base@std@@2_NB			; std::_Num_base::is_signed
 PUBLIC	?is_specialized@_Num_base@std@@2_NB		; std::_Num_base::is_specialized
 PUBLIC	?tinyness_before@_Num_base@std@@2_NB		; std::_Num_base::tinyness_before
@@ -103,8 +100,11 @@ PUBLIC	?traps@_Num_base@std@@2_NB			; std::_Num_base::traps
 PUBLIC	?round_style@_Num_base@std@@2W4float_round_style@2@B ; std::_Num_base::round_style
 PUBLIC	?digits@_Num_base@std@@2HB			; std::_Num_base::digits
 PUBLIC	?digits10@_Num_base@std@@2HB			; std::_Num_base::digits10
+PUBLIC	?g_szApplicationName@@3PADA			; g_szApplicationName
 PUBLIC	?max_digits10@_Num_base@std@@2HB		; std::_Num_base::max_digits10
+PUBLIC	?g_szWindowClassName@@3PADA			; g_szWindowClassName
 PUBLIC	?max_exponent@_Num_base@std@@2HB		; std::_Num_base::max_exponent
+PUBLIC	?g_pRaven@@3PAVRaven_Game@@A			; g_pRaven
 PUBLIC	?max_exponent10@_Num_base@std@@2HB		; std::_Num_base::max_exponent10
 PUBLIC	?min_exponent@_Num_base@std@@2HB		; std::_Num_base::min_exponent
 PUBLIC	?min_exponent10@_Num_base@std@@2HB		; std::_Num_base::min_exponent10
@@ -436,6 +436,10 @@ CONST	ENDS
 CONST	SEGMENT
 ?max_digits10@_Num_base@std@@2HB DD 00H			; std::_Num_base::max_digits10
 CONST	ENDS
+_DATA	SEGMENT
+?g_szApplicationName@@3PADA DD FLAT:$SG167403		; g_szApplicationName
+?g_szWindowClassName@@3PADA DD FLAT:$SG167405		; g_szWindowClassName
+_DATA	ENDS
 ;	COMDAT ?digits10@_Num_base@std@@2HB
 CONST	SEGMENT
 ?digits10@_Num_base@std@@2HB DD 00H			; std::_Num_base::digits10
@@ -468,10 +472,6 @@ CONST	ENDS
 CONST	SEGMENT
 ?is_modulo@_Num_base@std@@2_NB DB 00H			; std::_Num_base::is_modulo
 CONST	ENDS
-_DATA	SEGMENT
-?g_szApplicationName@@3PADA DD FLAT:$SG167377		; g_szApplicationName
-?g_szWindowClassName@@3PADA DD FLAT:$SG167379		; g_szWindowClassName
-_DATA	ENDS
 ;	COMDAT ?is_integer@_Num_base@std@@2_NB
 CONST	SEGMENT
 ?is_integer@_Num_base@std@@2_NB DB 00H			; std::_Num_base::is_integer
@@ -628,24 +628,24 @@ _colors	DD	0ffH
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG167377 DB	'Raven', 00H
-$SG167452 DB	00H
+$SG167403 DB	'Raven', 00H
+$SG167478 DB	00H
 	ORG $+1
-$SG167379 DB	'MyWindowClass', 00H
+$SG167405 DB	'MyWindowClass', 00H
 	ORG $+2
-$SG167440 DB	'map', 00H
-$SG167441 DB	'Raven map file (*.map)', 00H
-	ORG $+1
+$SG167466 DB	'map', 00H
 _pi	DQ	0400921f9f01b866er		; 3.14159
-$SG167451 DB	'Filename: ', 00H
+$SG167467 DB	'Raven map file (*.map)', 00H
 	ORG $+1
-$SG167504 DB	'Error', 00H
+$SG167477 DB	'Filename: ', 00H
+	ORG $+1
+$SG167530 DB	'Error', 00H
 	ORG $+2
-$SG167505 DB	'Registration Failed!', 00H
+$SG167531 DB	'Registration Failed!', 00H
 	ORG $+3
-$SG167508 DB	'Error!', 00H
+$SG167534 DB	'Error!', 00H
 	ORG $+1
-$SG167509 DB	'CreateWindowEx Failed!', 00H
+$SG167535 DB	'CreateWindowEx Failed!', 00H
 	ORG $+5
 _Pi	DQ	0400921f9f01b866er		; 3.14159
 CONST	ENDS
@@ -10240,7 +10240,7 @@ $LN38@WindowProc:
 ; 97   :          //create the game
 ; 98   :          g_pRaven = new Raven_Game();
 
-	push	44					; 0000002cH
+	push	68					; 00000044H
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
 	mov	DWORD PTR $T2[ebp], eax
@@ -10631,11 +10631,11 @@ $LN20@WindowProc:
 ; 203  :           
 ; 204  :           FileOpenDlg(hwnd, szFileName, szTitleName, "Raven map file (*.map)", "map");
 
-	push	OFFSET $SG167440
+	push	OFFSET $SG167466
 	lea	ecx, DWORD PTR $T8[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR __$EHRec$[ebp+8], 1
-	push	OFFSET $SG167441
+	push	OFFSET $SG167467
 	lea	ecx, DWORD PTR $T7[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	BYTE PTR __$EHRec$[ebp+8], 2
@@ -10659,9 +10659,9 @@ $LN20@WindowProc:
 ; 205  : 
 ; 206  :           debug_con << "Filename: " << szTitleName << "";
 
-	push	OFFSET $SG167452
+	push	OFFSET $SG167478
 	push	OFFSET ?szTitleName@?1??WindowProc@@YGJPAUHWND__@@IIJ@Z@4PADA
-	push	OFFSET $SG167451
+	push	OFFSET $SG167477
 	call	?Instance@DebugConsole@@SAPAV1@XZ	; DebugConsole::Instance
 	mov	ecx, eax
 	call	??$?6$$BY0L@$$CBD@DebugConsole@@QAEAAV0@AAY0L@$$CBD@Z ; DebugConsole::operator<<<char const [11]>
@@ -11749,7 +11749,7 @@ _this$ = -4						; size = 4
 ?TogglePause@Raven_Game@@QAEXXZ PROC			; Raven_Game::TogglePause, COMDAT
 ; _this$ = ecx
 
-; 135  :   void        TogglePause(){m_bPaused = !m_bPaused;}
+; 138  :   void        TogglePause(){m_bPaused = !m_bPaused;}
 
 	push	ebp
 	mov	ebp, esp
@@ -11758,7 +11758,7 @@ _this$ = -4						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	eax, DWORD PTR _this$[ebp]
-	movzx	ecx, BYTE PTR [eax+36]
+	movzx	ecx, BYTE PTR [eax+60]
 	test	ecx, ecx
 	jne	SHORT $LN3@TogglePaus
 	mov	DWORD PTR tv68[ebp], 1
@@ -11768,7 +11768,7 @@ $LN3@TogglePaus:
 $LN4@TogglePaus:
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	al, BYTE PTR tv68[ebp]
-	mov	BYTE PTR [edx+36], al
+	mov	BYTE PTR [edx+60], al
 	mov	esp, ebp
 	pop	ebp
 	ret	0
@@ -26587,8 +26587,8 @@ _WinMain@16 PROC
 
 	mov	esi, esp
 	push	0
-	push	OFFSET $SG167504
-	push	OFFSET $SG167505
+	push	OFFSET $SG167530
+	push	OFFSET $SG167531
 	push	0
 	call	DWORD PTR __imp__MessageBoxA@16
 	cmp	esi, esp
@@ -26675,8 +26675,8 @@ $LN10@WinMain:
 
 	mov	esi, esp
 	push	0
-	push	OFFSET $SG167508
-	push	OFFSET $SG167509
+	push	OFFSET $SG167534
+	push	OFFSET $SG167535
 	push	0
 	call	DWORD PTR __imp__MessageBoxA@16
 	cmp	esi, esp

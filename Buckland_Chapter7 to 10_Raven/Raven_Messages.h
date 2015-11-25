@@ -20,6 +20,7 @@ enum message_type
   Msg_GoalQueueEmpty,
   Msg_OpenSesame,
   Msg_GunshotSound,
+  Msg_ImUnderAttack,
   Msg_UserHasRemovedBot
 };
 
@@ -59,6 +60,10 @@ inline std::string MessageToString(int msg)
   case Msg_UserHasRemovedBot:
 
     return "Msg_UserHasRemovedBot";
+
+  case Msg_ImUnderAttack:
+
+	return "Msg_ImUnderAttack";
 
   default:
 

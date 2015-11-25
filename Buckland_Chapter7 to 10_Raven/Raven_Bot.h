@@ -44,6 +44,7 @@ protected:
 	//variable add
 	void InitializeFuzzyModule();
 	bool equipe;
+	bool isLeader;
 
 
 	FuzzyModule m_FuzzyModulePrecision;
@@ -134,7 +135,7 @@ protected:
 
 public:
   
-  Raven_Bot(Raven_Game* world, Vector2D pos, bool equipe);
+  Raven_Bot(Raven_Game* world, Vector2D pos, bool equipe, bool leader);
   virtual ~Raven_Bot();
 
   //the usual suspects

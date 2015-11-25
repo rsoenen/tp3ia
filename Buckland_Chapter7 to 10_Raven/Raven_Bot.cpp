@@ -24,7 +24,7 @@
 #include "../Common/Debug/DebugConsole.h"
 
 //-------------------------- ctor ---------------------------------------------
-Raven_Bot::Raven_Bot(Raven_Game* world,Vector2D pos, bool _equipe):
+Raven_Bot::Raven_Bot(Raven_Game* world,Vector2D pos, bool _equipe, bool _leader):
 
   MovingEntity(pos,
                script->GetDouble("Bot_Scale"),
@@ -54,6 +54,7 @@ Raven_Bot::Raven_Bot(Raven_Game* world,Vector2D pos, bool _equipe):
 
   SetUpVertexBuffer();
   equipe=_equipe;
+  isLeader=_leader;
   //a bot starts off facing in the direction it is heading
   m_vFacing = m_vHeading;
 
@@ -231,7 +232,48 @@ bool Raven_Bot::HandleMessage(const Telegram& msg)
 
     //the extra info field of the telegram carries the amount of damage
     ReduceHealth(DereferenceToType<int>(msg.ExtraInfo));
+	//equipe1
+	if (isLeader){
+		std::list<Raven_Bot*> myListe;
+		if (equipe&&GetWorld()->GetTeam1().size()>1){
+			myListe=GetWorld()->GetTeam1();
+		}
+		if (!equipe&&GetWorld()->GetTeam2().size()>1){
+			myListe=GetWorld()->GetTeam2();
+		}
+		if (!myListe.empty()){
+			for (std::list<Raven_Bot*>::iterator it=myListe.begin();it!=myListe.end();++it){
+				Dispatcher->DispatchMsg(SEND_MSG_IMMEDIATELY,
+								ID(),
+								(*it)->ID(),
+								Msg_ImUnderAttack,
+								NO_ADDITIONAL_INFO);
+			}
+		}
+	}
+	//equipe 2
+	if (!equipe&&isLeader){
+		if (GetWorld()->GetTeam2().size()<1){
+			std::list<Raven_Bot*> myListe=GetWorld()->GetTeam2();
+			for (std::list<Raven_Bot*>::iterator it=myListe.begin();it!=myListe.end();++it){
+				Dispatcher->DispatchMsg(SEND_MSG_IMMEDIATELY,
+								  ID(),
+								  (*it)->ID(),
+								  Msg_ImUnderAttack,
+								  NO_ADDITIONAL_INFO);
+			}
+		}
+	}
 
+	
+
+	
+		 Dispatcher->DispatchMsg(SEND_MSG_IMMEDIATELY,
+								  ID(),
+								  402, //A CHANGER
+								  Msg_ImUnderAttack,
+								  NO_ADDITIONAL_INFO);
+	
     //if this bot is now dead let the shooter know
     if (isDead())
     {
@@ -275,10 +317,34 @@ bool Raven_Bot::HandleMessage(const Telegram& msg)
 
       return true;
     }
+	 
+	case Msg_ImUnderAttack:
+    {
+		Telegram myTelegram= msg;
+		int idSender = myTelegram.Sender;
+		std::list<Raven_Bot*> myListe=GetWorld()->GetAllBots();
 
+		Raven_Bot* myAlly;
+
+		for (std::list<Raven_Bot*>::iterator it=myListe.begin();it!=myListe.end();++it){
+			if ((*it)->ID() == idSender){
+				myAlly = *it;
+			}
+		}
+
+		Vector2D posAlly = myAlly->Pos();
+
+		this -> GetBrain()->AddGoal_MoveToPosition(posAlly);
+
+		debug_con << "coucou" <<myAlly->ID();
+
+		
+		return true;
+	}
 
   default: return false;
   }
+   
 }
 
 //------------------ RotateFacingTowardPosition -------------------------------
@@ -385,65 +451,11 @@ void Raven_Bot::ChangeWeapon(unsigned int type)
 //-----------------------------------------------------------------------------
 void Raven_Bot::FireWeapon(Vector2D pos)
 {
-	/*double distToTarget= Vec2DDistance(Pos(),pos);
-	double myVitesse=Speed();
-	double tempsVisible=m_pTargSys->GetTimeTargetHasBeenVisible();
 
-
-	m_FuzzyModulePrecision.Fuzzify("DistToTarget", distToTarget);
-	m_FuzzyModulePrecision.Fuzzify("Velocity", myVitesse);
-    m_FuzzyModulePrecision.Fuzzify("TimeVisibility", tempsVisible);
-
-    m_dLastPrecisionScore = m_FuzzyModulePrecision.DeFuzzify("Precision", FuzzyModule::max_av);
-	
-	
-	debug_con << "Creating a " << m_dLastPrecisionScore << "";*/
     m_pWeaponSys->ShootAt(pos);
 }
 
-/*void Raven_Bot::InitializeFuzzyModule()
-{
-  FuzzyVariable& DistToTarget = m_FuzzyModulePrecision.CreateFLV("DistToTarget");
-  FzSet& Target_Contact = DistToTarget.AddLeftShoulderSet("Target_Contact",0,25,50);
-  FzSet& Target_Close = DistToTarget.AddTriangularSet("Target_Close",25,50,150);
-  FzSet& Target_Medium = DistToTarget.AddTriangularSet("Target_Medium",50,150,300);
-  FzSet& Target_Far = DistToTarget.AddTriangularSet("Target_Far",150,300,500);
-  FzSet& Target_VeryFar = DistToTarget.AddRightShoulderSet("Target_VeryFar",300,500,1000);
 
-  FuzzyVariable& Velocity = m_FuzzyModulePrecision.CreateFLV("Velocity");
-  FzSet& FastSpeed = Velocity.AddRightShoulderSet("FastSpeed",.5*m_dMaxSpeed,.75*m_dMaxSpeed,m_dMaxSpeed);
-  FzSet& MediumSpeed = Velocity.AddTriangularSet("MediumSpeed",.25*m_dMaxSpeed,.5*m_dMaxSpeed,.75*m_dMaxSpeed);
-  FzSet& LowSpeed = Velocity.AddLeftShoulderSet("LowSpeed",0,.25*m_dMaxSpeed,.5*m_dMaxSpeed);
-
-  FuzzyVariable& TimeVisibility = m_FuzzyModulePrecision.CreateFLV("TimeVisibility");
-  FzSet& ShortTime = TimeVisibility.AddLeftShoulderSet("ShortTime",0,0.25,0.5);
-  FzSet& MediumTime = TimeVisibility.AddTriangularSet("MediumTime",0.25,0.5,1);
-  FzSet& LongTime = TimeVisibility.AddRightShoulderSet("LongTime",0.5,1,100);
-
-  
-
-  FuzzyVariable& Precision = m_FuzzyModulePrecision.CreateFLV("Precision"); 
-  FzSet& VeryHighPrecision = Precision.AddRightShoulderSet("VeryHighPrecision", 75, 100, 100);
-  FzSet& HighPrecision = Precision.AddTriangularSet("HighPrecision", 50, 75, 100);
-  FzSet& MediumPrecision = Precision.AddTriangularSet("MediumPrecision", 25, 50, 75);
-  FzSet& LowPrecision = Precision.AddTriangularSet("LowPrecision", 0, 25, 50);
-  FzSet& VeryLowPrecision = Precision.AddTriangularSet("VeryLowPrecision", 0, 0, 25);
-
-  m_FuzzyModulePrecision.AddRule(Target_Contact, VeryHighPrecision);
-  m_FuzzyModulePrecision.AddRule(Target_Close, HighPrecision);
-  m_FuzzyModulePrecision.AddRule(Target_Medium, MediumPrecision);
-  m_FuzzyModulePrecision.AddRule(Target_Far, LowPrecision);
-  m_FuzzyModulePrecision.AddRule(Target_VeryFar, VeryLowPrecision);
-
-  m_FuzzyModulePrecision.AddRule(LowSpeed, HighPrecision);
-  m_FuzzyModulePrecision.AddRule(MediumSpeed,  MediumPrecision);
-  m_FuzzyModulePrecision.AddRule(FastSpeed, VeryLowPrecision);
-
-  m_FuzzyModulePrecision.AddRule(LongTime, VeryHighPrecision);
-  m_FuzzyModulePrecision.AddRule(MediumTime,  MediumPrecision);
-  m_FuzzyModulePrecision.AddRule(ShortTime, VeryLowPrecision);
-
-}*/
 
 //----------------- CalculateExpectedTimeToReachPosition ----------------------
 //
@@ -555,7 +567,14 @@ void Raven_Bot::Render()
   gdi->ClosedShape(m_vecBotVBTrans);
   
   //draw the head
-  gdi->BrownBrush();
+  
+  if (this->getEquipe()){
+	gdi->BrownBrush();
+  } else {
+	gdi->YellowBrush();
+  }
+
+  
   gdi->Circle(Pos(), 6.0 * Scale().x);
 
 
@@ -577,6 +596,7 @@ void Raven_Bot::Render()
 
   gdi->TransparentText();
   gdi->TextColor(0,255,0);
+  
 
   if (UserOptions->m_bShowBotIDs)
   {

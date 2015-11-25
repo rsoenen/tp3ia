@@ -174,6 +174,33 @@ void Raven_WeaponSystem::ChangeWeapon(unsigned int type)
 //  this method aims the bots current weapon at the target (if there is a
 //  target) and, if aimed correctly, fires a round
 //-----------------------------------------------------------------------------
+Vector2D Raven_WeaponSystem::ChangeAim(Vector2D posTarget)//const
+{
+	 Vector2D AimingPos = posTarget;//m_pOwner->GetTargetBot()->Pos();
+    
+	double distToTarget= Vec2DDistance(m_pOwner->Pos(),AimingPos);
+	double myVitesse=m_pOwner->Speed();
+	double tempsVisible=m_pOwner->GetTargetSys()->GetTimeTargetHasBeenVisible();
+	
+	m_FuzzyModulePrecision.Fuzzify("DistToTarget", distToTarget);
+    m_FuzzyModulePrecision.Fuzzify("TimeVisibility", tempsVisible);
+
+    m_dLastPrecisionScore = m_FuzzyModulePrecision.DeFuzzify("Precision", FuzzyModule::max_av);
+	double signe=0.2;
+	int nbxRandom=rand()%2;
+	if (nbxRandom==0){
+		signe=-signe;
+	}
+	int rand1=rand() % (101 - (int) m_dLastPrecisionScore);
+	double posX=AimingPos.x+signe*rand1;
+
+	int rand2=rand() % (101 - (int) m_dLastPrecisionScore);
+	double posY=AimingPos.y+signe*rand2;
+
+	AimingPos= Vector2D(posX,posY);
+	
+	return AimingPos;
+}
 void Raven_WeaponSystem::TakeAimAndShoot()//const
 {
   //aim the weapon only if the current target is shootable or if it has only
@@ -189,33 +216,8 @@ void Raven_WeaponSystem::TakeAimAndShoot()//const
        m_dAimPersistance) )
   {
     //the position the weapon will be aimed at
-    Vector2D AimingPos = m_pOwner->GetTargetBot()->Pos();
-    
-
-	double distToTarget= Vec2DDistance(m_pOwner->Pos(),AimingPos);
-	double myVitesse=m_pOwner->Speed();
-	double tempsVisible=m_pOwner->GetTargetSys()->GetTimeTargetHasBeenVisible();
-	
-
-	m_FuzzyModulePrecision.Fuzzify("DistToTarget", distToTarget);
-    m_FuzzyModulePrecision.Fuzzify("TimeVisibility", tempsVisible);
-
-    m_dLastPrecisionScore = m_FuzzyModulePrecision.DeFuzzify("Precision", FuzzyModule::max_av);
-	
-
-	double signe=0.2;
-	int nbxRandom=rand()%2;
-	if (nbxRandom==0){
-		signe=-signe;
-	}
-	int rand1=rand() % (101 - (int) m_dLastPrecisionScore);
-	double posX=AimingPos.x+signe*rand1;
-
-	int rand2=rand() % (101 - (int) m_dLastPrecisionScore);
-	double posY=AimingPos.y+signe*rand2;
-
-	AimingPos= Vector2D(posX,posY);
-
+   
+	   Vector2D AimingPos = m_pOwner->GetTargetBot()->Pos();
 
     //if the current weapon is not an instant hit type gun the target position
     //must be adjusted to take into account the predicted movement of the 
@@ -224,6 +226,7 @@ void Raven_WeaponSystem::TakeAimAndShoot()//const
         GetCurrentWeapon()->GetType() == type_blaster)
     {
       AimingPos = PredictFuturePositionOfTarget();
+	  AimingPos=ChangeAim(AimingPos);
 
       //if the weapon is aimed correctly, there is line of sight between the
       //bot and the aiming position and it has been in view for a period longer
@@ -248,6 +251,7 @@ void Raven_WeaponSystem::TakeAimAndShoot()//const
            (m_pOwner->GetTargetSys()->GetTimeTargetHasBeenVisible() >
             m_dReactionTime) )
       {
+		AimingPos=ChangeAim(AimingPos);
         AddNoiseToAim(AimingPos);
         
         GetCurrentWeapon()->ShootAt(AimingPos);

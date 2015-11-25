@@ -255,13 +255,23 @@ void Raven_Game::AddBots(unsigned int NumBotsToAdd)
 	  if (m_Bots.size()%2==1){
 		equipe=false;
 	  }
+	  bool leader=false;
+	  if (m_Bots.size()<2){
+		  leader=true;
+	  }
 
-    Raven_Bot* rb = new Raven_Bot(this, Vector2D(),equipe);
+
+    Raven_Bot* rb = new Raven_Bot(this, Vector2D(),equipe,leader);
 
     //switch the default steering behaviors on
     rb->GetSteering()->WallAvoidanceOn();
     rb->GetSteering()->SeparationOn();
 
+	if (equipe){
+		team1.push_back(rb);
+	} else {
+		team2.push_back(rb);
+	}
     m_Bots.push_back(rb);
 
     //register the bot with the entity manager

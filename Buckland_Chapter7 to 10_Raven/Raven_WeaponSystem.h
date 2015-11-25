@@ -75,6 +75,9 @@ public:
   //sets up the weapon map with just one weapon: the blaster
   void          Initialize();
 
+  
+  Vector2D		ChangeAim(Vector2D posTarget);
+
   //this method aims the bot's current weapon at the target (if there is a
   //target) and, if aimed correctly, fires a round. (Called each update-step
   //from Raven_Bot::Update)

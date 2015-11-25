@@ -622,27 +622,6 @@ CONST	ENDS
 CONST	SEGMENT
 ?ate@?$_Iosb@H@std@@2W4_Openmode@12@B DD 04H		; std::_Iosb<int>::ate
 CONST	ENDS
-CONST	SEGMENT
-_colors	DD	0ffH
-	DD	0ff0000H
-	DD	0ff00H
-	DD	00H
-	DD	0c8c8ffH
-	DD	0c8c8c8H
-	DD	0ffffH
-	DD	0aaffH
-	DD	0aa00ffH
-	DD	05a85H
-	DD	0ffffffH
-	DD	06400H
-	DD	0ffff00H
-	DD	0c8c8c8H
-	DD	0e6e6ffH
-	ORG $+4
-_pi	DQ	0400921f9f01b866er		; 3.14159
-_Pi	DQ	0400921f9f01b866er		; 3.14159
-_SmallestDelay DQ 03fd0000000000000r		; 0.25
-CONST	ENDS
 ;	COMDAT ?out@?$_Iosb@H@std@@2W4_Openmode@12@B
 CONST	SEGMENT
 ?out@?$_Iosb@H@std@@2W4_Openmode@12@B DD 02H		; std::_Iosb<int>::out
@@ -814,6 +793,27 @@ CONST	ENDS
 ;	COMDAT ?digits@?$numeric_limits@O@std@@2HB
 CONST	SEGMENT
 ?digits@?$numeric_limits@O@std@@2HB DD 035H		; std::numeric_limits<long double>::digits
+CONST	ENDS
+CONST	SEGMENT
+_SmallestDelay DQ 03fd0000000000000r		; 0.25
+_colors	DD	0ffH
+	DD	0ff0000H
+	DD	0ff00H
+	DD	00H
+	DD	0c8c8ffH
+	DD	0c8c8c8H
+	DD	0ffffH
+	DD	0aaffH
+	DD	0aa00ffH
+	DD	05a85H
+	DD	0ffffffH
+	DD	06400H
+	DD	0ffff00H
+	DD	0c8c8c8H
+	DD	0e6e6ffH
+	ORG $+4
+_pi	DQ	0400921f9f01b866er		; 3.14159
+_Pi	DQ	0400921f9f01b866er		; 3.14159
 CONST	ENDS
 PUBLIC	?max@?$numeric_limits@H@std@@SAHXZ		; std::numeric_limits<int>::max
 PUBLIC	?min@?$numeric_limits@M@std@@SAMXZ		; std::numeric_limits<float>::min
@@ -2945,7 +2945,7 @@ _this$ = -4						; size = 4
 ?GetTargetSys@Raven_Bot@@QAEQAVRaven_TargetingSystem@@XZ PROC ; Raven_Bot::GetTargetSys, COMDAT
 ; _this$ = ecx
 
-; 218  :   Raven_TargetingSystem* const       GetTargetSys(){return m_pTargSys;}
+; 219  :   Raven_TargetingSystem* const       GetTargetSys(){return m_pTargSys;}
 
 	push	ebp
 	mov	ebp, esp
@@ -2967,7 +2967,7 @@ _this$ = -4						; size = 4
 ?GetSteering@Raven_Bot@@QAEQAVRaven_Steering@@XZ PROC	; Raven_Bot::GetSteering, COMDAT
 ; _this$ = ecx
 
-; 214  :   Raven_Steering* const              GetSteering(){return m_pSteering;}
+; 215  :   Raven_Steering* const              GetSteering(){return m_pSteering;}
 
 	push	ebp
 	mov	ebp, esp

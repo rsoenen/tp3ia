@@ -578,7 +578,7 @@ _colors	DD	0ffH
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG173234 DB	'Goal_GetItem cannot determine item type', 00H
+$SG173237 DB	'Goal_GetItem cannot determine item type', 00H
 	ORG $+4
 _pi	DQ	0400921f9f01b866er		; 3.14159
 _SmallestDelay DQ 03fd0000000000000r		; 0.25
@@ -7043,7 +7043,7 @@ $LN1@ItemTypeTo:
 ; 32   : 
 ; 33   :   default: throw std::runtime_error("Goal_GetItem cannot determine item type");
 
-	push	OFFSET $SG173234
+	push	OFFSET $SG173237
 	lea	ecx, DWORD PTR $T1[ebp]
 	call	??0runtime_error@std@@QAE@PBD@Z		; std::runtime_error::runtime_error
 	push	OFFSET __TI2?AVruntime_error@std@@

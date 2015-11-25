@@ -124,6 +124,7 @@ void Raven_Map::AddSpawnPoint(std::ifstream& in)
   debug_con << " x = "<< x << "y = " << y;
 
   m_SpawnPoints.push_back(Vector2D(x,y));
+  m_SpawnPoints.push_back(Vector2D(430,70));
 }
 
 
