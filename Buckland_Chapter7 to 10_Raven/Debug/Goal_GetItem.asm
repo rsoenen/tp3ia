@@ -578,7 +578,7 @@ _colors	DD	0ffH
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG173237 DB	'Goal_GetItem cannot determine item type', 00H
+$SG173248 DB	'Goal_GetItem cannot determine item type', 00H
 	ORG $+4
 _pi	DQ	0400921f9f01b866er		; 3.14159
 _SmallestDelay DQ 03fd0000000000000r		; 0.25
@@ -4323,7 +4323,7 @@ _msg$ = 8						; size = 4
 ?HandleMessage@Goal_GetItem@@UAE_NABUTelegram@@@Z PROC	; Goal_GetItem::HandleMessage
 ; _this$ = ecx
 
-; 77   : {
+; 86   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -4350,8 +4350,8 @@ _msg$ = 8						; size = 4
 	mov	DWORD PTR fs:0, eax
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 78   :   //first, pass the message down the goal hierarchy
-; 79   :   bool bHandled = ForwardMessageToFrontMostSubgoal(msg);
+; 87   :   //first, pass the message down the goal hierarchy
+; 88   :   bool bHandled = ForwardMessageToFrontMostSubgoal(msg);
 
 	mov	eax, DWORD PTR _msg$[ebp]
 	push	eax
@@ -4359,16 +4359,16 @@ _msg$ = 8						; size = 4
 	call	?ForwardMessageToFrontMostSubgoal@?$Goal_Composite@VRaven_Bot@@@@IAE_NABUTelegram@@@Z ; Goal_Composite<Raven_Bot>::ForwardMessageToFrontMostSubgoal
 	mov	BYTE PTR _bHandled$[ebp], al
 
-; 80   : 
-; 81   :   //if the msg was not handled, test to see if this goal can handle it
-; 82   :   if (bHandled == false)
+; 89   : 
+; 90   :   //if the msg was not handled, test to see if this goal can handle it
+; 91   :   if (bHandled == false)
 
 	movzx	ecx, BYTE PTR _bHandled$[ebp]
 	test	ecx, ecx
 	jne	$LN6@HandleMess
 
-; 83   :   {
-; 84   :     switch(msg.Msg)
+; 92   :   {
+; 93   :     switch(msg.Msg)
 
 	mov	edx, DWORD PTR _msg$[ebp]
 	mov	eax, DWORD PTR [edx+8]
@@ -4380,18 +4380,18 @@ _msg$ = 8						; size = 4
 	jmp	$LN1@HandleMess
 $LN3@HandleMess:
 
-; 85   :     {
-; 86   :     case Msg_PathReady:
-; 87   : 
-; 88   :       //clear any existing goals
-; 89   :       RemoveAllSubgoals();
+; 94   :     {
+; 95   :     case Msg_PathReady:
+; 96   : 
+; 97   :       //clear any existing goals
+; 98   :       RemoveAllSubgoals();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?RemoveAllSubgoals@?$Goal_Composite@VRaven_Bot@@@@QAEXXZ ; Goal_Composite<Raven_Bot>::RemoveAllSubgoals
 
-; 90   : 
-; 91   :       AddSubgoal(new Goal_FollowPath(m_pOwner,
-; 92   :                                      m_pOwner->GetPathPlanner()->GetPath()));
+; 99   : 
+; 100  :       AddSubgoal(new Goal_FollowPath(m_pOwner,
+; 101  :                                      m_pOwner->GetPathPlanner()->GetPath()));
 
 	push	40					; 00000028H
 	call	??2@YAPAXI@Z				; operator new
@@ -4436,55 +4436,55 @@ $LN10@HandleMess:
 	cmp	esi, esp
 	call	__RTC_CheckEsp
 
-; 93   : 
-; 94   :       //get the pointer to the item
-; 95   :       m_pGiverTrigger = static_cast<Raven_Map::TriggerType*>(msg.ExtraInfo);
+; 102  : 
+; 103  :       //get the pointer to the item
+; 104  :       m_pGiverTrigger = static_cast<Raven_Map::TriggerType*>(msg.ExtraInfo);
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR _msg$[ebp]
 	mov	edx, DWORD PTR [ecx+24]
 	mov	DWORD PTR [eax+32], edx
 
-; 96   : 
-; 97   :       return true; //msg handled
+; 105  : 
+; 106  :       return true; //msg handled
 
 	mov	al, 1
 	jmp	SHORT $LN7@HandleMess
 $LN2@HandleMess:
 
-; 98   : 
-; 99   : 
-; 100  :     case Msg_NoPathAvailable:
-; 101  : 
-; 102  :       m_iStatus = failed;
+; 107  : 
+; 108  : 
+; 109  :     case Msg_NoPathAvailable:
+; 110  : 
+; 111  :       m_iStatus = failed;
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax+12], 3
 
-; 103  : 
-; 104  :       return true; //msg handled
+; 112  : 
+; 113  :       return true; //msg handled
 
 	mov	al, 1
 	jmp	SHORT $LN7@HandleMess
 $LN1@HandleMess:
 
-; 105  : 
-; 106  :     default: return false;
+; 114  : 
+; 115  :     default: return false;
 
 	xor	al, al
 	jmp	SHORT $LN7@HandleMess
 $LN6@HandleMess:
 
-; 107  :     }
-; 108  :   }
-; 109  : 
-; 110  :   //handled by subgoals
-; 111  :   return true;
+; 116  :     }
+; 117  :   }
+; 118  : 
+; 119  :   //handled by subgoals
+; 120  :   return true;
 
 	mov	al, 1
 $LN7@HandleMess:
 
-; 112  : }
+; 121  : }
 
 	mov	ecx, DWORD PTR __$EHRec$[ebp]
 	mov	DWORD PTR fs:0, ecx
@@ -4521,7 +4521,7 @@ _this$ = -4						; size = 4
 ?Process@Goal_GetItem@@UAEHXZ PROC			; Goal_GetItem::Process
 ; _this$ = ecx
 
-; 58   : {
+; 67   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -4530,13 +4530,13 @@ _this$ = -4						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 59   :   ActivateIfInactive();
+; 68   :   ActivateIfInactive();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?ActivateIfInactive@?$Goal@VRaven_Bot@@@@IAEXXZ ; Goal<Raven_Bot>::ActivateIfInactive
 
-; 60   : 
-; 61   :   if (hasItemBeenStolen())
+; 69   : 
+; 70   :   if (hasItemBeenStolen())
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?hasItemBeenStolen@Goal_GetItem@@ABE_NXZ ; Goal_GetItem::hasItemBeenStolen
@@ -4544,8 +4544,8 @@ _this$ = -4						; size = 4
 	test	eax, eax
 	je	SHORT $LN2@Process
 
-; 62   :   {
-; 63   :     Terminate();
+; 71   :   {
+; 72   :     Terminate();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -4556,16 +4556,16 @@ _this$ = -4						; size = 4
 	cmp	esi, esp
 	call	__RTC_CheckEsp
 
-; 64   :   }
-; 65   : 
-; 66   :   else
+; 73   :   }
+; 74   : 
+; 75   :   else
 
 	jmp	SHORT $LN1@Process
 $LN2@Process:
 
-; 67   :   {
-; 68   :     //process the subgoals
-; 69   :     m_iStatus = ProcessSubgoals();
+; 76   :   {
+; 77   :     //process the subgoals
+; 78   :     m_iStatus = ProcessSubgoals();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?ProcessSubgoals@?$Goal_Composite@VRaven_Bot@@@@IAEHXZ ; Goal_Composite<Raven_Bot>::ProcessSubgoals
@@ -4573,14 +4573,14 @@ $LN2@Process:
 	mov	DWORD PTR [ecx+12], eax
 $LN1@Process:
 
-; 70   :   }
-; 71   : 
-; 72   :   return m_iStatus;
+; 79   :   }
+; 80   : 
+; 81   :   return m_iStatus;
 
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+12]
 
-; 73   : }
+; 82   : }
 
 	pop	esi
 	add	esp, 4
@@ -4602,7 +4602,7 @@ __$EHRec$ = -12						; size = 12
 ?Activate@Goal_GetItem@@UAEXXZ PROC			; Goal_GetItem::Activate
 ; _this$ = ecx
 
-; 41   : {
+; 50   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -4624,20 +4624,20 @@ __$EHRec$ = -12						; size = 12
 	mov	DWORD PTR fs:0, eax
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 42   :   m_iStatus = active;
+; 51   :   m_iStatus = active;
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax+12], 0
 
-; 43   :   
-; 44   :   m_pGiverTrigger = 0;
+; 52   :   
+; 53   :   m_pGiverTrigger = 0;
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx+32], 0
 
-; 45   :   
-; 46   :   //request a path to the item
-; 47   :   m_pOwner->GetPathPlanner()->RequestPathToItem(m_iItemToGet);
+; 54   :   
+; 55   :   //request a path to the item
+; 56   :   m_pOwner->GetPathPlanner()->RequestPathToItem(m_iItemToGet);
 
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+28]
@@ -4648,10 +4648,10 @@ __$EHRec$ = -12						; size = 12
 	mov	ecx, eax
 	call	?RequestPathToItem@Raven_PathPlanner@@QAE_NI@Z ; Raven_PathPlanner::RequestPathToItem
 
-; 48   : 
-; 49   :   //the bot may have to wait a few update cycles before a path is calculated
-; 50   :   //so for appearances sake it just wanders
-; 51   :   AddSubgoal(new Goal_Wander(m_pOwner));
+; 57   : 
+; 58   :   //the bot may have to wait a few update cycles before a path is calculated
+; 59   :   //so for appearances sake it just wanders
+; 60   :   AddSubgoal(new Goal_Wander(m_pOwner));
 
 	push	16					; 00000010H
 	call	??2@YAPAXI@Z				; operator new
@@ -4684,8 +4684,8 @@ $LN4@Activate:
 	cmp	esi, esp
 	call	__RTC_CheckEsp
 
-; 52   : 
-; 53   : }
+; 61   : 
+; 62   : }
 
 	mov	ecx, DWORD PTR __$EHRec$[ebp]
 	mov	DWORD PTR fs:0, ecx
@@ -4723,7 +4723,7 @@ _this$ = -4						; size = 4
 ?hasItemBeenStolen@Goal_GetItem@@ABE_NXZ PROC		; Goal_GetItem::hasItemBeenStolen
 ; _this$ = ecx
 
-; 120  : {
+; 129  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -4736,9 +4736,9 @@ _this$ = -4						; size = 4
 	mov	DWORD PTR [ebp-4], eax
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 121  :   if (m_pGiverTrigger &&
-; 122  :       !m_pGiverTrigger->isActive() &&
-; 123  :       m_pOwner->hasLOSto(m_pGiverTrigger->Pos()) )
+; 130  :   if (m_pGiverTrigger &&
+; 131  :       !m_pGiverTrigger->isActive() &&
+; 132  :       m_pOwner->hasLOSto(m_pGiverTrigger->Pos()) )
 
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+32], 0
@@ -4771,21 +4771,21 @@ _this$ = -4						; size = 4
 	test	edx, edx
 	je	SHORT $LN1@hasItemBee
 
-; 124  :   {
-; 125  :     return true;
+; 133  :   {
+; 134  :     return true;
 
 	mov	al, 1
 	jmp	SHORT $LN2@hasItemBee
 $LN1@hasItemBee:
 
-; 126  :   }
-; 127  : 
-; 128  :   return false;
+; 135  :   }
+; 136  : 
+; 137  :   return false;
 
 	xor	al, al
 $LN2@hasItemBee:
 
-; 129  : }
+; 138  : }
 
 	add	esp, 20					; 00000014H
 	cmp	ebp, esp
@@ -6998,11 +6998,11 @@ _gt$ = 8						; size = 4
 	mov	ecx, DWORD PTR tv64[ebp]
 	sub	ecx, 4
 	mov	DWORD PTR tv64[ebp], ecx
-	cmp	DWORD PTR tv64[ebp], 4
+	cmp	DWORD PTR tv64[ebp], 10			; 0000000aH
 	ja	SHORT $LN1@ItemTypeTo
 	mov	edx, DWORD PTR tv64[ebp]
-	jmp	DWORD PTR $LN10@ItemTypeTo[edx*4]
-$LN5@ItemTypeTo:
+	jmp	DWORD PTR $LN12@ItemTypeTo[edx*4]
+$LN7@ItemTypeTo:
 
 ; 16   :   {
 ; 17   :   case type_health:
@@ -7010,8 +7010,8 @@ $LN5@ItemTypeTo:
 ; 19   :     return goal_get_health;
 
 	mov	eax, 7
-	jmp	SHORT $LN9@ItemTypeTo
-$LN4@ItemTypeTo:
+	jmp	SHORT $LN11@ItemTypeTo
+$LN6@ItemTypeTo:
 
 ; 20   : 
 ; 21   :   case type_shotgun:
@@ -7019,8 +7019,8 @@ $LN4@ItemTypeTo:
 ; 23   :     return goal_get_shotgun;
 
 	mov	eax, 8
-	jmp	SHORT $LN9@ItemTypeTo
-$LN3@ItemTypeTo:
+	jmp	SHORT $LN11@ItemTypeTo
+$LN5@ItemTypeTo:
 
 ; 24   : 
 ; 25   :   case type_rail_gun:
@@ -7028,8 +7028,8 @@ $LN3@ItemTypeTo:
 ; 27   :     return goal_get_railgun;
 
 	mov	eax, 10					; 0000000aH
-	jmp	SHORT $LN9@ItemTypeTo
-$LN2@ItemTypeTo:
+	jmp	SHORT $LN11@ItemTypeTo
+$LN4@ItemTypeTo:
 
 ; 28   : 
 ; 29   :   case type_rocket_launcher:
@@ -7037,24 +7037,43 @@ $LN2@ItemTypeTo:
 ; 31   :     return goal_get_rocket_launcher;
 
 	mov	eax, 9
-	jmp	SHORT $LN9@ItemTypeTo
-$LN1@ItemTypeTo:
+	jmp	SHORT $LN11@ItemTypeTo
+$LN3@ItemTypeTo:
 
 ; 32   : 
-; 33   :   default: throw std::runtime_error("Goal_GetItem cannot determine item type");
+; 33   : 	case type_grenade:
+; 34   : 
+; 35   :     return goal_get_grenade;
 
-	push	OFFSET $SG173237
+	mov	eax, 18					; 00000012H
+	jmp	SHORT $LN11@ItemTypeTo
+$LN2@ItemTypeTo:
+
+; 36   : 
+; 37   : 	case type_knife:
+; 38   : 
+; 39   :     return goal_get_knife;
+
+	mov	eax, 19					; 00000013H
+	jmp	SHORT $LN11@ItemTypeTo
+$LN1@ItemTypeTo:
+
+; 40   : 
+; 41   : 
+; 42   :   default: throw std::runtime_error("Goal_GetItem cannot determine item type");
+
+	push	OFFSET $SG173248
 	lea	ecx, DWORD PTR $T1[ebp]
 	call	??0runtime_error@std@@QAE@PBD@Z		; std::runtime_error::runtime_error
 	push	OFFSET __TI2?AVruntime_error@std@@
 	lea	eax, DWORD PTR $T1[ebp]
 	push	eax
 	call	__CxxThrowException@8
-$LN9@ItemTypeTo:
+$LN11@ItemTypeTo:
 
-; 34   : 
-; 35   :   }//end switch
-; 36   : }
+; 43   : 
+; 44   :   }//end switch
+; 45   : }
 
 	add	esp, 16					; 00000010H
 	cmp	ebp, esp
@@ -7062,13 +7081,19 @@ $LN9@ItemTypeTo:
 	mov	esp, ebp
 	pop	ebp
 	ret	0
-	npad	1
-$LN10@ItemTypeTo:
+	npad	3
+$LN12@ItemTypeTo:
+	DD	$LN7@ItemTypeTo
+	DD	$LN1@ItemTypeTo
 	DD	$LN5@ItemTypeTo
+	DD	$LN4@ItemTypeTo
+	DD	$LN6@ItemTypeTo
+	DD	$LN1@ItemTypeTo
+	DD	$LN1@ItemTypeTo
+	DD	$LN1@ItemTypeTo
 	DD	$LN1@ItemTypeTo
 	DD	$LN3@ItemTypeTo
 	DD	$LN2@ItemTypeTo
-	DD	$LN4@ItemTypeTo
 ?ItemTypeToGoalType@@YAHH@Z ENDP			; ItemTypeToGoalType
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
@@ -7079,7 +7104,7 @@ _this$ = -4						; size = 4
 ?GetPathPlanner@Raven_Bot@@QAEQAVRaven_PathPlanner@@XZ PROC ; Raven_Bot::GetPathPlanner, COMDAT
 ; _this$ = ecx
 
-; 215  :   Raven_PathPlanner* const           GetPathPlanner(){return m_pPathPlanner;}
+; 216  :   Raven_PathPlanner* const           GetPathPlanner(){return m_pPathPlanner;}
 
 	push	ebp
 	mov	ebp, esp

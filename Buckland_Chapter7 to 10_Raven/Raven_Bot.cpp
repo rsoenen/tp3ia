@@ -235,45 +235,26 @@ bool Raven_Bot::HandleMessage(const Telegram& msg)
 	//equipe1
 	if (isLeader){
 		std::list<Raven_Bot*> myListe;
-		if (equipe&&GetWorld()->GetTeam1().size()>1){
+		if (equipe && GetWorld()->GetTeam1().size()>1){
 			myListe=GetWorld()->GetTeam1();
 		}
-		if (!equipe&&GetWorld()->GetTeam2().size()>1){
+		if (!equipe && GetWorld()->GetTeam2().size()>1){
 			myListe=GetWorld()->GetTeam2();
 		}
 		if (!myListe.empty()){
 			for (std::list<Raven_Bot*>::iterator it=myListe.begin();it!=myListe.end();++it){
-				Dispatcher->DispatchMsg(SEND_MSG_IMMEDIATELY,
+				if (ID()!=(*it)->ID()){
+					Dispatcher->DispatchMsg(SEND_MSG_IMMEDIATELY,
 								ID(),
 								(*it)->ID(),
 								Msg_ImUnderAttack,
 								NO_ADDITIONAL_INFO);
-			}
-		}
-	}
-	//equipe 2
-	if (!equipe&&isLeader){
-		if (GetWorld()->GetTeam2().size()<1){
-			std::list<Raven_Bot*> myListe=GetWorld()->GetTeam2();
-			for (std::list<Raven_Bot*>::iterator it=myListe.begin();it!=myListe.end();++it){
-				Dispatcher->DispatchMsg(SEND_MSG_IMMEDIATELY,
-								  ID(),
-								  (*it)->ID(),
-								  Msg_ImUnderAttack,
-								  NO_ADDITIONAL_INFO);
+				}
 			}
 		}
 	}
 
-	
 
-	
-		 Dispatcher->DispatchMsg(SEND_MSG_IMMEDIATELY,
-								  ID(),
-								  402, //A CHANGER
-								  Msg_ImUnderAttack,
-								  NO_ADDITIONAL_INFO);
-	
     //if this bot is now dead let the shooter know
     if (isDead())
     {
@@ -282,6 +263,9 @@ bool Raven_Bot::HandleMessage(const Telegram& msg)
                               msg.Sender,
                               Msg_YouGotMeYouSOB,
                               NO_ADDITIONAL_INFO);
+
+	 
+	 
     }
 
     return true;
@@ -335,9 +319,6 @@ bool Raven_Bot::HandleMessage(const Telegram& msg)
 		Vector2D posAlly = myAlly->Pos();
 
 		this -> GetBrain()->AddGoal_MoveToPosition(posAlly);
-
-		debug_con << "coucou" <<myAlly->ID();
-
 		
 		return true;
 	}

@@ -75,11 +75,13 @@ HitFlashTime = 0.2
 Bot_MemorySpan = 5
 
 --goal tweakers
-Bot_HealthGoalTweaker     = 1.0
-Bot_ShotgunGoalTweaker    = 1.0
-Bot_RailgunGoalTweaker    = 1.0
-Bot_RocketLauncherTweaker = 1.0
-Bot_AggroGoalTweaker      = 1.0
+Bot_HealthGoalTweaker		= 1.0
+Bot_ShotgunGoalTweaker		= 1.0
+Bot_RailgunGoalTweaker		= 1.0
+Bot_RocketLauncherTweaker	= 1.0
+Bot_GrenadeTweaker			= 1.0
+Bot_RocketLauncherTweaker	= 1.0
+Bot_AggroGoalTweaker		= 1.0
 
 
 -------------------------[[ steering parameters ]]-----------------------------
@@ -132,7 +134,7 @@ Bolt_MaxForce    = 100.0
 Bolt_Scale       = Bot_Scale
 Bolt_Damage      = 1
 
-
+-------------------------------[[ RocketLauncher ]]---------------------------------------------
 
 RocketLauncher_FiringFreq       = 1.5
 RocketLauncher_DefaultRounds      = 15
@@ -148,7 +150,34 @@ Rocket_Scale       = Bot_Scale
 Rocket_Damage      = 10
 Rocket_ExplosionDecayRate = 2.0   --how fast the explosion occurs (in secs)
 
+-------------------------------[[ Grenade ]]---------------------------------------------
 
+Grenade_FiringFreq			= 3
+Grenade_DefaultRounds		= 2
+Grenade_MaxRoundsCarried	= 6
+Grenade_IdealRange			= 100
+Grenade_SoundRange			= 400
+
+Nade_BlastRadius			= 10
+Nade_MaxSpeed				= 2
+Nade_Mass					= 1
+Nade_MaxForce				= 10.0
+Nade_Scale					= Bot_Scale
+Nade_Damage					= 20
+Nade_ExplosionDecayRate		= 0.5
+
+-------------------------------[[ Knife ]]--------------------------------------------
+Knife_FiringFreq		= 1
+Knife_MaxSpeed			= 10
+Knife_DefaultRounds		= 0 --not used, a blaster always has ammo
+Knife_MaxRoundsCarried	= 0 --as above
+Knife_IdealRange		= 5
+Knife_SoundRange	    = 0
+
+Knife_Damage			= 40
+
+
+-------------------------------[[ RailGun ]]--------------------------------------------
 RailGun_FiringFreq       = 1
 RailGun_DefaultRounds      = 15
 RailGun_MaxRoundsCarried = 50
@@ -162,7 +191,7 @@ Slug_Scale       = Bot_Scale
 Slug_Persistance = 0.2
 Slug_Damage      = 10
 
-
+-------------------------------[[ ShotGun ]]--------------------------------------------
 
 ShotGun_FiringFreq       = 1
 ShotGun_DefaultRounds      = 15
@@ -178,6 +207,7 @@ Pellet_MaxForce    = 1000.0
 Pellet_Scale       = Bot_Scale
 Pellet_Persistance = 0.1
 Pellet_Damage      = 1
+
 
 
   

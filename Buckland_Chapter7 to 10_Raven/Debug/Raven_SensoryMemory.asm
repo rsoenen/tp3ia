@@ -696,7 +696,7 @@ _colors	DD	0ffH
 	DD	0c8c8c8H
 	DD	0e6e6ffH
 	ORG $+4
-$SG162441 DB	'< Raven_SensoryMemory::GetLastRecordedPositionOfOpponent'
+$SG162446 DB	'< Raven_SensoryMemory::GetLastRecordedPositionOfOpponent'
 	DB	'>: Attempting to get position of unrecorded bot', 00H
 _Pi	DQ	0400921f9f01b866er		; 3.14159
 CONST	ENDS
@@ -15531,7 +15531,7 @@ $LN1@GetLastRec:
 ; 208  : 
 ; 209  :   throw std::runtime_error("< Raven_SensoryMemory::GetLastRecordedPositionOfOpponent>: Attempting to get position of unrecorded bot");
 
-	push	OFFSET $SG162441
+	push	OFFSET $SG162446
 	lea	ecx, DWORD PTR $T2[ebp]
 	call	??0runtime_error@std@@QAE@PBD@Z		; std::runtime_error::runtime_error
 	push	OFFSET __TI2?AVruntime_error@std@@

@@ -52,6 +52,7 @@ void Trigger_WeaponGiver::Read(std::ifstream& in)
   double x, y, r;
   int GraphNodeIndex;
   
+
   in >>  x >> y  >> r >> GraphNodeIndex;
 
   SetPos(Vector2D(x,y)); 
@@ -86,7 +87,6 @@ void Trigger_WeaponGiver::Render()
 
       case type_shotgun:
         {
-
           gdi->BlackBrush();
           gdi->BrownPen();
           const double sz = 3.0;
@@ -96,6 +96,17 @@ void Trigger_WeaponGiver::Render()
 
         break;
 
+		case type_grenade:
+        {
+		  gdi->GreenBrush();
+          gdi->BrownPen();
+          const double sz = 3.0;
+          gdi->Circle(Pos().x,Pos().y+2.5, sz);
+          gdi->Circle(Pos().x,Pos().y-2, 1.5);
+         
+        }
+
+        break;
       case type_rocket_launcher:
         {
 

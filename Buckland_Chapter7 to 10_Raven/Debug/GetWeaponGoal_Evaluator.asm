@@ -792,11 +792,15 @@ _colors	DD	0ffH
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG169818 DB	'RG: ', 00H
+$SG169825 DB	'RG: ', 00H
 	ORG $+3
-$SG169820 DB	'RL: ', 00H
+$SG169827 DB	'RL: ', 00H
 	ORG $+3
-$SG169822 DB	'SG: ', 00H
+$SG169829 DB	'SG: ', 00H
+	ORG $+3
+$SG169831 DB	'GR: ', 00H
+	ORG $+3
+$SG169833 DB	'KN: ', 00H
 CONST	ENDS
 ;	COMDAT ?is_modulo@_Num_int_base@std@@2_NB
 CONST	SEGMENT
@@ -13704,9 +13708,9 @@ _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File c:\users\romain s\documents\workspace\workspace_ia\tp3ia\buckland_chapter7 to 10_raven\goals\getweapongoal_evaluator.cpp
 _TEXT	SEGMENT
-tv139 = -140						; size = 4
-tv140 = -136						; size = 4
-tv137 = -132						; size = 4
+tv142 = -140						; size = 4
+tv143 = -136						; size = 4
+tv140 = -132						; size = 4
 tv65 = -128						; size = 4
 tv68 = -124						; size = 4
 $T2 = -120						; size = 8
@@ -13757,92 +13761,110 @@ _pBot$ = 24						; size = 4
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+16]
 	mov	DWORD PTR tv68[ebp], ecx
-	cmp	DWORD PTR tv68[ebp], 6
-	je	SHORT $LN3@RenderInfo
-	cmp	DWORD PTR tv68[ebp], 7
-	je	SHORT $LN2@RenderInfo
+	mov	edx, DWORD PTR tv68[ebp]
+	sub	edx, 6
+	mov	DWORD PTR tv68[ebp], edx
 	cmp	DWORD PTR tv68[ebp], 8
-	je	SHORT $LN1@RenderInfo
-	jmp	SHORT $LN4@RenderInfo
-$LN3@RenderInfo:
+	ja	SHORT $LN6@RenderInfo
+	mov	eax, DWORD PTR tv68[ebp]
+	jmp	DWORD PTR $LN17@RenderInfo[eax*4]
+$LN5@RenderInfo:
 
 ; 66   :   {
 ; 67   :   case type_rail_gun:
 ; 68   :     s="RG: ";break;
 
-	push	OFFSET $SG169818
+	push	OFFSET $SG169825
 	lea	ecx, DWORD PTR _s$[ebp]
 	call	??4?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV01@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::operator=
-	jmp	SHORT $LN4@RenderInfo
-$LN2@RenderInfo:
+	jmp	SHORT $LN6@RenderInfo
+$LN4@RenderInfo:
 
 ; 69   :   case type_rocket_launcher:
 ; 70   :     s="RL: "; break;
 
-	push	OFFSET $SG169820
+	push	OFFSET $SG169827
 	lea	ecx, DWORD PTR _s$[ebp]
 	call	??4?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV01@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::operator=
-	jmp	SHORT $LN4@RenderInfo
-$LN1@RenderInfo:
+	jmp	SHORT $LN6@RenderInfo
+$LN3@RenderInfo:
 
 ; 71   :   case type_shotgun:
 ; 72   :     s="SG: "; break;
 
-	push	OFFSET $SG169822
+	push	OFFSET $SG169829
 	lea	ecx, DWORD PTR _s$[ebp]
 	call	??4?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV01@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::operator=
-$LN4@RenderInfo:
+	jmp	SHORT $LN6@RenderInfo
+$LN2@RenderInfo:
 
-; 73   :   }
-; 74   :   
-; 75   :   gdi->TextAtPos(Position, s + ttos(CalculateDesirability(pBot), 2));
+; 73   :   case type_grenade:
+; 74   : 	s="GR: ";break;
+
+	push	OFFSET $SG169831
+	lea	ecx, DWORD PTR _s$[ebp]
+	call	??4?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV01@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::operator=
+	jmp	SHORT $LN6@RenderInfo
+$LN1@RenderInfo:
+
+; 75   :   case type_knife:
+; 76   : 	s="KN: ";break;
+
+	push	OFFSET $SG169833
+	lea	ecx, DWORD PTR _s$[ebp]
+	call	??4?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV01@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::operator=
+$LN6@RenderInfo:
+
+; 77   :   }
+; 78   :   
+; 79   :   gdi->TextAtPos(Position, s + ttos(CalculateDesirability(pBot), 2));
 
 	mov	esi, esp
-	mov	edx, DWORD PTR _pBot$[ebp]
-	push	edx
-	mov	eax, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR [eax]
+	mov	ecx, DWORD PTR _pBot$[ebp]
+	push	ecx
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR [edx]
 	mov	ecx, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR [edx+4]
-	call	eax
+	mov	edx, DWORD PTR [eax+4]
+	call	edx
 	cmp	esi, esp
 	call	__RTC_CheckEsp
 	fstp	QWORD PTR $T2[ebp]
 	push	2
-	lea	ecx, DWORD PTR $T2[ebp]
+	lea	eax, DWORD PTR $T2[ebp]
+	push	eax
+	lea	ecx, DWORD PTR $T4[ebp]
 	push	ecx
-	lea	edx, DWORD PTR $T4[ebp]
-	push	edx
 	call	??$ttos@N@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@ABNH@Z ; ttos<double>
 	add	esp, 12					; 0000000cH
 	mov	DWORD PTR tv65[ebp], eax
-	mov	eax, DWORD PTR tv65[ebp]
-	mov	DWORD PTR tv137[ebp], eax
+	mov	edx, DWORD PTR tv65[ebp]
+	mov	DWORD PTR tv140[ebp], edx
 	mov	BYTE PTR __$EHRec$[ebp+8], 1
-	mov	ecx, DWORD PTR tv137[ebp]
-	push	ecx
-	lea	edx, DWORD PTR _s$[ebp]
-	push	edx
-	lea	eax, DWORD PTR $T3[ebp]
+	mov	eax, DWORD PTR tv140[ebp]
 	push	eax
+	lea	ecx, DWORD PTR _s$[ebp]
+	push	ecx
+	lea	edx, DWORD PTR $T3[ebp]
+	push	edx
 	call	??$?HDU?$char_traits@D@std@@V?$allocator@D@1@@std@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@ABV10@$$QAV10@@Z ; std::operator+<char,std::char_traits<char>,std::allocator<char> >
 	add	esp, 12					; 0000000cH
-	mov	DWORD PTR tv140[ebp], eax
-	mov	ecx, DWORD PTR tv140[ebp]
-	mov	DWORD PTR tv139[ebp], ecx
+	mov	DWORD PTR tv143[ebp], eax
+	mov	eax, DWORD PTR tv143[ebp]
+	mov	DWORD PTR tv142[ebp], eax
 	mov	BYTE PTR __$EHRec$[ebp+8], 2
-	mov	edx, DWORD PTR tv139[ebp]
-	push	edx
+	mov	ecx, DWORD PTR tv142[ebp]
+	push	ecx
 	sub	esp, 16					; 00000010H
-	mov	eax, esp
-	mov	ecx, DWORD PTR _Position$[ebp]
-	mov	DWORD PTR [eax], ecx
-	mov	edx, DWORD PTR _Position$[ebp+4]
-	mov	DWORD PTR [eax+4], edx
-	mov	ecx, DWORD PTR _Position$[ebp+8]
-	mov	DWORD PTR [eax+8], ecx
-	mov	edx, DWORD PTR _Position$[ebp+12]
-	mov	DWORD PTR [eax+12], edx
+	mov	edx, esp
+	mov	eax, DWORD PTR _Position$[ebp]
+	mov	DWORD PTR [edx], eax
+	mov	ecx, DWORD PTR _Position$[ebp+4]
+	mov	DWORD PTR [edx+4], ecx
+	mov	eax, DWORD PTR _Position$[ebp+8]
+	mov	DWORD PTR [edx+8], eax
+	mov	ecx, DWORD PTR _Position$[ebp+12]
+	mov	DWORD PTR [edx+12], ecx
 	call	?Instance@Cgdi@@SAPAV1@XZ		; Cgdi::Instance
 	mov	ecx, eax
 	call	?TextAtPos@Cgdi@@QAEXUVector2D@@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z ; Cgdi::TextAtPos
@@ -13853,7 +13875,7 @@ $LN4@RenderInfo:
 	lea	ecx, DWORD PTR $T4[ebp]
 	call	??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::~basic_string<char,std::char_traits<char>,std::allocator<char> >
 
-; 76   : }
+; 80   : }
 
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _s$[ebp]
@@ -13861,7 +13883,7 @@ $LN4@RenderInfo:
 	push	edx
 	mov	ecx, ebp
 	push	eax
-	lea	edx, DWORD PTR $LN14@RenderInfo
+	lea	edx, DWORD PTR $LN16@RenderInfo
 	call	@_RTC_CheckStackVars@8
 	pop	eax
 	pop	edx
@@ -13879,16 +13901,28 @@ $LN4@RenderInfo:
 	mov	esp, ebp
 	pop	ebp
 	ret	20					; 00000014H
-$LN14@RenderInfo:
+	npad	1
+$LN16@RenderInfo:
 	DD	1
-	DD	$LN13@RenderInfo
-$LN13@RenderInfo:
+	DD	$LN15@RenderInfo
+$LN15@RenderInfo:
 	DD	-52					; ffffffccH
 	DD	28					; 0000001cH
-	DD	$LN11@RenderInfo
-$LN11@RenderInfo:
+	DD	$LN13@RenderInfo
+$LN13@RenderInfo:
 	DB	115					; 00000073H
 	DB	0
+	npad	2
+$LN17@RenderInfo:
+	DD	$LN5@RenderInfo
+	DD	$LN4@RenderInfo
+	DD	$LN3@RenderInfo
+	DD	$LN6@RenderInfo
+	DD	$LN6@RenderInfo
+	DD	$LN6@RenderInfo
+	DD	$LN6@RenderInfo
+	DD	$LN2@RenderInfo
+	DD	$LN1@RenderInfo
 _TEXT	ENDS
 text$x	SEGMENT
 __unwindfunclet$?RenderInfo@GetWeaponGoal_Evaluator@@UAEXUVector2D@@PAVRaven_Bot@@@Z$0:

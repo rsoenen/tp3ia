@@ -795,7 +795,7 @@ CONST	SEGMENT
 ?is_signed@?$numeric_limits@_W@std@@2_NB DB 00H		; std::numeric_limits<wchar_t>::is_signed
 CONST	ENDS
 CONST	SEGMENT
-$SG169988 DB	'Rocket_ExplosionDecayRate', 00H
+$SG169993 DB	'Rocket_ExplosionDecayRate', 00H
 	ORG $+6
 _SmallestDelay DQ 03fd0000000000000r		; 0.25
 _SEND_MSG_IMMEDIATELY DQ 00000000000000000r	; 0
@@ -816,22 +816,22 @@ _colors	DD	0ffH
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG169965 DB	'Rocket_MaxForce', 00H
-$SG169966 DB	'Rocket_Mass', 00H
-$SG169967 DB	'Rocket_MaxSpeed', 00H
-$SG169968 DB	'Rocket_Scale', 00H
+$SG169970 DB	'Rocket_MaxForce', 00H
+$SG169971 DB	'Rocket_Mass', 00H
+$SG169972 DB	'Rocket_MaxSpeed', 00H
+$SG169973 DB	'Rocket_Scale', 00H
 	ORG $+3
-$SG169969 DB	'Rocket_Damage', 00H
+$SG169974 DB	'Rocket_Damage', 00H
 	ORG $+2
-$SG169970 DB	'Rocket_BlastRadius', 00H
+$SG169975 DB	'Rocket_BlastRadius', 00H
 	ORG $+1
-$SG169973 DB	'a', 00H, 'r', 00H, 'm', 00H, 'o', 00H, 'r', 00H, 'y', 00H
+$SG169978 DB	'a', 00H, 'r', 00H, 'm', 00H, 'o', 00H, 'r', 00H, 'y', 00H
 	DB	'\', 00H, 'P', 00H, 'r', 00H, 'o', 00H, 'j', 00H, 'e', 00H, 'c'
 	DB	00H, 't', 00H, 'i', 00H, 'l', 00H, 'e', 00H, '_', 00H, 'R', 00H
 	DB	'o', 00H, 'c', 00H, 'k', 00H, 'e', 00H, 't', 00H, '.', 00H, 'c'
 	DB	00H, 'p', 00H, 'p', 00H, 00H, 00H
 	ORG $+2
-$SG169974 DB	't', 00H, 'a', 00H, 'r', 00H, 'g', 00H, 'e', 00H, 't', 00H
+$SG169979 DB	't', 00H, 'a', 00H, 'r', 00H, 'g', 00H, 'e', 00H, 't', 00H
 	DB	' ', 00H, '!', 00H, '=', 00H, ' ', 00H, 'V', 00H, 'e', 00H, 'c'
 	DB	00H, 't', 00H, 'o', 00H, 'r', 00H, '2', 00H, 'D', 00H, '(', 00H
 	DB	')', 00H, 00H, 00H
@@ -6077,7 +6077,7 @@ $LN3@Update:
 ; 54   :   {
 ; 55   :     m_dCurrentBlastRadius += script->GetDouble("Rocket_ExplosionDecayRate");
 
-	push	OFFSET $SG169988
+	push	OFFSET $SG169993
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
@@ -6267,31 +6267,31 @@ _target$ = 12						; size = 16
 	lea	eax, DWORD PTR __$EHRec$[ebp]
 	mov	DWORD PTR fs:0, eax
 	mov	DWORD PTR _this$[ebp], ecx
-	push	OFFSET $SG169965
+	push	OFFSET $SG169970
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
 	sub	esp, 8
 	fstp	QWORD PTR [esp]
-	push	OFFSET $SG169966
+	push	OFFSET $SG169971
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
 	sub	esp, 8
 	fstp	QWORD PTR [esp]
-	push	OFFSET $SG169967
+	push	OFFSET $SG169972
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
 	sub	esp, 8
 	fstp	QWORD PTR [esp]
-	push	OFFSET $SG169968
+	push	OFFSET $SG169973
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
 	sub	esp, 8
 	fstp	QWORD PTR [esp]
-	push	OFFSET $SG169969
+	push	OFFSET $SG169974
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetInt@Scriptor@@QAEHPAD@Z		; Scriptor::GetInt
@@ -6345,7 +6345,7 @@ _target$ = 12						; size = 16
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx], OFFSET ??_7Rocket@@6B@
-	push	OFFSET $SG169970
+	push	OFFSET $SG169975
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
@@ -6366,8 +6366,8 @@ _target$ = 12						; size = 16
 	test	ecx, ecx
 	jne	SHORT $LN3@Rocket
 	push	32					; 00000020H
-	push	OFFSET $SG169973
-	push	OFFSET $SG169974
+	push	OFFSET $SG169978
+	push	OFFSET $SG169979
 	call	__wassert
 	add	esp, 12					; 0000000cH
 $LN3@Rocket:

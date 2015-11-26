@@ -550,14 +550,14 @@ _colors	DD	0ffH
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG169967 DB	'Pellet_MaxForce', 00H
-$SG169968 DB	'Pellet_Mass', 00H
-$SG169969 DB	'Pellet_MaxSpeed', 00H
-$SG169970 DB	'Pellet_Scale', 00H
+$SG169972 DB	'Pellet_MaxForce', 00H
+$SG169973 DB	'Pellet_Mass', 00H
+$SG169974 DB	'Pellet_MaxSpeed', 00H
+$SG169975 DB	'Pellet_Scale', 00H
 	ORG $+3
-$SG169971 DB	'Pellet_Damage', 00H
+$SG169976 DB	'Pellet_Damage', 00H
 	ORG $+2
-$SG169972 DB	'Pellet_Persistance', 00H
+$SG169977 DB	'Pellet_Persistance', 00H
 CONST	ENDS
 ;	COMDAT ?end@?$_Iosb@H@std@@2W4_Seekdir@12@B
 CONST	SEGMENT
@@ -5508,31 +5508,31 @@ _target$ = 12						; size = 16
 	lea	eax, DWORD PTR __$EHRec$[ebp]
 	mov	DWORD PTR fs:0, eax
 	mov	DWORD PTR _this$[ebp], ecx
-	push	OFFSET $SG169967
+	push	OFFSET $SG169972
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
 	sub	esp, 8
 	fstp	QWORD PTR [esp]
-	push	OFFSET $SG169968
+	push	OFFSET $SG169973
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
 	sub	esp, 8
 	fstp	QWORD PTR [esp]
-	push	OFFSET $SG169969
+	push	OFFSET $SG169974
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
 	sub	esp, 8
 	fstp	QWORD PTR [esp]
-	push	OFFSET $SG169970
+	push	OFFSET $SG169975
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
 	sub	esp, 8
 	fstp	QWORD PTR [esp]
-	push	OFFSET $SG169971
+	push	OFFSET $SG169976
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetInt@Scriptor@@QAEHPAD@Z		; Scriptor::GetInt
@@ -5586,7 +5586,7 @@ _target$ = 12						; size = 16
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx], OFFSET ??_7Pellet@@6B@
-	push	OFFSET $SG169972
+	push	OFFSET $SG169977
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble

@@ -791,9 +791,9 @@ _colors	DD	0ffH
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG161215 DB	'AT: ', 00H
+$SG161226 DB	'AT: ', 00H
 	ORG $+3
-$SG161313 DB	', ', 00H
+$SG161324 DB	', ', 00H
 	ORG $+1
 _pi	DQ	0400921f9f01b866er		; 3.14159
 CONST	ENDS
@@ -13882,7 +13882,7 @@ _pBot$ = 24						; size = 4
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
 	mov	ecx, DWORD PTR tv161[ebp]
 	push	ecx
-	push	OFFSET $SG161215
+	push	OFFSET $SG161226
 	lea	edx, DWORD PTR $T10[ebp]
 	push	edx
 	call	??$?HDU?$char_traits@D@std@@V?$allocator@D@1@@std@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@PBD$$QAV10@@Z ; std::operator+<char,std::char_traits<char>,std::allocator<char> >
@@ -13943,7 +13943,7 @@ _pBot$ = 24						; size = 4
 	mov	DWORD PTR __$EHRec$[ebp+8], 2
 	mov	ecx, DWORD PTR tv165[ebp]
 	push	ecx
-	push	OFFSET $SG161313
+	push	OFFSET $SG161324
 	push	2
 	lea	edx, DWORD PTR $T4[ebp]
 	push	edx
@@ -14224,7 +14224,7 @@ _this$ = -4						; size = 4
 ?GetTargetSys@Raven_Bot@@QAEQAVRaven_TargetingSystem@@XZ PROC ; Raven_Bot::GetTargetSys, COMDAT
 ; _this$ = ecx
 
-; 218  :   Raven_TargetingSystem* const       GetTargetSys(){return m_pTargSys;}
+; 219  :   Raven_TargetingSystem* const       GetTargetSys(){return m_pTargSys;}
 
 	push	ebp
 	mov	ebp, esp
@@ -14246,7 +14246,7 @@ _this$ = -4						; size = 4
 ?GetBrain@Raven_Bot@@QAEQAVGoal_Think@@XZ PROC		; Raven_Bot::GetBrain, COMDAT
 ; _this$ = ecx
 
-; 216  :   Goal_Think* const                  GetBrain(){return m_pBrain;}
+; 217  :   Goal_Think* const                  GetBrain(){return m_pBrain;}
 
 	push	ebp
 	mov	ebp, esp

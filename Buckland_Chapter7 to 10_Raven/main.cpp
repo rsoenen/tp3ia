@@ -156,6 +156,18 @@ LRESULT CALLBACK WindowProc (HWND   hwnd,
 
            break;
 
+		case '5':
+
+           g_pRaven->ChangeWeaponOfPossessedBot(type_grenade);
+
+           break;
+
+		case '6':
+
+           g_pRaven->ChangeWeaponOfPossessedBot(type_knife);
+
+           break;
+
          case 'X':
 
            g_pRaven->ExorciseAnyPossessedBot();

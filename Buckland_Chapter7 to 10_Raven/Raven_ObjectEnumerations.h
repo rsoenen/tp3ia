@@ -18,7 +18,9 @@ enum
   type_blaster,
   type_obstacle,
   type_sliding_door,
-  type_door_trigger
+  type_door_trigger,
+  type_grenade,
+  type_knife
 };
 
 
@@ -81,11 +83,23 @@ inline std::string GetNameOfType(int w)
     
     s =  "door_trigger"; break;
 
+  case type_grenade:
+    
+    s =  "grenade"; break;
+
+   case type_knife:
+    
+    s =  "knife"; break;
+
   default:
 
     s = "UNKNOWN OBJECT TYPE"; break;
 
   }
+
+
+   
+  
 
   return s;
 }

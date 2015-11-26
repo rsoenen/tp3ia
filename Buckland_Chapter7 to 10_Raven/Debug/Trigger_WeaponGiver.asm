@@ -456,9 +456,9 @@ CONST	SEGMENT
 CONST	ENDS
 CONST	SEGMENT
 _pi	DQ	0400921f9f01b866er		; 3.14159
-$SG158349 DB	'DefaultGiverTriggerRange', 00H
+$SG158358 DB	'DefaultGiverTriggerRange', 00H
 	ORG $+3
-$SG158351 DB	'Weapon_RespawnDelay', 00H
+$SG158360 DB	'Weapon_RespawnDelay', 00H
 _colors	DD	0ffH
 	DD	0ff0000H
 	DD	0ff00H
@@ -1116,6 +1116,7 @@ PUBLIC	?BluePen@Cgdi@@QAEXXZ				; Cgdi::BluePen
 PUBLIC	?BrownPen@Cgdi@@QAEXXZ				; Cgdi::BrownPen
 PUBLIC	?ThickBluePen@Cgdi@@QAEXXZ			; Cgdi::ThickBluePen
 PUBLIC	?BlackBrush@Cgdi@@QAEXXZ			; Cgdi::BlackBrush
+PUBLIC	?GreenBrush@Cgdi@@QAEXXZ			; Cgdi::GreenBrush
 PUBLIC	?BlueBrush@Cgdi@@QAEXXZ				; Cgdi::BlueBrush
 PUBLIC	?Line@Cgdi@@QAEXUVector2D@@0@Z			; Cgdi::Line
 PUBLIC	?ClosedShape@Cgdi@@QAEXABV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@@Z ; Cgdi::ClosedShape
@@ -1539,6 +1540,7 @@ PUBLIC	__real@0000000000000000
 PUBLIC	__real@0010000000000000
 PUBLIC	__real@00800000
 PUBLIC	__real@3ff0000000000000
+PUBLIC	__real@3ff8000000000000
 PUBLIC	__real@4000000000000000
 PUBLIC	__real@4004000000000000
 PUBLIC	__real@4008000000000000
@@ -1762,6 +1764,10 @@ CONST	ENDS
 ;	COMDAT __real@4000000000000000
 CONST	SEGMENT
 __real@4000000000000000 DQ 04000000000000000r	; 2
+CONST	ENDS
+;	COMDAT __real@3ff8000000000000
+CONST	SEGMENT
+__real@3ff8000000000000 DQ 03ff8000000000000r	; 1.5
 CONST	ENDS
 ;	COMDAT __real@3ff0000000000000
 CONST	SEGMENT
@@ -22917,7 +22923,8 @@ _in$ = 8						; size = 4
 ; 52   :   double x, y, r;
 ; 53   :   int GraphNodeIndex;
 ; 54   :   
-; 55   :   in >>  x >> y  >> r >> GraphNodeIndex;
+; 55   : 
+; 56   :   in >>  x >> y  >> r >> GraphNodeIndex;
 
 	lea	eax, DWORD PTR _GraphNodeIndex$[ebp]
 	push	eax
@@ -22936,8 +22943,8 @@ _in$ = 8						; size = 4
 	mov	ecx, eax
 	call	??5?$basic_istream@DU?$char_traits@D@std@@@std@@QAEAAV01@AAH@Z ; std::basic_istream<char,std::char_traits<char> >::operator>>
 
-; 56   : 
-; 57   :   SetPos(Vector2D(x,y)); 
+; 57   : 
+; 58   :   SetPos(Vector2D(x,y)); 
 
 	sub	esp, 8
 	movsd	xmm0, QWORD PTR _y$[ebp]
@@ -22960,7 +22967,7 @@ _in$ = 8						; size = 4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?SetPos@BaseGameEntity@@QAEXUVector2D@@@Z ; BaseGameEntity::SetPos
 
-; 58   :   SetBRadius(r);
+; 59   :   SetBRadius(r);
 
 	sub	esp, 8
 	movsd	xmm0, QWORD PTR _r$[ebp]
@@ -22968,18 +22975,18 @@ _in$ = 8						; size = 4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?SetBRadius@BaseGameEntity@@QAEXN@Z	; BaseGameEntity::SetBRadius
 
-; 59   :   SetGraphNodeIndex(GraphNodeIndex);
+; 60   :   SetGraphNodeIndex(GraphNodeIndex);
 
 	mov	ecx, DWORD PTR _GraphNodeIndex$[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?SetGraphNodeIndex@?$Trigger@VRaven_Bot@@@@IAEXH@Z ; Trigger<Raven_Bot>::SetGraphNodeIndex
 
-; 60   : 
-; 61   :   //create this trigger's region of fluence
-; 62   :   AddCircularTriggerRegion(Pos(), script->GetDouble("DefaultGiverTriggerRange"));
+; 61   : 
+; 62   :   //create this trigger's region of fluence
+; 63   :   AddCircularTriggerRegion(Pos(), script->GetDouble("DefaultGiverTriggerRange"));
 
-	push	OFFSET $SG158349
+	push	OFFSET $SG158358
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
@@ -23002,11 +23009,11 @@ _in$ = 8						; size = 4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?AddCircularTriggerRegion@?$Trigger@VRaven_Bot@@@@IAEXUVector2D@@N@Z ; Trigger<Raven_Bot>::AddCircularTriggerRegion
 
-; 63   : 
 ; 64   : 
-; 65   :   SetRespawnDelay((unsigned int)(script->GetDouble("Weapon_RespawnDelay") * FrameRate));
+; 65   : 
+; 66   :   SetRespawnDelay((unsigned int)(script->GetDouble("Weapon_RespawnDelay") * FrameRate));
 
-	push	OFFSET $SG158351
+	push	OFFSET $SG158360
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
@@ -23027,7 +23034,7 @@ _in$ = 8						; size = 4
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?SetRespawnDelay@?$Trigger_Respawning@VRaven_Bot@@@@QAEXI@Z ; Trigger_Respawning<Raven_Bot>::SetRespawnDelay
 
-; 66   : }
+; 67   : }
 
 	push	edx
 	mov	ecx, ebp
@@ -23090,30 +23097,35 @@ _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File c:\users\romain s\documents\workspace\workspace_ia\tp3ia\buckland_chapter7 to 10_raven\triggers\trigger_weapongiver.cpp
 _TEXT	SEGMENT
-tv248 = -268						; size = 4
-tv249 = -264						; size = 4
-tv78 = -260						; size = 4
-$T2 = -256						; size = 16
-$T3 = -240						; size = 16
-$T4 = -224						; size = 16
-$T5 = -208						; size = 16
-$T6 = -192						; size = 16
-$T7 = -176						; size = 16
-$T8 = -160						; size = 16
-$T9 = -144						; size = 16
-$T10 = -128						; size = 16
-$T11 = -112						; size = 16
-$T12 = -96						; size = 16
-$T13 = -80						; size = 16
-$T14 = -64						; size = 16
-_facing$15 = -44					; size = 16
-_sz$16 = -24						; size = 8
+tv295 = -340						; size = 4
+tv296 = -336						; size = 4
+tv78 = -332						; size = 4
+$T2 = -328						; size = 16
+$T3 = -312						; size = 16
+$T4 = -296						; size = 16
+$T5 = -280						; size = 16
+$T6 = -264						; size = 16
+$T7 = -248						; size = 16
+$T8 = -232						; size = 16
+$T9 = -216						; size = 16
+$T10 = -200						; size = 16
+$T11 = -184						; size = 16
+$T12 = -168						; size = 16
+$T13 = -152						; size = 16
+$T14 = -136						; size = 16
+$T15 = -120						; size = 16
+$T16 = -104						; size = 16
+$T17 = -88						; size = 16
+$T18 = -72						; size = 16
+_facing$19 = -52					; size = 16
+_sz$20 = -32						; size = 8
+_sz$21 = -24						; size = 8
 _this$ = -16						; size = 4
 __$EHRec$ = -12						; size = 12
 ?Render@Trigger_WeaponGiver@@UAEXXZ PROC		; Trigger_WeaponGiver::Render
 ; _this$ = ecx
 
-; 71   : {
+; 72   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -23121,11 +23133,11 @@ __$EHRec$ = -12						; size = 12
 	push	__ehhandler$?Render@Trigger_WeaponGiver@@UAEXXZ
 	mov	eax, DWORD PTR fs:0
 	push	eax
-	sub	esp, 256				; 00000100H
+	sub	esp, 328				; 00000148H
 	push	edi
 	push	ecx
-	lea	edi, DWORD PTR [ebp-268]
-	mov	ecx, 64					; 00000040H
+	lea	edi, DWORD PTR [ebp-340]
+	mov	ecx, 82					; 00000052H
 	mov	eax, -858993460				; ccccccccH
 	rep stosd
 	pop	ecx
@@ -23136,76 +23148,76 @@ __$EHRec$ = -12						; size = 12
 	mov	DWORD PTR fs:0, eax
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 72   :   if (isActive())
+; 73   :   if (isActive())
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?isActive@?$Trigger@VRaven_Bot@@@@QAE_NXZ ; Trigger<Raven_Bot>::isActive
 	movzx	eax, al
 	test	eax, eax
-	je	$LN4@Render
+	je	$LN5@Render
 
-; 73   :   {
-; 74   :     switch (EntityType())
+; 74   :   {
+; 75   :     switch (EntityType())
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?EntityType@BaseGameEntity@@QBEHXZ	; BaseGameEntity::EntityType
 	mov	DWORD PTR tv78[ebp], eax
-	cmp	DWORD PTR tv78[ebp], 6
-	je	SHORT $LN3@Render
+	mov	ecx, DWORD PTR tv78[ebp]
+	sub	ecx, 6
+	mov	DWORD PTR tv78[ebp], ecx
 	cmp	DWORD PTR tv78[ebp], 7
-	je	$LN1@Render
-	cmp	DWORD PTR tv78[ebp], 8
-	je	$LN2@Render
-	jmp	$LN4@Render
-$LN3@Render:
+	ja	$LN5@Render
+	mov	edx, DWORD PTR tv78[ebp]
+	jmp	DWORD PTR $LN15@Render[edx*4]
+$LN4@Render:
 
-; 75   :     {
-; 76   :       case type_rail_gun:
-; 77   :         {
-; 78   :           gdi->BluePen();
+; 76   :     {
+; 77   :       case type_rail_gun:
+; 78   :         {
+; 79   :           gdi->BluePen();
 
 	call	?Instance@Cgdi@@SAPAV1@XZ		; Cgdi::Instance
 	mov	ecx, eax
 	call	?BluePen@Cgdi@@QAEXXZ			; Cgdi::BluePen
 
-; 79   :           gdi->BlueBrush();
+; 80   :           gdi->BlueBrush();
 
 	call	?Instance@Cgdi@@SAPAV1@XZ		; Cgdi::Instance
 	mov	ecx, eax
 	call	?BlueBrush@Cgdi@@QAEXXZ			; Cgdi::BlueBrush
 
-; 80   :           gdi->Circle(Pos(), 3);
+; 81   :           gdi->Circle(Pos(), 3);
 
 	sub	esp, 8
 	movsd	xmm0, QWORD PTR __real@4008000000000000
 	movsd	QWORD PTR [esp], xmm0
-	lea	ecx, DWORD PTR $T14[ebp]
-	push	ecx
+	lea	eax, DWORD PTR $T18[ebp]
+	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Pos@BaseGameEntity@@QBE?AUVector2D@@XZ	; BaseGameEntity::Pos
 	sub	esp, 16					; 00000010H
-	mov	edx, esp
-	mov	ecx, DWORD PTR [eax]
-	mov	DWORD PTR [edx], ecx
-	mov	ecx, DWORD PTR [eax+4]
-	mov	DWORD PTR [edx+4], ecx
-	mov	ecx, DWORD PTR [eax+8]
-	mov	DWORD PTR [edx+8], ecx
+	mov	ecx, esp
+	mov	edx, DWORD PTR [eax]
+	mov	DWORD PTR [ecx], edx
+	mov	edx, DWORD PTR [eax+4]
+	mov	DWORD PTR [ecx+4], edx
+	mov	edx, DWORD PTR [eax+8]
+	mov	DWORD PTR [ecx+8], edx
 	mov	eax, DWORD PTR [eax+12]
-	mov	DWORD PTR [edx+12], eax
+	mov	DWORD PTR [ecx+12], eax
 	call	?Instance@Cgdi@@SAPAV1@XZ		; Cgdi::Instance
 	mov	ecx, eax
 	call	?Circle@Cgdi@@QAEXUVector2D@@N@Z	; Cgdi::Circle
 
-; 81   :           gdi->ThickBluePen();
+; 82   :           gdi->ThickBluePen();
 
 	call	?Instance@Cgdi@@SAPAV1@XZ		; Cgdi::Instance
 	mov	ecx, eax
 	call	?ThickBluePen@Cgdi@@QAEXXZ		; Cgdi::ThickBluePen
 
-; 82   :           gdi->Line(Pos(), Vector2D(Pos().x, Pos().y-9));
+; 83   :           gdi->Line(Pos(), Vector2D(Pos().x, Pos().y-9));
 
-	lea	ecx, DWORD PTR $T12[ebp]
+	lea	ecx, DWORD PTR $T16[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Pos@BaseGameEntity@@QBE?AUVector2D@@XZ	; BaseGameEntity::Pos
@@ -23213,14 +23225,14 @@ $LN3@Render:
 	subsd	xmm0, QWORD PTR __real@4022000000000000
 	sub	esp, 8
 	movsd	QWORD PTR [esp], xmm0
-	lea	edx, DWORD PTR $T11[ebp]
+	lea	edx, DWORD PTR $T15[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Pos@BaseGameEntity@@QBE?AUVector2D@@XZ	; BaseGameEntity::Pos
 	sub	esp, 8
 	movsd	xmm0, QWORD PTR [eax]
 	movsd	QWORD PTR [esp], xmm0
-	lea	ecx, DWORD PTR $T13[ebp]
+	lea	ecx, DWORD PTR $T17[ebp]
 	call	??0Vector2D@@QAE@NN@Z			; Vector2D::Vector2D
 	sub	esp, 16					; 00000010H
 	mov	ecx, esp
@@ -23232,7 +23244,7 @@ $LN3@Render:
 	mov	DWORD PTR [ecx+8], edx
 	mov	eax, DWORD PTR [eax+12]
 	mov	DWORD PTR [ecx+12], eax
-	lea	ecx, DWORD PTR $T10[ebp]
+	lea	ecx, DWORD PTR $T14[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Pos@BaseGameEntity@@QBE?AUVector2D@@XZ	; BaseGameEntity::Pos
@@ -23250,17 +23262,16 @@ $LN3@Render:
 	mov	ecx, eax
 	call	?Line@Cgdi@@QAEXUVector2D@@0@Z		; Cgdi::Line
 
-; 83   :         }
-; 84   : 
-; 85   :         break;
+; 84   :         }
+; 85   : 
+; 86   :         break;
 
-	jmp	$LN4@Render
-$LN2@Render:
+	jmp	$LN5@Render
+$LN3@Render:
 
-; 86   : 
-; 87   :       case type_shotgun:
-; 88   :         {
-; 89   : 
+; 87   : 
+; 88   :       case type_shotgun:
+; 89   :         {
 ; 90   :           gdi->BlackBrush();
 
 	call	?Instance@Cgdi@@SAPAV1@XZ		; Cgdi::Instance
@@ -23276,26 +23287,26 @@ $LN2@Render:
 ; 92   :           const double sz = 3.0;
 
 	movsd	xmm0, QWORD PTR __real@4008000000000000
-	movsd	QWORD PTR _sz$16[ebp], xmm0
+	movsd	QWORD PTR _sz$21[ebp], xmm0
 
 ; 93   :           gdi->Circle(Pos().x-sz,Pos().y, sz);
 
 	sub	esp, 8
-	movsd	xmm0, QWORD PTR _sz$16[ebp]
+	movsd	xmm0, QWORD PTR _sz$21[ebp]
 	movsd	QWORD PTR [esp], xmm0
-	lea	ecx, DWORD PTR $T9[ebp]
+	lea	ecx, DWORD PTR $T13[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Pos@BaseGameEntity@@QBE?AUVector2D@@XZ	; BaseGameEntity::Pos
 	sub	esp, 8
 	movsd	xmm0, QWORD PTR [eax+8]
 	movsd	QWORD PTR [esp], xmm0
-	lea	edx, DWORD PTR $T8[ebp]
+	lea	edx, DWORD PTR $T12[ebp]
 	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Pos@BaseGameEntity@@QBE?AUVector2D@@XZ	; BaseGameEntity::Pos
 	movsd	xmm0, QWORD PTR [eax]
-	subsd	xmm0, QWORD PTR _sz$16[ebp]
+	subsd	xmm0, QWORD PTR _sz$21[ebp]
 	sub	esp, 8
 	movsd	QWORD PTR [esp], xmm0
 	call	?Instance@Cgdi@@SAPAV1@XZ		; Cgdi::Instance
@@ -23305,21 +23316,21 @@ $LN2@Render:
 ; 94   :           gdi->Circle(Pos().x+sz,Pos().y, sz);
 
 	sub	esp, 8
-	movsd	xmm0, QWORD PTR _sz$16[ebp]
+	movsd	xmm0, QWORD PTR _sz$21[ebp]
 	movsd	QWORD PTR [esp], xmm0
-	lea	eax, DWORD PTR $T7[ebp]
+	lea	eax, DWORD PTR $T11[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Pos@BaseGameEntity@@QBE?AUVector2D@@XZ	; BaseGameEntity::Pos
 	sub	esp, 8
 	movsd	xmm0, QWORD PTR [eax+8]
 	movsd	QWORD PTR [esp], xmm0
-	lea	ecx, DWORD PTR $T6[ebp]
+	lea	ecx, DWORD PTR $T10[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Pos@BaseGameEntity@@QBE?AUVector2D@@XZ	; BaseGameEntity::Pos
 	movsd	xmm0, QWORD PTR [eax]
-	addsd	xmm0, QWORD PTR _sz$16[ebp]
+	addsd	xmm0, QWORD PTR _sz$21[ebp]
 	sub	esp, 8
 	movsd	QWORD PTR [esp], xmm0
 	call	?Instance@Cgdi@@SAPAV1@XZ		; Cgdi::Instance
@@ -23330,14 +23341,89 @@ $LN2@Render:
 ; 96   : 
 ; 97   :         break;
 
-	jmp	$LN4@Render
-$LN1@Render:
+	jmp	$LN5@Render
+$LN2@Render:
 
 ; 98   : 
-; 99   :       case type_rocket_launcher:
+; 99   : 		case type_grenade:
 ; 100  :         {
-; 101  : 
-; 102  :            Vector2D facing(-1,0);
+; 101  : 		  gdi->GreenBrush();
+
+	call	?Instance@Cgdi@@SAPAV1@XZ		; Cgdi::Instance
+	mov	ecx, eax
+	call	?GreenBrush@Cgdi@@QAEXXZ		; Cgdi::GreenBrush
+
+; 102  :           gdi->BrownPen();
+
+	call	?Instance@Cgdi@@SAPAV1@XZ		; Cgdi::Instance
+	mov	ecx, eax
+	call	?BrownPen@Cgdi@@QAEXXZ			; Cgdi::BrownPen
+
+; 103  :           const double sz = 3.0;
+
+	movsd	xmm0, QWORD PTR __real@4008000000000000
+	movsd	QWORD PTR _sz$20[ebp], xmm0
+
+; 104  :           gdi->Circle(Pos().x,Pos().y+2.5, sz);
+
+	sub	esp, 8
+	movsd	xmm0, QWORD PTR _sz$20[ebp]
+	movsd	QWORD PTR [esp], xmm0
+	lea	edx, DWORD PTR $T9[ebp]
+	push	edx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?Pos@BaseGameEntity@@QBE?AUVector2D@@XZ	; BaseGameEntity::Pos
+	movsd	xmm0, QWORD PTR [eax+8]
+	addsd	xmm0, QWORD PTR __real@4004000000000000
+	sub	esp, 8
+	movsd	QWORD PTR [esp], xmm0
+	lea	eax, DWORD PTR $T8[ebp]
+	push	eax
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?Pos@BaseGameEntity@@QBE?AUVector2D@@XZ	; BaseGameEntity::Pos
+	sub	esp, 8
+	movsd	xmm0, QWORD PTR [eax]
+	movsd	QWORD PTR [esp], xmm0
+	call	?Instance@Cgdi@@SAPAV1@XZ		; Cgdi::Instance
+	mov	ecx, eax
+	call	?Circle@Cgdi@@QAEXNNN@Z			; Cgdi::Circle
+
+; 105  :           gdi->Circle(Pos().x,Pos().y-2, 1.5);
+
+	sub	esp, 8
+	movsd	xmm0, QWORD PTR __real@3ff8000000000000
+	movsd	QWORD PTR [esp], xmm0
+	lea	ecx, DWORD PTR $T7[ebp]
+	push	ecx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?Pos@BaseGameEntity@@QBE?AUVector2D@@XZ	; BaseGameEntity::Pos
+	movsd	xmm0, QWORD PTR [eax+8]
+	subsd	xmm0, QWORD PTR __real@4000000000000000
+	sub	esp, 8
+	movsd	QWORD PTR [esp], xmm0
+	lea	edx, DWORD PTR $T6[ebp]
+	push	edx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?Pos@BaseGameEntity@@QBE?AUVector2D@@XZ	; BaseGameEntity::Pos
+	sub	esp, 8
+	movsd	xmm0, QWORD PTR [eax]
+	movsd	QWORD PTR [esp], xmm0
+	call	?Instance@Cgdi@@SAPAV1@XZ		; Cgdi::Instance
+	mov	ecx, eax
+	call	?Circle@Cgdi@@QAEXNNN@Z			; Cgdi::Circle
+
+; 106  :          
+; 107  :         }
+; 108  : 
+; 109  :         break;
+
+	jmp	$LN5@Render
+$LN1@Render:
+
+; 110  :       case type_rocket_launcher:
+; 111  :         {
+; 112  : 
+; 113  :            Vector2D facing(-1,0);
 
 	sub	esp, 8
 	movsd	xmm0, QWORD PTR __real@0000000000000000
@@ -23345,15 +23431,15 @@ $LN1@Render:
 	sub	esp, 8
 	movsd	xmm0, QWORD PTR __real@bff0000000000000
 	movsd	QWORD PTR [esp], xmm0
-	lea	ecx, DWORD PTR _facing$15[ebp]
+	lea	ecx, DWORD PTR _facing$19[ebp]
 	call	??0Vector2D@@QAE@NN@Z			; Vector2D::Vector2D
 
-; 103  : 
-; 104  :            m_vecRLVBTrans = WorldTransform(m_vecRLVB,
-; 105  :                                           Pos(),
-; 106  :                                           facing,
-; 107  :                                           facing.Perp(),
-; 108  :                                           Vector2D(2.5,2.5));
+; 114  : 
+; 115  :            m_vecRLVBTrans = WorldTransform(m_vecRLVB,
+; 116  :                                           Pos(),
+; 117  :                                           facing,
+; 118  :                                           facing.Perp(),
+; 119  :                                           Vector2D(2.5,2.5));
 
 	sub	esp, 8
 	movsd	xmm0, QWORD PTR __real@4004000000000000
@@ -23364,31 +23450,31 @@ $LN1@Render:
 	lea	ecx, DWORD PTR $T5[ebp]
 	call	??0Vector2D@@QAE@NN@Z			; Vector2D::Vector2D
 	push	eax
-	lea	edx, DWORD PTR $T4[ebp]
-	push	edx
-	lea	ecx, DWORD PTR _facing$15[ebp]
+	lea	eax, DWORD PTR $T4[ebp]
+	push	eax
+	lea	ecx, DWORD PTR _facing$19[ebp]
 	call	?Perp@Vector2D@@QBE?AU1@XZ		; Vector2D::Perp
 	push	eax
-	lea	eax, DWORD PTR _facing$15[ebp]
-	push	eax
-	lea	ecx, DWORD PTR $T3[ebp]
+	lea	ecx, DWORD PTR _facing$19[ebp]
 	push	ecx
+	lea	edx, DWORD PTR $T3[ebp]
+	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Pos@BaseGameEntity@@QBE?AUVector2D@@XZ	; BaseGameEntity::Pos
 	push	eax
-	mov	edx, DWORD PTR _this$[ebp]
-	add	edx, 88					; 00000058H
-	push	edx
-	lea	eax, DWORD PTR $T2[ebp]
+	mov	eax, DWORD PTR _this$[ebp]
+	add	eax, 88					; 00000058H
 	push	eax
+	lea	ecx, DWORD PTR $T2[ebp]
+	push	ecx
 	call	?WorldTransform@@YA?AV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@AAV12@ABUVector2D@@111@Z ; WorldTransform
 	add	esp, 24					; 00000018H
-	mov	DWORD PTR tv249[ebp], eax
-	mov	ecx, DWORD PTR tv249[ebp]
-	mov	DWORD PTR tv248[ebp], ecx
+	mov	DWORD PTR tv296[ebp], eax
+	mov	edx, DWORD PTR tv296[ebp]
+	mov	DWORD PTR tv295[ebp], edx
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
-	mov	edx, DWORD PTR tv248[ebp]
-	push	edx
+	mov	eax, DWORD PTR tv295[ebp]
+	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 104				; 00000068H
 	call	??4?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@QAEAAV01@$$QAV01@@Z ; std::vector<Vector2D,std::allocator<Vector2D> >::operator=
@@ -23396,35 +23482,35 @@ $LN1@Render:
 	lea	ecx, DWORD PTR $T2[ebp]
 	call	??1?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@QAE@XZ ; std::vector<Vector2D,std::allocator<Vector2D> >::~vector<Vector2D,std::allocator<Vector2D> >
 
-; 109  : 
-; 110  :             gdi->RedPen();
+; 120  : 
+; 121  :             gdi->RedPen();
 
 	call	?Instance@Cgdi@@SAPAV1@XZ		; Cgdi::Instance
 	mov	ecx, eax
 	call	?RedPen@Cgdi@@QAEXXZ			; Cgdi::RedPen
 
-; 111  :             gdi->ClosedShape(m_vecRLVBTrans);
+; 122  :             gdi->ClosedShape(m_vecRLVBTrans);
 
-	mov	eax, DWORD PTR _this$[ebp]
-	add	eax, 104				; 00000068H
-	push	eax
+	mov	ecx, DWORD PTR _this$[ebp]
+	add	ecx, 104				; 00000068H
+	push	ecx
 	call	?Instance@Cgdi@@SAPAV1@XZ		; Cgdi::Instance
 	mov	ecx, eax
 	call	?ClosedShape@Cgdi@@QAEXABV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@@Z ; Cgdi::ClosedShape
-$LN4@Render:
+$LN5@Render:
 
-; 112  :         }
-; 113  :       
-; 114  :         break;
-; 115  : 
-; 116  :     }//end switch
-; 117  :   }
-; 118  : }
+; 123  :         }
+; 124  :       
+; 125  :         break;
+; 126  : 
+; 127  :     }//end switch
+; 128  :   }
+; 129  : }
 
 	push	edx
 	mov	ecx, ebp
 	push	eax
-	lea	edx, DWORD PTR $LN13@Render
+	lea	edx, DWORD PTR $LN14@Render
 	call	@_RTC_CheckStackVars@8
 	pop	eax
 	pop	edx
@@ -23432,20 +23518,21 @@ $LN4@Render:
 	mov	DWORD PTR fs:0, ecx
 	pop	ecx
 	pop	edi
-	add	esp, 268				; 0000010cH
+	add	esp, 340				; 00000154H
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
 	mov	esp, ebp
 	pop	ebp
 	ret	0
-$LN13@Render:
+	npad	3
+$LN14@Render:
 	DD	1
-	DD	$LN12@Render
-$LN12@Render:
-	DD	-44					; ffffffd4H
+	DD	$LN13@Render
+$LN13@Render:
+	DD	-52					; ffffffccH
 	DD	16					; 00000010H
-	DD	$LN10@Render
-$LN10@Render:
+	DD	$LN11@Render
+$LN11@Render:
 	DB	102					; 00000066H
 	DB	97					; 00000061H
 	DB	99					; 00000063H
@@ -23453,6 +23540,16 @@ $LN10@Render:
 	DB	110					; 0000006eH
 	DB	103					; 00000067H
 	DB	0
+	npad	1
+$LN15@Render:
+	DD	$LN4@Render
+	DD	$LN1@Render
+	DD	$LN3@Render
+	DD	$LN5@Render
+	DD	$LN5@Render
+	DD	$LN5@Render
+	DD	$LN5@Render
+	DD	$LN2@Render
 _TEXT	ENDS
 text$x	SEGMENT
 __unwindfunclet$?Render@Trigger_WeaponGiver@@UAEXXZ$0:
@@ -23461,7 +23558,7 @@ __unwindfunclet$?Render@Trigger_WeaponGiver@@UAEXXZ$0:
 __ehhandler$?Render@Trigger_WeaponGiver@@UAEXXZ:
 	mov	edx, DWORD PTR [esp+8]
 	lea	eax, DWORD PTR [edx+12]
-	mov	ecx, DWORD PTR [edx-264]
+	mov	ecx, DWORD PTR [edx-336]
 	xor	ecx, eax
 	call	@__security_check_cookie@4
 	mov	eax, OFFSET __ehfuncinfo$?Render@Trigger_WeaponGiver@@UAEXXZ
@@ -24470,7 +24567,7 @@ _this$ = -4						; size = 4
 ?GetWeaponSys@Raven_Bot@@QBEQAVRaven_WeaponSystem@@XZ PROC ; Raven_Bot::GetWeaponSys, COMDAT
 ; _this$ = ecx
 
-; 220  :   Raven_WeaponSystem* const          GetWeaponSys()const{return m_pWeaponSys;}
+; 221  :   Raven_WeaponSystem* const          GetWeaponSys()const{return m_pWeaponSys;}
 
 	push	ebp
 	mov	ebp, esp
@@ -25049,6 +25146,45 @@ $LN2@BlueBrush:
 	pop	ebp
 	ret	0
 ?BlueBrush@Cgdi@@QAEXXZ ENDP				; Cgdi::BlueBrush
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File c:\users\romain s\documents\workspace\workspace_ia\tp3ia\common\misc\cgdi.h
+;	COMDAT ?GreenBrush@Cgdi@@QAEXXZ
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+?GreenBrush@Cgdi@@QAEXXZ PROC				; Cgdi::GreenBrush, COMDAT
+; _this$ = ecx
+
+; 162  :   void GreenBrush(){if(m_hdc)SelectObject(m_hdc, m_GreenBrush);}
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	push	esi
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	cmp	DWORD PTR [eax+124], 0
+	je	SHORT $LN2@GreenBrush
+	mov	esi, esp
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR [ecx+92]
+	push	edx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR [eax+124]
+	push	ecx
+	call	DWORD PTR __imp__SelectObject@8
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+$LN2@GreenBrush:
+	pop	esi
+	add	esp, 4
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?GreenBrush@Cgdi@@QAEXXZ ENDP				; Cgdi::GreenBrush
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File c:\users\romain s\documents\workspace\workspace_ia\tp3ia\common\misc\cgdi.h

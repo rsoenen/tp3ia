@@ -11,6 +11,7 @@
 #include "Goal_Wander.h"
 #include "Raven_Goal_Types.h"
 #include "Goal_AttackTarget.h"
+#include "Goal_DodgeSideToSide.h"
 
 
 #include "GetWeaponGoal_Evaluator.h"
@@ -33,6 +34,8 @@ Goal_Think::Goal_Think(Raven_Bot* pBot):Goal_Composite<Raven_Bot>(pBot, goal_thi
   double RailgunBias = RandInRange(LowRangeOfBias, HighRangeOfBias);
   double ExploreBias = RandInRange(LowRangeOfBias, HighRangeOfBias);
   double AttackBias = RandInRange(LowRangeOfBias, HighRangeOfBias);
+  double GrenadeBias = RandInRange(LowRangeOfBias, HighRangeOfBias);
+  double KnifeBias = RandInRange(LowRangeOfBias, HighRangeOfBias);
 
   //create the evaluator objects
   m_Evaluators.push_back(new GetHealthGoal_Evaluator(HealthBias));
@@ -44,6 +47,10 @@ Goal_Think::Goal_Think(Raven_Bot* pBot):Goal_Composite<Raven_Bot>(pBot, goal_thi
                                                      type_rail_gun));
   m_Evaluators.push_back(new GetWeaponGoal_Evaluator(RocketLauncherBias,
                                                      type_rocket_launcher));
+  m_Evaluators.push_back(new GetWeaponGoal_Evaluator(GrenadeBias,
+                                                     type_grenade));
+  m_Evaluators.push_back(new GetWeaponGoal_Evaluator(KnifeBias,
+                                                     type_knife));
 }
 
 //----------------------------- dtor ------------------------------------------
@@ -154,8 +161,8 @@ void Goal_Think::AddGoal_GetItem(unsigned int ItemType)
   if (notPresent(ItemTypeToGoalType(ItemType)))
   {
     RemoveAllSubgoals();
-	AddSubgoal( new Goal_AttackTarget(m_pOwner));
 	AddSubgoal( new Goal_GetItem(m_pOwner, ItemType));
+	AddSubgoal( new Goal_DodgeSideToSide(m_pOwner));
   }
 }
 

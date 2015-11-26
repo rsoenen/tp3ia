@@ -780,13 +780,15 @@ CONST	SEGMENT
 CONST	ENDS
 CONST	SEGMENT
 _Pi	DQ	0400921f9f01b866er		; 3.14159
-$SG172297 DB	'RailGun_MaxRoundsCarried', 00H
+$SG172306 DB	'RailGun_MaxRoundsCarried', 00H
 	ORG $+3
-$SG172299 DB	'RocketLauncher_MaxRoundsCarried', 00H
-$SG172301 DB	'ShotGun_MaxRoundsCarried', 00H
+$SG172308 DB	'RocketLauncher_MaxRoundsCarried', 00H
+$SG172310 DB	'ShotGun_MaxRoundsCarried', 00H
 	ORG $+3
-$SG172305 DB	'trying to calculate  of unknown weapon', 00H
-	ORG $+1
+$SG172312 DB	'Grenade_MaxRoundsCarried', 00H
+	ORG $+3
+$SG172316 DB	'trying to calculate  of unknown weapon', 00H
+	ORG $+5
 _pi	DQ	0400921f9f01b866er		; 3.14159
 _colors	DD	0ffH
 	DD	0ff0000H
@@ -2695,68 +2697,80 @@ _WeaponType$ = 8					; size = 4
 
 	mov	eax, DWORD PTR _WeaponType$[ebp]
 	mov	DWORD PTR tv64[ebp], eax
-	cmp	DWORD PTR tv64[ebp], 6
-	je	SHORT $LN4@GetMaxRoun
+	mov	ecx, DWORD PTR tv64[ebp]
+	sub	ecx, 6
+	mov	DWORD PTR tv64[ebp], ecx
 	cmp	DWORD PTR tv64[ebp], 7
-	je	SHORT $LN3@GetMaxRoun
-	cmp	DWORD PTR tv64[ebp], 8
-	je	SHORT $LN2@GetMaxRoun
-	jmp	SHORT $LN1@GetMaxRoun
-$LN4@GetMaxRoun:
+	ja	SHORT $LN1@GetMaxRoun
+	mov	edx, DWORD PTR tv64[ebp]
+	jmp	DWORD PTR $LN10@GetMaxRoun[edx*4]
+$LN5@GetMaxRoun:
 
 ; 38   :   {
 ; 39   :   case type_rail_gun:
 ; 40   : 
 ; 41   :     return script->GetDouble("RailGun_MaxRoundsCarried");
 
-	push	OFFSET $SG172297
+	push	OFFSET $SG172306
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
-	jmp	SHORT $LN5@GetMaxRoun
-$LN3@GetMaxRoun:
+	jmp	SHORT $LN6@GetMaxRoun
+$LN4@GetMaxRoun:
 
 ; 42   : 
 ; 43   :   case type_rocket_launcher:
 ; 44   : 
 ; 45   :     return script->GetDouble("RocketLauncher_MaxRoundsCarried");
 
-	push	OFFSET $SG172299
+	push	OFFSET $SG172308
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
-	jmp	SHORT $LN5@GetMaxRoun
-$LN2@GetMaxRoun:
+	jmp	SHORT $LN6@GetMaxRoun
+$LN3@GetMaxRoun:
 
 ; 46   : 
 ; 47   :   case type_shotgun:
 ; 48   : 
 ; 49   :     return script->GetDouble("ShotGun_MaxRoundsCarried");
 
-	push	OFFSET $SG172301
+	push	OFFSET $SG172310
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
-	jmp	SHORT $LN5@GetMaxRoun
+	jmp	SHORT $LN6@GetMaxRoun
+$LN2@GetMaxRoun:
+
+; 50   : 	
+; 51   : 	case type_grenade:
+; 52   : 
+; 53   :     return script->GetDouble("Grenade_MaxRoundsCarried");
+
+	push	OFFSET $SG172312
+	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
+	mov	ecx, eax
+	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
+	jmp	SHORT $LN6@GetMaxRoun
 $LN1@GetMaxRoun:
 
-; 50   : 
-; 51   :   default:
-; 52   : 
-; 53   :     throw std::runtime_error("trying to calculate  of unknown weapon");
+; 54   : 
+; 55   :   default:
+; 56   : 
+; 57   :     throw std::runtime_error("trying to calculate  of unknown weapon");
 
-	push	OFFSET $SG172305
+	push	OFFSET $SG172316
 	lea	ecx, DWORD PTR $T1[ebp]
 	call	??0runtime_error@std@@QAE@PBD@Z		; std::runtime_error::runtime_error
 	push	OFFSET __TI2?AVruntime_error@std@@
-	lea	ecx, DWORD PTR $T1[ebp]
-	push	ecx
+	lea	eax, DWORD PTR $T1[ebp]
+	push	eax
 	call	__CxxThrowException@8
-$LN5@GetMaxRoun:
+$LN6@GetMaxRoun:
 
-; 54   : 
-; 55   :   }//end switch
-; 56   : }
+; 58   : 
+; 59   :   }//end switch
+; 60   : }
 
 	add	esp, 16					; 00000010H
 	cmp	ebp, esp
@@ -2764,6 +2778,16 @@ $LN5@GetMaxRoun:
 	mov	esp, ebp
 	pop	ebp
 	ret	0
+	npad	1
+$LN10@GetMaxRoun:
+	DD	$LN5@GetMaxRoun
+	DD	$LN4@GetMaxRoun
+	DD	$LN3@GetMaxRoun
+	DD	$LN1@GetMaxRoun
+	DD	$LN1@GetMaxRoun
+	DD	$LN1@GetMaxRoun
+	DD	$LN1@GetMaxRoun
+	DD	$LN2@GetMaxRoun
 ?GetMaxRoundsBotCanCarryForWeapon@@YANH@Z ENDP		; GetMaxRoundsBotCanCarryForWeapon
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
@@ -3246,7 +3270,7 @@ _this$ = -4						; size = 4
 ?GetWeaponSys@Raven_Bot@@QBEQAVRaven_WeaponSystem@@XZ PROC ; Raven_Bot::GetWeaponSys, COMDAT
 ; _this$ = ecx
 
-; 220  :   Raven_WeaponSystem* const          GetWeaponSys()const{return m_pWeaponSys;}
+; 221  :   Raven_WeaponSystem* const          GetWeaponSys()const{return m_pWeaponSys;}
 
 	push	ebp
 	mov	ebp, esp
@@ -3268,7 +3292,7 @@ _this$ = -4						; size = 4
 ?GetPathPlanner@Raven_Bot@@QAEQAVRaven_PathPlanner@@XZ PROC ; Raven_Bot::GetPathPlanner, COMDAT
 ; _this$ = ecx
 
-; 215  :   Raven_PathPlanner* const           GetPathPlanner(){return m_pPathPlanner;}
+; 216  :   Raven_PathPlanner* const           GetPathPlanner(){return m_pPathPlanner;}
 
 	push	ebp
 	mov	ebp, esp
@@ -3290,7 +3314,7 @@ _this$ = -4						; size = 4
 ?MaxHealth@Raven_Bot@@QBEHXZ PROC			; Raven_Bot::MaxHealth, COMDAT
 ; _this$ = ecx
 
-; 153  :   int           MaxHealth()const{return m_iMaxHealth;}
+; 154  :   int           MaxHealth()const{return m_iMaxHealth;}
 
 	push	ebp
 	mov	ebp, esp
@@ -3312,7 +3336,7 @@ _this$ = -4						; size = 4
 ?Health@Raven_Bot@@QBEHXZ PROC				; Raven_Bot::Health, COMDAT
 ; _this$ = ecx
 
-; 152  :   int           Health()const{return m_iHealth;}
+; 153  :   int           Health()const{return m_iHealth;}
 
 	push	ebp
 	mov	ebp, esp
@@ -8182,59 +8206,70 @@ _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File c:\users\romain s\documents\workspace\workspace_ia\tp3ia\buckland_chapter7 to 10_raven\goals\raven_feature.cpp
 _TEXT	SEGMENT
-tv152 = -72						; size = 8
-_Tweaker$ = -64						; size = 8
-_NumRockets$ = -56					; size = 8
-_NumCartridges$ = -48					; size = 8
-_NumSlugs$ = -40					; size = 8
-_TotalRoundsCarryable$ = -32				; size = 8
+tv162 = -88						; size = 8
+_Tweaker$ = -80						; size = 8
+_NumNades$ = -72					; size = 8
+_NumRockets$ = -64					; size = 8
+_NumCartridges$ = -56					; size = 8
+_NumSlugs$ = -48					; size = 8
+_TotalRoundsCarryable$ = -40				; size = 8
+_MaxRoundsForGrenade$ = -32				; size = 8
 _MaxRoundsForRocketLauncher$ = -24			; size = 8
 _MaxRoundsForRailgun$ = -16				; size = 8
 _MaxRoundsForShotgun$ = -8				; size = 8
 _pBot$ = 8						; size = 4
 ?TotalWeaponStrength@Raven_Feature@@SANPAVRaven_Bot@@@Z PROC ; Raven_Feature::TotalWeaponStrength
 
-; 81   : {
+; 85   : {
 
 	push	ebp
 	mov	ebp, esp
-	sub	esp, 72					; 00000048H
+	sub	esp, 88					; 00000058H
 	push	edi
-	lea	edi, DWORD PTR [ebp-72]
-	mov	ecx, 18					; 00000012H
+	lea	edi, DWORD PTR [ebp-88]
+	mov	ecx, 22					; 00000016H
 	mov	eax, -858993460				; ccccccccH
 	rep stosd
 
-; 82   :   const double MaxRoundsForShotgun = GetMaxRoundsBotCanCarryForWeapon(type_shotgun);
+; 86   :   const double MaxRoundsForShotgun = GetMaxRoundsBotCanCarryForWeapon(type_shotgun);
 
 	push	8
 	call	?GetMaxRoundsBotCanCarryForWeapon@@YANH@Z ; GetMaxRoundsBotCanCarryForWeapon
 	add	esp, 4
 	fstp	QWORD PTR _MaxRoundsForShotgun$[ebp]
 
-; 83   :   const double MaxRoundsForRailgun = GetMaxRoundsBotCanCarryForWeapon(type_rail_gun);
+; 87   :   const double MaxRoundsForRailgun = GetMaxRoundsBotCanCarryForWeapon(type_rail_gun);
 
 	push	6
 	call	?GetMaxRoundsBotCanCarryForWeapon@@YANH@Z ; GetMaxRoundsBotCanCarryForWeapon
 	add	esp, 4
 	fstp	QWORD PTR _MaxRoundsForRailgun$[ebp]
 
-; 84   :   const double MaxRoundsForRocketLauncher = GetMaxRoundsBotCanCarryForWeapon(type_rocket_launcher);
+; 88   :   const double MaxRoundsForRocketLauncher = GetMaxRoundsBotCanCarryForWeapon(type_rocket_launcher);
 
 	push	7
 	call	?GetMaxRoundsBotCanCarryForWeapon@@YANH@Z ; GetMaxRoundsBotCanCarryForWeapon
 	add	esp, 4
 	fstp	QWORD PTR _MaxRoundsForRocketLauncher$[ebp]
 
-; 85   :   const double TotalRoundsCarryable = MaxRoundsForShotgun + MaxRoundsForRailgun + MaxRoundsForRocketLauncher;
+; 89   :   const double MaxRoundsForGrenade = GetMaxRoundsBotCanCarryForWeapon(type_grenade);
+
+	push	13					; 0000000dH
+	call	?GetMaxRoundsBotCanCarryForWeapon@@YANH@Z ; GetMaxRoundsBotCanCarryForWeapon
+	add	esp, 4
+	fstp	QWORD PTR _MaxRoundsForGrenade$[ebp]
+
+; 90   : 
+; 91   :   const double TotalRoundsCarryable = MaxRoundsForShotgun + MaxRoundsForRailgun + MaxRoundsForRocketLauncher + MaxRoundsForGrenade;
 
 	movsd	xmm0, QWORD PTR _MaxRoundsForShotgun$[ebp]
 	addsd	xmm0, QWORD PTR _MaxRoundsForRailgun$[ebp]
 	addsd	xmm0, QWORD PTR _MaxRoundsForRocketLauncher$[ebp]
+	addsd	xmm0, QWORD PTR _MaxRoundsForGrenade$[ebp]
 	movsd	QWORD PTR _TotalRoundsCarryable$[ebp], xmm0
 
-; 86   : 
-; 87   :   double NumSlugs      = (double)pBot->GetWeaponSys()->GetAmmoRemainingForWeapon(type_rail_gun);
+; 92   : 
+; 93   :   double NumSlugs      = (double)pBot->GetWeaponSys()->GetAmmoRemainingForWeapon(type_rail_gun);
 
 	push	6
 	mov	ecx, DWORD PTR _pBot$[ebp]
@@ -8244,7 +8279,7 @@ _pBot$ = 8						; size = 4
 	cvtsi2sd xmm0, eax
 	movsd	QWORD PTR _NumSlugs$[ebp], xmm0
 
-; 88   :   double NumCartridges = (double)pBot->GetWeaponSys()->GetAmmoRemainingForWeapon(type_shotgun);
+; 94   :   double NumCartridges = (double)pBot->GetWeaponSys()->GetAmmoRemainingForWeapon(type_shotgun);
 
 	push	8
 	mov	ecx, DWORD PTR _pBot$[ebp]
@@ -8254,7 +8289,7 @@ _pBot$ = 8						; size = 4
 	cvtsi2sd xmm0, eax
 	movsd	QWORD PTR _NumCartridges$[ebp], xmm0
 
-; 89   :   double NumRockets    = (double)pBot->GetWeaponSys()->GetAmmoRemainingForWeapon(type_rocket_launcher);
+; 95   :   double NumRockets    = (double)pBot->GetWeaponSys()->GetAmmoRemainingForWeapon(type_rocket_launcher);
 
 	push	7
 	mov	ecx, DWORD PTR _pBot$[ebp]
@@ -8264,36 +8299,44 @@ _pBot$ = 8						; size = 4
 	cvtsi2sd xmm0, eax
 	movsd	QWORD PTR _NumRockets$[ebp], xmm0
 
-; 90   : 
-; 91   :   //the value of the tweaker (must be in the range 0-1) indicates how much
-; 92   :   //desirability value is returned even if a bot has not picked up any weapons.
-; 93   :   //(it basically adds in an amount for a bot's persistent weapon -- the blaster)
-; 94   :   const double Tweaker = 0.1;
+; 96   :   double NumNades	   = (double)pBot->GetWeaponSys()->GetAmmoRemainingForWeapon(type_grenade);
+
+	push	13					; 0000000dH
+	mov	ecx, DWORD PTR _pBot$[ebp]
+	call	?GetWeaponSys@Raven_Bot@@QBEQAVRaven_WeaponSystem@@XZ ; Raven_Bot::GetWeaponSys
+	mov	ecx, eax
+	call	?GetAmmoRemainingForWeapon@Raven_WeaponSystem@@QAEHI@Z ; Raven_WeaponSystem::GetAmmoRemainingForWeapon
+	cvtsi2sd xmm0, eax
+	movsd	QWORD PTR _NumNades$[ebp], xmm0
+
+; 97   : 
+; 98   :   //the value of the tweaker (must be in the range 0-1) indicates how much
+; 99   :   //desirability value is returned even if a bot has not picked up any weapons.
+; 100  :   //(it basically adds in an amount for a bot's persistent weapon -- the blaster)
+; 101  :   const double Tweaker = 0.1;
 
 	movsd	xmm0, QWORD PTR __real@3fb999999999999a
 	movsd	QWORD PTR _Tweaker$[ebp], xmm0
 
-; 95   : 
-; 96   :   return Tweaker + (1-Tweaker)*(NumSlugs + NumCartridges + NumRockets)/(MaxRoundsForShotgun + MaxRoundsForRailgun + MaxRoundsForRocketLauncher);
+; 102  : 
+; 103  :   return Tweaker + (1-Tweaker)*(NumSlugs + NumCartridges + NumRockets + NumNades)/TotalRoundsCarryable;
 
 	movsd	xmm0, QWORD PTR __real@3ff0000000000000
 	subsd	xmm0, QWORD PTR _Tweaker$[ebp]
 	movsd	xmm1, QWORD PTR _NumSlugs$[ebp]
 	addsd	xmm1, QWORD PTR _NumCartridges$[ebp]
 	addsd	xmm1, QWORD PTR _NumRockets$[ebp]
+	addsd	xmm1, QWORD PTR _NumNades$[ebp]
 	mulsd	xmm0, xmm1
-	movsd	xmm1, QWORD PTR _MaxRoundsForShotgun$[ebp]
-	addsd	xmm1, QWORD PTR _MaxRoundsForRailgun$[ebp]
-	addsd	xmm1, QWORD PTR _MaxRoundsForRocketLauncher$[ebp]
-	divsd	xmm0, xmm1
+	divsd	xmm0, QWORD PTR _TotalRoundsCarryable$[ebp]
 	addsd	xmm0, QWORD PTR _Tweaker$[ebp]
-	movsd	QWORD PTR tv152[ebp], xmm0
-	fld	QWORD PTR tv152[ebp]
+	movsd	QWORD PTR tv162[ebp], xmm0
+	fld	QWORD PTR tv162[ebp]
 
-; 97   : }
+; 104  : }
 
 	pop	edi
-	add	esp, 72					; 00000048H
+	add	esp, 88					; 00000058H
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
 	mov	esp, ebp
@@ -8312,7 +8355,7 @@ _pBot$ = 8						; size = 4
 _WeaponType$ = 12					; size = 4
 ?IndividualWeaponStrength@Raven_Feature@@SANPAVRaven_Bot@@H@Z PROC ; Raven_Feature::IndividualWeaponStrength
 
-; 63   : {
+; 67   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -8326,8 +8369,8 @@ _WeaponType$ = 12					; size = 4
 	mov	DWORD PTR [ebp-8], eax
 	mov	DWORD PTR [ebp-4], eax
 
-; 64   :   //grab a pointer to the gun (if the bot owns an instance)
-; 65   :   Raven_Weapon* wp = pBot->GetWeaponSys()->GetWeaponFromInventory(WeaponType);
+; 68   :   //grab a pointer to the gun (if the bot owns an instance)
+; 69   :   Raven_Weapon* wp = pBot->GetWeaponSys()->GetWeaponFromInventory(WeaponType);
 
 	mov	eax, DWORD PTR _WeaponType$[ebp]
 	push	eax
@@ -8337,14 +8380,14 @@ _WeaponType$ = 12					; size = 4
 	call	?GetWeaponFromInventory@Raven_WeaponSystem@@QAEPAVRaven_Weapon@@H@Z ; Raven_WeaponSystem::GetWeaponFromInventory
 	mov	DWORD PTR _wp$[ebp], eax
 
-; 66   : 
-; 67   :   if (wp)
+; 70   : 
+; 71   :   if (wp)
 
 	cmp	DWORD PTR _wp$[ebp], 0
 	je	SHORT $LN2@Individual
 
-; 68   :   {
-; 69   :     return wp->NumRoundsRemaining() / GetMaxRoundsBotCanCarryForWeapon(WeaponType);
+; 72   :   {
+; 73   :     return wp->NumRoundsRemaining() / GetMaxRoundsBotCanCarryForWeapon(WeaponType);
 
 	mov	ecx, DWORD PTR _wp$[ebp]
 	call	?NumRoundsRemaining@Raven_Weapon@@QBEHXZ ; Raven_Weapon::NumRoundsRemaining
@@ -8361,21 +8404,21 @@ _WeaponType$ = 12					; size = 4
 	fld	QWORD PTR tv87[ebp]
 	jmp	SHORT $LN1@Individual
 
-; 70   :   }
-; 71   : 
-; 72   :   else
+; 74   :   }
+; 75   : 
+; 76   :   else
 
 	jmp	SHORT $LN1@Individual
 $LN2@Individual:
 
-; 73   :   {
-; 74   :    return 0.0;
+; 77   :   {
+; 78   :    return 0.0;
 
 	fldz
 $LN1@Individual:
 
-; 75   :   }
-; 76   : }
+; 79   :   }
+; 80   : }
 
 	add	esp, 28					; 0000001cH
 	cmp	ebp, esp
@@ -8546,7 +8589,7 @@ tv77 = -8						; size = 8
 _pBot$ = 8						; size = 4
 ?Health@Raven_Feature@@SANPAVRaven_Bot@@@Z PROC		; Raven_Feature::Health
 
-; 103  : {
+; 110  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -8557,7 +8600,7 @@ _pBot$ = 8						; size = 4
 	mov	DWORD PTR [ebp-8], eax
 	mov	DWORD PTR [ebp-4], eax
 
-; 104  :   return (double)pBot->Health() / (double)pBot->MaxHealth();
+; 111  :   return (double)pBot->Health() / (double)pBot->MaxHealth();
 
 	mov	ecx, DWORD PTR _pBot$[ebp]
 	call	?Health@Raven_Bot@@QBEHXZ		; Raven_Bot::Health
@@ -8571,8 +8614,8 @@ _pBot$ = 8						; size = 4
 	movsd	QWORD PTR tv74[ebp], xmm1
 	fld	QWORD PTR tv74[ebp]
 
-; 105  : 
-; 106  : }
+; 112  : 
+; 113  : }
 
 	add	esp, 16					; 00000010H
 	cmp	ebp, esp
