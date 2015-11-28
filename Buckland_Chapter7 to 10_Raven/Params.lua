@@ -171,10 +171,14 @@ Knife_FiringFreq		= 1
 Knife_MaxSpeed			= 10
 Knife_DefaultRounds		= 0 --not used, a blaster always has ammo
 Knife_MaxRoundsCarried	= 0 --as above
-Knife_IdealRange		= 5
+Knife_IdealRange		= 40
 Knife_SoundRange	    = 0
+Knife_MaxSpeed			= 0
 
+Knife_Scale				= Bot_Scale
 Knife_Damage			= 40
+Knife_Mass				= 1
+Knife_MaxForce			= 100
 
 
 -------------------------------[[ RailGun ]]--------------------------------------------

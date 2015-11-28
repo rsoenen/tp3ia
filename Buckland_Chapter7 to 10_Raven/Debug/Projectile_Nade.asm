@@ -989,7 +989,6 @@ PUBLIC	?GetInt@Scriptor@@QAEHPAD@Z			; Scriptor::GetInt
 PUBLIC	?GetDouble@Scriptor@@QAENPAD@Z			; Scriptor::GetDouble
 PUBLIC	??$PopLuaNumber@H@@YAHPAUlua_State@@PBD@Z	; PopLuaNumber<int>
 PUBLIC	??$PopLuaNumber@N@@YANPAUlua_State@@PBD@Z	; PopLuaNumber<double>
-PUBLIC	?YellowPen@Cgdi@@QAEXXZ				; Cgdi::YellowPen
 PUBLIC	?DarkGreenPen@Cgdi@@QAEXXZ			; Cgdi::DarkGreenPen
 PUBLIC	?HollowBrush@Cgdi@@QAEXXZ			; Cgdi::HollowBrush
 PUBLIC	?DarkGreenBrush@Cgdi@@QAEXXZ			; Cgdi::DarkGreenBrush
@@ -5327,45 +5326,6 @@ $LN2@DarkGreenP:
 ?DarkGreenPen@Cgdi@@QAEXXZ ENDP				; Cgdi::DarkGreenPen
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
-; File c:\users\romain s\documents\workspace\workspace_ia\tp3ia\common\misc\cgdi.h
-;	COMDAT ?YellowPen@Cgdi@@QAEXXZ
-_TEXT	SEGMENT
-_this$ = -4						; size = 4
-?YellowPen@Cgdi@@QAEXXZ PROC				; Cgdi::YellowPen, COMDAT
-; _this$ = ecx
-
-; 143  :   void YellowPen() {if(m_hdc){SelectObject(m_hdc, m_YellowPen);}}
-
-	push	ebp
-	mov	ebp, esp
-	push	ecx
-	push	esi
-	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
-	mov	DWORD PTR _this$[ebp], ecx
-	mov	eax, DWORD PTR _this$[ebp]
-	cmp	DWORD PTR [eax+124], 0
-	je	SHORT $LN2@YellowPen
-	mov	esi, esp
-	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR [ecx+36]
-	push	edx
-	mov	eax, DWORD PTR _this$[ebp]
-	mov	ecx, DWORD PTR [eax+124]
-	push	ecx
-	call	DWORD PTR __imp__SelectObject@8
-	cmp	esi, esp
-	call	__RTC_CheckEsp
-$LN2@YellowPen:
-	pop	esi
-	add	esp, 4
-	cmp	ebp, esp
-	call	__RTC_CheckEsp
-	mov	esp, ebp
-	pop	ebp
-	ret	0
-?YellowPen@Cgdi@@QAEXXZ ENDP				; Cgdi::YellowPen
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
 ; File c:\users\romain s\documents\workspace\workspace_ia\tp3ia\common\lua-5.1.3\include\luahelperfunctions.h
 ;	COMDAT ??$PopLuaNumber@N@@YANPAUlua_State@@PBD@Z
 _TEXT	SEGMENT
@@ -6232,12 +6192,7 @@ _this$ = -4						; size = 4
 	je	SHORT $LN1@Render
 
 ; 160  :   {
-; 161  : 	gdi->YellowPen();
-
-	call	?Instance@Cgdi@@SAPAV1@XZ		; Cgdi::Instance
-	mov	ecx, eax
-	call	?YellowPen@Cgdi@@QAEXXZ			; Cgdi::YellowPen
-
+; 161  : 	//gdi->YellowPen();
 ; 162  :     gdi->HollowBrush();
 
 	call	?Instance@Cgdi@@SAPAV1@XZ		; Cgdi::Instance

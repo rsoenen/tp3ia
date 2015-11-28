@@ -158,7 +158,7 @@ void Nade::Render()
 
   if (m_bImpacted)
   {
-	gdi->YellowPen();
+	//gdi->YellowPen();
     gdi->HollowBrush();
     gdi->Circle(Pos(), m_dCurrentBlastRadius);
   }

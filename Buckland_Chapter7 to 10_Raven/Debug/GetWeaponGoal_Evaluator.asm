@@ -792,15 +792,15 @@ _colors	DD	0ffH
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG169825 DB	'RG: ', 00H
+$SG169828 DB	'RG: ', 00H
 	ORG $+3
-$SG169827 DB	'RL: ', 00H
+$SG169830 DB	'RL: ', 00H
 	ORG $+3
-$SG169829 DB	'SG: ', 00H
+$SG169832 DB	'SG: ', 00H
 	ORG $+3
-$SG169831 DB	'GR: ', 00H
+$SG169834 DB	'GR: ', 00H
 	ORG $+3
-$SG169833 DB	'KN: ', 00H
+$SG169836 DB	'KN: ', 00H
 CONST	ENDS
 ;	COMDAT ?is_modulo@_Num_int_base@std@@2_NB
 CONST	SEGMENT
@@ -13774,7 +13774,7 @@ $LN5@RenderInfo:
 ; 67   :   case type_rail_gun:
 ; 68   :     s="RG: ";break;
 
-	push	OFFSET $SG169825
+	push	OFFSET $SG169828
 	lea	ecx, DWORD PTR _s$[ebp]
 	call	??4?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV01@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::operator=
 	jmp	SHORT $LN6@RenderInfo
@@ -13783,7 +13783,7 @@ $LN4@RenderInfo:
 ; 69   :   case type_rocket_launcher:
 ; 70   :     s="RL: "; break;
 
-	push	OFFSET $SG169827
+	push	OFFSET $SG169830
 	lea	ecx, DWORD PTR _s$[ebp]
 	call	??4?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV01@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::operator=
 	jmp	SHORT $LN6@RenderInfo
@@ -13792,7 +13792,7 @@ $LN3@RenderInfo:
 ; 71   :   case type_shotgun:
 ; 72   :     s="SG: "; break;
 
-	push	OFFSET $SG169829
+	push	OFFSET $SG169832
 	lea	ecx, DWORD PTR _s$[ebp]
 	call	??4?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV01@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::operator=
 	jmp	SHORT $LN6@RenderInfo
@@ -13801,7 +13801,7 @@ $LN2@RenderInfo:
 ; 73   :   case type_grenade:
 ; 74   : 	s="GR: ";break;
 
-	push	OFFSET $SG169831
+	push	OFFSET $SG169834
 	lea	ecx, DWORD PTR _s$[ebp]
 	call	??4?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV01@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::operator=
 	jmp	SHORT $LN6@RenderInfo
@@ -13810,7 +13810,7 @@ $LN1@RenderInfo:
 ; 75   :   case type_knife:
 ; 76   : 	s="KN: ";break;
 
-	push	OFFSET $SG169833
+	push	OFFSET $SG169836
 	lea	ecx, DWORD PTR _s$[ebp]
 	call	??4?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV01@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::operator=
 $LN6@RenderInfo:

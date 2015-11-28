@@ -62,17 +62,19 @@ Creating a Wall
 Creating a Wall
 Creating a Wall
 Creating a Spawn Point
- x = 350y = 240Creating a Spawn Point
- x = 50y = 380Creating a Spawn Point
- x = 50y = 40Creating a Health
+Creating a Spawn Point
+Creating a Spawn Point
+Creating a Health
 Creating a Health
 Creating a Health
 Creating a rocket_launcher
 Creating a Railgun
 Creating a shotgun
-Creating a shotgun
+Creating a grenade
 Creating a rocket_launcher
+Creating a Spawn Point
 maps/Raven_DM1.map loaded okay
+BOT 402 IS STUCK!!
 deleting raven bot (id = 401)
 deleting raven bot (id = 402)
 deleting raven bot (id = 403)

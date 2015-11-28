@@ -42,16 +42,18 @@ Grenade::Grenade(Raven_Bot*   owner):
 
 inline void Grenade::ShootAt(Vector2D pos)
 { 
-  if (isReadyForNextShot())
+  if (NumRoundsRemaining() > 0 && isReadyForNextShot())
   {
-    //fire!
-    m_pOwner->GetWorld()->AddBolt(m_pOwner, pos);
+    //fire a round
+    m_pOwner->GetWorld()->AddNade(m_pOwner, pos);
 
     UpdateTimeWeaponIsNextAvailable();
 
+    m_iNumRoundsLeft--;
+
     //add a trigger to the game so that the other bots can hear this shot
     //(provided they are within range)
-    m_pOwner->GetWorld()->GetMap()->AddSoundTrigger(m_pOwner, script->GetDouble("Blaster_SoundRange"));
+    m_pOwner->GetWorld()->GetMap()->AddSoundTrigger(m_pOwner, script->GetDouble("Grenade_SoundRange"));
   }
 }
 
@@ -63,9 +65,17 @@ inline void Grenade::ShootAt(Vector2D pos)
 double Grenade::GetDesirability(double DistToTarget)
 {
   //fuzzify distance and amount of ammo
-  m_FuzzyModule.Fuzzify("DistToTarget", DistToTarget);
 
-  m_dLastDesirabilityScore = m_FuzzyModule.DeFuzzify("Desirability", FuzzyModule::max_av);
+ if (m_iNumRoundsLeft == 0)
+  {
+    m_dLastDesirabilityScore = 0;
+  } else {
+		m_FuzzyModule.Fuzzify("DistToTarget", DistToTarget);
+		m_FuzzyModule.Fuzzify("AmmoStatus", (double)m_iNumRoundsLeft);
+
+		m_dLastDesirabilityScore =m_FuzzyModule.DeFuzzify("Desirability", FuzzyModule::max_av);
+ }
+  
 
   return m_dLastDesirabilityScore;
 }

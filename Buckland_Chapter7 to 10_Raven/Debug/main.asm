@@ -102,11 +102,11 @@ PUBLIC	?digits@_Num_base@std@@2HB			; std::_Num_base::digits
 PUBLIC	?digits10@_Num_base@std@@2HB			; std::_Num_base::digits10
 PUBLIC	?max_digits10@_Num_base@std@@2HB		; std::_Num_base::max_digits10
 PUBLIC	?max_exponent@_Num_base@std@@2HB		; std::_Num_base::max_exponent
-PUBLIC	?g_szApplicationName@@3PADA			; g_szApplicationName
 PUBLIC	?max_exponent10@_Num_base@std@@2HB		; std::_Num_base::max_exponent10
+PUBLIC	?g_szApplicationName@@3PADA			; g_szApplicationName
+PUBLIC	?min_exponent@_Num_base@std@@2HB		; std::_Num_base::min_exponent
 PUBLIC	?g_szWindowClassName@@3PADA			; g_szWindowClassName
 PUBLIC	?g_pRaven@@3PAVRaven_Game@@A			; g_pRaven
-PUBLIC	?min_exponent@_Num_base@std@@2HB		; std::_Num_base::min_exponent
 PUBLIC	?min_exponent10@_Num_base@std@@2HB		; std::_Num_base::min_exponent10
 PUBLIC	?radix@_Num_base@std@@2HB			; std::_Num_base::radix
 PUBLIC	?table_size@?$ctype@D@std@@2IB			; std::ctype<char>::table_size
@@ -424,14 +424,14 @@ CONST	ENDS
 CONST	SEGMENT
 ?min_exponent@_Num_base@std@@2HB DD 00H			; std::_Num_base::min_exponent
 CONST	ENDS
+_DATA	SEGMENT
+?g_szApplicationName@@3PADA DD FLAT:$SG167411		; g_szApplicationName
+?g_szWindowClassName@@3PADA DD FLAT:$SG167413		; g_szWindowClassName
+_DATA	ENDS
 ;	COMDAT ?max_exponent10@_Num_base@std@@2HB
 CONST	SEGMENT
 ?max_exponent10@_Num_base@std@@2HB DD 00H		; std::_Num_base::max_exponent10
 CONST	ENDS
-_DATA	SEGMENT
-?g_szApplicationName@@3PADA DD FLAT:$SG167408		; g_szApplicationName
-?g_szWindowClassName@@3PADA DD FLAT:$SG167410		; g_szWindowClassName
-_DATA	ENDS
 ;	COMDAT ?max_exponent@_Num_base@std@@2HB
 CONST	SEGMENT
 ?max_exponent@_Num_base@std@@2HB DD 00H			; std::_Num_base::max_exponent
@@ -628,24 +628,24 @@ _colors	DD	0ffH
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG167408 DB	'Raven', 00H
-$SG167485 DB	00H
+$SG167411 DB	'Raven', 00H
+$SG167488 DB	00H
 	ORG $+1
-$SG167410 DB	'MyWindowClass', 00H
+$SG167413 DB	'MyWindowClass', 00H
 	ORG $+2
-$SG167473 DB	'map', 00H
+$SG167476 DB	'map', 00H
 _pi	DQ	0400921f9f01b866er		; 3.14159
-$SG167474 DB	'Raven map file (*.map)', 00H
+$SG167477 DB	'Raven map file (*.map)', 00H
 	ORG $+1
-$SG167484 DB	'Filename: ', 00H
+$SG167487 DB	'Filename: ', 00H
 	ORG $+1
-$SG167537 DB	'Error', 00H
+$SG167540 DB	'Error', 00H
 	ORG $+2
-$SG167538 DB	'Registration Failed!', 00H
+$SG167541 DB	'Registration Failed!', 00H
 	ORG $+3
-$SG167541 DB	'Error!', 00H
+$SG167544 DB	'Error!', 00H
 	ORG $+1
-$SG167542 DB	'CreateWindowEx Failed!', 00H
+$SG167545 DB	'CreateWindowEx Failed!', 00H
 	ORG $+5
 _Pi	DQ	0400921f9f01b866er		; 3.14159
 CONST	ENDS
@@ -10661,11 +10661,11 @@ $LN20@WindowProc:
 ; 215  :           
 ; 216  :           FileOpenDlg(hwnd, szFileName, szTitleName, "Raven map file (*.map)", "map");
 
-	push	OFFSET $SG167473
+	push	OFFSET $SG167476
 	lea	ecx, DWORD PTR $T8[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR __$EHRec$[ebp+8], 1
-	push	OFFSET $SG167474
+	push	OFFSET $SG167477
 	lea	ecx, DWORD PTR $T7[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	BYTE PTR __$EHRec$[ebp+8], 2
@@ -10689,9 +10689,9 @@ $LN20@WindowProc:
 ; 217  : 
 ; 218  :           debug_con << "Filename: " << szTitleName << "";
 
-	push	OFFSET $SG167485
+	push	OFFSET $SG167488
 	push	OFFSET ?szTitleName@?1??WindowProc@@YGJPAUHWND__@@IIJ@Z@4PADA
-	push	OFFSET $SG167484
+	push	OFFSET $SG167487
 	call	?Instance@DebugConsole@@SAPAV1@XZ	; DebugConsole::Instance
 	mov	ecx, eax
 	call	??$?6$$BY0L@$$CBD@DebugConsole@@QAEAAV0@AAY0L@$$CBD@Z ; DebugConsole::operator<<<char const [11]>
@@ -11781,7 +11781,7 @@ _this$ = -4						; size = 4
 ?TogglePause@Raven_Game@@QAEXXZ PROC			; Raven_Game::TogglePause, COMDAT
 ; _this$ = ecx
 
-; 138  :   void        TogglePause(){m_bPaused = !m_bPaused;}
+; 139  :   void        TogglePause(){m_bPaused = !m_bPaused;}
 
 	push	ebp
 	mov	ebp, esp
@@ -26619,8 +26619,8 @@ _WinMain@16 PROC
 
 	mov	esi, esp
 	push	0
-	push	OFFSET $SG167537
-	push	OFFSET $SG167538
+	push	OFFSET $SG167540
+	push	OFFSET $SG167541
 	push	0
 	call	DWORD PTR __imp__MessageBoxA@16
 	cmp	esi, esp
@@ -26662,8 +26662,8 @@ $LN10@WinMain:
 	push	ecx
 	push	0
 	push	0
-	push	500					; 000001f4H
-	push	500					; 000001f4H
+	push	1000					; 000003e8H
+	push	1000					; 000003e8H
 	mov	edi, esp
 	push	1
 	call	DWORD PTR __imp__GetSystemMetrics@4
@@ -26672,7 +26672,7 @@ $LN10@WinMain:
 	cdq
 	sub	eax, edx
 	sar	eax, 1
-	sub	eax, 250				; 000000faH
+	sub	eax, 500				; 000001f4H
 	push	eax
 	mov	edi, esp
 	push	0
@@ -26682,7 +26682,7 @@ $LN10@WinMain:
 	cdq
 	sub	eax, edx
 	sar	eax, 1
-	sub	eax, 250				; 000000faH
+	sub	eax, 500				; 000001f4H
 	push	eax
 	push	281542656				; 10c80000H
 	mov	edx, DWORD PTR ?g_szApplicationName@@3PADA ; g_szApplicationName
@@ -26707,8 +26707,8 @@ $LN10@WinMain:
 
 	mov	esi, esp
 	push	0
-	push	OFFSET $SG167541
-	push	OFFSET $SG167542
+	push	OFFSET $SG167544
+	push	OFFSET $SG167545
 	push	0
 	call	DWORD PTR __imp__MessageBoxA@16
 	cmp	esi, esp

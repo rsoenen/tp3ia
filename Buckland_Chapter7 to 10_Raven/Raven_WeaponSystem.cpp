@@ -4,6 +4,7 @@
 #include "armory/Weapon_ShotGun.h"
 #include "armory/Weapon_Blaster.h"
 #include "armory/Weapon_Grenade.h"
+#include "armory/Weapon_Knife.h"
 #include "Raven_Bot.h"
 #include "../Common/misc/utils.h"
 #include "lua/Raven_Scriptor.h"
@@ -59,7 +60,7 @@ void Raven_WeaponSystem::Initialize()
   m_WeaponMap[type_shotgun]         = 0;
   m_WeaponMap[type_rail_gun]        = 0;
   m_WeaponMap[type_rocket_launcher] = 0;
-  m_WeaponMap[type_knife]			= 0; //new Knife(m_pOwner);
+  m_WeaponMap[type_knife]			= new Knife(m_pOwner);
   m_WeaponMap[type_grenade]			= 0;
 }
 

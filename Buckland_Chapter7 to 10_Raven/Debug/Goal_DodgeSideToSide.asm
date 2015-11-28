@@ -786,10 +786,6 @@ CONST	ENDS
 CONST	SEGMENT
 ?max_digits10@?$numeric_limits@O@std@@2HB DD 011H	; std::numeric_limits<long double>::max_digits10
 CONST	ENDS
-;	COMDAT ?digits10@?$numeric_limits@O@std@@2HB
-CONST	SEGMENT
-?digits10@?$numeric_limits@O@std@@2HB DD 0fH		; std::numeric_limits<long double>::digits10
-CONST	ENDS
 CONST	SEGMENT
 _SmallestDelay DQ 03fd0000000000000r		; 0.25
 _colors	DD	0ffH
@@ -810,6 +806,10 @@ _colors	DD	0ffH
 	ORG $+4
 _pi	DQ	0400921f9f01b866er		; 3.14159
 _Pi	DQ	0400921f9f01b866er		; 3.14159
+CONST	ENDS
+;	COMDAT ?digits10@?$numeric_limits@O@std@@2HB
+CONST	SEGMENT
+?digits10@?$numeric_limits@O@std@@2HB DD 0fH		; std::numeric_limits<long double>::digits10
 CONST	ENDS
 ;	COMDAT ?digits@?$numeric_limits@O@std@@2HB
 CONST	SEGMENT

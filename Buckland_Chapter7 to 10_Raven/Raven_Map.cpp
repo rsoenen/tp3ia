@@ -121,10 +121,11 @@ void Raven_Map::AddSpawnPoint(std::ifstream& in)
   double x, y, dummy;
 
   in >> dummy >> x >> y >> dummy >> dummy;   //dummy values are artifacts from the map editor
-  debug_con << " x = "<< x << "y = " << y;
-
-  m_SpawnPoints.push_back(Vector2D(x,y));
-  m_SpawnPoints.push_back(Vector2D(430,70));
+  //debug_con << " x = "<< x << "y = " << y;
+  if (m_SpawnPoints.size()<4){
+	   m_SpawnPoints.push_back(Vector2D(x,y));
+  }
+ 
 }
 
 

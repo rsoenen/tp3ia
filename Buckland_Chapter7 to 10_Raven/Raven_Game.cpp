@@ -23,6 +23,7 @@
 #include "armory/Projectile_Slug.h"
 #include "armory/Projectile_Bolt.h"
 #include "armory/Projectile_Nade.h"
+#include "armory/Projectile_Knife.h"
 
 #include "goals/Goal_Think.h"
 #include "goals/Raven_Goal_Types.h"
@@ -365,6 +366,18 @@ void Raven_Game::AddShotGunPellet(Raven_Bot* shooter, Vector2D target)
 void Raven_Game::AddNade(Raven_Bot* shooter, Vector2D target)
 {
   Raven_Projectile* rp = new Nade(shooter, target);
+
+  m_Projectiles.push_back(rp);
+  
+  #ifdef LOG_CREATIONAL_STUFF
+  debug_con << "Adding a shotgun shell " << rp->ID() << " at pos " << rp->Pos() << "";
+#endif
+}
+
+//------------------------- AddKnife -----------------------------------
+void Raven_Game::AddKnife(Raven_Bot* shooter, Vector2D target)
+{
+  Raven_Projectile* rp = new KnifeHit(shooter, target);
 
   m_Projectiles.push_back(rp);
   

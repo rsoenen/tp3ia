@@ -102,6 +102,7 @@ public:
   void AddShotGunPellet(Raven_Bot* shooter, Vector2D target);
   void AddBolt(Raven_Bot* shooter, Vector2D target);
   void AddNade(Raven_Bot* shooter, Vector2D target);
+  void AddKnife(Raven_Bot* shooter, Vector2D target);
 
   //removes the last bot to be added
   void RemoveBot();
