@@ -22,7 +22,7 @@ enum message_type
   Msg_GunshotSound,
   Msg_ImUnderAttack,
   Msg_UserHasRemovedBot,
-
+  Msg_GetMyWeaponMate
 };
 
 //used for outputting debug info
@@ -65,6 +65,10 @@ inline std::string MessageToString(int msg)
   case Msg_ImUnderAttack:
 
 	return "Msg_ImUnderAttack";
+  
+  case Msg_GetMyWeaponMate:
+
+	return "Msg_GetMyWeaponMate";
 
   default:
 

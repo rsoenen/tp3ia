@@ -668,7 +668,7 @@ CONST	SEGMENT
 CONST	ENDS
 CONST	SEGMENT
 _pi	DQ	0400921f9f01b866er		; 3.14159
-$SG188749 DB	'StartMap', 00H
+$SG188753 DB	'StartMap', 00H
 	ORG $+3
 _colors	DD	0ffH
 	DD	0ff0000H
@@ -685,17 +685,17 @@ _colors	DD	0ffH
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG191075 DB	'Map has no spawn points!', 00H
+$SG191079 DB	'Map has no spawn points!', 00H
 	ORG $+7
 _SmallestDelay DQ 03fd0000000000000r		; 0.25
 _SEND_MSG_IMMEDIATELY DQ 00000000000000000r	; 0
-$SG191254 DB	'GraveLifetime', 00H
+$SG191258 DB	'GraveLifetime', 00H
 	ORG $+2
-$SG191260 DB	'MaxSearchCyclesPerUpdateStep', 00H
+$SG191264 DB	'MaxSearchCyclesPerUpdateStep', 00H
 	ORG $+3
-$SG191266 DB	'NumBots', 00H
+$SG191270 DB	'NumBots', 00H
 _Pi	DQ	0400921f9f01b866er		; 3.14159
-$SG192300 DB	'Queuing', 00H
+$SG192304 DB	'Queuing', 00H
 CONST	ENDS
 ;	COMDAT ?digits10@?$numeric_limits@E@std@@2HB
 CONST	SEGMENT
@@ -35762,7 +35762,7 @@ $LN3@AddBots:
 ; 265  : 
 ; 266  :     Raven_Bot* rb = new Raven_Bot(this, Vector2D(),equipe,leader);
 
-	push	320					; 00000140H
+	push	328					; 00000148H
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
 	mov	DWORD PTR $T3[ebp], eax
@@ -36045,7 +36045,7 @@ $LN9@LoadMap:
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
 	cmp	DWORD PTR $T6[ebp], 0
 	je	SHORT $LN10@LoadMap
-	push	OFFSET $SG191254
+	push	OFFSET $SG191258
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
@@ -36074,7 +36074,7 @@ $LN11@LoadMap:
 	mov	DWORD PTR __$EHRec$[ebp+8], 1
 	cmp	DWORD PTR $T4[ebp], 0
 	je	SHORT $LN12@LoadMap
-	push	OFFSET $SG191260
+	push	OFFSET $SG191264
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetInt@Scriptor@@QAEHPAD@Z		; Scriptor::GetInt
@@ -36141,7 +36141,7 @@ $LN15@LoadMap:
 ; 438  :   { 
 ; 439  :     AddBots(script->GetInt("NumBots"));
 
-	push	OFFSET $SG191266
+	push	OFFSET $SG191270
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetInt@Scriptor@@QAEHPAD@Z		; Scriptor::GetInt
@@ -37652,7 +37652,7 @@ $LN2@Render:
 
 ; 841  :       gdi->TextAtPos(GetClientCursorPosition(), "Queuing");
 
-	push	OFFSET $SG192300
+	push	OFFSET $SG192304
 	lea	ecx, DWORD PTR $T16[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	BYTE PTR __$EHRec$[ebp+8], 13		; 0000000dH
@@ -38039,7 +38039,7 @@ __$EHRec$ = -12						; size = 12
 ; 47   :   //load in the default map
 ; 48   :   LoadMap(script->GetString("StartMap"));
 
-	push	OFFSET $SG188749
+	push	OFFSET $SG188753
 	lea	eax, DWORD PTR $T2[ebp]
 	push	eax
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
@@ -38329,7 +38329,7 @@ _pBot$ = 8						; size = 4
 ; 208  :   {
 ; 209  :     ErrorBox("Map has no spawn points!"); return false;
 
-	push	OFFSET $SG191075
+	push	OFFSET $SG191079
 	call	?ErrorBox@@YAXPAD@Z			; ErrorBox
 	add	esp, 4
 	xor	al, al

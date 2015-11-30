@@ -674,10 +674,6 @@ CONST	ENDS
 CONST	SEGMENT
 ?unitbuf@?$_Iosb@H@std@@2W4_Fmtflags@12@B DD 02H	; std::_Iosb<int>::unitbuf
 CONST	ENDS
-;	COMDAT ?skipws@?$_Iosb@H@std@@2W4_Fmtflags@12@B
-CONST	SEGMENT
-?skipws@?$_Iosb@H@std@@2W4_Fmtflags@12@B DD 01H		; std::_Iosb<int>::skipws
-CONST	ENDS
 CONST	SEGMENT
 _colors	DD	0ffH
 	DD	0ff0000H
@@ -698,6 +694,10 @@ _colors	DD	0ffH
 _pi	DQ	0400921f9f01b866er		; 3.14159
 _Pi	DQ	0400921f9f01b866er		; 3.14159
 _SmallestDelay DQ 03fd0000000000000r		; 0.25
+CONST	ENDS
+;	COMDAT ?skipws@?$_Iosb@H@std@@2W4_Fmtflags@12@B
+CONST	SEGMENT
+?skipws@?$_Iosb@H@std@@2W4_Fmtflags@12@B DD 01H		; std::_Iosb<int>::skipws
 CONST	ENDS
 ;	COMDAT ?digits10@?$numeric_limits@C@std@@2HB
 CONST	SEGMENT

@@ -24,6 +24,7 @@ public:
 
   Knife(Raven_Bot*   owner);
 
+  void InitializeFuzzyModule();
 
   void  Render();
 

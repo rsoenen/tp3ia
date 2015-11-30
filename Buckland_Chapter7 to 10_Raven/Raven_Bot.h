@@ -46,7 +46,6 @@ protected:
 	bool equipe;
 	bool isLeader;
 
-
 	FuzzyModule m_FuzzyModulePrecision;
   //alive, dead or spawning?
   Status                             m_Status;
@@ -135,6 +134,7 @@ protected:
 
 public:
   
+	bool isimposed;
   Raven_Bot(Raven_Game* world, Vector2D pos, bool equipe, bool leader);
   virtual ~Raven_Bot();
 

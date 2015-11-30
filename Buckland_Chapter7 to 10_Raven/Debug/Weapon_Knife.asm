@@ -490,17 +490,17 @@ _colors	DD	0ffH
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG167819 DB	'Knife_IdealRange', 00H
+$SG167820 DB	'Knife_IdealRange', 00H
 	ORG $+3
 _pi	DQ	0400921f9f01b866er		; 3.14159
 _Pi	DQ	0400921f9f01b866er		; 3.14159
-$SG167818 DB	'Knife_MaxSpeed', 00H
+$SG167819 DB	'Knife_MaxSpeed', 00H
 	ORG $+1
-$SG167820 DB	'Knife_FiringFreq', 00H
+$SG167821 DB	'Knife_FiringFreq', 00H
 	ORG $+3
-$SG167821 DB	'Knife_MaxRoundsCarried', 00H
+$SG167822 DB	'Knife_MaxRoundsCarried', 00H
 	ORG $+1
-$SG167822 DB	'Knife_DefaultRounds', 00H
+$SG167823 DB	'Knife_DefaultRounds', 00H
 CONST	ENDS
 ;	COMDAT ?beg@?$_Iosb@H@std@@2W4_Seekdir@12@B
 CONST	SEGMENT
@@ -1078,6 +1078,7 @@ PUBLIC	??0Raven_Weapon@@QAE@IIINNNPAVRaven_Bot@@@Z	; Raven_Weapon::Raven_Weapon
 PUBLIC	??1Raven_Weapon@@UAE@XZ				; Raven_Weapon::~Raven_Weapon
 PUBLIC	??_GRaven_Weapon@@UAEPAXI@Z			; Raven_Weapon::`scalar deleting destructor'
 PUBLIC	??0Knife@@QAE@PAVRaven_Bot@@@Z			; Knife::Knife
+PUBLIC	?InitializeFuzzyModule@Knife@@UAEXXZ		; Knife::InitializeFuzzyModule
 PUBLIC	?Render@Knife@@UAEXXZ				; Knife::Render
 PUBLIC	?ShootAt@Knife@@UAEXUVector2D@@@Z		; Knife::ShootAt
 PUBLIC	?GetDesirability@Knife@@UAENN@Z			; Knife::GetDesirability
@@ -2221,7 +2222,7 @@ CONST	ENDS
 ;	COMDAT ??_7Knife@@6B@
 CONST	SEGMENT
 ??_7Knife@@6B@ DD FLAT:??_R4Knife@@6B@			; Knife::`vftable'
-	DD	FLAT:__purecall
+	DD	FLAT:?InitializeFuzzyModule@Knife@@UAEXXZ
 	DD	FLAT:??_EKnife@@UAEPAXI@Z
 	DD	FLAT:?ShootAt@Knife@@UAEXUVector2D@@@Z
 	DD	FLAT:?Render@Knife@@UAEXXZ
@@ -12565,7 +12566,7 @@ __$EHRec$ = -12						; size = 12
 ?Render@Knife@@UAEXXZ PROC				; Knife::Render
 ; _this$ = ecx
 
-; 77   : {
+; 82   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -12588,11 +12589,11 @@ __$EHRec$ = -12						; size = 12
 	mov	DWORD PTR fs:0, eax
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 78   :    m_vecWeaponVBTrans = WorldTransform(m_vecWeaponVB,
-; 79   :                                    m_pOwner->Pos(),
-; 80   :                                    m_pOwner->Facing(),
-; 81   :                                    m_pOwner->Facing().Perp(),
-; 82   :                                    m_pOwner->Scale());
+; 83   :    m_vecWeaponVBTrans = WorldTransform(m_vecWeaponVB,
+; 84   :                                    m_pOwner->Pos(),
+; 85   :                                    m_pOwner->Facing(),
+; 86   :                                    m_pOwner->Facing().Perp(),
+; 87   :                                    m_pOwner->Scale());
 
 	lea	eax, DWORD PTR $T7[ebp]
 	push	eax
@@ -12642,15 +12643,15 @@ __$EHRec$ = -12						; size = 12
 	lea	ecx, DWORD PTR $T2[ebp]
 	call	??1?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@QAE@XZ ; std::vector<Vector2D,std::allocator<Vector2D> >::~vector<Vector2D,std::allocator<Vector2D> >
 
-; 83   : 
-; 84   :   gdi->BlackPen();
+; 88   : 
+; 89   :   gdi->BlackPen();
 
 	call	?Instance@Cgdi@@SAPAV1@XZ		; Cgdi::Instance
 	mov	ecx, eax
 	call	?BlackPen@Cgdi@@QAEXXZ			; Cgdi::BlackPen
 
-; 85   : 
-; 86   :   gdi->ClosedShape(m_vecWeaponVBTrans);
+; 90   : 
+; 91   :   gdi->ClosedShape(m_vecWeaponVBTrans);
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 112				; 00000070H
@@ -12659,7 +12660,7 @@ __$EHRec$ = -12						; size = 12
 	mov	ecx, eax
 	call	?ClosedShape@Cgdi@@QAEXABV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@@Z ; Cgdi::ClosedShape
 
-; 87   : }
+; 92   : }
 
 	mov	ecx, DWORD PTR __$EHRec$[ebp]
 	mov	DWORD PTR fs:0, ecx
@@ -12686,6 +12687,31 @@ __ehhandler$?Render@Knife@@UAEXXZ:
 	jmp	___CxxFrameHandler3
 text$x	ENDS
 ?Render@Knife@@UAEXXZ ENDP				; Knife::Render
+; Function compile flags: /Odtp /RTCsu
+; File c:\users\romain s\documents\workspace\workspace_ia\tp3ia\buckland_chapter7 to 10_raven\armory\weapon_knife.cpp
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+?InitializeFuzzyModule@Knife@@UAEXXZ PROC		; Knife::InitializeFuzzyModule
+; _this$ = ecx
+
+; 73   : {
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 74   :   
+; 75   : 
+; 76   :   
+; 77   : }
+
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?InitializeFuzzyModule@Knife@@UAEXXZ ENDP		; Knife::InitializeFuzzyModule
+_TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File c:\users\romain s\documents\workspace\workspace_ia\tp3ia\buckland_chapter7 to 10_raven\armory\weapon_knife.cpp
 _TEXT	SEGMENT
@@ -12724,12 +12750,6 @@ _owner$ = 8						; size = 4
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	eax, DWORD PTR _owner$[ebp]
 	push	eax
-	push	OFFSET $SG167818
-	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
-	mov	ecx, eax
-	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
-	sub	esp, 8
-	fstp	QWORD PTR [esp]
 	push	OFFSET $SG167819
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
@@ -12745,9 +12765,15 @@ _owner$ = 8						; size = 4
 	push	OFFSET $SG167821
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
+	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
+	sub	esp, 8
+	fstp	QWORD PTR [esp]
+	push	OFFSET $SG167822
+	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
+	mov	ecx, eax
 	call	?GetInt@Scriptor@@QAEHPAD@Z		; Scriptor::GetInt
 	push	eax
-	push	OFFSET $SG167822
+	push	OFFSET $SG167823
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetInt@Scriptor@@QAEHPAD@Z		; Scriptor::GetInt
@@ -12839,7 +12865,11 @@ $LN3@Knife:
 	jmp	SHORT $LN2@Knife
 $LN1@Knife:
 
-; 35   : 
+; 35   :   InitializeFuzzyModule();
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?InitializeFuzzyModule@Knife@@UAEXXZ	; Knife::InitializeFuzzyModule
+
 ; 36   : }
 
 	mov	DWORD PTR __$EHRec$[ebp+8], -1

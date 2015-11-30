@@ -790,8 +790,25 @@ CONST	ENDS
 CONST	SEGMENT
 ?digits@?$numeric_limits@_W@std@@2HB DD 010H		; std::numeric_limits<wchar_t>::digits
 CONST	ENDS
+;	COMDAT ?is_signed@?$numeric_limits@_W@std@@2_NB
 CONST	SEGMENT
-$SG169996 DB	'Rocket_ExplosionDecayRate', 00H
+?is_signed@?$numeric_limits@_W@std@@2_NB DB 00H		; std::numeric_limits<wchar_t>::is_signed
+CONST	ENDS
+CONST	SEGMENT
+$SG169984 DB	'Nade_BlastRadius', 00H
+	ORG $+3
+$SG169987 DB	'a', 00H, 'r', 00H, 'm', 00H, 'o', 00H, 'r', 00H, 'y', 00H
+	DB	'\', 00H, 'P', 00H, 'r', 00H, 'o', 00H, 'j', 00H, 'e', 00H, 'c'
+	DB	00H, 't', 00H, 'i', 00H, 'l', 00H, 'e', 00H, '_', 00H, 'N', 00H
+	DB	'a', 00H, 'd', 00H, 'e', 00H, '.', 00H, 'c', 00H, 'p', 00H, 'p'
+	DB	00H, 00H, 00H
+	ORG $+2
+$SG169988 DB	't', 00H, 'a', 00H, 'r', 00H, 'g', 00H, 'e', 00H, 't', 00H
+	DB	' ', 00H, '!', 00H, '=', 00H, ' ', 00H, 'V', 00H, 'e', 00H, 'c'
+	DB	00H, 't', 00H, 'o', 00H, 'r', 00H, '2', 00H, 'D', 00H, '(', 00H
+	DB	')', 00H, 00H, 00H
+	ORG $+2
+$SG170002 DB	'Rocket_ExplosionDecayRate', 00H
 	ORG $+6
 _SmallestDelay DQ 03fd0000000000000r		; 0.25
 _SEND_MSG_IMMEDIATELY DQ 00000000000000000r	; 0
@@ -812,31 +829,15 @@ _colors	DD	0ffH
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG169973 DB	'Nade_MaxForce', 00H
+$SG169979 DB	'Nade_MaxForce', 00H
 	ORG $+2
-$SG169974 DB	'Nade_Mass', 00H
+$SG169980 DB	'Nade_Mass', 00H
 	ORG $+2
-$SG169975 DB	'Nade_MaxSpeed', 00H
+$SG169981 DB	'Nade_MaxSpeed', 00H
 	ORG $+2
-$SG169976 DB	'Nade_Scale', 00H
+$SG169982 DB	'Nade_Scale', 00H
 	ORG $+1
-$SG169977 DB	'Nade_Damage', 00H
-$SG169978 DB	'Nade_BlastRadius', 00H
-	ORG $+3
-$SG169981 DB	'a', 00H, 'r', 00H, 'm', 00H, 'o', 00H, 'r', 00H, 'y', 00H
-	DB	'\', 00H, 'P', 00H, 'r', 00H, 'o', 00H, 'j', 00H, 'e', 00H, 'c'
-	DB	00H, 't', 00H, 'i', 00H, 'l', 00H, 'e', 00H, '_', 00H, 'N', 00H
-	DB	'a', 00H, 'd', 00H, 'e', 00H, '.', 00H, 'c', 00H, 'p', 00H, 'p'
-	DB	00H, 00H, 00H
-	ORG $+2
-$SG169982 DB	't', 00H, 'a', 00H, 'r', 00H, 'g', 00H, 'e', 00H, 't', 00H
-	DB	' ', 00H, '!', 00H, '=', 00H, ' ', 00H, 'V', 00H, 'e', 00H, 'c'
-	DB	00H, 't', 00H, 'o', 00H, 'r', 00H, '2', 00H, 'D', 00H, '(', 00H
-	DB	')', 00H, 00H, 00H
-CONST	ENDS
-;	COMDAT ?is_signed@?$numeric_limits@_W@std@@2_NB
-CONST	SEGMENT
-?is_signed@?$numeric_limits@_W@std@@2_NB DB 00H		; std::numeric_limits<wchar_t>::is_signed
+$SG169983 DB	'Nade_Damage', 00H
 CONST	ENDS
 PUBLIC	?length@?$char_traits@D@std@@SAIPBD@Z		; std::char_traits<char>::length
 PUBLIC	?copy@?$char_traits@D@std@@SAPADPADPBDI@Z	; std::char_traits<char>::copy
@@ -4861,7 +4862,7 @@ _this$ = -4						; size = 4
 ?GetAllBots@Raven_Game@@QBEABV?$list@PAVRaven_Bot@@V?$allocator@PAVRaven_Bot@@@std@@@std@@XZ PROC ; Raven_Game::GetAllBots, COMDAT
 ; _this$ = ecx
 
-; 163  :   const std::list<Raven_Bot*>&             GetAllBots()const{return m_Bots;}
+; 164  :   const std::list<Raven_Bot*>&             GetAllBots()const{return m_Bots;}
 
 	push	ebp
 	mov	ebp, esp
@@ -4883,7 +4884,7 @@ _this$ = -4						; size = 4
 ?GetMap@Raven_Game@@QAEQAVRaven_Map@@XZ PROC		; Raven_Game::GetMap, COMDAT
 ; _this$ = ecx
 
-; 162  :   Raven_Map* const                         GetMap(){return m_pMap;}
+; 163  :   Raven_Map* const                         GetMap(){return m_pMap;}
 
 	push	ebp
 	mov	ebp, esp
@@ -6079,7 +6080,7 @@ $LN3@Update:
 ; 54   :   {
 ; 55   :     m_dCurrentBlastRadius += script->GetDouble("Rocket_ExplosionDecayRate");
 
-	push	OFFSET $SG169996
+	push	OFFSET $SG170002
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
@@ -6270,31 +6271,31 @@ _target$ = 12						; size = 16
 	lea	eax, DWORD PTR __$EHRec$[ebp]
 	mov	DWORD PTR fs:0, eax
 	mov	DWORD PTR _this$[ebp], ecx
-	push	OFFSET $SG169973
+	push	OFFSET $SG169979
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
 	sub	esp, 8
 	fstp	QWORD PTR [esp]
-	push	OFFSET $SG169974
+	push	OFFSET $SG169980
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
 	sub	esp, 8
 	fstp	QWORD PTR [esp]
-	push	OFFSET $SG169975
+	push	OFFSET $SG169981
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
 	sub	esp, 8
 	fstp	QWORD PTR [esp]
-	push	OFFSET $SG169976
+	push	OFFSET $SG169982
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
 	sub	esp, 8
 	fstp	QWORD PTR [esp]
-	push	OFFSET $SG169977
+	push	OFFSET $SG169983
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetInt@Scriptor@@QAEHPAD@Z		; Scriptor::GetInt
@@ -6348,7 +6349,7 @@ _target$ = 12						; size = 16
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx], OFFSET ??_7Nade@@6B@
-	push	OFFSET $SG169978
+	push	OFFSET $SG169984
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
@@ -6369,8 +6370,8 @@ _target$ = 12						; size = 16
 	test	ecx, ecx
 	jne	SHORT $LN3@Nade
 	push	32					; 00000020H
-	push	OFFSET $SG169981
-	push	OFFSET $SG169982
+	push	OFFSET $SG169987
+	push	OFFSET $SG169988
 	call	__wassert
 	add	esp, 12					; 0000000cH
 $LN3@Nade:

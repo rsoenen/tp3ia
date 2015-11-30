@@ -456,9 +456,11 @@ CONST	SEGMENT
 CONST	ENDS
 CONST	SEGMENT
 _pi	DQ	0400921f9f01b866er		; 3.14159
-$SG158358 DB	'DefaultGiverTriggerRange', 00H
+$SG158365 DB	'DefaultGiverTriggerRange', 00H
 	ORG $+3
-$SG158360 DB	'Weapon_RespawnDelay', 00H
+$SG158367 DB	'Weapon_RespawnDelay', 00H
+$SG158386 DB	'DefaultGiverTriggerRange', 00H
+	ORG $+3
 _colors	DD	0ffH
 	DD	0ff0000H
 	DD	0ff00H
@@ -474,7 +476,6 @@ _colors	DD	0ffH
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-	ORG $+4
 _Pi	DQ	0400921f9f01b866er		; 3.14159
 CONST	ENDS
 ;	COMDAT ?_Nocreate@?$_Iosb@H@std@@2W4_Openmode@12@B
@@ -1146,6 +1147,7 @@ PUBLIC	?Update@?$Trigger_Respawning@VRaven_Bot@@@@UAEXXZ ; Trigger_Respawning<Ra
 PUBLIC	?SetRespawnDelay@?$Trigger_Respawning@VRaven_Bot@@@@QAEXI@Z ; Trigger_Respawning<Raven_Bot>::SetRespawnDelay
 PUBLIC	??_G?$Trigger_Respawning@VRaven_Bot@@@@UAEPAXI@Z ; Trigger_Respawning<Raven_Bot>::`scalar deleting destructor'
 PUBLIC	??0Trigger_WeaponGiver@@QAE@AAV?$basic_ifstream@DU?$char_traits@D@std@@@std@@@Z ; Trigger_WeaponGiver::Trigger_WeaponGiver
+PUBLIC	?WeaponMate@Trigger_WeaponGiver@@QAEX_NHHHH@Z	; Trigger_WeaponGiver::WeaponMate
 PUBLIC	?Try@Trigger_WeaponGiver@@UAEXPAVRaven_Bot@@@Z	; Trigger_WeaponGiver::Try
 PUBLIC	?Render@Trigger_WeaponGiver@@UAEXXZ		; Trigger_WeaponGiver::Render
 PUBLIC	?Read@Trigger_WeaponGiver@@UAEXAAV?$basic_ifstream@DU?$char_traits@D@std@@@std@@@Z ; Trigger_WeaponGiver::Read
@@ -22986,7 +22988,7 @@ _in$ = 8						; size = 4
 ; 62   :   //create this trigger's region of fluence
 ; 63   :   AddCircularTriggerRegion(Pos(), script->GetDouble("DefaultGiverTriggerRange"));
 
-	push	OFFSET $SG158358
+	push	OFFSET $SG158365
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
@@ -23013,7 +23015,7 @@ _in$ = 8						; size = 4
 ; 65   : 
 ; 66   :   SetRespawnDelay((unsigned int)(script->GetDouble("Weapon_RespawnDelay") * FrameRate));
 
-	push	OFFSET $SG158360
+	push	OFFSET $SG158367
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
@@ -23125,7 +23127,7 @@ __$EHRec$ = -12						; size = 12
 ?Render@Trigger_WeaponGiver@@UAEXXZ PROC		; Trigger_WeaponGiver::Render
 ; _this$ = ecx
 
-; 72   : {
+; 105  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -23148,7 +23150,7 @@ __$EHRec$ = -12						; size = 12
 	mov	DWORD PTR fs:0, eax
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 73   :   if (isActive())
+; 106  :   if (isActive())
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?isActive@?$Trigger@VRaven_Bot@@@@QAE_NXZ ; Trigger<Raven_Bot>::isActive
@@ -23156,8 +23158,8 @@ __$EHRec$ = -12						; size = 12
 	test	eax, eax
 	je	$LN5@Render
 
-; 74   :   {
-; 75   :     switch (EntityType())
+; 107  :   {
+; 108  :     switch (EntityType())
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?EntityType@BaseGameEntity@@QBEHXZ	; BaseGameEntity::EntityType
@@ -23171,22 +23173,22 @@ __$EHRec$ = -12						; size = 12
 	jmp	DWORD PTR $LN15@Render[edx*4]
 $LN4@Render:
 
-; 76   :     {
-; 77   :       case type_rail_gun:
-; 78   :         {
-; 79   :           gdi->BluePen();
+; 109  :     {
+; 110  :       case type_rail_gun:
+; 111  :         {
+; 112  :           gdi->BluePen();
 
 	call	?Instance@Cgdi@@SAPAV1@XZ		; Cgdi::Instance
 	mov	ecx, eax
 	call	?BluePen@Cgdi@@QAEXXZ			; Cgdi::BluePen
 
-; 80   :           gdi->BlueBrush();
+; 113  :           gdi->BlueBrush();
 
 	call	?Instance@Cgdi@@SAPAV1@XZ		; Cgdi::Instance
 	mov	ecx, eax
 	call	?BlueBrush@Cgdi@@QAEXXZ			; Cgdi::BlueBrush
 
-; 81   :           gdi->Circle(Pos(), 3);
+; 114  :           gdi->Circle(Pos(), 3);
 
 	sub	esp, 8
 	movsd	xmm0, QWORD PTR __real@4008000000000000
@@ -23209,13 +23211,13 @@ $LN4@Render:
 	mov	ecx, eax
 	call	?Circle@Cgdi@@QAEXUVector2D@@N@Z	; Cgdi::Circle
 
-; 82   :           gdi->ThickBluePen();
+; 115  :           gdi->ThickBluePen();
 
 	call	?Instance@Cgdi@@SAPAV1@XZ		; Cgdi::Instance
 	mov	ecx, eax
 	call	?ThickBluePen@Cgdi@@QAEXXZ		; Cgdi::ThickBluePen
 
-; 83   :           gdi->Line(Pos(), Vector2D(Pos().x, Pos().y-9));
+; 116  :           gdi->Line(Pos(), Vector2D(Pos().x, Pos().y-9));
 
 	lea	ecx, DWORD PTR $T16[ebp]
 	push	ecx
@@ -23262,34 +23264,34 @@ $LN4@Render:
 	mov	ecx, eax
 	call	?Line@Cgdi@@QAEXUVector2D@@0@Z		; Cgdi::Line
 
-; 84   :         }
-; 85   : 
-; 86   :         break;
+; 117  :         }
+; 118  : 
+; 119  :         break;
 
 	jmp	$LN5@Render
 $LN3@Render:
 
-; 87   : 
-; 88   :       case type_shotgun:
-; 89   :         {
-; 90   :           gdi->BlackBrush();
+; 120  : 
+; 121  :       case type_shotgun:
+; 122  :         {
+; 123  :           gdi->BlackBrush();
 
 	call	?Instance@Cgdi@@SAPAV1@XZ		; Cgdi::Instance
 	mov	ecx, eax
 	call	?BlackBrush@Cgdi@@QAEXXZ		; Cgdi::BlackBrush
 
-; 91   :           gdi->BrownPen();
+; 124  :           gdi->BrownPen();
 
 	call	?Instance@Cgdi@@SAPAV1@XZ		; Cgdi::Instance
 	mov	ecx, eax
 	call	?BrownPen@Cgdi@@QAEXXZ			; Cgdi::BrownPen
 
-; 92   :           const double sz = 3.0;
+; 125  :           const double sz = 3.0;
 
 	movsd	xmm0, QWORD PTR __real@4008000000000000
 	movsd	QWORD PTR _sz$21[ebp], xmm0
 
-; 93   :           gdi->Circle(Pos().x-sz,Pos().y, sz);
+; 126  :           gdi->Circle(Pos().x-sz,Pos().y, sz);
 
 	sub	esp, 8
 	movsd	xmm0, QWORD PTR _sz$21[ebp]
@@ -23313,7 +23315,7 @@ $LN3@Render:
 	mov	ecx, eax
 	call	?Circle@Cgdi@@QAEXNNN@Z			; Cgdi::Circle
 
-; 94   :           gdi->Circle(Pos().x+sz,Pos().y, sz);
+; 127  :           gdi->Circle(Pos().x+sz,Pos().y, sz);
 
 	sub	esp, 8
 	movsd	xmm0, QWORD PTR _sz$21[ebp]
@@ -23337,34 +23339,34 @@ $LN3@Render:
 	mov	ecx, eax
 	call	?Circle@Cgdi@@QAEXNNN@Z			; Cgdi::Circle
 
-; 95   :         }
-; 96   : 
-; 97   :         break;
+; 128  :         }
+; 129  : 
+; 130  :         break;
 
 	jmp	$LN5@Render
 $LN2@Render:
 
-; 98   : 
-; 99   : 		case type_grenade:
-; 100  :         {
-; 101  : 		  gdi->GreenBrush();
+; 131  : 
+; 132  : 		case type_grenade:
+; 133  :         {
+; 134  : 		  gdi->GreenBrush();
 
 	call	?Instance@Cgdi@@SAPAV1@XZ		; Cgdi::Instance
 	mov	ecx, eax
 	call	?GreenBrush@Cgdi@@QAEXXZ		; Cgdi::GreenBrush
 
-; 102  :           gdi->BrownPen();
+; 135  :           gdi->BrownPen();
 
 	call	?Instance@Cgdi@@SAPAV1@XZ		; Cgdi::Instance
 	mov	ecx, eax
 	call	?BrownPen@Cgdi@@QAEXXZ			; Cgdi::BrownPen
 
-; 103  :           const double sz = 3.0;
+; 136  :           const double sz = 3.0;
 
 	movsd	xmm0, QWORD PTR __real@4008000000000000
 	movsd	QWORD PTR _sz$20[ebp], xmm0
 
-; 104  :           gdi->Circle(Pos().x,Pos().y+2.5, sz);
+; 137  :           gdi->Circle(Pos().x,Pos().y+2.5, sz);
 
 	sub	esp, 8
 	movsd	xmm0, QWORD PTR _sz$20[ebp]
@@ -23388,7 +23390,7 @@ $LN2@Render:
 	mov	ecx, eax
 	call	?Circle@Cgdi@@QAEXNNN@Z			; Cgdi::Circle
 
-; 105  :           gdi->Circle(Pos().x,Pos().y-2, 1.5);
+; 138  :           gdi->Circle(Pos().x,Pos().y-2, 1.5);
 
 	sub	esp, 8
 	movsd	xmm0, QWORD PTR __real@3ff8000000000000
@@ -23412,18 +23414,18 @@ $LN2@Render:
 	mov	ecx, eax
 	call	?Circle@Cgdi@@QAEXNNN@Z			; Cgdi::Circle
 
-; 106  :          
-; 107  :         }
-; 108  : 
-; 109  :         break;
+; 139  :          
+; 140  :         }
+; 141  : 
+; 142  :         break;
 
 	jmp	$LN5@Render
 $LN1@Render:
 
-; 110  :       case type_rocket_launcher:
-; 111  :         {
-; 112  : 
-; 113  :            Vector2D facing(-1,0);
+; 143  :       case type_rocket_launcher:
+; 144  :         {
+; 145  : 
+; 146  :            Vector2D facing(-1,0);
 
 	sub	esp, 8
 	movsd	xmm0, QWORD PTR __real@0000000000000000
@@ -23434,12 +23436,12 @@ $LN1@Render:
 	lea	ecx, DWORD PTR _facing$19[ebp]
 	call	??0Vector2D@@QAE@NN@Z			; Vector2D::Vector2D
 
-; 114  : 
-; 115  :            m_vecRLVBTrans = WorldTransform(m_vecRLVB,
-; 116  :                                           Pos(),
-; 117  :                                           facing,
-; 118  :                                           facing.Perp(),
-; 119  :                                           Vector2D(2.5,2.5));
+; 147  : 
+; 148  :            m_vecRLVBTrans = WorldTransform(m_vecRLVB,
+; 149  :                                           Pos(),
+; 150  :                                           facing,
+; 151  :                                           facing.Perp(),
+; 152  :                                           Vector2D(2.5,2.5));
 
 	sub	esp, 8
 	movsd	xmm0, QWORD PTR __real@4004000000000000
@@ -23482,14 +23484,14 @@ $LN1@Render:
 	lea	ecx, DWORD PTR $T2[ebp]
 	call	??1?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@QAE@XZ ; std::vector<Vector2D,std::allocator<Vector2D> >::~vector<Vector2D,std::allocator<Vector2D> >
 
-; 120  : 
-; 121  :             gdi->RedPen();
+; 153  : 
+; 154  :             gdi->RedPen();
 
 	call	?Instance@Cgdi@@SAPAV1@XZ		; Cgdi::Instance
 	mov	ecx, eax
 	call	?RedPen@Cgdi@@QAEXXZ			; Cgdi::RedPen
 
-; 122  :             gdi->ClosedShape(m_vecRLVBTrans);
+; 155  :             gdi->ClosedShape(m_vecRLVBTrans);
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 104				; 00000068H
@@ -23499,13 +23501,13 @@ $LN1@Render:
 	call	?ClosedShape@Cgdi@@QAEXABV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@@Z ; Cgdi::ClosedShape
 $LN5@Render:
 
-; 123  :         }
-; 124  :       
-; 125  :         break;
-; 126  : 
-; 127  :     }//end switch
-; 128  :   }
-; 129  : }
+; 156  :         }
+; 157  :       
+; 158  :         break;
+; 159  : 
+; 160  :     }//end switch
+; 161  :   }
+; 162  : }
 
 	push	edx
 	mov	ecx, ebp
@@ -23646,6 +23648,266 @@ $LN1@Try:
 	pop	ebp
 	ret	4
 ?Try@Trigger_WeaponGiver@@UAEXPAVRaven_Bot@@@Z ENDP	; Trigger_WeaponGiver::Try
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File c:\users\romain s\documents\workspace\workspace_ia\tp3ia\buckland_chapter7 to 10_raven\triggers\trigger_weapongiver.cpp
+_TEXT	SEGMENT
+$T1 = -64						; size = 16
+$T2 = -48						; size = 16
+_r$ = -32						; size = 4
+_posSpawn$ = -24					; size = 16
+_this$ = -4						; size = 4
+_equipe$ = 8						; size = 1
+_projectileNade$ = 12					; size = 4
+_projectilePellet$ = 16					; size = 4
+_projectileRocket$ = 20					; size = 4
+_projectileSlug$ = 24					; size = 4
+?WeaponMate@Trigger_WeaponGiver@@QAEX_NHHHH@Z PROC	; Trigger_WeaponGiver::WeaponMate
+; _this$ = ecx
+
+; 71   : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 64					; 00000040H
+	push	edi
+	push	ecx
+	lea	edi, DWORD PTR [ebp-64]
+	mov	ecx, 16					; 00000010H
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+	pop	ecx
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 72   : 	Vector2D posSpawn=Vector2D(0,0);
+
+	sub	esp, 8
+	movsd	xmm0, QWORD PTR __real@0000000000000000
+	movsd	QWORD PTR [esp], xmm0
+	sub	esp, 8
+	movsd	xmm0, QWORD PTR __real@0000000000000000
+	movsd	QWORD PTR [esp], xmm0
+	lea	ecx, DWORD PTR _posSpawn$[ebp]
+	call	??0Vector2D@@QAE@NN@Z			; Vector2D::Vector2D
+
+; 73   : 	if (equipe){
+
+	movzx	eax, BYTE PTR _equipe$[ebp]
+	test	eax, eax
+	je	SHORT $LN5@WeaponMate
+
+; 74   : 		posSpawn=Vector2D(0,0);
+
+	sub	esp, 8
+	movsd	xmm0, QWORD PTR __real@0000000000000000
+	movsd	QWORD PTR [esp], xmm0
+	sub	esp, 8
+	movsd	xmm0, QWORD PTR __real@0000000000000000
+	movsd	QWORD PTR [esp], xmm0
+	lea	ecx, DWORD PTR $T2[ebp]
+	call	??0Vector2D@@QAE@NN@Z			; Vector2D::Vector2D
+	mov	ecx, DWORD PTR [eax]
+	mov	DWORD PTR _posSpawn$[ebp], ecx
+	mov	edx, DWORD PTR [eax+4]
+	mov	DWORD PTR _posSpawn$[ebp+4], edx
+	mov	ecx, DWORD PTR [eax+8]
+	mov	DWORD PTR _posSpawn$[ebp+8], ecx
+	mov	edx, DWORD PTR [eax+12]
+	mov	DWORD PTR _posSpawn$[ebp+12], edx
+$LN5@WeaponMate:
+
+; 75   : 	}
+; 76   : 	int r=7;
+
+	mov	DWORD PTR _r$[ebp], 7
+
+; 77   : 	if (projectileNade>1){
+
+	cmp	DWORD PTR _projectileNade$[ebp], 1
+	jle	SHORT $LN4@WeaponMate
+
+; 78   : 		SetPos(posSpawn);
+
+	sub	esp, 16					; 00000010H
+	mov	eax, esp
+	mov	ecx, DWORD PTR _posSpawn$[ebp]
+	mov	DWORD PTR [eax], ecx
+	mov	edx, DWORD PTR _posSpawn$[ebp+4]
+	mov	DWORD PTR [eax+4], edx
+	mov	ecx, DWORD PTR _posSpawn$[ebp+8]
+	mov	DWORD PTR [eax+8], ecx
+	mov	edx, DWORD PTR _posSpawn$[ebp+12]
+	mov	DWORD PTR [eax+12], edx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?SetPos@BaseGameEntity@@QAEXUVector2D@@@Z ; BaseGameEntity::SetPos
+
+; 79   : 		SetBRadius(r);
+
+	cvtsi2sd xmm0, DWORD PTR _r$[ebp]
+	sub	esp, 8
+	movsd	QWORD PTR [esp], xmm0
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?SetBRadius@BaseGameEntity@@QAEXN@Z	; BaseGameEntity::SetBRadius
+$LN4@WeaponMate:
+
+; 80   : 	}
+; 81   : 	if (projectileRocket>14){
+
+	cmp	DWORD PTR _projectileRocket$[ebp], 14	; 0000000eH
+	jle	SHORT $LN3@WeaponMate
+
+; 82   : 		SetPos(posSpawn);
+
+	sub	esp, 16					; 00000010H
+	mov	eax, esp
+	mov	ecx, DWORD PTR _posSpawn$[ebp]
+	mov	DWORD PTR [eax], ecx
+	mov	edx, DWORD PTR _posSpawn$[ebp+4]
+	mov	DWORD PTR [eax+4], edx
+	mov	ecx, DWORD PTR _posSpawn$[ebp+8]
+	mov	DWORD PTR [eax+8], ecx
+	mov	edx, DWORD PTR _posSpawn$[ebp+12]
+	mov	DWORD PTR [eax+12], edx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?SetPos@BaseGameEntity@@QAEXUVector2D@@@Z ; BaseGameEntity::SetPos
+
+; 83   : 		SetBRadius(r);
+
+	cvtsi2sd xmm0, DWORD PTR _r$[ebp]
+	sub	esp, 8
+	movsd	QWORD PTR [esp], xmm0
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?SetBRadius@BaseGameEntity@@QAEXN@Z	; BaseGameEntity::SetBRadius
+$LN3@WeaponMate:
+
+; 84   : 	}
+; 85   : 	if (projectilePellet>14){
+
+	cmp	DWORD PTR _projectilePellet$[ebp], 14	; 0000000eH
+	jle	SHORT $LN2@WeaponMate
+
+; 86   : 		SetPos(posSpawn);
+
+	sub	esp, 16					; 00000010H
+	mov	eax, esp
+	mov	ecx, DWORD PTR _posSpawn$[ebp]
+	mov	DWORD PTR [eax], ecx
+	mov	edx, DWORD PTR _posSpawn$[ebp+4]
+	mov	DWORD PTR [eax+4], edx
+	mov	ecx, DWORD PTR _posSpawn$[ebp+8]
+	mov	DWORD PTR [eax+8], ecx
+	mov	edx, DWORD PTR _posSpawn$[ebp+12]
+	mov	DWORD PTR [eax+12], edx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?SetPos@BaseGameEntity@@QAEXUVector2D@@@Z ; BaseGameEntity::SetPos
+
+; 87   : 		SetBRadius(r);
+
+	cvtsi2sd xmm0, DWORD PTR _r$[ebp]
+	sub	esp, 8
+	movsd	QWORD PTR [esp], xmm0
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?SetBRadius@BaseGameEntity@@QAEXN@Z	; BaseGameEntity::SetBRadius
+$LN2@WeaponMate:
+
+; 88   : 	}
+; 89   : 	if (projectileSlug>14){
+
+	cmp	DWORD PTR _projectileSlug$[ebp], 14	; 0000000eH
+	jle	SHORT $LN1@WeaponMate
+
+; 90   : 		SetPos(posSpawn);
+
+	sub	esp, 16					; 00000010H
+	mov	eax, esp
+	mov	ecx, DWORD PTR _posSpawn$[ebp]
+	mov	DWORD PTR [eax], ecx
+	mov	edx, DWORD PTR _posSpawn$[ebp+4]
+	mov	DWORD PTR [eax+4], edx
+	mov	ecx, DWORD PTR _posSpawn$[ebp+8]
+	mov	DWORD PTR [eax+8], ecx
+	mov	edx, DWORD PTR _posSpawn$[ebp+12]
+	mov	DWORD PTR [eax+12], edx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?SetPos@BaseGameEntity@@QAEXUVector2D@@@Z ; BaseGameEntity::SetPos
+
+; 91   : 		SetBRadius(r);
+
+	cvtsi2sd xmm0, DWORD PTR _r$[ebp]
+	sub	esp, 8
+	movsd	QWORD PTR [esp], xmm0
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?SetBRadius@BaseGameEntity@@QAEXN@Z	; BaseGameEntity::SetBRadius
+$LN1@WeaponMate:
+
+; 92   : 	}
+; 93   : 
+; 94   : 
+; 95   :   //SetPos(Vector2D(x,y)); 
+; 96   :   //SetBRadius(r);
+; 97   : 
+; 98   :   //create this trigger's region of fluence
+; 99   :   AddCircularTriggerRegion(Pos(), script->GetDouble("DefaultGiverTriggerRange"));
+
+	push	OFFSET $SG158386
+	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
+	mov	ecx, eax
+	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
+	sub	esp, 8
+	fstp	QWORD PTR [esp]
+	lea	eax, DWORD PTR $T1[ebp]
+	push	eax
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?Pos@BaseGameEntity@@QBE?AUVector2D@@XZ	; BaseGameEntity::Pos
+	sub	esp, 16					; 00000010H
+	mov	ecx, esp
+	mov	edx, DWORD PTR [eax]
+	mov	DWORD PTR [ecx], edx
+	mov	edx, DWORD PTR [eax+4]
+	mov	DWORD PTR [ecx+4], edx
+	mov	edx, DWORD PTR [eax+8]
+	mov	DWORD PTR [ecx+8], edx
+	mov	eax, DWORD PTR [eax+12]
+	mov	DWORD PTR [ecx+12], eax
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?AddCircularTriggerRegion@?$Trigger@VRaven_Bot@@@@IAEXUVector2D@@N@Z ; Trigger<Raven_Bot>::AddCircularTriggerRegion
+
+; 100  : 
+; 101  : }
+
+	push	edx
+	mov	ecx, ebp
+	push	eax
+	lea	edx, DWORD PTR $LN10@WeaponMate
+	call	@_RTC_CheckStackVars@8
+	pop	eax
+	pop	edx
+	pop	edi
+	add	esp, 64					; 00000040H
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	20					; 00000014H
+	npad	3
+$LN10@WeaponMate:
+	DD	1
+	DD	$LN9@WeaponMate
+$LN9@WeaponMate:
+	DD	-24					; ffffffe8H
+	DD	16					; 00000010H
+	DD	$LN8@WeaponMate
+$LN8@WeaponMate:
+	DB	112					; 00000070H
+	DB	111					; 0000006fH
+	DB	115					; 00000073H
+	DB	83					; 00000053H
+	DB	112					; 00000070H
+	DB	97					; 00000061H
+	DB	119					; 00000077H
+	DB	110					; 0000006eH
+	DB	0
+?WeaponMate@Trigger_WeaponGiver@@QAEX_NHHHH@Z ENDP	; Trigger_WeaponGiver::WeaponMate
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File c:\users\romain s\documents\workspace\workspace_ia\tp3ia\buckland_chapter7 to 10_raven\triggers\trigger_weapongiver.cpp

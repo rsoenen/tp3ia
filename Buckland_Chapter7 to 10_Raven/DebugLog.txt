@@ -74,8 +74,5 @@ Creating a grenade
 Creating a rocket_launcher
 Creating a Spawn Point
 maps/Raven_DM1.map loaded okay
+BOT 404 IS STUCK!!
 BOT 402 IS STUCK!!
-deleting raven bot (id = 401)
-deleting raven bot (id = 402)
-deleting raven bot (id = 403)
-deleting raven bot (id = 404)

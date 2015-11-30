@@ -32,7 +32,7 @@ Knife::Knife(Raven_Bot*   owner):
   {
     m_vecWeaponVB.push_back(weapon[vtx]);
   }
-
+  InitializeFuzzyModule();
 }
 
 
@@ -69,7 +69,12 @@ double Knife::GetDesirability(double DistToTarget)
 //
 //  set up some fuzzy variables and rules
 //-----------------------------------------------------------------------------
+void Knife::InitializeFuzzyModule()
+{
+  
 
+  
+}
 
 //-------------------------------- Render -------------------------------------
 //-----------------------------------------------------------------------------
