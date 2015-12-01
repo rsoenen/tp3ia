@@ -795,11 +795,12 @@ CONST	SEGMENT
 ?is_signed@?$numeric_limits@_W@std@@2_NB DB 00H		; std::numeric_limits<wchar_t>::is_signed
 CONST	ENDS
 CONST	SEGMENT
-$SG169984 DB	'Pellet_Scale', 00H
+$SG169984 DB	'Pellet_MaxSpeed', 00H
+$SG169985 DB	'Pellet_Scale', 00H
 	ORG $+3
-$SG169985 DB	'Pellet_Damage', 00H
+$SG169986 DB	'Pellet_Damage', 00H
 	ORG $+2
-$SG169986 DB	'Pellet_Persistance', 00H
+$SG169987 DB	'Pellet_Persistance', 00H
 	ORG $+5
 _SmallestDelay DQ 03fd0000000000000r		; 0.25
 _SEND_MSG_IMMEDIATELY DQ 00000000000000000r	; 0
@@ -820,9 +821,8 @@ _colors	DD	0ffH
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG169981 DB	'Pellet_MaxForce', 00H
-$SG169982 DB	'Pellet_Mass', 00H
-$SG169983 DB	'Pellet_MaxSpeed', 00H
+$SG169982 DB	'Pellet_MaxForce', 00H
+$SG169983 DB	'Pellet_Mass', 00H
 CONST	ENDS
 PUBLIC	?length@?$char_traits@D@std@@SAIPBD@Z		; std::char_traits<char>::length
 PUBLIC	?copy@?$char_traits@D@std@@SAPADPADPBDI@Z	; std::char_traits<char>::copy
@@ -4066,7 +4066,7 @@ _this$ = -4						; size = 4
 ?GetWalls@Raven_Map@@QBEABV?$vector@PAVWall2D@@V?$allocator@PAVWall2D@@@std@@@std@@XZ PROC ; Raven_Map::GetWalls, COMDAT
 ; _this$ = ecx
 
-; 115  :   const std::vector<Wall2D*>&        GetWalls()const{return m_Walls;}
+; 117  :   const std::vector<Wall2D*>&        GetWalls()const{return m_Walls;}
 
 	push	ebp
 	mov	ebp, esp
@@ -5509,12 +5509,6 @@ _target$ = 12						; size = 16
 	lea	eax, DWORD PTR __$EHRec$[ebp]
 	mov	DWORD PTR fs:0, eax
 	mov	DWORD PTR _this$[ebp], ecx
-	push	OFFSET $SG169981
-	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
-	mov	ecx, eax
-	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
-	sub	esp, 8
-	fstp	QWORD PTR [esp]
 	push	OFFSET $SG169982
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
@@ -5534,6 +5528,12 @@ _target$ = 12						; size = 16
 	sub	esp, 8
 	fstp	QWORD PTR [esp]
 	push	OFFSET $SG169985
+	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
+	mov	ecx, eax
+	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
+	sub	esp, 8
+	fstp	QWORD PTR [esp]
+	push	OFFSET $SG169986
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetInt@Scriptor@@QAEHPAD@Z		; Scriptor::GetInt
@@ -5587,7 +5587,7 @@ _target$ = 12						; size = 16
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx], OFFSET ??_7Pellet@@6B@
-	push	OFFSET $SG169986
+	push	OFFSET $SG169987
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble

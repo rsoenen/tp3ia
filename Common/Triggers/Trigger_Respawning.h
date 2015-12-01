@@ -37,7 +37,7 @@ protected:
   }
 
 public:
-
+	Trigger_Respawning(); 
   Trigger_Respawning(int id):Trigger<entity_type>(id),
                              m_iNumUpdatesBetweenRespawns(0),
                              m_iNumUpdatesRemainingUntilRespawn(0)

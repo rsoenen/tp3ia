@@ -156,7 +156,54 @@ void  Raven_WeaponSystem::AddWeapon(unsigned int weapon_type)
     m_WeaponMap[weapon_type] = w;
   }
 }
+//--------------------  AddWeaponManual ------------------------------------------
+//
+//  this is called by a weapon affector and will add a weapon of the specified
+//  type to the bot's inventory.
+//
+//  if the bot already has a weapon of this type then only the ammo is added
+//-----------------------------------------------------------------------------
+void  Raven_WeaponSystem::AddWeaponManual(unsigned int weapon_type,int amount)
+{
+  //create an instance of this weapon
+  Raven_Weapon* w = 0;
 
+  switch(weapon_type)
+  {
+  case type_rail_gun:
+
+    w = new RailGun(m_pOwner); break;
+
+  case type_shotgun:
+
+    w = new ShotGun(m_pOwner); break;
+
+  case type_rocket_launcher:
+
+    w = new RocketLauncher(m_pOwner); break;
+
+  case type_grenade:
+
+    w = new Grenade(m_pOwner); break;
+
+  }//end switch
+  
+
+  //if the bot already holds a weapon of this type, just add its ammo
+  Raven_Weapon* present = GetWeaponFromInventory(weapon_type);
+
+  if (present)
+  {
+	  present->IncrementRounds(amount);
+    delete w;
+  }
+  
+  //if not already holding, add to inventory
+  else
+  {
+    m_WeaponMap[weapon_type] = w;
+  }
+}
 
 //------------------------- GetWeaponFromInventory -------------------------------
 //

@@ -1,4 +1,5 @@
 	#include "Raven_Bot.h"
+	#include "Raven_Map.h"
 	#include "../Common/misc/Cgdi.h"
 	#include "../Common/misc/utils.h"
 	#include "../Common/2D/Transformations.h"
@@ -258,28 +259,47 @@
 
 		//if this bot is now dead let the shooter know
 		if (isDead()){
-			Dispatcher->DispatchMsg(SEND_MSG_IMMEDIATELY,
-								  ID(),
-								  msg.Sender,
-								  Msg_YouGotMeYouSOB,
-								  NO_ADDITIONAL_INFO);
-	 
+
+			numRocket=0;
+			numNade=0;
+			numSlug=0;
+			numPellet=0;
+
 			 std::list<Raven_Bot*> myListe=GetWorld()->GetTeam1();
 
 			 if (!equipe){
 				 myListe=GetWorld()->GetTeam2();
 			 }
 
+			 bool flag=false;
+			 bool messEnvoye=false;
+
 			 if (!myListe.empty()){
 					for (std::list<Raven_Bot*>::iterator it=myListe.begin();it!=myListe.end();++it){
-						if (ID()!=(*it)->ID()){
+						if (ID()!=(*it)->ID()&&!messEnvoye){
 							Dispatcher->DispatchMsg(SEND_MSG_IMMEDIATELY,
 									ID(),
 									(*it)->ID(),
 									Msg_GetMyWeaponMate,
 									NO_ADDITIONAL_INFO);
+							messEnvoye=true;
+							(*it)->numRocket=this->GetWeaponSys()->GetAmmoRemainingForWeapon(type_rocket_launcher);
+							(*it)->numNade=this->GetWeaponSys()->GetAmmoRemainingForWeapon(type_grenade);
+							(*it)->numSlug=this->GetWeaponSys()->GetAmmoRemainingForWeapon(type_rail_gun);
+							(*it)->numPellet=this->GetWeaponSys()->GetAmmoRemainingForWeapon(type_shotgun);
+						}
+						if ((*it)->ID()==msg.Sender){
+							flag=true;
 						}
 					}
+
+				if (!flag){
+					Dispatcher->DispatchMsg(SEND_MSG_IMMEDIATELY,
+								  ID(),
+								  msg.Sender,
+								  Msg_YouGotMeYouSOB,
+								  NO_ADDITIONAL_INFO);
+				}
 			}
 
 		}
@@ -287,13 +307,28 @@
 
 	   case Msg_GetMyWeaponMate:
   
-		   this -> GetBrain()->AddGoal_MoveToPosition(Vector2D(0,0));
+		   if (equipe){
+			   this -> GetBrain()->AddGoal_MoveToPosition(Vector2D(200,380));
+		   } else {
+			   this -> GetBrain()->AddGoal_MoveToPosition(Vector2D(300,30));
+		   }
+		   isimposed=true;
+		   gettingWeapon=true;
+
+		  
+
+
+
+
 
 		return true;
 
 	  case Msg_YouGotMeYouSOB:
   
-		IncrementScore();
+		
+			IncrementScore();
+		
+		
     
 		//the bot this bot has just killed should be removed as the target
 		m_pTargSys->ClearTarget();
@@ -351,6 +386,20 @@
 	  }
    
 	}
+	//------------------- ---------------------------------------------
+	void Raven_Bot::addAmountFromMate()
+	{
+		this->GetWeaponSys()->AddWeaponManual(type_rocket_launcher,numRocket);
+		this->GetWeaponSys()->AddWeaponManual(type_grenade,numNade);
+		this->GetWeaponSys()->AddWeaponManual(type_rail_gun,numSlug);
+		this->GetWeaponSys()->AddWeaponManual(type_shotgun,numPellet);
+
+		numRocket=0;
+		numNade=0;
+		numSlug=0;
+		numPellet=0;
+	}
+
 
 	//------------------ RotateFacingTowardPosition -------------------------------
 	//

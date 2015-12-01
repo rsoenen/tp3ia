@@ -766,15 +766,11 @@ CONST	ENDS
 CONST	SEGMENT
 ?min_exponent10@?$numeric_limits@O@std@@2HB DD 0fffffecdH ; std::numeric_limits<long double>::min_exponent10
 CONST	ENDS
-;	COMDAT ?min_exponent@?$numeric_limits@O@std@@2HB
 CONST	SEGMENT
-?min_exponent@?$numeric_limits@O@std@@2HB DD 0fffffc03H	; std::numeric_limits<long double>::min_exponent
-CONST	ENDS
-CONST	SEGMENT
-$SG171042 DB	'BOT ', 00H
-$SG171044 DB	00H
+$SG171049 DB	'BOT ', 00H
+$SG171051 DB	00H
 	ORG $+2
-$SG171043 DB	' IS STUCK!!', 00H
+$SG171050 DB	' IS STUCK!!', 00H
 _colors	DD	0ffH
 	DD	0ff0000H
 	DD	0ff00H
@@ -792,6 +788,10 @@ _colors	DD	0ffH
 	DD	0e6e6ffH
 _pi	DQ	0400921f9f01b866er		; 3.14159
 _Pi	DQ	0400921f9f01b866er		; 3.14159
+CONST	ENDS
+;	COMDAT ?min_exponent@?$numeric_limits@O@std@@2HB
+CONST	SEGMENT
+?min_exponent@?$numeric_limits@O@std@@2HB DD 0fffffc03H	; std::numeric_limits<long double>::min_exponent
 CONST	ENDS
 ;	COMDAT ?max_exponent10@?$numeric_limits@O@std@@2HB
 CONST	SEGMENT
@@ -19346,11 +19346,11 @@ _this$ = -4						; size = 4
 	mov	ecx, DWORD PTR [edx+8]
 	call	?ID@BaseGameEntity@@QBEHXZ		; BaseGameEntity::ID
 	mov	DWORD PTR $T1[ebp], eax
-	push	OFFSET $SG171044
-	push	OFFSET $SG171043
+	push	OFFSET $SG171051
+	push	OFFSET $SG171050
 	lea	eax, DWORD PTR $T1[ebp]
 	push	eax
-	push	OFFSET $SG171042
+	push	OFFSET $SG171049
 	call	?Instance@DebugConsole@@SAPAV1@XZ	; DebugConsole::Instance
 	mov	ecx, eax
 	call	??$?6$$BY04$$CBD@DebugConsole@@QAEAAV0@AAY04$$CBD@Z ; DebugConsole::operator<<<char const [5]>
@@ -19940,7 +19940,7 @@ _this$ = -4						; size = 4
 ?GetSteering@Raven_Bot@@QAEQAVRaven_Steering@@XZ PROC	; Raven_Bot::GetSteering, COMDAT
 ; _this$ = ecx
 
-; 215  :   Raven_Steering* const              GetSteering(){return m_pSteering;}
+; 225  :   Raven_Steering* const              GetSteering(){return m_pSteering;}
 
 	push	ebp
 	mov	ebp, esp

@@ -92,6 +92,10 @@
 		{
 		  m_pOwner->isimposed=false;
 		  m_iStatus = inactive;
+		  if (m_pOwner->gettingWeapon&&SubgoalStatus == completed){
+			  m_pOwner->gettingWeapon=false;
+			  m_pOwner->addAmountFromMate();
+		  }
 		}
 	  }
 

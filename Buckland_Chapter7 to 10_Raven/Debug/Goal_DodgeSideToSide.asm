@@ -774,14 +774,6 @@ CONST	ENDS
 CONST	SEGMENT
 ?max_exponent10@?$numeric_limits@O@std@@2HB DD 0134H	; std::numeric_limits<long double>::max_exponent10
 CONST	ENDS
-;	COMDAT ?max_exponent@?$numeric_limits@O@std@@2HB
-CONST	SEGMENT
-?max_exponent@?$numeric_limits@O@std@@2HB DD 0400H	; std::numeric_limits<long double>::max_exponent
-CONST	ENDS
-;	COMDAT ?value@?$_Sizeof@HU_Nil@std@@U12@U12@U12@U12@U12@U12@@std@@2IB
-CONST	SEGMENT
-?value@?$_Sizeof@HU_Nil@std@@U12@U12@U12@U12@U12@U12@@std@@2IB DD 01H ; std::_Sizeof<int,std::_Nil,std::_Nil,std::_Nil,std::_Nil,std::_Nil,std::_Nil,std::_Nil>::value
-CONST	ENDS
 CONST	SEGMENT
 _SmallestDelay DQ 03fd0000000000000r		; 0.25
 _colors	DD	0ffH
@@ -802,6 +794,14 @@ _colors	DD	0ffH
 	ORG $+4
 _pi	DQ	0400921f9f01b866er		; 3.14159
 _Pi	DQ	0400921f9f01b866er		; 3.14159
+CONST	ENDS
+;	COMDAT ?max_exponent@?$numeric_limits@O@std@@2HB
+CONST	SEGMENT
+?max_exponent@?$numeric_limits@O@std@@2HB DD 0400H	; std::numeric_limits<long double>::max_exponent
+CONST	ENDS
+;	COMDAT ?value@?$_Sizeof@HU_Nil@std@@U12@U12@U12@U12@U12@U12@@std@@2IB
+CONST	SEGMENT
+?value@?$_Sizeof@HU_Nil@std@@U12@U12@U12@U12@U12@U12@@std@@2IB DD 01H ; std::_Sizeof<int,std::_Nil,std::_Nil,std::_Nil,std::_Nil,std::_Nil,std::_Nil,std::_Nil>::value
 CONST	ENDS
 ;	COMDAT ?max_digits10@?$numeric_limits@O@std@@2HB
 CONST	SEGMENT
@@ -2945,7 +2945,7 @@ _this$ = -4						; size = 4
 ?GetTargetSys@Raven_Bot@@QAEQAVRaven_TargetingSystem@@XZ PROC ; Raven_Bot::GetTargetSys, COMDAT
 ; _this$ = ecx
 
-; 219  :   Raven_TargetingSystem* const       GetTargetSys(){return m_pTargSys;}
+; 229  :   Raven_TargetingSystem* const       GetTargetSys(){return m_pTargSys;}
 
 	push	ebp
 	mov	ebp, esp
@@ -2967,7 +2967,7 @@ _this$ = -4						; size = 4
 ?GetSteering@Raven_Bot@@QAEQAVRaven_Steering@@XZ PROC	; Raven_Bot::GetSteering, COMDAT
 ; _this$ = ecx
 
-; 215  :   Raven_Steering* const              GetSteering(){return m_pSteering;}
+; 225  :   Raven_Steering* const              GetSteering(){return m_pSteering;}
 
 	push	ebp
 	mov	ebp, esp

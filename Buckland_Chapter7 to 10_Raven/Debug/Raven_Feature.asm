@@ -780,14 +780,14 @@ CONST	SEGMENT
 CONST	ENDS
 CONST	SEGMENT
 _Pi	DQ	0400921f9f01b866er		; 3.14159
-$SG172306 DB	'RailGun_MaxRoundsCarried', 00H
+$SG172307 DB	'RailGun_MaxRoundsCarried', 00H
 	ORG $+3
-$SG172308 DB	'RocketLauncher_MaxRoundsCarried', 00H
-$SG172310 DB	'ShotGun_MaxRoundsCarried', 00H
+$SG172309 DB	'RocketLauncher_MaxRoundsCarried', 00H
+$SG172311 DB	'ShotGun_MaxRoundsCarried', 00H
 	ORG $+3
-$SG172312 DB	'Grenade_MaxRoundsCarried', 00H
+$SG172313 DB	'Grenade_MaxRoundsCarried', 00H
 	ORG $+3
-$SG172316 DB	'trying to calculate  of unknown weapon', 00H
+$SG172317 DB	'trying to calculate  of unknown weapon', 00H
 	ORG $+5
 _pi	DQ	0400921f9f01b866er		; 3.14159
 _colors	DD	0ffH
@@ -2711,7 +2711,7 @@ $LN5@GetMaxRoun:
 ; 40   : 
 ; 41   :     return script->GetDouble("RailGun_MaxRoundsCarried");
 
-	push	OFFSET $SG172306
+	push	OFFSET $SG172307
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
@@ -2723,7 +2723,7 @@ $LN4@GetMaxRoun:
 ; 44   : 
 ; 45   :     return script->GetDouble("RocketLauncher_MaxRoundsCarried");
 
-	push	OFFSET $SG172308
+	push	OFFSET $SG172309
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
@@ -2735,7 +2735,7 @@ $LN3@GetMaxRoun:
 ; 48   : 
 ; 49   :     return script->GetDouble("ShotGun_MaxRoundsCarried");
 
-	push	OFFSET $SG172310
+	push	OFFSET $SG172311
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
@@ -2747,7 +2747,7 @@ $LN2@GetMaxRoun:
 ; 52   : 
 ; 53   :     return script->GetDouble("Grenade_MaxRoundsCarried");
 
-	push	OFFSET $SG172312
+	push	OFFSET $SG172313
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
@@ -2759,7 +2759,7 @@ $LN1@GetMaxRoun:
 ; 56   : 
 ; 57   :     throw std::runtime_error("trying to calculate  of unknown weapon");
 
-	push	OFFSET $SG172316
+	push	OFFSET $SG172317
 	lea	ecx, DWORD PTR $T1[ebp]
 	call	??0runtime_error@std@@QAE@PBD@Z		; std::runtime_error::runtime_error
 	push	OFFSET __TI2?AVruntime_error@std@@

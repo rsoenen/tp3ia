@@ -795,7 +795,13 @@ CONST	SEGMENT
 ?is_signed@?$numeric_limits@_W@std@@2_NB DB 00H		; std::numeric_limits<wchar_t>::is_signed
 CONST	ENDS
 CONST	SEGMENT
-$SG169984 DB	't', 00H, 'a', 00H, 'r', 00H, 'g', 00H, 'e', 00H, 't', 00H
+$SG169984 DB	'a', 00H, 'r', 00H, 'm', 00H, 'o', 00H, 'r', 00H, 'y', 00H
+	DB	'\', 00H, 'P', 00H, 'r', 00H, 'o', 00H, 'j', 00H, 'e', 00H, 'c'
+	DB	00H, 't', 00H, 'i', 00H, 'l', 00H, 'e', 00H, '_', 00H, 'B', 00H
+	DB	'o', 00H, 'l', 00H, 't', 00H, '.', 00H, 'c', 00H, 'p', 00H, 'p'
+	DB	00H, 00H, 00H
+	ORG $+2
+$SG169985 DB	't', 00H, 'a', 00H, 'r', 00H, 'g', 00H, 'e', 00H, 't', 00H
 	DB	' ', 00H, '!', 00H, '=', 00H, ' ', 00H, 'V', 00H, 'e', 00H, 'c'
 	DB	00H, 't', 00H, 'o', 00H, 'r', 00H, '2', 00H, 'D', 00H, '(', 00H
 	DB	')', 00H, 00H, 00H
@@ -819,20 +825,15 @@ _colors	DD	0ffH
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG169976 DB	'Bolt_MaxForce', 00H
+$SG169977 DB	'Bolt_MaxForce', 00H
 	ORG $+2
-$SG169977 DB	'Bolt_Mass', 00H
+$SG169978 DB	'Bolt_Mass', 00H
 	ORG $+2
-$SG169978 DB	'Bolt_MaxSpeed', 00H
+$SG169979 DB	'Bolt_MaxSpeed', 00H
 	ORG $+2
-$SG169979 DB	'Bolt_Scale', 00H
+$SG169980 DB	'Bolt_Scale', 00H
 	ORG $+1
-$SG169980 DB	'Bolt_Damage', 00H
-$SG169983 DB	'a', 00H, 'r', 00H, 'm', 00H, 'o', 00H, 'r', 00H, 'y', 00H
-	DB	'\', 00H, 'P', 00H, 'r', 00H, 'o', 00H, 'j', 00H, 'e', 00H, 'c'
-	DB	00H, 't', 00H, 'i', 00H, 'l', 00H, 'e', 00H, '_', 00H, 'B', 00H
-	DB	'o', 00H, 'l', 00H, 't', 00H, '.', 00H, 'c', 00H, 'p', 00H, 'p'
-	DB	00H, 00H, 00H
+$SG169981 DB	'Bolt_Damage', 00H
 CONST	ENDS
 PUBLIC	?length@?$char_traits@D@std@@SAIPBD@Z		; std::char_traits<char>::length
 PUBLIC	?copy@?$char_traits@D@std@@SAPADPADPBDI@Z	; std::char_traits<char>::copy
@@ -4049,7 +4050,7 @@ _this$ = -4						; size = 4
 ?GetWalls@Raven_Map@@QBEABV?$vector@PAVWall2D@@V?$allocator@PAVWall2D@@@std@@@std@@XZ PROC ; Raven_Map::GetWalls, COMDAT
 ; _this$ = ecx
 
-; 115  :   const std::vector<Wall2D*>&        GetWalls()const{return m_Walls;}
+; 117  :   const std::vector<Wall2D*>&        GetWalls()const{return m_Walls;}
 
 	push	ebp
 	mov	ebp, esp
@@ -5454,12 +5455,6 @@ _target$ = 12						; size = 16
 	lea	eax, DWORD PTR __$EHRec$[ebp]
 	mov	DWORD PTR fs:0, eax
 	mov	DWORD PTR _this$[ebp], ecx
-	push	OFFSET $SG169976
-	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
-	mov	ecx, eax
-	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
-	sub	esp, 8
-	fstp	QWORD PTR [esp]
 	push	OFFSET $SG169977
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
@@ -5479,6 +5474,12 @@ _target$ = 12						; size = 16
 	sub	esp, 8
 	fstp	QWORD PTR [esp]
 	push	OFFSET $SG169980
+	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
+	mov	ecx, eax
+	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
+	sub	esp, 8
+	fstp	QWORD PTR [esp]
+	push	OFFSET $SG169981
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetInt@Scriptor@@QAEHPAD@Z		; Scriptor::GetInt
@@ -5544,8 +5545,8 @@ _target$ = 12						; size = 16
 	test	edx, edx
 	jne	SHORT $LN3@Bolt
 	push	29					; 0000001dH
-	push	OFFSET $SG169983
 	push	OFFSET $SG169984
+	push	OFFSET $SG169985
 	call	__wassert
 	add	esp, 12					; 0000000cH
 $LN3@Bolt:

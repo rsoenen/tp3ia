@@ -470,10 +470,6 @@ CONST	ENDS
 CONST	SEGMENT
 ?end@?$_Iosb@H@std@@2W4_Seekdir@12@B DD 02H		; std::_Iosb<int>::end
 CONST	ENDS
-;	COMDAT ?cur@?$_Iosb@H@std@@2W4_Seekdir@12@B
-CONST	SEGMENT
-?cur@?$_Iosb@H@std@@2W4_Seekdir@12@B DD 01H		; std::_Iosb<int>::cur
-CONST	ENDS
 CONST	SEGMENT
 _colors	DD	0ffH
 	DD	0ff0000H
@@ -490,17 +486,21 @@ _colors	DD	0ffH
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG167820 DB	'Knife_IdealRange', 00H
+$SG167821 DB	'Knife_IdealRange', 00H
 	ORG $+3
 _pi	DQ	0400921f9f01b866er		; 3.14159
 _Pi	DQ	0400921f9f01b866er		; 3.14159
-$SG167819 DB	'Knife_MaxSpeed', 00H
+$SG167820 DB	'Knife_MaxSpeed', 00H
 	ORG $+1
-$SG167821 DB	'Knife_FiringFreq', 00H
+$SG167822 DB	'Knife_FiringFreq', 00H
 	ORG $+3
-$SG167822 DB	'Knife_MaxRoundsCarried', 00H
+$SG167823 DB	'Knife_MaxRoundsCarried', 00H
 	ORG $+1
-$SG167823 DB	'Knife_DefaultRounds', 00H
+$SG167824 DB	'Knife_DefaultRounds', 00H
+CONST	ENDS
+;	COMDAT ?cur@?$_Iosb@H@std@@2W4_Seekdir@12@B
+CONST	SEGMENT
+?cur@?$_Iosb@H@std@@2W4_Seekdir@12@B DD 01H		; std::_Iosb<int>::cur
 CONST	ENDS
 ;	COMDAT ?beg@?$_Iosb@H@std@@2W4_Seekdir@12@B
 CONST	SEGMENT
@@ -12750,12 +12750,6 @@ _owner$ = 8						; size = 4
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	eax, DWORD PTR _owner$[ebp]
 	push	eax
-	push	OFFSET $SG167819
-	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
-	mov	ecx, eax
-	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
-	sub	esp, 8
-	fstp	QWORD PTR [esp]
 	push	OFFSET $SG167820
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
@@ -12771,9 +12765,15 @@ _owner$ = 8						; size = 4
 	push	OFFSET $SG167822
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
+	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
+	sub	esp, 8
+	fstp	QWORD PTR [esp]
+	push	OFFSET $SG167823
+	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
+	mov	ecx, eax
 	call	?GetInt@Scriptor@@QAEHPAD@Z		; Scriptor::GetInt
 	push	eax
-	push	OFFSET $SG167823
+	push	OFFSET $SG167824
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetInt@Scriptor@@QAEHPAD@Z		; Scriptor::GetInt

@@ -9,6 +9,7 @@
 
 #include "triggers/Trigger_HealthGiver.h"
 #include "triggers/Trigger_WeaponGiver.h"
+#include "triggers/Trigger_WeaponMate.h"
 #include "triggers/Trigger_OnButtonSendMsg.h"
 #include "triggers/Trigger_SoundNotify.h"
 

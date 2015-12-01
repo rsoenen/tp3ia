@@ -25,11 +25,12 @@ private:
   //vrtex buffers for rocket shape
   std::vector<Vector2D>         m_vecRLVB;
   std::vector<Vector2D>         m_vecRLVBTrans;
+  bool							equipe;
   
 public:
 
   //this type of trigger is created when reading a map file
-  Trigger_WeaponMate(std::ifstream& datafile);
+  Trigger_WeaponMate(bool _equipe);
   //void WeaponMate(bool equipe,int projectileNade,int projectilePellet, int projectileRocket, int projectileSlug);
   //if triggered, this trigger will call the PickupWeapon method of the
   //bot. PickupWeapon will instantiate a weapon of the appropriate type.
@@ -38,7 +39,7 @@ public:
   //draws a symbol representing the weapon type at the trigger's location
   void Render();
 
-  void Read (std::ifstream& is);
+  void Read ();
 };
 
 

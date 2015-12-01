@@ -82,6 +82,7 @@ private:
   void AddSpawnPoint(std::ifstream& in);
   void AddHealth_Giver(std::ifstream& in);
   void AddWeapon_Giver(int type_of_weapon, std::ifstream& in);
+  
   void AddDoor(std::ifstream& in);
   void AddDoorTrigger(std::ifstream& in);
 
@@ -91,6 +92,7 @@ public:
   
   Raven_Map();  
   ~Raven_Map();
+
 
   void Render();
 

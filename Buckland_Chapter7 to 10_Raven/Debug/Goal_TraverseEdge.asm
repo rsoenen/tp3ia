@@ -638,17 +638,17 @@ _colors	DD	0ffH
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG171930 DB	' IS STUCK!!', 00H
+$SG171937 DB	' IS STUCK!!', 00H
 _pi	DQ	0400921f9f01b866er		; 3.14159
 _Pi	DQ	0400921f9f01b866er		; 3.14159
-$SG171895 DB	'Bot_MaxSwimmingSpeed', 00H
-$SG171931 DB	00H
+$SG171902 DB	'Bot_MaxSwimmingSpeed', 00H
+$SG171938 DB	00H
 	ORG $+2
-$SG171897 DB	'Bot_MaxCrawlingSpeed', 00H
+$SG171904 DB	'Bot_MaxCrawlingSpeed', 00H
 	ORG $+3
-$SG171929 DB	'BOT ', 00H
+$SG171936 DB	'BOT ', 00H
 	ORG $+3
-$SG171935 DB	'Bot_MaxSpeed', 00H
+$SG171942 DB	'Bot_MaxSpeed', 00H
 CONST	ENDS
 ;	COMDAT ?out@?$_Iosb@H@std@@2W4_Openmode@12@B
 CONST	SEGMENT
@@ -19052,7 +19052,7 @@ _this$ = -4						; size = 4
 ; 141  :   //return max speed back to normal
 ; 142  :   m_pOwner->SetMaxSpeed(script->GetDouble("Bot_MaxSpeed"));
 
-	push	OFFSET $SG171935
+	push	OFFSET $SG171942
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
@@ -19223,7 +19223,7 @@ $LN4@Activate:
 ; 42   :     {
 ; 43   :       m_pOwner->SetMaxSpeed(script->GetDouble("Bot_MaxSwimmingSpeed"));
 
-	push	OFFSET $SG171895
+	push	OFFSET $SG171902
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
@@ -19245,7 +19245,7 @@ $LN3@Activate:
 ; 49   :     {
 ; 50   :        m_pOwner->SetMaxSpeed(script->GetDouble("Bot_MaxCrawlingSpeed"));
 
-	push	OFFSET $SG171897
+	push	OFFSET $SG171904
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetDouble@Scriptor@@QAENPAD@Z		; Scriptor::GetDouble
@@ -19481,11 +19481,11 @@ _this$ = -4						; size = 4
 	mov	ecx, DWORD PTR [edx+8]
 	call	?ID@BaseGameEntity@@QBEHXZ		; BaseGameEntity::ID
 	mov	DWORD PTR $T1[ebp], eax
-	push	OFFSET $SG171931
-	push	OFFSET $SG171930
+	push	OFFSET $SG171938
+	push	OFFSET $SG171937
 	lea	eax, DWORD PTR $T1[ebp]
 	push	eax
-	push	OFFSET $SG171929
+	push	OFFSET $SG171936
 	call	?Instance@DebugConsole@@SAPAV1@XZ	; DebugConsole::Instance
 	mov	ecx, eax
 	call	??$?6$$BY04$$CBD@DebugConsole@@QAEAAV0@AAY04$$CBD@Z ; DebugConsole::operator<<<char const [5]>
@@ -20075,7 +20075,7 @@ _this$ = -4						; size = 4
 ?GetSteering@Raven_Bot@@QAEQAVRaven_Steering@@XZ PROC	; Raven_Bot::GetSteering, COMDAT
 ; _this$ = ecx
 
-; 215  :   Raven_Steering* const              GetSteering(){return m_pSteering;}
+; 225  :   Raven_Steering* const              GetSteering(){return m_pSteering;}
 
 	push	ebp
 	mov	ebp, esp

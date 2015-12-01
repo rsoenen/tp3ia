@@ -134,7 +134,17 @@ protected:
 
 public:
   
+
+
 	bool isimposed;
+	bool gettingWeapon;
+
+	int numRocket;
+	int numNade;
+	int numSlug;
+	int numPellet;
+	void Raven_Bot::addAmountFromMate();
+
   Raven_Bot(Raven_Game* world, Vector2D pos, bool equipe, bool leader);
   virtual ~Raven_Bot();
 

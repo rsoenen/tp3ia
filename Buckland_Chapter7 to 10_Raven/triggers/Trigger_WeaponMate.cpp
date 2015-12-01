@@ -10,11 +10,11 @@
 
 ///////////////////////////////////////////////////////////////////////////////
 
-Trigger_WeaponMate::Trigger_WeaponMate(std::ifstream& datafile):
+Trigger_WeaponMate::Trigger_WeaponMate(bool _equipe):
+	 Trigger_Respawning<Raven_Bot>(/*GetValueFromStream<int>(datafile)*/100)
       
-          Trigger_Respawning<Raven_Bot>(GetValueFromStream<int>(datafile))
 {
-  Read(datafile);
+  Read();
 
   //create the vertex buffer for the rocket shape
   const int NumRocketVerts = 8;
@@ -31,6 +31,7 @@ Trigger_WeaponMate::Trigger_WeaponMate(std::ifstream& datafile):
   {
     m_vecRLVB.push_back(rip[i]);
   }
+  equipe=_equipe;
 }
 
 
@@ -47,23 +48,24 @@ void Trigger_WeaponMate::Try(Raven_Bot* pBot)
 
 
 
-void Trigger_WeaponMate::Read(std::ifstream& in)
+void Trigger_WeaponMate::Read()
 {
-  double x, y, r;
-  int GraphNodeIndex;
   
-
-  in >>  x >> y  >> r >> GraphNodeIndex;
-
-  SetPos(Vector2D(x,y)); 
-  SetBRadius(r);
-  SetGraphNodeIndex(GraphNodeIndex);
+  //int GraphNodeIndex;
+ if (equipe){
+	 SetPos(Vector2D(300,30)); 	
+ } else {
+	 SetPos(Vector2D(200,380)); 
+ }
+  SetBRadius(7);
+  AddCircularTriggerRegion(Pos(), script->GetDouble("DefaultGiverTriggerRange"));
+  //SetGraphNodeIndex(GraphNodeIndex);
 
   //create this trigger's region of fluence
-  AddCircularTriggerRegion(Pos(), script->GetDouble("DefaultGiverTriggerRange"));
+ 
 
 
-  SetRespawnDelay((unsigned int)(script->GetDouble("Weapon_RespawnDelay") * FrameRate));
+  
 }
 
 

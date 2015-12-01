@@ -715,9 +715,9 @@ CONST	SEGMENT
 ?digits@?$numeric_limits@_W@std@@2HB DD 010H		; std::numeric_limits<wchar_t>::digits
 CONST	ENDS
 CONST	SEGMENT
-$SG197741 DB	'<SparseGraph::GetNode>: invalid index', 00H
+$SG197742 DB	'<SparseGraph::GetNode>: invalid index', 00H
 	ORG $+2
-$SG197742 DB	'c', 00H, ':', 00H, '\', 00H, 'u', 00H, 's', 00H, 'e', 00H
+$SG197743 DB	'c', 00H, ':', 00H, '\', 00H, 'u', 00H, 's', 00H, 'e', 00H
 	DB	'r', 00H, 's', 00H, '\', 00H, 'r', 00H, 'o', 00H, 'm', 00H, 'a'
 	DB	00H, 'i', 00H, 'n', 00H, ' ', 00H, 's', 00H, '\', 00H, 'd', 00H
 	DB	'o', 00H, 'c', 00H, 'u', 00H, 'm', 00H, 'e', 00H, 'n', 00H, 't'
@@ -739,7 +739,7 @@ $SG197742 DB	'c', 00H, ':', 00H, '\', 00H, 'u', 00H, 's', 00H, 'e', 00H
 	DB	'G', 00H, 'r', 00H, 'a', 00H, 'p', 00H, 'h', 00H, '.', 00H, 'h'
 	DB	00H, 00H, 00H
 	ORG $+2
-$SG197743 DB	'(', 00H, 'i', 00H, 'd', 00H, 'x', 00H, ' ', 00H, '<', 00H
+$SG197744 DB	'(', 00H, 'i', 00H, 'd', 00H, 'x', 00H, ' ', 00H, '<', 00H
 	DB	' ', 00H, '(', 00H, 'i', 00H, 'n', 00H, 't', 00H, ')', 00H, 'm'
 	DB	00H, '_', 00H, 'N', 00H, 'o', 00H, 'd', 00H, 'e', 00H, 's', 00H
 	DB	'.', 00H, 's', 00H, 'i', 00H, 'z', 00H, 'e', 00H, '(', 00H, ')'
@@ -771,16 +771,16 @@ _colors	DD	0ffH
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG180894 DB	'<Raven_PathPlanner::GetPathAsNodes>: no current search', 00H
+$SG180895 DB	'<Raven_PathPlanner::GetPathAsNodes>: no current search', 00H
 	ORG $+5
-$SG180895 DB	'n', 00H, 'a', 00H, 'v', 00H, 'i', 00H, 'g', 00H, 'a', 00H
+$SG180896 DB	'n', 00H, 'a', 00H, 'v', 00H, 'i', 00H, 'g', 00H, 'a', 00H
 	DB	't', 00H, 'i', 00H, 'o', 00H, 'n', 00H, '\', 00H, 'R', 00H, 'a'
 	DB	00H, 'v', 00H, 'e', 00H, 'n', 00H, '_', 00H, 'P', 00H, 'a', 00H
 	DB	't', 00H, 'h', 00H, 'P', 00H, 'l', 00H, 'a', 00H, 'n', 00H, 'n'
 	DB	00H, 'e', 00H, 'r', 00H, '.', 00H, 'c', 00H, 'p', 00H, 'p', 00H
 	DB	00H, 00H
 	ORG $+6
-$SG180896 DB	'm', 00H, '_', 00H, 'p', 00H, 'C', 00H, 'u', 00H, 'r', 00H
+$SG180897 DB	'm', 00H, '_', 00H, 'p', 00H, 'C', 00H, 'u', 00H, 'r', 00H
 	DB	'r', 00H, 'e', 00H, 'n', 00H, 't', 00H, 'S', 00H, 'e', 00H, 'a'
 	DB	00H, 'r', 00H, 'c', 00H, 'h', 00H, ' ', 00H, '&', 00H, '&', 00H
 	DB	' ', 00H, '"', 00H, '<', 00H, 'R', 00H, 'a', 00H, 'v', 00H, 'e'
@@ -793,17 +793,17 @@ $SG180896 DB	'm', 00H, '_', 00H, 'p', 00H, 'C', 00H, 'u', 00H, 'r', 00H
 	DB	00H, 'e', 00H, 'n', 00H, 't', 00H, ' ', 00H, 's', 00H, 'e', 00H
 	DB	'a', 00H, 'r', 00H, 'c', 00H, 'h', 00H, '"', 00H, 00H, 00H
 	ORG $+2
-$SG181159 DB	'<Raven_PathPlanner::CycleOnce>: No search object instant'
+$SG181160 DB	'<Raven_PathPlanner::CycleOnce>: No search object instant'
 	DB	'iated', 00H
 	ORG $+6
-$SG181160 DB	'n', 00H, 'a', 00H, 'v', 00H, 'i', 00H, 'g', 00H, 'a', 00H
+$SG181161 DB	'n', 00H, 'a', 00H, 'v', 00H, 'i', 00H, 'g', 00H, 'a', 00H
 	DB	't', 00H, 'i', 00H, 'o', 00H, 'n', 00H, '\', 00H, 'R', 00H, 'a'
 	DB	00H, 'v', 00H, 'e', 00H, 'n', 00H, '_', 00H, 'P', 00H, 'a', 00H
 	DB	't', 00H, 'h', 00H, 'P', 00H, 'l', 00H, 'a', 00H, 'n', 00H, 'n'
 	DB	00H, 'e', 00H, 'r', 00H, '.', 00H, 'c', 00H, 'p', 00H, 'p', 00H
 	DB	00H, 00H
 	ORG $+6
-$SG181161 DB	'm', 00H, '_', 00H, 'p', 00H, 'C', 00H, 'u', 00H, 'r', 00H
+$SG181162 DB	'm', 00H, '_', 00H, 'p', 00H, 'C', 00H, 'u', 00H, 'r', 00H
 	DB	'r', 00H, 'e', 00H, 'n', 00H, 't', 00H, 'S', 00H, 'e', 00H, 'a'
 	DB	00H, 'r', 00H, 'c', 00H, 'h', 00H, ' ', 00H, '&', 00H, '&', 00H
 	DB	' ', 00H, '"', 00H, '<', 00H, 'R', 00H, 'a', 00H, 'v', 00H, 'e'
@@ -35417,13 +35417,13 @@ __$EHRec$ = -12						; size = 12
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+8], 0
 	je	SHORT $LN6@CycleOnce
-	mov	ecx, OFFSET $SG181159
+	mov	ecx, OFFSET $SG181160
 	test	ecx, ecx
 	jne	SHORT $LN7@CycleOnce
 $LN6@CycleOnce:
 	push	249					; 000000f9H
-	push	OFFSET $SG181160
 	push	OFFSET $SG181161
+	push	OFFSET $SG181162
 	call	__wassert
 	add	esp, 12					; 0000000cH
 $LN7@CycleOnce:
@@ -36032,13 +36032,13 @@ ___$ReturnUdt$ = 8					; size = 4
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+8], 0
 	je	SHORT $LN6@GetPath
-	mov	ecx, OFFSET $SG180894
+	mov	ecx, OFFSET $SG180895
 	test	ecx, ecx
 	jne	SHORT $LN7@GetPath
 $LN6@GetPath:
 	push	126					; 0000007eH
-	push	OFFSET $SG180895
 	push	OFFSET $SG180896
+	push	OFFSET $SG180897
 	call	__wassert
 	add	esp, 12					; 0000000cH
 $LN7@GetPath:
@@ -37785,7 +37785,7 @@ _this$ = -4						; size = 4
 ?GetCellSpaceNeighborhoodRange@Raven_Map@@QBENXZ PROC	; Raven_Map::GetCellSpaceNeighborhoodRange, COMDAT
 ; _this$ = ecx
 
-; 124  :   double                             GetCellSpaceNeighborhoodRange()const{return m_dCellSpaceNeighborhoodRange;}
+; 126  :   double                             GetCellSpaceNeighborhoodRange()const{return m_dCellSpaceNeighborhoodRange;}
 
 	push	ebp
 	mov	ebp, esp
@@ -37807,7 +37807,7 @@ _this$ = -4						; size = 4
 ?GetCellSpace@Raven_Map@@QBEQAV?$CellSpacePartition@PAV?$NavGraphNode@PAV?$Trigger@VRaven_Bot@@@@@@@@XZ PROC ; Raven_Map::GetCellSpace, COMDAT
 ; _this$ = ecx
 
-; 119  :   CellSpace* const                   GetCellSpace()const{return m_pSpacePartition;}
+; 121  :   CellSpace* const                   GetCellSpace()const{return m_pSpacePartition;}
 
 	push	ebp
 	mov	ebp, esp
@@ -37829,7 +37829,7 @@ _this$ = -4						; size = 4
 ?GetNavGraph@Raven_Map@@QBEAAV?$SparseGraph@V?$NavGraphNode@PAV?$Trigger@VRaven_Bot@@@@@@VNavGraphEdge@@@@XZ PROC ; Raven_Map::GetNavGraph, COMDAT
 ; _this$ = ecx
 
-; 116  :   NavGraph&                          GetNavGraph()const{return *m_pNavGraph;}
+; 118  :   NavGraph&                          GetNavGraph()const{return *m_pNavGraph;}
 
 	push	ebp
 	mov	ebp, esp
@@ -37851,7 +37851,7 @@ _this$ = -4						; size = 4
 ?GetTriggers@Raven_Map@@QBEABV?$list@PAV?$Trigger@VRaven_Bot@@@@V?$allocator@PAV?$Trigger@VRaven_Bot@@@@@std@@@std@@XZ PROC ; Raven_Map::GetTriggers, COMDAT
 ; _this$ = ecx
 
-; 114  :   const Raven_Map::TriggerSystem::TriggerList&  GetTriggers()const{return m_TriggerSystem.GetTriggers();}
+; 116  :   const Raven_Map::TriggerSystem::TriggerList&  GetTriggers()const{return m_TriggerSystem.GetTriggers();}
 
 	push	ebp
 	mov	ebp, esp
@@ -38065,13 +38065,13 @@ _idx$ = 8						; size = 4
 	jge	SHORT $LN3@GetNode
 	cmp	DWORD PTR _idx$[ebp], 0
 	jl	SHORT $LN3@GetNode
-	mov	eax, OFFSET $SG197741
+	mov	eax, OFFSET $SG197742
 	test	eax, eax
 	jne	SHORT $LN4@GetNode
 $LN3@GetNode:
 	push	449					; 000001c1H
-	push	OFFSET $SG197742
 	push	OFFSET $SG197743
+	push	OFFSET $SG197744
 	call	__wassert
 	add	esp, 12					; 0000000cH
 $LN4@GetNode:

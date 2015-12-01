@@ -520,7 +520,6 @@
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='boundschecker|Win32'"> /Zm200   /Zm200 </AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm200   /Zm200 </AdditionalOptions>
     </ClCompile>
-    <ClCompile Include="triggers\Trigger_WeaponMate.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="armory\Projectile_Knife.h" />
@@ -639,7 +638,6 @@
     <ClInclude Include="..\Common\2D\Wall2D.h" />
     <ClInclude Include="..\Common\2D\WallIntersectionTests.h" />
     <ClInclude Include="..\Common\misc\WindowUtils.h" />
-    <ClInclude Include="triggers\Trigger_WeaponMate.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Params.lua" />

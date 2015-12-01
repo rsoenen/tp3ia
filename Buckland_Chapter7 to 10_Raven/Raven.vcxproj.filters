@@ -280,9 +280,6 @@
     <ClCompile Include="armory\Projectile_Knife.cpp">
       <Filter>Game\weapons &amp; projectiles\projectiles</Filter>
     </ClCompile>
-    <ClCompile Include="triggers\Trigger_WeaponMate.cpp">
-      <Filter>AI\Triggers</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="armory\Raven_Weapon.h">
@@ -632,9 +629,6 @@
     </ClInclude>
     <ClInclude Include="armory\Projectile_Knife.h">
       <Filter>Game\weapons &amp; projectiles\projectiles</Filter>
-    </ClInclude>
-    <ClInclude Include="triggers\Trigger_WeaponMate.h">
-      <Filter>AI\Triggers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
